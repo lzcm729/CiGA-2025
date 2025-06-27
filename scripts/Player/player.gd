@@ -2,11 +2,12 @@ extends CharacterBody3D
 
 class_name Player
 
-@onready var test_3d: Scene = $".."
+var test_3d: Scene
 
 @export var speed = 5.0
 @export var jump_velocity = 5
 @export var index : int
+@export var path : PathFollow3D
 @onready var mesh: Node3D = $Mesh
 @onready var state_machine: StateMachine = $StateMachine
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
@@ -33,6 +34,7 @@ func fall() -> void:
 
 ## 方向
 var direction: Vector3
+var is_follow_path: bool = false
 
 ## 中立
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -79,13 +81,28 @@ func post_switch() -> void :
 func is_current() -> bool :
 	return test_3d.currentIndex == index and (not is_switching)
 
+func _ready() -> void:
+	test_3d = get_tree().current_scene
+	if path :
+		path.progress_ratio = 0
+		is_follow_path = true
+		position.x = path.global_position.x
+		position.z = path.global_position.z
+		mesh.rotation.y = path.global_rotation.y + 180
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if is_current() :
-		var input_dir := Input.get_vector("move_left", "move_right", "move_down", "move_up")
-		var rotation :Quaternion = Quaternion.from_euler(Vector3(0, spring_arm_3d.transform.basis.get_euler().y, 0))
-		direction = (rotation * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
+		var input_dir : Vector2 
+		if path :
+			input_dir = Input.get_vector("", "", "move_down", "move_up")
+			direction = Vector3(input_dir.y, 0, 0)
+		else: 
+			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
+			var rotation :Quaternion = Quaternion.from_euler(Vector3(0, spring_arm_3d.transform.basis.get_euler().y, 0))
+			direction = (rotation * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
+			
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhrryxcew0rw1"]
+[gd_scene load_steps=9 format=3 uid="uid://bhrryxcew0rw1"]
 
 [ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scenes/3D/test_3d.gd" id="1_5qlw0"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_a402t"]
@@ -17,6 +17,13 @@ sky_material = SubResource("PanoramaSkyMaterial_l4nri")
 background_mode = 2
 sky = SubResource("Sky_ycwqe")
 
+[sub_resource type="Curve3D" id="Curve3D_5qlw0"]
+_data = {
+"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.44071, 0.257439, 0.65867, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.925, 0, 10.218),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [node name="Test3D" type="Node3D"]
 script = ExtResource("1_5qlw0")
 
@@ -25,9 +32,10 @@ transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_a402t")
 
-[node name="Player" parent="." groups=["PlayerGroup"] instance=ExtResource("1_a402t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1214, 0.594386, -0.154917)
+[node name="Player" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"] instance=ExtResource("1_a402t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10988, 0.520692, -1.19296)
 index = 1
+path = NodePath("../Path3D/PathFollow3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c5k37")
@@ -47,4 +55,13 @@ use_collision = true
 polygon = PackedVector2Array(-0.54878, -0.229827, 0.00129795, 2.12285, 3.52036, -0.319903, 1.5309, -0.251869)
 
 [node name="Player2" parent="." groups=["PlayerGroup"] instance=ExtResource("1_a402t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.31365, 0.519753, 0)
 index = 2
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.84314)
+curve = SubResource("Curve3D_5qlw0")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.415783, -0.14588, -0.897665, -7.45044e-09, 0.987033, -0.160403, 0.909443, -0.0666941, -0.410398, 1.54094, 0, -2.90404)
+loop = false
