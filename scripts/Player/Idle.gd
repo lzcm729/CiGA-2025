@@ -3,7 +3,7 @@ extends StateBase
 
 func enter() -> void:
 	super.enter()
-	print("enter Idle")
+	#print("enter Idle")
 	player.is_moving = false
 	
 

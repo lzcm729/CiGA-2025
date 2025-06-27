@@ -4,7 +4,7 @@ extends StateBase
 
 func enter() -> void:
 	super.enter()
-	print("enter fall")
+	#print("enter fall")
 	player.fall()
 	
 

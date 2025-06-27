@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhrryxcew0rw1"]
+[gd_scene load_steps=8 format=3 uid="uid://bhrryxcew0rw1"]
 
+[ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scenes/3D/test_3d.gd" id="1_5qlw0"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_a402t"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_jstem"]
 
@@ -17,14 +18,16 @@ background_mode = 2
 sky = SubResource("Sky_ycwqe")
 
 [node name="Test3D" type="Node3D"]
+script = ExtResource("1_5qlw0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_a402t")
 
-[node name="Player" parent="." instance=ExtResource("1_a402t")]
+[node name="Player" parent="." groups=["PlayerGroup"] instance=ExtResource("1_a402t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1214, 0.594386, -0.154917)
+index = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c5k37")
@@ -42,3 +45,6 @@ size = Vector3(0.953125, 0.30481, 0.992188)
 transform = Transform3D(0.06583, 0, 2.89989, 0, 0.985, 0, -1.10805, 0, 0.172285, 7.0645, 0.501398, 11.5531)
 use_collision = true
 polygon = PackedVector2Array(-0.54878, -0.229827, 0.00129795, 2.12285, 3.52036, -0.319903, 1.5309, -0.251869)
+
+[node name="Player2" parent="." groups=["PlayerGroup"] instance=ExtResource("1_a402t")]
+index = 2

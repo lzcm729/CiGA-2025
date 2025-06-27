@@ -4,7 +4,7 @@ extends StateBase
 
 func enter() -> void:
 	super.enter()
-	print("enter jump")
+	#print("enter jump")
 	player.velocity.y = player.jump_velocity
 	player.jump()
 	
