@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhrryxcew0rw1"]
+[gd_scene load_steps=10 format=3 uid="uid://bhrryxcew0rw1"]
 
-[ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scenes/3D/test_3d.gd" id="1_5qlw0"]
+[ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_5qlw0"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_a402t"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_jstem"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="4_k5aas"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a402t"]
 albedo_color = Color(0.733333, 1, 1, 1)
@@ -19,7 +20,7 @@ sky = SubResource("Sky_ycwqe")
 
 [sub_resource type="Curve3D" id="Curve3D_5qlw0"]
 _data = {
-"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.44071, 0.257439, 0.65867, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.925, 0, 10.218),
+"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.441, 0, 0.659, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.925, 0, 10.218),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -59,9 +60,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.31365, 0.519753, 0)
 index = 2
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.84314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573944, 1.843)
 curve = SubResource("Curve3D_5qlw0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.415783, -0.14588, -0.897665, -7.45044e-09, 0.987033, -0.160403, 0.909443, -0.0666941, -0.410398, 1.54094, 0, -2.90404)
+transform = Transform3D(-0.415886, 0, -0.909394, 0, 0.999981, 0, 0.909396, 0, -0.415885, 1.54094, 0, -2.90404)
 loop = false
+
+[node name="PathPolygon" parent="Path3D" instance=ExtResource("4_k5aas")]
+path_node = NodePath("..")

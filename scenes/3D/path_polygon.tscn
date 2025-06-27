@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://duks7ctdp2rg6"]
+
+[ext_resource type="Material" uid="uid://v2sda72d1an8" path="res://assets/3D/Material/path.tres" id="1_htr8n"]
+[ext_resource type="Script" uid="uid://couxe3lmrvlgf" path="res://scripts/Scene/path_polygon.gd" id="2_we0tt"]
+
+[node name="PathPolygon" type="CSGPolygon3D"]
+polygon = PackedVector2Array(-0.2, 0, -0.2, 0.2, 0.2, 0.2, 0.2, 0)
+mode = 2
+path_node = NodePath("")
+path_interval_type = 0
+path_interval = 0.2
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("1_htr8n")
+script = ExtResource("2_we0tt")
