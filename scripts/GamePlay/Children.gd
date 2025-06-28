@@ -82,10 +82,13 @@ func _process(delta: float) -> void:
 		match cur_state:
 			STATE_0:
 				print("COUNT 3")
+				emit_signal("CHILD_COUNT_3")
 			STATE_3:
 				print("COUNT 2")
+				emit_signal("CHILD_COUNT_2")
 			STATE_2:
 				print("COUNT 1 - 并回头")
+				emit_signal("CHILD_COUNT_1_START")
 				# 需要预处理玩家的按键状态
 				if Input.is_action_pressed("move_up"):
 					is_key_pressed = true
@@ -95,6 +98,7 @@ func _process(delta: float) -> void:
 					key_press_time = 0.0
 			STATE_1:
 				print("回头结束 等待下一轮计数")
+				emit_signal("CHILD_COUNT_1_END")
 		cur_state = state_map[cur_state]
 		last_past_time -= cur_time_target
 

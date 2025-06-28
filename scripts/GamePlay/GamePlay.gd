@@ -1,8 +1,8 @@
 extends Node
 
-var count_down = -1
-var count_down_time_show = -1
 var timer = 0
+@export var count_down = -1
+@export var count_down_time_show = -1
 
 signal GAME_START(total_time)
 signal GAME_TIMEOUT()
@@ -32,5 +32,6 @@ func on_timer_end() -> void:
 	DataManager.switch_scene(Consts.SCENES.LEVEL_SELECT)
 
 func _ready() -> void:
-	time.connect("timeout", on_timer_end)
-	time.start(5)
+	return
+	#time.connect("timeout", on_timer_end)
+	#time.start(5)
