@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://56sqigd20aqg"]
+[gd_scene load_steps=14 format=3 uid="uid://bc8ea0x8ctyef"]
 
 [ext_resource type="PackedScene" uid="uid://bm3icttanv0ex" path="res://assets/3D/character/柜子/柜子.fbx" id="1_l4614"]
 [ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="2_3tjkj"]
@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bj8xja2wcmad5" path="res://assets/3D/character/柜子/initialShadingGroup_Metallic.png" id="5_alj4j"]
 [ext_resource type="Texture2D" uid="uid://cdd2ykvbacfmy" path="res://assets/3D/character/柜子/initialShadingGroup_Normal_OpenGL.png" id="6_67k8w"]
 [ext_resource type="Texture2D" uid="uid://dtpkbr3weh8c5" path="res://assets/3D/character/柜子/initialShadingGroup_Roughness.png" id="7_knflk"]
-[ext_resource type="ArrayMesh" uid="uid://bkl1vbxfdddfo" path="res://door.res" id="8_s3cbf"]
+[ext_resource type="ArrayMesh" uid="uid://cr6rxnem5ksgv" path="res://door.res" id="8_s3cbf"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="9_alj4j"]
-[ext_resource type="ArrayMesh" uid="uid://b8ks7682wjjri" path="res://door2.res" id="10_67k8w"]
+[ext_resource type="ArrayMesh" uid="uid://b1t1nquwtvb60" path="res://door2.res" id="10_67k8w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q8gb"]
 albedo_texture = ExtResource("3_lvydv")
@@ -41,7 +41,7 @@ normal_texture = ExtResource("9_alj4j")
 heightmap_enabled = true
 heightmap_texture = ExtResource("4_s3cbf")
 
-[node name="666" type="Node3D"]
+[node name="closet" type="Node3D"]
 
 [node name="柜子2" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.31652, 0, 0, 0, 3.31652, 0, 0, 0, 3.31652, -1.12367, 1.19209e-07, 1.16798)
