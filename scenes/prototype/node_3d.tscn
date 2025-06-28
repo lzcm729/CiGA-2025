@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://de1rprmpcnrdl"]
+[gd_scene load_steps=22 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Script" path="res://scripts/Scene/level_base.gd" id="1_l3hl8"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]
 [ext_resource type="PackedScene" uid="uid://jsswx28hejj6" path="res://scenes/prototype/light.tscn" id="5_l3ian"]
 [ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="6_l3hl8"]
+[ext_resource type="PackedScene" uid="uid://bw0l0xdq8l3sh" path="res://player/Obstacle/Light.tscn" id="7_17h8h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -145,3 +146,6 @@ shape = SubResource("BoxShape3D_l3ian")
 
 [node name="Light" parent="." instance=ExtResource("5_l3ian")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.233324, 0)
+
+[node name="Light2" parent="." instance=ExtResource("7_17h8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64137, 0.230221, 0.657434)
