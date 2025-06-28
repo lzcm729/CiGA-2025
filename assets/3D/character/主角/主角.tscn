@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://r8mumlxwxvo5"]
+[gd_scene load_steps=8 format=3 uid="uid://b7272frrjcd2t"]
 
-[ext_resource type="ArrayMesh" uid="uid://ermtuw2hp5hv" path="res://assets/3D/character/主角/主角.obj" id="1_ofcwn"]
-[ext_resource type="Texture2D" uid="uid://detbm4c37twae" path="res://assets/3D/character/主角/tripo_node_ce290b77SG_Base_color.png" id="2_crcbc"]
-[ext_resource type="Texture2D" uid="uid://cmnu8akbgtoi5" path="res://assets/3D/character/主角/tripo_node_ce290b77SG_Normal.png" id="3_qeq3y"]
+[ext_resource type="ArrayMesh" uid="uid://x7gwt01dhj5e" path="res://assets/3D/character/主角/zhujue.obj" id="1_qeq3y"]
+[ext_resource type="Texture2D" uid="uid://bekts6v6cppom" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Base_color.png" id="2_51v8y"]
+[ext_resource type="Texture2D" uid="uid://xep0byc18g8a" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Metallic.png" id="3_d1q8c"]
+[ext_resource type="Texture2D" uid="uid://b5qpkvblfaf1" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Normal.png" id="4_u8n0t"]
+[ext_resource type="Texture2D" uid="uid://cdny68eq3d3u2" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Roughness.png" id="5_waj64"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51v8y"]
-albedo_texture = ExtResource("2_crcbc")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_we6e2"]
+load_path = "res://.godot/imported/DefaultMaterial_Height.png-dabe242af0030170293df21f0586a35c.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ni7"]
+albedo_texture = ExtResource("2_51v8y")
+metallic = 1.0
+metallic_texture = ExtResource("3_d1q8c")
+roughness_texture = ExtResource("5_waj64")
 normal_enabled = true
-normal_texture = ExtResource("3_qeq3y")
+normal_texture = ExtResource("4_u8n0t")
+heightmap_texture = SubResource("CompressedTexture2D_we6e2")
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+[node name="主角" type="Node3D"]
 
-[node name="主角" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0574994, 0, 0, 0, 0.0574994, 0, 0, 0, 0.0574994, 0, 0, 0)
-mesh = ExtResource("1_ofcwn")
-surface_material_override/0 = SubResource("StandardMaterial3D_51v8y")
+[node name="Zhujue" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6734, 0.00852299, 0.855863)
+mesh = ExtResource("1_qeq3y")
+surface_material_override/0 = SubResource("StandardMaterial3D_04ni7")
