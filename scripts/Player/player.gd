@@ -31,17 +31,21 @@ var is_back : bool = false
 var is_follow_path: bool = false
 
 func move() -> void:
-	anim_state_machine.travel("Move")
+	if anim_state_machine:
+		anim_state_machine.travel("Move")
 
 func idle() -> void:
-	anim_state_machine.travel("Idle")
+	if anim_state_machine:
+		anim_state_machine.travel("Idle")
 
 func jump() -> void:
-	anim_state_machine.travel("Jump")
+	if anim_state_machine:
+		anim_state_machine.travel("Jump")
 
 ## 下落动画播放
 func fall() -> void:
-	anim_state_machine.travel("Fall")
+	if anim_state_machine:
+		anim_state_machine.travel("Fall")
 
 ## 方向
 var direction: Vector3
@@ -68,7 +72,10 @@ func switch_camera_with_tween(next_player: Player) -> void :
 	temp_camera.global_transform = camera_3d.global_transform
 	temp_camera.fov = camera_3d.fov
 	
-	level.add_child(temp_camera)
+	if get_scene():
+		get_scene().add_child(temp_camera)
+	else:
+		level.add_child(temp_camera)
 	temp_camera.current = true
 	
 	# 开始过渡动画
@@ -113,8 +120,6 @@ func _ready() -> void:
 	state_machine = $StateMachine
 	animation_tree = $AnimationTree
 	anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
-	level = get_parent()
-	camera_3d.current = (index == level.currentPlayerIndex)
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true

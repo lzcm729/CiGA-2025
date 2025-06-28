@@ -29,9 +29,11 @@ func make_play_list() -> void:
 		for child in get_children():
 			if child is Player:
 				playerList.append(child)
+				child.level = self
 
 func make_current(is_enable:bool) -> void:
 	is_current = is_enable
+	visible = is_enable
 	print(name + ", is_current:" + str(is_current) + ", levelIndex:" + str(levelIndex))
 	make_play_list()
 	for child in playerList:
@@ -44,7 +46,7 @@ func _ready() -> void:
 	make_play_list()
 	
 func _input(event: InputEvent) -> void:
-	if visible:
+	if is_current:
 		var action = "switch"
 		for player in playerList :
 			var playerIndex = action + str(player.index)
