@@ -1,0 +1,13 @@
+[gd_resource type = "ShaderMaterial" load_steps=5 format=3 uid="uid://dppxlc1squoys"]
+
+[ext_resource type="Shader" uid="uid://b7jixqdgfqx8d" path="res://Shaders/MI_TreeBark.tres" id="5_kbvmq"]
+[ext_resource type="Texture2D" uid="uid://ce7tujd8ejm3s" path="res://Textures/Trees/tree_mangoBark_NMM.png" id="1_d20uj"]
+[ext_resource type="Texture2D" uid="uid://cbfatv4aw18i8" path="res://Textures/Trees/tree_mangoBark_DIF.png" id="2_b4m54"]
+[ext_resource type="Texture2D" uid="uid://crpj8f6e23hac" path="res://Textures/Trees/tree_mangoBark_SPC.png" id="3_co8so"]
+[ext_resource type="Texture2D" uid="uid://oplxf2spyt06" path="res://Textures/Trees/tree_mangoBark_DSP.png" id="4_dql3i"]
+
+[resource]
+resource_name = "MI_TreeBark"
+render_priority = 0
+shader = ExtResource("5_kbvmq")
+shader_parameter/Generated_tree_mangoBark_NMM = ExtResource("1_d20uj")

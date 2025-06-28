@@ -1,0 +1,12 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://cl7bemlqjrg7n"]
+
+[ext_resource type="Shader" uid="uid://cdkisisrxai22" path="res://Shaders/MI_Glass2.tres" id="1_clppb"]
+
+[resource]
+resource_name = "MI_Glass2"
+render_priority = 0
+shader = ExtResource("1_clppb")
+shader_parameter/Basecolor = Vector4(0.175000, 0.180389, 0.187500, 1.000000)
+shader_parameter/Opacity = 0.000000
+shader_parameter/Metallic = 0.000000
+shader_parameter/Roughness = 0.700000

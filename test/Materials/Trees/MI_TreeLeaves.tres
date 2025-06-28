@@ -1,0 +1,16 @@
+[gd_resource type = "ShaderMaterial" load_steps=6 format=3 uid="uid://dkds23wkmogjk"]
+
+[ext_resource type="Shader" uid="uid://4go57qqbsxx4" path="res://Shaders/MI_TreeLeaves.tres" id="6_bx4r2"]
+[ext_resource type="Texture2D" uid="uid://bhvhmhmpdwjdk" path="res://Textures/Trees/tree_mangoLeaves_NMM.png" id="1_dtcvf"]
+[ext_resource type="Texture2D" uid="uid://odxyic4yal72" path="res://Textures/Trees/tree_mangoLeaves_DIF.png" id="2_dlpki"]
+[ext_resource type="Texture2D" uid="uid://6eyjwrt4a7k7" path="res://Textures/Trees/tree_mangoLeaves_SPC.png" id="3_cml8d"]
+[ext_resource type="Texture2D" uid="uid://oboilxe7xhkh" path="res://Textures/Trees/tree_mangoLeaves_SSS.png" id="4_cej46"]
+[ext_resource type="Texture2D" uid="uid://doqesv67mdlsf" path="res://Textures/Trees/tree_mangoLeaves_MSK.png" id="5_dlquw"]
+
+[resource]
+resource_name = "MI_TreeLeaves"
+render_priority = 0
+shader = ExtResource("6_bx4r2")
+shader_parameter/Generated_tree_mangoLeaves_NMM = ExtResource("1_dtcvf")
+shader_parameter/WindIntensity = 0.300000
+shader_parameter/WindWeight = 0.500000

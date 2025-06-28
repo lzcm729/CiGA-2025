@@ -1,0 +1,12 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://b84wndm42am6o"]
+
+[ext_resource type="Shader" uid="uid://cn4873lv44pky" path="res://Shaders/MI_Glass3.tres" id="1_cuxes"]
+
+[resource]
+resource_name = "MI_Glass3"
+render_priority = 0
+shader = ExtResource("1_cuxes")
+shader_parameter/Basecolor = Vector4(0.614444, 0.633364, 0.658333, 1.000000)
+shader_parameter/Opacity = 0.100000
+shader_parameter/Metallic = 0.000000
+shader_parameter/Roughness = 0.000000

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b06agmnbi21k6"]
+
+[ext_resource type="PackedScene" uid="uid://cmk4mibuglrun" path="res://Geometry/Meshes/Attic_Dresser_01_LP.glb" id="1_bqkeh"]
+[ext_resource type="Material" uid="uid://c8hm2ugvua0r8" path="res://Materials/Wood/MI_Dresser1.tres" id="2_ck0r6"]
+
+[node name="Attic_Dresser_01_LP" instance=ExtResource("1_bqkeh")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ck0r6")

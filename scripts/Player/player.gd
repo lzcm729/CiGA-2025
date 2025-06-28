@@ -2,12 +2,14 @@ extends CharacterBody3D
 
 class_name Player
 
-var test_3d: Scene
+var scene: Scene
 
 @export var speed = 5.0
+@export var back_speed = 15.0
 @export var jump_velocity = 5
 @export var index : int
 @export var path : PathFollow3D
+@export var enable_jump = false
 @onready var mesh: Node3D = $Mesh
 @onready var state_machine: StateMachine = $StateMachine
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
@@ -15,15 +17,23 @@ var test_3d: Scene
 @onready var anim_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
 
-@onready var is_moving : bool = false :
-	set(value):
-		is_moving = value
-		if is_moving:
-			anim_state_machine.travel("Move")
-		else:
-			anim_state_machine.travel("Idle")
+#@onready var is_moving : bool = false :
+	#set(value):
+		#is_moving = value
+		#if is_moving:
+			#anim_state_machine.travel("Move")
+		#else:
+			#anim_state_machine.travel("Idle")
 
 var is_switching : bool = false
+var is_back : bool = false
+var is_follow_path: bool = false
+
+func move() -> void:
+	anim_state_machine.travel("Move")
+
+func idle() -> void:
+	anim_state_machine.travel("Idle")
 
 func jump() -> void:
 	anim_state_machine.travel("Jump")
@@ -34,7 +44,6 @@ func fall() -> void:
 
 ## 方向
 var direction: Vector3
-var is_follow_path: bool = false
 
 ## 中立
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -53,7 +62,7 @@ func switch_camera_with_tween(next_player: Player) -> void :
 	temp_camera.global_transform = camera_3d.global_transform
 	temp_camera.fov = camera_3d.fov
 	
-	test_3d.add_child(temp_camera)
+	scene.add_child(temp_camera)
 	temp_camera.current = true
 	
 	# 开始过渡动画
@@ -72,17 +81,25 @@ func pre_switch() -> void :
 	camera_3d.current = false
 	direction = Vector3(0, 0, 0)
 	is_switching = true
+	scene.is_switching = true
 
 func post_switch() -> void :
 	camera_3d.current = true
 	is_switching = false
-	test_3d.currentIndex = index
+	scene.is_switching = false
+	scene.currentIndex = index
 
-func is_current() -> bool :
-	return test_3d.currentIndex == index and (not is_switching)
+func is_current_valid() -> bool :
+	return scene.currentIndex == index
+
+func is_input_valid() -> bool :
+	return is_current_valid() and (not is_switching) and (not is_back)
+
+func start_back() -> void :
+	state_machine.change_state("Back")
 
 func _ready() -> void:
-	test_3d = get_tree().current_scene
+	scene = get_tree().current_scene
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
@@ -93,10 +110,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	if is_current() :
+	if is_input_valid() :
 		var input_dir : Vector2 
 		if path :
-			input_dir = Input.get_vector("", "", "move_down", "move_up")
+			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
 			direction = Vector3(input_dir.y, 0, 0)
 		else: 
 			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
@@ -106,6 +123,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if is_current() :
-		if event.is_action_pressed("jump") and is_on_floor():
+	if is_input_valid() :
+		if enable_jump and event.is_action_pressed("jump") and is_on_floor():
 			state_machine.change_state("Jump")
+		if event.is_action_pressed("debug_back"):
+			start_back()
+			

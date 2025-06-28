@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://vcls6kop5s4h"]
+
+[ext_resource type="PackedScene" uid="uid://c5ewwor5sk01l" path="res://Geometry/Meshes/Attic_NotesCurled_01_LP.glb" id="1_bckke"]
+[ext_resource type="Material" uid="uid://dvwi7a32x3df3" path="res://Materials/Paper/MI_NotesCurled1.tres" id="2_xk8kg"]
+
+[node name="Attic_NotesCurled_01_LP" instance=ExtResource("1_bckke")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_xk8kg")

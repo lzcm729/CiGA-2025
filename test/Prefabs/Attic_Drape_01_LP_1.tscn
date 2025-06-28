@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgtkiw8rvn2jl"]
+
+[ext_resource type="PackedScene" uid="uid://dl7o86aajw45l" path="res://Geometry/Meshes/Attic_Drape_01_LP.glb" id="1_kxf1t"]
+[ext_resource type="Material" uid="uid://55pedypuxcd4" path="res://Materials/Cloth/MI_Drape2.tres" id="2_q5186"]
+
+[node name="Attic_Drape_01_LP_1" instance=ExtResource("1_kxf1t")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_q5186")

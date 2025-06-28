@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhrryxcew0rw1"]
+[gd_scene load_steps=12 format=3 uid="uid://bhrryxcew0rw1"]
 
 [ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_5qlw0"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_a402t"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_jstem"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="4_k5aas"]
+[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="5_rx5g4"]
+[ext_resource type="PackedScene" uid="uid://b07wy55rqrshd" path="res://scenes/3D/canvas_layer_crt.tscn" id="6_cjix8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a402t"]
 albedo_color = Color(0.733333, 1, 1, 1)
@@ -11,22 +13,23 @@ albedo_color = Color(0.733333, 1, 1, 1)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_l4nri"]
 panorama = ExtResource("1_jstem")
 
-[sub_resource type="Sky" id="Sky_ycwqe"]
+[sub_resource type="Sky" id="Sky_rx5g4"]
 sky_material = SubResource("PanoramaSkyMaterial_l4nri")
 
 [sub_resource type="Environment" id="Environment_c5k37"]
 background_mode = 2
-sky = SubResource("Sky_ycwqe")
+sky = SubResource("Sky_rx5g4")
 
 [sub_resource type="Curve3D" id="Curve3D_5qlw0"]
 _data = {
-"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.441, 0, 0.659, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.925, 0, 10.218),
+"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.441, 0, 0.659, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.572399, -0.011113, 8.76197),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
 
-[node name="Test3D" type="Node3D"]
+[node name="Test3D" type="Node3D" node_paths=PackedStringArray("PostEffect_CRT")]
 script = ExtResource("1_5qlw0")
+PostEffect_CRT = NodePath("CanvasLayer_CRT")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0.0397894, -0.491477, 0.284211)
@@ -60,12 +63,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.31365, 0.519753, 0)
 index = 2
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573944, 1.843)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573944, 3.1275)
 curve = SubResource("Curve3D_5qlw0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.415886, 0, -0.909394, 0, 0.999981, 0, 0.909396, 0, -0.415885, 1.54094, 0, -2.90404)
+transform = Transform3D(0.0377794, 0, 0.99926, 0, 0.999976, 0, -0.999263, 0, 0.0377793, 1.66549, 0, 0.486511)
+progress = 5.68818
 loop = false
 
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("4_k5aas")]
 path_node = NodePath("..")
+
+[node name="Node3D" parent="." instance=ExtResource("5_rx5g4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3853, 1.04564, 0)
+
+[node name="CanvasLayer_CRT" parent="." instance=ExtResource("6_cjix8")]

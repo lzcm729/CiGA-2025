@@ -35,5 +35,5 @@ func _ready() -> void:
 	#switch_scene(Consts.SCENES.START_UP)
 	
 	# 数据信号量处理
-	var target = get_node("/root/test")
-	target.connect("ITEM_COMMIT", handle_item_signal)
+	#var target = get_node("/root/test")
+	#target.connect("ITEM_COMMIT", handle_item_signal)
