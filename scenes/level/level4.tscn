@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwcabhr6c4ypo"]
+
+[ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_80v56"]
+[ext_resource type="PackedScene" uid="uid://c60ihoh1r4y3j" path="res://closet.tscn" id="2_2b7xl"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_njhdo"]
+[ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="4_pjvq8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fh7g5"]
+
+[sub_resource type="Curve3D" id="Curve3D_2b5ss"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.01239, -0.626314, 0.338084, 0, 0, 0, 0, 0, 0, -2.43611, -0.858068, -0.0981746, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[sub_resource type="Curve3D" id="Curve3D_80v56"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.01239, -0.626314, 0.338084, 0, 0, 0, 0, 0, 0, -2.43611, -0.858068, -0.0981746, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[node name="Level4" type="Node3D"]
+
+[node name="Gear01" parent="." instance=ExtResource("1_80v56")]
+transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.97602, 8.39489, 4.25387)
+index = 1
+
+[node name="Gear02" parent="." instance=ExtResource("2_2b7xl")]
+transform = Transform3D(0.389076, 0, 0.921206, 0, 1, 0, -0.921206, 0, 0.389076, -8.03777, 9.26854, 6.34736)
+
+[node name="Gearclost_02" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.397123, -0.232747, -0.19525, 0, 0.321347, -0.383061, 0.303799, -0.304245, -0.255228, -7.99467, 8.88021, 4.83007)
+mesh = SubResource("CapsuleMesh_fh7g5")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
+curve = SubResource("Curve3D_2b5ss")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.316751, -0.480036, 0.818066, 1.49011e-08, 0.862475, 0.506096, -0.948507, 0.160306, -0.27319, 0, 0, 0)
+
+[node name="PathPolygon" parent="Path3D" instance=ExtResource("3_njhdo")]
+path_node = NodePath("..")
+
+[node name="p1" parent="." instance=ExtResource("4_pjvq8")]
+
+[node name="Gear03" parent="." instance=ExtResource("1_80v56")]
+transform = Transform3D(-0.0287987, 0, -0.197916, 0, 0.2, 0, 0.197916, 0, -0.0287987, -5.02816, 11.7575, 5.86388)
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
+curve = SubResource("Curve3D_80v56")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.31675, -0.480036, 0.818066, 1.49011e-08, 0.862475, 0.506096, -0.948507, 0.160306, -0.27319, 0, 0, 0)
+
+[node name="PathPolygon" parent="Path3D2" instance=ExtResource("3_njhdo")]
+path_node = NodePath("../../Path3D2")

@@ -1,22 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://hel1mej6t04v"]
+[gd_scene load_steps=9 format=3 uid="uid://hel1mej6t04v"]
 
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="1_ga8lq"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_hkmq7"]
-[ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_w4sk7"]
+[ext_resource type="Script" path="res://scripts/Scene/level_base.gd" id="1_w4sk7"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_w4sk7"]
 [ext_resource type="PackedScene" path="res://closet.tscn" id="3_ojmut"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_07jeq"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_hkmq7"]
-size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="Curve3D" id="Curve3D_hkmq7"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.01239, -0.626314, 0.338084, 0, 0, 0, 0, 0, 0, -2.43611, -0.858068, -0.0981746, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 10
 
 [sub_resource type="Curve3D" id="Curve3D_duul2"]
 bake_interval = 0.01
@@ -26,6 +16,13 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve3D" id="Curve3D_hkmq7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.01239, -0.626314, 0.338084, 0, 0, 0, 0, 0, 0, -2.43611, -0.858068, -0.0981746, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_w4sk7")
 Index = 3
@@ -34,27 +31,14 @@ Index = 3
 transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.97602, 8.39489, 4.25387)
 index = 1
 
-[node name="clost" parent="." instance=ExtResource("3_ojmut")]
+[node name="Gear02" parent="." instance=ExtResource("3_ojmut")]
 transform = Transform3D(0.770168, 0, -0.637841, 0, 1, 0, 0.637841, 0, 0.770168, -7.95069, 9.26543, 3.88208)
 
-[node name="Gearclost_02" type="MeshInstance3D" parent="."]
+[node name="Gear02_02" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.49068, 0.0736166, 0.0617563, 0, 0.321347, -0.383061, -0.0960898, -0.375921, -0.315357, -7.06409, 8.88021, 5.05773)
 mesh = SubResource("CapsuleMesh_07jeq")
 
 [node name="p1" parent="." instance=ExtResource("1_ga8lq")]
-
-[node name="Watcher" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
-mesh = SubResource("BoxMesh_hkmq7")
-
-[node name="Path3D" type="Path3D" parent="Watcher"]
-curve = SubResource("Curve3D_hkmq7")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Watcher/Path3D"]
-transform = Transform3D(-0.316751, -0.480036, 0.818066, 1.49011e-08, 0.862475, 0.506096, -0.948507, 0.160306, -0.27319, 0, 0, 0)
-
-[node name="PathPolygon" parent="Watcher/Path3D" instance=ExtResource("2_w4sk7")]
-path_node = NodePath("..")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.40176, 8.50517, 3.87784)
@@ -65,3 +49,17 @@ transform = Transform3D(-0.875237, 0, 0.483684, 0, 0.99999, 0, -0.483684, 0, -0.
 
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("2_w4sk7")]
 path_node = NodePath("..")
+
+[node name="Gear03" parent="." node_paths=PackedStringArray("path") instance=ExtResource("1_hkmq7")]
+transform = Transform3D(-0.0287987, 0, -0.197916, 0, 0.2, 0, 0.197916, 0, -0.0287987, -5.02816, 11.7575, 5.86388)
+path = NodePath("../Path3D2/PathFollow3D")
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
+curve = SubResource("Curve3D_hkmq7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(-0.31675, -0.480036, 0.818066, 1.49011e-08, 0.862475, 0.506096, -0.948507, 0.160306, -0.27319, 0, 0, 0)
+
+[node name="PathPolygon" parent="Path3D2" instance=ExtResource("2_w4sk7")]
+path_node = NodePath("../../Path3D2")
