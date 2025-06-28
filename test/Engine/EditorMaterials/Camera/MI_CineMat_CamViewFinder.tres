@@ -1,0 +1,9 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://dqcowu34bgwvl"]
+
+[ext_resource type="Shader" uid="uid://c33qgs64eutgj" path="res://Shaders/MI_CineMat_CamViewFinder.tres" id="1_c0eif"]
+
+[resource]
+resource_name = "MI_CineMat_CamViewFinder"
+render_priority = 0
+shader = ExtResource("1_c0eif")
+shader_parameter/Color = Vector4(0.000000, 0.000000, 0.000000, 1.000000)

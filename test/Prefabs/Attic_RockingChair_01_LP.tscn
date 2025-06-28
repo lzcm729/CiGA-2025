@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drq1hbaw3w68v"]
+
+[ext_resource type="PackedScene" uid="uid://1tlnxbyuxn08" path="res://Geometry/Meshes/Attic_RockingChair_01_LP.glb" id="1_biqt4"]
+[ext_resource type="Material" uid="uid://cinoc2ws3id5w" path="res://Materials/Wood/MI_RockingChair.tres" id="2_cd87i"]
+
+[node name="Attic_RockingChair_01_LP" instance=ExtResource("1_biqt4")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cd87i")

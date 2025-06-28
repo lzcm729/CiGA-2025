@@ -1,0 +1,17 @@
+[gd_resource type = "ShaderMaterial" load_steps=2 format=3 uid="uid://uxwkc45aad0b"]
+
+[ext_resource type="Shader" uid="uid://bhjivj7bdvt5k" path="res://Shaders/MI_Plant.tres" id="2_dagc8"]
+[ext_resource type="Texture2D" uid="uid://b7gui56cme6ks" path="res://Textures/Plant/Plant_Alpha.png" id="1_du3y0"]
+
+[resource]
+resource_name = "MI_Plant"
+render_priority = 0
+shader = ExtResource("2_dagc8")
+shader_parameter/Color = Vector4(0.358842, 1.000000, 0.315188, 1.000000)
+shader_parameter/HueShift = 0.000000
+shader_parameter/Desaturation = 0.749845
+shader_parameter/BaseColor_Strength = 0.200000
+shader_parameter/Opacity = 0.000000
+shader_parameter/Opacity_Map = ExtResource("1_du3y0")
+shader_parameter/Emissive = -0.114286
+shader_parameter/Roughness = 0.669001

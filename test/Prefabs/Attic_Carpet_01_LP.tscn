@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://blftgc6uss6d3"]
+
+[ext_resource type="PackedScene" uid="uid://bmj4q5w1fnn2w" path="res://Geometry/Meshes/Attic_Carpet_01_LP.glb" id="1_byd2g"]
+[ext_resource type="Material" uid="uid://c2y2n27ppk3v5" path="res://Materials/Cloth/MI_Carpet2.tres" id="2_qtt6q"]
+
+[node name="Attic_Carpet_01_LP" instance=ExtResource("1_byd2g")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qtt6q")

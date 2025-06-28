@@ -1,0 +1,22 @@
+[gd_resource type = "ShaderMaterial" load_steps=5 format=3 uid="uid://cxsa44xhubn2x"]
+
+[ext_resource type="Shader" uid="uid://2ggm3dbwgnio" path="res://Shaders/MI_Fan.tres" id="5_b7nsh"]
+[ext_resource type="Texture2D" uid="uid://vx8sah7v8rhj" path="res://Textures/Metal/Fan/Attic_Fanb_LP_15_-_Default_Normal.png" id="1_bckl6"]
+[ext_resource type="Texture2D" uid="uid://giqpijwiihfs" path="res://Textures/Metal/Fan/Attic_Fanb_LP_15_-_Default_Diffuse.png" id="2_ckxdi"]
+[ext_resource type="Texture2D" uid="uid://ybnvj60omier" path="res://Textures/Metal/Fan/Attic_Fanb_LP_15_-_Default_RMAO.png" id="3_b6v3q"]
+[ext_resource type="Texture2D" uid="uid://bp6hs2v04d47o" path="res://Textures/Metal/Fan/Attic_Fanb_LP_15_-_Default_Alpha.png" id="4_52v2y"]
+
+[resource]
+resource_name = "MI_Fan"
+render_priority = 0
+shader = ExtResource("5_b7nsh")
+shader_parameter/HueShift = -2.112089
+shader_parameter/BaseColor = ExtResource("2_ckxdi")
+shader_parameter/UV_Tiling = 1.000000
+shader_parameter/UV_Offset = 0.000000
+shader_parameter/Desaturation = 0.133333
+shader_parameter/BaseColor_Strength = 1.000000
+shader_parameter/Alpha = ExtResource("4_52v2y")
+shader_parameter/Normal = ExtResource("1_bckl6")
+shader_parameter/R_M_AO = ExtResource("3_b6v3q")
+shader_parameter/Roughness_Strength = 1.511868

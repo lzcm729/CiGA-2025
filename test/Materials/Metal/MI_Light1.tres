@@ -1,0 +1,44 @@
+[gd_resource type = "ShaderMaterial" load_steps=5 format=3 uid="uid://d1l3wawub1k4r"]
+
+[ext_resource type="Shader" uid="uid://d3ovmv1r81pm" path="res://Shaders/MI_Light1.tres" id="5_cokvk"]
+[ext_resource type="Texture2D" uid="uid://c73h4fvorhohi" path="res://Textures/Metal/Light1/Attic_Lightb_01_LP_15_-_Default_Normal.png" id="1_dltpr"]
+[ext_resource type="Texture2D" uid="uid://lanyv50ush5t" path="res://Textures/Metal/Light1/Attic_Lightb_01_LP_15_-_Default_Diffuse.png" id="2_bw2rg"]
+[ext_resource type="Texture2D" uid="uid://d0jvimb7yghyf" path="res://Textures/Dirt/T_DirtChipsClouds_Masks.png" id="3_cshjk"]
+[ext_resource type="Texture2D" uid="uid://ddgfq5c1vuapo" path="res://Textures/Metal/Light1/Attic_Lightb_01_LP_15_-_Default_RMAO.png" id="4_thfbd"]
+
+[resource]
+resource_name = "MI_Light1"
+render_priority = 0
+shader = ExtResource("5_cokvk")
+shader_parameter/DirtBaseColor = Vector4(0.166667, 0.109190, 0.035590, 1.000000)
+shader_parameter/Generated_T_DirtChipsClouds_Masks = ExtResource("3_cshjk")
+shader_parameter/Dirt_Variation_Scale = 200.000000
+shader_parameter/AO_Multiply = 0.000000
+shader_parameter/AOpower = 0.000000
+shader_parameter/Dirt_Mask_Exponent = 2.500000
+shader_parameter/Roughness_Dirt = 1.000000
+shader_parameter/HueShift = 0.050000
+shader_parameter/BaseColor = ExtResource("2_bw2rg")
+shader_parameter/UV_Tiling = 1.000000
+shader_parameter/UV_Offset = 0.000000
+shader_parameter/Desaturation = 0.600000
+shader_parameter/BaseColor_Strength = 0.500000
+shader_parameter/R_M_AO = ExtResource("4_thfbd")
+shader_parameter/Roughness_Strength = 0.700000
+shader_parameter/Normal = ExtResource("1_dltpr")
+shader_parameter/DirtBaseColor_VS = Vector4(0.166667, 0.109190, 0.035590, 1.000000)
+shader_parameter/Generated_T_DirtChipsClouds_Masks_VS = ExtResource("3_cshjk")
+shader_parameter/Dirt_Variation_Scale_VS = 200.000000
+shader_parameter/AO_Multiply_VS = 0.000000
+shader_parameter/AOpower_VS = 0.000000
+shader_parameter/Dirt_Mask_Exponent_VS = 2.500000
+shader_parameter/Roughness_Dirt_VS = 1.000000
+shader_parameter/HueShift_VS = 0.050000
+shader_parameter/BaseColor_VS = ExtResource("2_bw2rg")
+shader_parameter/UV_Tiling_VS = 1.000000
+shader_parameter/UV_Offset_VS = 0.000000
+shader_parameter/Desaturation_VS = 0.600000
+shader_parameter/BaseColor_Strength_VS = 0.500000
+shader_parameter/R_M_AO_VS = ExtResource("4_thfbd")
+shader_parameter/Roughness_Strength_VS = 0.700000
+shader_parameter/Normal_VS = ExtResource("1_dltpr")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhh2136gcblmq"]
+
+[ext_resource type="PackedScene" uid="uid://yte7oj3ave3w" path="res://Geometry/Meshes/Attic_FoldingChair_02_LP.glb" id="1_52g1y"]
+[ext_resource type="Material" uid="uid://c535q5qgv4s8u" path="res://Materials/Metal/MI_FoldingChair2.tres" id="2_uum85"]
+
+[node name="Attic_FoldingChair_02_LP" instance=ExtResource("1_52g1y")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_uum85")

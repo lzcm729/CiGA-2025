@@ -1,0 +1,21 @@
+[gd_resource type = "ShaderMaterial" load_steps=4 format=3 uid="uid://dcc0270m4caiv"]
+
+[ext_resource type="Shader" uid="uid://6bv4kp30arhf" path="res://Shaders/MI_PaperRoll1.tres" id="4_dept5"]
+[ext_resource type="Texture2D" uid="uid://c4oct5t47ndnr" path="res://Textures/Paper/PaperRoll1/Attic_PaperRoll_01_LP_15_-_Default_Normal.png" id="1_bxijt"]
+[ext_resource type="Texture2D" uid="uid://bxxvr3f5uw3js" path="res://Textures/Paper/PaperRoll1/Attic_PaperRoll_01_LP_15_-_Default_Diffuse.png" id="2_2knou"]
+[ext_resource type="Texture2D" uid="uid://ctbhf15y1pkoj" path="res://Textures/Paper/PaperRoll1/Attic_PaperRoll_01_LP_15_-_Default_RMAO.png" id="3_cnksv"]
+
+[resource]
+resource_name = "MI_PaperRoll1"
+render_priority = 0
+shader = ExtResource("4_dept5")
+shader_parameter/HueShift = 1.054305
+shader_parameter/BaseColor = ExtResource("2_2knou")
+shader_parameter/UV_Tiling = 1.000000
+shader_parameter/UV_Offset = 0.000000
+shader_parameter/Desaturation = 0.200000
+shader_parameter/BaseColor_Strength = 0.949844
+shader_parameter/Normal = ExtResource("1_bxijt")
+shader_parameter/Roughness_Strength = 3.000000
+shader_parameter/R_M_AO = ExtResource("3_cnksv")
+shader_parameter/Subsurface_Strength = 0.500000

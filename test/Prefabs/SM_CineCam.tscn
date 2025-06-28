@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cncidkgi3e8j"]
+
+[ext_resource type="PackedScene" uid="uid://t327gj63rk4h" path="res://Engine/EditorMeshes/Camera/SM_CineCam.glb" id="1_bmw5a"]
+[ext_resource type="Material" uid="uid://efpw18pw8h81" path="res://Engine/EditorMaterials/Camera/MI_CineMat_CameraBody.tres" id="2_bsk5v"]
+[ext_resource type="Material" uid="uid://dqcowu34bgwvl" path="res://Engine/EditorMaterials/Camera/MI_CineMat_CamViewFinder.tres" id="3_c8frn"]
+
+[node name="SM_CineCam" instance=ExtResource("1_bmw5a")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bsk5v")
+surface_material_override/1 = ExtResource("3_c8frn")

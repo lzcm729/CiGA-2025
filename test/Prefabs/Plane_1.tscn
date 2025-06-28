@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://qg2pl0nqbqtk"]
+
+[ext_resource type="PackedScene" uid="uid://bknhakbgosgcm" path="res://Engine/BasicShapes/Plane.glb" id="1_ch74e"]
+[ext_resource type="Material" uid="uid://b84wndm42am6o" path="res://Materials/Glass/MI_Glass3.tres" id="2_ia2kr"]
+
+[sub_resource type="BoxShape3D" id="0_c31wo"]
+size = Vector3(1, 1, 0)
+
+[node name="Plane_1" instance=ExtResource("1_ch74e")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ia2kr")
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+
+[node name="Box0" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+shape = SubResource("0_c31wo")

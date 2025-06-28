@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://basb2vs4dqtjo"]
+
+[ext_resource type="PackedScene" uid="uid://b1yjcj3dw6som" path="res://Geometry/Meshes/Attic_Plant_01_LP.glb" id="1_c7u3v"]
+[ext_resource type="Material" uid="uid://buwf108uevw37" path="res://Materials/Plant/MI_Plant1.tres" id="2_b5u0s"]
+
+[node name="Attic_Plant_01_LP_1" instance=ExtResource("1_c7u3v")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_b5u0s")

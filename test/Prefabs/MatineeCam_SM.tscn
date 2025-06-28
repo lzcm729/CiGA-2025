@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://m8rpkurd77sd"]
+
+[ext_resource type="PackedScene" uid="uid://copijrwdrc21f" path="res://Engine/EditorMeshes/MatineeCam_SM.glb" id="1_uw3py"]
+[ext_resource type="Material" uid="uid://r68vpj51yvex" path="res://Engine/EditorMaterials/MatineeCam_mat.tres" id="2_daxci"]
+
+[node name="MatineeCam_SM" instance=ExtResource("1_uw3py")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_daxci")

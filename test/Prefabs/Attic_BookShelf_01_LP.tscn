@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch3s1jw6556w5"]
+
+[ext_resource type="PackedScene" uid="uid://c2he3wn4xoaju" path="res://Geometry/Meshes/Attic_BookShelf_01_LP.glb" id="1_dv46c"]
+[ext_resource type="Material" uid="uid://bogifuejec8wc" path="res://Materials/Wood/MI_Bookcase1.tres" id="2_dkhca"]
+
+[node name="Attic_BookShelf_01_LP" instance=ExtResource("1_dv46c")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dkhca")
