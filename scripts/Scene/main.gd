@@ -9,7 +9,8 @@ func switch_level(index:int) ->void:
 	# 添加新场景到场景树
 	for level in levels :
 		if level.levelIndex == index:
-			add_child(level)
+			if not is_ancestor_of(level):
+				add_child(level)
 			level.make_current(true)
 		else:
 			if is_ancestor_of(level):
