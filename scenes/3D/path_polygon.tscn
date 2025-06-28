@@ -7,6 +7,7 @@
 render_priority = 0
 shader = ExtResource("1_we0tt")
 shader_parameter/color = Color(0.1, 0.9, 0.8, 1)
+shader_parameter/alpha = 0.4
 
 [node name="PathPolygon" type="CSGPolygon3D"]
 polygon = PackedVector2Array(-0.02, 0, -0.02, 0.02, 0.02, 0.02, 0.02, 0)

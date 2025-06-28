@@ -5,7 +5,6 @@ extends Control
 @onready var enter_game: Button = $EnterMarginContainer/Control/EnterGame
 @onready var back: Button = $KeyMarginContainer/Control/Back
 
-
 @export_file("*.tscn") var back_path : String
 @export_file("*.tscn") var level_path : String
 
