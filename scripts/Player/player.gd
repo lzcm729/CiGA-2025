@@ -15,7 +15,7 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 @export var enable_jump = false
 @export var ignore_gravity = false
 @onready var mesh: Node3D = $Mesh
-@onready var spring_arm_3d: SpringArm3D = $SpringArm3D
+var spring_arm_3d: SpringArm3D
 var camera_3d: Camera3D
  
 #@onready var is_moving : bool = false :
@@ -143,6 +143,7 @@ func _ready() -> void:
 	state_machine = $StateMachine
 	animation_tree = $AnimationTree
 	anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
+	spring_arm_3d = $SpringArm3D
 	find_camera_3d()
 	if path :
 		path.progress_ratio = 0
@@ -163,7 +164,6 @@ func _physics_process(delta: float) -> void:
 			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
 			var rotation :Quaternion = Quaternion.from_euler(Vector3(0, spring_arm_3d.transform.basis.get_euler().y, 0))
 			direction = (rotation * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
-			
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
