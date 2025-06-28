@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4d48pccld06c"]
+[gd_scene load_steps=4 format=3 uid="uid://c4d48pccld06c"]
 
 [ext_resource type="Script" uid="uid://cc40t53u4ugw6" path="res://scripts/Data/test_data.gd" id="1_2hggt"]
+[ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="2_5j3jl"]
+[ext_resource type="Script" uid="uid://3s3uube6r4tx" path="res://scripts/GamePlay/Children.gd" id="3_nxyy7"]
 
 [node name="test" type="Node"]
 script = ExtResource("1_2hggt")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Gameplay" type="Node" parent="."]
+script = ExtResource("2_5j3jl")
+
+[node name="Children" type="Node" parent="."]
+script = ExtResource("3_nxyy7")
