@@ -1,6 +1,7 @@
 extends Node3D
 class_name MainScene
 @onready var PostEffect_CRT: CanvasLayer = $CanvasLayer_CRT
+@onready var PostEffect_EdgeChange: CanvasLayer = $CanvasLayer_EdgeChange
 
 var currentLevelIndex = 2
 var levels : Array[Level] = []
@@ -24,5 +25,6 @@ func _ready() -> void:
 			print(level.name)
 			print(level.levelIndex)
 	PostEffect_CRT.hide()		
+	PostEffect_EdgeChange.hide()
 	currentLevelIndex = DataManager.get_cur_level_config()[0]	
 	switch_level(currentLevelIndex)

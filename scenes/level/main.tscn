@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d30t2bi4w65jl"]
+[gd_scene load_steps=14 format=3 uid="uid://d30t2bi4w65jl"]
 
 [ext_resource type="PackedScene" uid="uid://b1mrhfhcittfm" path="res://scenes/level/level1.tscn" id="1_64aob"]
 [ext_resource type="Script" uid="uid://b64tu3o5s7vgp" path="res://scripts/Scene/main.gd" id="1_x0mk0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="8_6ulxj"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="10_1o8wa"]
 [ext_resource type="PackedScene" uid="uid://0fx1uag1qdyr" path="res://player/Child.tscn" id="12_3lrgn"]
+[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="13_kmlpd"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_x0mk0")
@@ -52,3 +53,5 @@ main_level_hud = NodePath("../MainLevelHud")
 
 [node name="StartCountDown" type="Timer" parent="LevelManager"]
 one_shot = true
+
+[node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("13_kmlpd")]
