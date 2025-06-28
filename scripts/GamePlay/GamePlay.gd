@@ -26,13 +26,26 @@ func _process(delta: float) -> void:
 			emit_signal("GAME_TIMEOUT")
 
 @onready var time: Timer = $"../Timer"
+var times = 0
+signal TIME_COUNTDOWN(cur_times)
 func on_timer_end() -> void:
+	emit_signal("TIME_COUNTDOWN", times)
+	time.stop()
 	var cur_level_info = DataManager.get_cur_level_config()
 	game_start(cur_level_info[2]["total_time"])
 
+func on_single_timer_end() -> void:
+	emit_signal("TIME_COUNTDOWN", times)
+	if times == 1:
+		time.disconnect("timeout", on_single_timer_end)
+		time.connect("timeout", on_timer_end)
+		time.start(1)
+	times -= 1
+
 func count_down_and_start_game() -> void:
-	time.connect("timeout", on_timer_end)
-	time.start(5)
+	times = 5
+	time.connect("timeout", on_single_timer_end)
+	time.start(1)
 
 func _ready() -> void:
 	return
