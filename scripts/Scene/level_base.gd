@@ -40,7 +40,7 @@ func make_current(is_enable:bool) -> void:
 		child.make_current(child.index == currentPlayerIndex)
 
 func _ready() -> void:
-	make_play_list()
+	make_current(true)
 	
 func _input(event: InputEvent) -> void:
 	if is_current:
