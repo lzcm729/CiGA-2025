@@ -140,11 +140,11 @@ func make_current(is_enable:bool) -> void:
 		is_current = false
 
 func _ready() -> void:
-	state_machine = $StateMachine
-	animation_tree = $AnimationTree
+	state_machine = get_node_or_null("/root/StateMachine")
+	animation_tree = get_node_or_null("/root/AnimationTree")
 	if animation_tree: 
 		anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
-	spring_arm_3d = $SpringArm3D
+	spring_arm_3d = get_node_or_null("/root/SpringArm3D")
 	find_camera_3d()
 	if path :
 		path.progress_ratio = 0
