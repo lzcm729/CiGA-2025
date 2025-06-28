@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name Player
 
-var scene: Scene
+var level: Level
 
 @export var speed = 5.0
 @export var back_speed = 15.0
@@ -62,7 +62,7 @@ func switch_camera_with_tween(next_player: Player) -> void :
 	temp_camera.global_transform = camera_3d.global_transform
 	temp_camera.fov = camera_3d.fov
 	
-	scene.add_child(temp_camera)
+	level.add_child(temp_camera)
 	temp_camera.current = true
 	
 	# 开始过渡动画
@@ -81,25 +81,28 @@ func pre_switch() -> void :
 	camera_3d.current = false
 	direction = Vector3(0, 0, 0)
 	is_switching = true
-	scene.is_switching = true
+	level.is_switching = true
 
 func post_switch() -> void :
 	camera_3d.current = true
 	is_switching = false
-	scene.is_switching = false
-	scene.currentIndex = index
+	level.is_switching = false
+	level.currentPlayerIndex = index
+	
+func make_current() -> void :
+	camera_3d.current = true
 
 func is_current_valid() -> bool :
-	return scene.currentIndex == index
+	return level.currentPlayerIndex == index
 
 func is_input_valid() -> bool :
-	return is_current_valid() and (not is_switching) and (not is_back)
+	return visible and is_current_valid() and (not is_switching) and (not is_back)
 
 func start_back() -> void :
 	state_machine.change_state("Back")
 
 func _ready() -> void:
-	scene = get_tree().current_scene
+	level = get_parent()
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
