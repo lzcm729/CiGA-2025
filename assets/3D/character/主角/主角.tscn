@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj04kmssofbqa"]
+
+[ext_resource type="ArrayMesh" uid="uid://ermtuw2hp5hv" path="res://assets/3D/character/主角/主角.obj" id="1_ofcwn"]
+[ext_resource type="Texture2D" uid="uid://detbm4c37twae" path="res://assets/3D/character/主角/tripo_node_ce290b77SG_Base_color.png" id="2_crcbc"]
+[ext_resource type="Texture2D" uid="uid://cmnu8akbgtoi5" path="res://assets/3D/character/主角/tripo_node_ce290b77SG_Normal.png" id="3_qeq3y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51v8y"]
+albedo_texture = ExtResource("2_crcbc")
+normal_enabled = true
+normal_texture = ExtResource("3_qeq3y")
+
+[node name="主角" type="Node2D"]
+
+[node name="主角" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0426887, 0, -0.0385208, 0, 0.0574994, 0, 0.0385208, 0, 0.0426887, -6.60269, 0.00852499, -5.16007)
+mesh = ExtResource("1_ofcwn")
+surface_material_override/0 = SubResource("StandardMaterial3D_51v8y")

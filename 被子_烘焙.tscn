@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=3 uid="uid://dprrfg8rv5cav"]
+
+[ext_resource type="PackedScene" uid="uid://0uud55t3l6q5" path="res://assets/3D/character/主角/被子 烘焙.fbx" id="1_roaa3"]
+[ext_resource type="Texture2D" uid="uid://4757mpkv3617" path="res://assets/3D/character/DefaultMaterial_Base_color.png" id="2_crb8n"]
+[ext_resource type="Texture2D" uid="uid://dc5egdf8wvdw0" path="res://assets/3D/character/主角/DefaultMaterial_Mixed_AO.png" id="3_gmuk2"]
+[ext_resource type="Texture2D" uid="uid://debhx6prcmb6k" path="res://assets/3D/character/主角/DefaultMaterial_Metallic.png" id="4_imd5g"]
+[ext_resource type="Texture2D" uid="uid://dq0s0yp7em11h" path="res://assets/3D/character/主角/DefaultMaterial_Normal.png" id="5_4ilum"]
+[ext_resource type="Texture2D" uid="uid://0vjrankhuq2q" path="res://assets/3D/character/主角/DefaultMaterial_Roughness.png" id="6_5fnwo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqj5h"]
+albedo_texture = ExtResource("2_crb8n")
+metallic = 1.0
+metallic_texture = ExtResource("4_imd5g")
+roughness_texture = ExtResource("6_5fnwo")
+normal_enabled = true
+normal_texture = ExtResource("5_4ilum")
+ao_enabled = true
+ao_texture = ExtResource("3_gmuk2")
+
+[node name="被子 烘焙" instance=ExtResource("1_roaa3")]
+
+[node name="Group33856" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sqj5h")

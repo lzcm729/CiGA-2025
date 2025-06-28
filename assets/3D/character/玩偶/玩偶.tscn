@@ -1,0 +1,40 @@
+[gd_scene load_steps=13 format=3 uid="uid://ddekef4jj4eor"]
+
+[ext_resource type="ArrayMesh" path="res://assets/3D/character/玩偶/base.obj" id="1_w8kk6"]
+[ext_resource type="Texture2D" uid="uid://gq8xumtg3svu" path="res://assets/3D/character/玩偶/texture_diffuse.png" id="2_awqt0"]
+[ext_resource type="Texture2D" uid="uid://sagg7l0wrjsr" path="res://assets/3D/character/玩偶/texture_metallic.png" id="3_j8iev"]
+[ext_resource type="Texture2D" uid="uid://c7722jeloj4hr" path="res://assets/3D/character/玩偶/texture_normal.png" id="4_8n6qx"]
+[ext_resource type="Texture2D" uid="uid://5b4y2gos8mv1" path="res://assets/3D/character/玩偶/texture_roughness.png" id="5_wniur"]
+[ext_resource type="ArrayMesh" path="res://assets/3D/character/玩偶/weapon.obj" id="6_rtkm8"]
+[ext_resource type="Texture2D" uid="uid://blgwnrmv01mm1" path="res://assets/3D/character/玩偶/w-texture_diffuse.png" id="7_2jskp"]
+[ext_resource type="Texture2D" uid="uid://cii1ku04ws3pf" path="res://assets/3D/character/玩偶/w-texture_metallic.png" id="8_jcbrj"]
+[ext_resource type="Texture2D" uid="uid://dd5hqg55551pu" path="res://assets/3D/character/玩偶/w-texture_normal.png" id="9_j73kw"]
+[ext_resource type="Texture2D" uid="uid://da7miynw0flw8" path="res://assets/3D/character/玩偶/w-texture_roughness.png" id="10_jj2b2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ywi5"]
+albedo_texture = ExtResource("2_awqt0")
+metallic = 1.0
+metallic_texture = ExtResource("3_j8iev")
+roughness_texture = ExtResource("5_wniur")
+normal_enabled = true
+normal_texture = ExtResource("4_8n6qx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47sok"]
+albedo_texture = ExtResource("7_2jskp")
+metallic = 1.0
+metallic_texture = ExtResource("8_jcbrj")
+roughness_texture = ExtResource("10_jj2b2")
+normal_enabled = true
+normal_texture = ExtResource("9_j73kw")
+
+[node name="玩偶" type="Node3D"]
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0611398, 0, 0.127854)
+mesh = ExtResource("1_w8kk6")
+surface_material_override/0 = SubResource("StandardMaterial3D_3ywi5")
+
+[node name="Weapon" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0440524, 0, -0.777467, -0.765254, 0.137484, 0.0433604, 0.137263, 0.766481, -0.00777755, -1.54326, 0.780105, -0.237065)
+mesh = ExtResource("6_rtkm8")
+surface_material_override/0 = SubResource("StandardMaterial3D_47sok")
