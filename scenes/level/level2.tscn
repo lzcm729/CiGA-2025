@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlxkrr6i53h27"]
+[gd_scene load_steps=7 format=3 uid="uid://dlxkrr6i53h27"]
 
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_7jkud"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_hpcx2"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_i27ya"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="3_i27ya"]
-[ext_resource type="PackedScene" uid="uid://c60ihoh1r4y3j" path="res://closet.tscn" id="4_2j2lo"]
 [ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="6_gxyiv"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_i27ya"]
 
 [sub_resource type="Curve3D" id="Curve3D_hpcx2"]
 bake_interval = 0.01
@@ -21,17 +18,14 @@ point_count = 6
 script = ExtResource("1_7jkud")
 Index = 2
 
-[node name="Gear01" parent="." instance=ExtResource("1_hpcx2")]
+[node name="Closet" parent="." instance=ExtResource("6_gxyiv")]
+transform = Transform3D(0.488728, 0, 0.872436, 0, 1, 0, -0.872436, 0, 0.488728, -7.15228, 8.28516, 6.50789)
+index = 2
+
+[node name="Book" parent="." node_paths=PackedStringArray("path") instance=ExtResource("1_hpcx2")]
 transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.9727, 8.39084, 4.25612)
 index = 1
-
-[node name="Gear02" parent="." instance=ExtResource("4_2j2lo")]
-transform = Transform3D(0.130474, 0, 0.991452, 0, 1, 0, -0.991452, 0, 0.130474, -6.94205, 9.26543, 6.01769)
-visible = false
-
-[node name="Gear02_02" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.403923, 0.225774, 0.1894, 0, 0.321347, -0.383061, -0.294697, 0.309455, 0.259599, -6.43163, 8.88021, 4.67097)
-mesh = SubResource("CapsuleMesh_i27ya")
+path = NodePath("../Path3D/PathFollow3D")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.39844, 8.50112, 3.88009)
@@ -45,7 +39,3 @@ loop = false
 path_node = NodePath("..")
 
 [node name="p1" parent="." instance=ExtResource("3_i27ya")]
-visible = false
-
-[node name="Closet" parent="." instance=ExtResource("6_gxyiv")]
-transform = Transform3D(0.488728, 0, 0.872436, 0, 1, 0, -0.872436, 0, 0.488728, -7.15228, 8.28516, 6.50789)
