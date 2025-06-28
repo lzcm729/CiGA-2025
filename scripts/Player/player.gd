@@ -48,6 +48,11 @@ var direction: Vector3
 ## 中立
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func get_scene() -> MainScene:
+	if level :
+		return level.scene
+	return null
+
 func switch_camera_with_tween(next_player: Player) -> void :
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	var new_camera = next_player.camera_3d

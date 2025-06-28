@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
-[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="2_nd4gh"]
+[ext_resource type="PackedScene" path="res://closet.tscn" id="2_nd4gh"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_ib8j6"]
 [ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]
-[ext_resource type="PackedScene" uid="uid://jsswx28hejj6" path="res://scenes/prototype/light.tscn" id="5_l3ian"]
+[ext_resource type="PackedScene" path="res://scenes/prototype/light.tscn" id="5_l3ian"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)

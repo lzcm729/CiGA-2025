@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://d30t2bi4w65jl"]
+[gd_scene load_steps=7 format=3 uid="uid://d30t2bi4w65jl"]
 
 [ext_resource type="PackedScene" uid="uid://b1mrhfhcittfm" path="res://scenes/level/level1.tscn" id="1_64aob"]
 [ext_resource type="Script" uid="uid://b64tu3o5s7vgp" path="res://scripts/Scene/main.gd" id="1_x0mk0"]
 [ext_resource type="PackedScene" uid="uid://dlxkrr6i53h27" path="res://scenes/level/level2.tscn" id="2_gjage"]
 [ext_resource type="PackedScene" uid="uid://hel1mej6t04v" path="res://scenes/level/level3.tscn" id="3_x0mk0"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="4_2hqms"]
+[ext_resource type="PackedScene" uid="uid://b07wy55rqrshd" path="res://scenes/3D/canvas_layer_crt.tscn" id="7_2hqms"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_x0mk0")
+
+[node name="CanvasLayer_CRT" parent="." instance=ExtResource("7_2hqms")]
 
 [node name="p1" parent="." instance=ExtResource("4_2hqms")]
 
