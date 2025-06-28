@@ -131,7 +131,7 @@ func make_current(is_enable:bool) -> void:
 	find_camera_3d()
 	if camera_3d:
 		is_current = is_enable
-		print("player make current:" + name)
+		print("player make current:" + name + ", is_current:" + str(is_current))
 		if is_enable:
 			camera_3d.make_current()
 		else:
