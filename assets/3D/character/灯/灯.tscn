@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg26yufvcsov1"]
+[gd_scene load_steps=7 format=3 uid="uid://w4knshu08toe"]
 
 [ext_resource type="ArrayMesh" uid="uid://bkj4ihqimukye" path="res://assets/3D/character/灯/base.obj" id="1_vw5q7"]
 [ext_resource type="Texture2D" uid="uid://dxurraa77seku" path="res://assets/3D/character/灯/ltexture_diffuse.png" id="2_nnub4"]
@@ -17,6 +17,6 @@ normal_texture = ExtResource("4_itv2s")
 [node name="灯" type="Node3D"]
 
 [node name="Base" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.310965, 0, 1.35283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221167, 0, 0.00607038)
 mesh = ExtResource("1_vw5q7")
 surface_material_override/0 = SubResource("StandardMaterial3D_cmhcu")

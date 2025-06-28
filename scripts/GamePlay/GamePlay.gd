@@ -1,4 +1,5 @@
 extends Node
+class_name GamePlay
 
 var timer = 0
 @export var count_down = -1
@@ -32,7 +33,8 @@ func on_timer_end() -> void:
 	emit_signal("TIME_COUNTDOWN", times)
 	time.stop()
 	var cur_level_info = DataManager.get_cur_level_config()
-	game_start(cur_level_info[2]["total_time"])
+	game_start(cur_level_info[1]["total_time"])
+
 
 func on_single_timer_end() -> void:
 	emit_signal("TIME_COUNTDOWN", times)

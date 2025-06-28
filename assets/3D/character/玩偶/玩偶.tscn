@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ju55pa3esob4"]
+[gd_scene load_steps=13 format=3 uid="uid://cln2eg0iy0xny"]
 
 [ext_resource type="ArrayMesh" uid="uid://5txu1nw0wyac" path="res://assets/3D/character/玩偶/base.obj" id="1_w8kk6"]
 [ext_resource type="Texture2D" uid="uid://gq8xumtg3svu" path="res://assets/3D/character/玩偶/texture_diffuse.png" id="2_awqt0"]
@@ -30,7 +30,7 @@ normal_texture = ExtResource("9_j73kw")
 [node name="玩偶" type="Node3D"]
 
 [node name="Base" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0611398, 0, 0.127854)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013964, 1.19209e-07, -0.000464633)
 mesh = ExtResource("1_w8kk6")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ywi5")
 
