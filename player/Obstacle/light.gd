@@ -1,4 +1,5 @@
 extends Node3D
+class_name Lamp
 
 var default_radius: float
 var min_radius: float = 0.2
@@ -17,19 +18,20 @@ func _ready() -> void:
 	else:
 		push_error("Decal mesh is not a CylinderMesh!")
 
-func _process(delta: float) -> void:
-	if gone: return
 
-	if Input.is_action_pressed("interact"):
-		if cylinder_mesh.bottom_radius > min_radius:
-			cylinder_mesh.bottom_radius = cylinder_mesh.bottom_radius - shrink_rate * delta
-		else:
-			print("Light is gone")
-			decal.visible = false
-			light.visible = false
-			decal.queue_free()
-			light.queue_free()
-			gone = true
+func decrease_light(delta) -> void:
+	if gone: return
+	if cylinder_mesh.bottom_radius > min_radius:
+		cylinder_mesh.bottom_radius = cylinder_mesh.bottom_radius - shrink_rate * delta
 	else:
-		if cylinder_mesh.bottom_radius < default_radius:
-			cylinder_mesh.bottom_radius = cylinder_mesh.bottom_radius + shrink_rate * delta
+		print("Light is gone")
+		decal.visible = false
+		light.visible = false
+		decal.queue_free()
+		light.queue_free()
+		gone = true
+	
+	
+func increase_light(delta) -> void:
+	if cylinder_mesh.bottom_radius < default_radius:
+		cylinder_mesh.bottom_radius = cylinder_mesh.bottom_radius + shrink_rate * delta

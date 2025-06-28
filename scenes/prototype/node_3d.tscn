@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://de1rprmpcnrdl"]
+[gd_scene load_steps=28 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_l3hl8"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="6_l3hl8"]
 [ext_resource type="PackedScene" uid="uid://bw0l0xdq8l3sh" path="res://player/Obstacle/Light.tscn" id="7_17h8h"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="8_aewk5"]
+[ext_resource type="Script" uid="uid://be3m50ipbfg3f" path="res://player/Monster/draw.gd" id="9_t52lg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -66,6 +67,18 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_frhej"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 4.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_frhej"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frhej"]
+size = Vector3(0.5, 4.40192, 0.5)
 
 [node name="level" type="Node3D"]
 script = ExtResource("1_l3hl8")
@@ -174,3 +187,24 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.9101, -0.00250793, -2
 disable_mode = 2
 index = 1
 path = NodePath("../Path3D2/PathFollow3D")
+
+[node name="Draw" type="CharacterBody3D" parent="." node_paths=PackedStringArray("lamp") groups=["PlayerGroup"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.36986, 1.01202, -0.456321)
+script = ExtResource("9_t52lg")
+lamp = NodePath("../newlight")
+
+[node name="Mesh" type="Node3D" parent="Draw"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Draw/Mesh"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.00017156, 2.91534, -0.00324895)
+mesh = SubResource("CylinderMesh_frhej")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Draw/Mesh"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0.86603, 0)
+mesh = SubResource("SphereMesh_frhej")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draw"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 2.88841, 0)
+shape = SubResource("BoxShape3D_frhej")
