@@ -1,4 +1,5 @@
 extends Node
+class_name GamePlay
 
 var timer = 0
 @export var count_down = -1
@@ -28,11 +29,15 @@ func _process(delta: float) -> void:
 @onready var time: Timer = $"../Timer"
 func on_timer_end() -> void:
 	var cur_level_info = DataManager.get_cur_level_config()
-	game_start(cur_level_info[2]["total_time"])
+	game_start(cur_level_info[1]["total_time"])
+
 
 func count_down_and_start_game() -> void:
 	time.connect("timeout", on_timer_end)
 	time.start(5)
+	var cur_level_info = DataManager.get_cur_level_config()
+	var main_node = get_parent()
+	main_node.switch_level(cur_level_info[0])
 
 func _ready() -> void:
 	return
