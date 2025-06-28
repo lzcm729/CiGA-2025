@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1mrhfhcittfm"]
+
+[ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_pgq8h"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_5yh3o"]
+
+[sub_resource type="Curve3D" id="Curve3D_1ob00"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0.021, 0, -0.038, -0.021, 0, 0.038, -0.682315, 0, 0.465202, 0.04, 0, 0.073, -0.04, 0, -0.073, -2.435, 0, 0.626, 0, 0, 0, 0, 0, 0, -3.103, 0, 0.895, 0, 0, 0, 0, 0, 0, -3.57413, 0, 1.23499, 0, 0, 0, 0, 0, 0, -4.28723, 0, 0.454271, 0, 0, 0, 0, 0, 0, -4.389, 0, 1.556, 0, 0, 0, 0, 0, 0, -5.53, 0, 1.448),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[node name="Level1" type="Node3D"]
+
+[node name="Level01" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019598, 0, 0.00676858)
+
+[node name="Gear01" parent="Level01" node_paths=PackedStringArray("path") instance=ExtResource("1_pgq8h")]
+transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -5.20848, 8.39084, 4.46673)
+path = NodePath("../Path3D/PathFollow3D")
+
+[node name="Path3D" type="Path3D" parent="Level01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63422, 8.56221, 4.0907)
+curve = SubResource("Curve3D_1ob00")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Level01/Path3D"]
+transform = Transform3D(-0.875237, 0, 0.483684, 0, 0.99999, 0, -0.483684, 0, -0.875237, -0.682315, 0, 0.465202)
+
+[node name="PathPolygon" parent="Level01/Path3D" instance=ExtResource("2_5yh3o")]
+path_node = NodePath("..")

@@ -7,6 +7,8 @@ func enter() -> void:
 	#print("enter Idle")
 	player.is_back = true
 	player.move()
+	if player.scene.PostEffect_CRT :
+		player.scene.PostEffect_CRT.show()
 	
 
 func exit() -> void:
@@ -32,4 +34,6 @@ func physics_process_update(delta: float) -> void:
 			player.velocity = Vector3(0, 0, 0)
 			state_machine.change_state("Idle")
 			player.is_back = false
+			if player.scene.PostEffect_CRT :
+				player.scene.PostEffect_CRT.hide()
 		

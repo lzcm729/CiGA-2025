@@ -1,6 +1,7 @@
 extends Node3D
 class_name Scene
 @onready var currentIndex : int = 1
+@export var PostEffect_CRT : CanvasLayer
 var playNum : int = 0
 var is_switching : bool = false
 
@@ -24,7 +25,9 @@ func _ready() -> void:
 	for player in get_tree().get_nodes_in_group("PlayerGroup"):
 		if player is Player :
 			playNum += 1
-			
+	if PostEffect_CRT :
+		PostEffect_CRT.hide()
+	
 func _input(event: InputEvent) -> void:
 	var action = "switch"
 	for i in range(1, playNum, 1) :
