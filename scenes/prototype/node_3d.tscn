@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://de1rprmpcnrdl"]
 
-[ext_resource type="Script" path="res://scripts/Scene/level_base.gd" id="1_l3hl8"]
+[ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_l3hl8"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_ib8j6"]
 [ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]

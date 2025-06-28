@@ -142,7 +142,8 @@ func make_current(is_enable:bool) -> void:
 func _ready() -> void:
 	state_machine = $StateMachine
 	animation_tree = $AnimationTree
-	anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
+	if animation_tree: 
+		anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
 	find_camera_3d()
 	if path :
 		path.progress_ratio = 0
