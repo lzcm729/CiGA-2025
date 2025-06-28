@@ -1,7 +1,7 @@
 [gd_scene load_steps=126 format=3 uid="uid://ngf71gejgjys"]
 
 [ext_resource type="PackedScene" uid="uid://do7n8eggqiiyq" path="res://test/Prefabs/Attic_WoodenFrame_03_LP.tscn" id="1_kohiv"]
-[ext_resource type="Script" uid="uid://3ji7gdrvimlh" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
+[ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
 [ext_resource type="PackedScene" uid="uid://b7yqyhnr1i0v" path="res://test/Prefabs/Attic_Wall_01_LP.tscn" id="2_pc2c4"]
 [ext_resource type="PackedScene" uid="uid://dtl6ya4xchmm6" path="res://test/Prefabs/House_01_LP.tscn" id="3_kv05t"]
 [ext_resource type="PackedScene" uid="uid://b1o2ktg8g3pjh" path="res://test/Prefabs/Attic_Hatch_01_LP.tscn" id="4_o2jhi"]
@@ -2823,7 +2823,6 @@ transform = Transform3D(1.05, 0, 0, 0, 0.804346, 0.642788, 0, 0.674928, -0.76604
 
 [node name="prototype_common" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.267962, 0, -0.96343, 0, 1, 0, 0.96343, 0, 0.267962, -7.28384, 8.3051, 5.24273)
-visible = false
 
 [node name="floor" type="MeshInstance3D" parent="prototype_common"]
 transform = Transform3D(1.82931, 0, 0, 0, 1, 0, 0, 0, 1, 0.120263, -0.178691, -0.316364)
