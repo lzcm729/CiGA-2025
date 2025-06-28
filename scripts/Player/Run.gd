@@ -4,7 +4,7 @@ extends StateBase
 func enter() -> void:
 	super.enter()
 	#print("enter Run")
-	player.is_moving = true
+	player.move()
 	
 
 func exit() -> void:
