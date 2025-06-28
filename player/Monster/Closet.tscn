@@ -115,3 +115,4 @@ progress = 2.55315
 loop = false
 
 [node name="Doll" parent="Path3D/PathFollow3D" instance=ExtResource("14_c0g5h")]
+transform = Transform3D(-2.81328, -0.620118, -0.83721, -0.808939, 2.81935, 0.630004, 0.656569, 0.816543, -2.81108, 0.0927074, -0.742393, -0.0938423)
