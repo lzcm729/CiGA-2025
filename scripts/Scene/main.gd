@@ -11,15 +11,16 @@ func switch_level(index:int) ->void:
 			add_child(level)
 			level.scene = self
 		else:
-			remove_child(level)
+			if self.is_ancestor_of(level):
+				remove_child(level)
 
 
 func _ready() -> void:
 	for level in get_tree().get_nodes_in_group("LevelGroup"):
-		remove_child(level)
-		levels.append(level)
-	PostEffect_CRT.hide()
+		if self.is_ancestor_of(level):
+			remove_child(level)
+			levels.append(level)
+	PostEffect_CRT.hide()		
 	currentLevelIndex = DataManager.get_cur_level_config()[0]	
 	print('bbbbbbbbbbb',currentLevelIndex)	
 	switch_level(currentLevelIndex)
-	

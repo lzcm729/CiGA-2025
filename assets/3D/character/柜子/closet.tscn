@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bj8xja2wcmad5" path="res://assets/3D/character/柜子/initialShadingGroup_Metallic.png" id="5_alj4j"]
 [ext_resource type="Texture2D" uid="uid://cdd2ykvbacfmy" path="res://assets/3D/character/柜子/initialShadingGroup_Normal_OpenGL.png" id="6_67k8w"]
 [ext_resource type="Texture2D" uid="uid://dtpkbr3weh8c5" path="res://assets/3D/character/柜子/initialShadingGroup_Roughness.png" id="7_knflk"]
-[ext_resource type="ArrayMesh" uid="uid://cr6rxnem5ksgv" path="res://door.res" id="8_s3cbf"]
+[ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="8_s3cbf"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="9_alj4j"]
-[ext_resource type="ArrayMesh" uid="uid://b1t1nquwtvb60" path="res://door2.res" id="10_67k8w"]
+[ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="10_67k8w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q8gb"]
 albedo_texture = ExtResource("3_lvydv")

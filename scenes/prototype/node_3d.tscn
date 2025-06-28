@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://de1rprmpcnrdl"]
+[gd_scene load_steps=21 format=3 uid="uid://de1rprmpcnrdl"]
 
+[ext_resource type="Script" path="res://scripts/Scene/level_base.gd" id="1_l3hl8"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_ib8j6"]
 [ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]
-[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="5_l3hl8"]
 [ext_resource type="PackedScene" uid="uid://jsswx28hejj6" path="res://scenes/prototype/light.tscn" id="5_l3ian"]
+[ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="6_l3hl8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -57,6 +58,10 @@ size = Vector3(0.3, 0.3, 0.3)
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="level" type="Node3D"]
+script = ExtResource("1_l3hl8")
+
+[node name="Closet2" parent="." instance=ExtResource("6_l3hl8")]
+transform = Transform3D(0.939119, 0, 0.343583, 0, 1, 0, -0.343583, 0, 0.939119, -2.32608, 0.249555, 0.522496)
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.82931, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0, -0.178699)
@@ -140,6 +145,3 @@ shape = SubResource("BoxShape3D_l3ian")
 
 [node name="Light" parent="." instance=ExtResource("5_l3ian")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.233324, 0)
-
-[node name="Closet" parent="." instance=ExtResource("5_l3hl8")]
-transform = Transform3D(0.983749, 0, 0.17953, 0, 1, 0, -0.17953, 0, 0.983749, -3.42545, 0.625915, -0.74174)

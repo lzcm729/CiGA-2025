@@ -3,6 +3,9 @@ extends CharacterBody3D
 class_name Player
 
 var level: Level
+var animation_tree: AnimationTree
+var state_machine: StateMachine
+var anim_state_machine: AnimationNodeStateMachinePlayback
 
 @export var speed = 5.0
 @export var back_speed = 15.0
@@ -10,13 +13,11 @@ var level: Level
 @export var index : int
 @export var path : PathFollow3D
 @export var enable_jump = false
+@export var ignore_gravity = false
 @onready var mesh: Node3D = $Mesh
-@onready var state_machine: StateMachine = $StateMachine
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var anim_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
-
+ 
 #@onready var is_moving : bool = false :
 	#set(value):
 		#is_moving = value
@@ -94,20 +95,25 @@ func post_switch() -> void :
 	level.is_switching = false
 	level.currentPlayerIndex = index
 	
-func make_current() -> void :
-	camera_3d.current = true
 
 func is_current_valid() -> bool :
+	if not level:
+		return false
 	return level.currentPlayerIndex == index
 
 func is_input_valid() -> bool :
 	return visible and is_current_valid() and (not is_switching) and (not is_back)
 
 func start_back() -> void :
-	state_machine.change_state("Back")
+	if state_machine:
+		state_machine.change_state("Back")
 
 func _ready() -> void:
+	state_machine = $StateMachine
+	animation_tree = $AnimationTree
+	anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
 	level = get_parent()
+	camera_3d.current = (index == level.currentPlayerIndex)
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
@@ -116,7 +122,7 @@ func _ready() -> void:
 		mesh.rotation.y = path.global_rotation.y + 180
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
+	if not is_on_floor() && not ignore_gravity:
 		velocity.y -= gravity * delta
 	if is_input_valid() :
 		var input_dir : Vector2 
@@ -133,7 +139,8 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if is_input_valid() :
 		if enable_jump and event.is_action_pressed("jump") and is_on_floor():
-			state_machine.change_state("Jump")
+			if state_machine:
+				state_machine.change_state("Jump")
 		if event.is_action_pressed("debug_back"):
 			start_back()
 			

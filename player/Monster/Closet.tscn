@@ -1,22 +1,19 @@
-[gd_scene load_steps=39 format=3 uid="uid://cmj1qnrayspc8"]
+[gd_scene load_steps=20 format=3 uid="uid://cmj1qnrayspc8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="1_78tyg"]
+[ext_resource type="Script" uid="uid://dgmplgwr81qaf" path="res://player/Monster/closet.gd" id="1_svtae"]
 [ext_resource type="Texture2D" uid="uid://2i8jy3cn3n5h" path="res://assets/3D/character/柜子/initialShadingGroup_Base_color.png" id="2_svtae"]
 [ext_resource type="Texture2D" uid="uid://ca3e2tc5q338q" path="res://assets/3D/character/柜子/initialShadingGroup_Height.png" id="3_de5xp"]
 [ext_resource type="Texture2D" uid="uid://bj8xja2wcmad5" path="res://assets/3D/character/柜子/initialShadingGroup_Metallic.png" id="4_a6kfy"]
 [ext_resource type="Texture2D" uid="uid://cdd2ykvbacfmy" path="res://assets/3D/character/柜子/initialShadingGroup_Normal_OpenGL.png" id="5_i0l86"]
 [ext_resource type="Texture2D" uid="uid://dtpkbr3weh8c5" path="res://assets/3D/character/柜子/initialShadingGroup_Roughness.png" id="6_2cuyi"]
-[ext_resource type="PackedScene" uid="uid://bm3icttanv0ex" path="res://assets/3D/character/柜子/柜子.fbx" id="7_c1leb"]
 [ext_resource type="Script" uid="uid://cy3s66yh28pyj" path="res://scripts/Scene/spring_arm_3d.gd" id="8_6qog1"]
-[ext_resource type="ArrayMesh" uid="uid://bkl1vbxfdddfo" path="res://door.res" id="8_cg7ya"]
+[ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="8_cg7ya"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="9_tma88"]
-[ext_resource type="Script" uid="uid://dlrqvlk7uquu0" path="res://scripts/StateMachine/StateMachine.gd" id="9_xf3p3"]
-[ext_resource type="ArrayMesh" uid="uid://b8ks7682wjjri" path="res://door2.res" id="10_5vs8q"]
-[ext_resource type="Script" uid="uid://dkfgpgem620tk" path="res://scripts/Player/Idle.gd" id="10_swivk"]
-[ext_resource type="Script" uid="uid://dndiagkje5uyf" path="res://scripts/Player/Run.gd" id="11_yra73"]
-[ext_resource type="Script" uid="uid://bgws6lnfcxp7y" path="res://scripts/Player/Jump.gd" id="12_hadjs"]
-[ext_resource type="Script" uid="uid://dgj4rwdmcnsia" path="res://scripts/Player/Fall.gd" id="13_86i46"]
-[ext_resource type="Script" uid="uid://c64m4ymwwl68k" path="res://scripts/Player/Back.gd" id="14_6mg3i"]
+[ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="10_5vs8q"]
+[ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="14_c0g5h"]
+[ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="18_svtae"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="19_de5xp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q8gb"]
 albedo_texture = ExtResource("2_svtae")
@@ -49,82 +46,44 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("3_de5xp")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8f2n"]
+radius = 0.689692
 height = 2.5
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_45jpm"]
-animation = &"Running/mixamo_com"
+[sub_resource type="Curve3D" id="Curve3D_a6kfy"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.687, 0, -0.282923, 0, 0, 0, 0, 0, 0, 1.80602, 0.0361547, -0.183318, 0, 0, 0, 0, 0, 0, 2.14733, -0.0488777, 0.402416),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_843mt"]
-animation = &"Idle/mixamo_com"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p0q4u"]
-animation = &"Jumping/mixamo_com"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b4r7u"]
-animation = &"Running/mixamo_com"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c6eev"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_poifh"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bm0io"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yq2he"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45jpm"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nqhtc"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugy7y"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0yi4p"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8r000"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t33ig"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1vk24"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mtyqs"]
-states/Back/node = SubResource("AnimationNodeAnimation_45jpm")
-states/Back/position = Vector2(607.625, 192)
-states/Idle/node = SubResource("AnimationNodeAnimation_843mt")
-states/Idle/position = Vector2(405, 89)
-states/Jump/node = SubResource("AnimationNodeAnimation_p0q4u")
-states/Jump/position = Vector2(342, 208.5)
-states/Move/node = SubResource("AnimationNodeAnimation_b4r7u")
-states/Move/position = Vector2(609.5, 90.5)
-states/Start/position = Vector2(194, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_c6eev"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_poifh"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_bm0io"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_yq2he"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_45jpm"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_nqhtc"), "Jump", "Move", SubResource("AnimationNodeStateMachineTransition_ugy7y"), "Idle", "Back", SubResource("AnimationNodeStateMachineTransition_0yi4p"), "Back", "Idle", SubResource("AnimationNodeStateMachineTransition_8r000"), "Back", "Move", SubResource("AnimationNodeStateMachineTransition_t33ig"), "Move", "Back", SubResource("AnimationNodeStateMachineTransition_1vk24")]
-graph_offset = Vector2(194, 16)
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_iaohe"]
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_mtyqs")
-nodes/StateMachine/position = Vector2(-337.605, 140.938)
-node_connections = [&"output", 0, &"StateMachine"]
-
-[node name="Closet" type="Node3D"]
+[node name="Closet" type="CharacterBody3D"]
+script = ExtResource("1_svtae")
+metadata/_custom_type_script = "uid://4ve24poo2esn"
 
 [node name="Mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15228, -2.38419e-07, -1.21179)
 
-[node name="柜子2" type="MeshInstance3D" parent="Mesh"]
+[node name="柜子" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(3.31652, 0, 0, 0, 3.31652, 0, 0, 0, 3.31652, -1.12367, 1.19209e-07, 1.16798)
 mesh = ExtResource("1_78tyg")
 surface_material_override/0 = SubResource("StandardMaterial3D_3q8gb")
 
-[node name="柜子" parent="Mesh" instance=ExtResource("7_c1leb")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+[node name="Left" type="Node3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05062, 0, 1.58903)
 
-[node name="Door" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(291.988, -21.6482, -150.729, 24.3986, 339.965, 0.196763, 161.501, -12.2206, 272.483, -0.773916, 0.816138, 1.48673)
+[node name="Door" type="MeshInstance3D" parent="Mesh/Left"]
+transform = Transform3D(332.967, -24.7915, -20.301, 24.3986, 339.965, 0.196765, 21.7383, -1.83499, 310.732, 0.300831, 0.816138, -0.0778975)
 mesh = ExtResource("8_cg7ya")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_knflk")
 
-[node name="Door2" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(227.274, 0, 307.85, 0, 354.538, 0, -307.85, 0, 227.274, -0.961478, 0.802165, 0.841287)
+[node name="Right" type="Node3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14792, 5.96046e-08, 0.867813)
+
+[node name="Door2" type="MeshInstance3D" parent="Mesh/Right"]
+transform = Transform3D(375.368, -20.2295, 71.0416, 21.453, 353.96, 4.06016, -71.1576, 0, 375.981, 0.21301, 0.802165, 0.0529866)
 mesh = ExtResource("10_5vs8q")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_vydre")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -138,30 +97,23 @@ spring_length = 5.0
 script = ExtResource("8_6qog1")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+current = true
 
-[node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
-script = ExtResource("9_xf3p3")
-current_state = NodePath("Idle")
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("18_svtae")
 
-[node name="Idle" type="Node3D" parent="StateMachine"]
-script = ExtResource("10_swivk")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801158, 0)
+curve = SubResource("Curve3D_a6kfy")
 
-[node name="Run" type="Node3D" parent="StateMachine"]
-script = ExtResource("11_yra73")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
+[node name="PathPolygon" parent="Path3D" instance=ExtResource("19_de5xp")]
+visible = false
+path_node = NodePath("..")
 
-[node name="Jump" type="Node3D" parent="StateMachine"]
-script = ExtResource("12_hadjs")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.865121, -0.0448874, -0.499551, -0.122951, 0.984576, 0.124456, 0.486261, 0.169089, -0.857297, 2.14733, -0.0488777, 0.402416)
+progress = 2.55315
+loop = false
 
-[node name="Fall" type="Node3D" parent="StateMachine"]
-script = ExtResource("13_86i46")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
-
-[node name="Back" type="Node3D" parent="StateMachine"]
-script = ExtResource("14_6mg3i")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_iaohe")
+[node name="Doll" parent="Path3D/PathFollow3D" instance=ExtResource("14_c0g5h")]
+transform = Transform3D(-2.81328, -0.620118, -0.83721, -0.808939, 2.81935, 0.630004, 0.656569, 0.816543, -2.81108, 0.0927074, -0.742393, -0.0938423)

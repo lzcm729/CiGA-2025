@@ -22,6 +22,8 @@ class_name CameraArm
 @export var need_damping:bool = true
 ## 视角转动 - 阻尼大小
 @export var damping:float = 10
+## 固定视角
+@export var fix_view:bool = true
 
 ## 鼠标右键是否按下
 var mouse_right_press:bool = false
@@ -46,6 +48,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	update_mouse_input()
+	if fix_view:
+		return
 	# 根据已有的欧拉角，来获取3D旋转的单位四元数
 	var _rotation:Quaternion = Quaternion.from_euler(Vector3(x, y, 0))
 	# 根据滚轮事件，来调整视距
@@ -63,6 +67,8 @@ func _process(delta: float) -> void:
 		spring_length = distance
 
 func _input(event: InputEvent) -> void:
+	if fix_view:
+		return
 	#判断当前事件是否为鼠标移动 来更新x,y的值
 	if event is InputEventMouseMotion:
 		# 鼠标上下位移，调整的是视野上下移动，此时旋转的是x轴
@@ -76,6 +82,8 @@ func _input(event: InputEvent) -> void:
 
 ## 更新鼠标输入
 func update_mouse_input() -> void:
+	if fix_view:
+		return
 	## 判断鼠标是否前滑
 	var is_wheel_up = Input.is_action_just_released("mouse_scroll_up")
 	## 判断鼠标是否后滑
