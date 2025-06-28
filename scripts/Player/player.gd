@@ -94,8 +94,6 @@ func post_switch() -> void :
 	level.is_switching = false
 	level.currentPlayerIndex = index
 	
-func make_current() -> void :
-	camera_3d.current = true
 
 func is_current_valid() -> bool :
 	if not level:
@@ -114,6 +112,7 @@ func _ready() -> void:
 	animation_tree = $AnimationTree
 	anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
 	level = get_parent()
+	camera_3d.current = (index == level.currentPlayerIndex)
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
