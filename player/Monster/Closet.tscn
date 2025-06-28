@@ -46,6 +46,7 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("3_de5xp")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8f2n"]
+radius = 0.689692
 height = 2.5
 
 [sub_resource type="Curve3D" id="Curve3D_a6kfy"]
