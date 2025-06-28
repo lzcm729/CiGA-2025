@@ -79,39 +79,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(68, 300)
 layout_mode = 2
 
-[node name="KeyMarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Control" type="Control" parent="KeyMarginContainer"]
-layout_mode = 2
-
-[node name="Back" type="Button" parent="KeyMarginContainer/Control"]
-layout_mode = 1
-offset_right = 100.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 20
-text = "返回"
-
-[node name="Guide" type="Button" parent="KeyMarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_bottom = 50.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
-text = "指导"
-
 [node name="CountDownMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -182,5 +149,38 @@ theme_override_font_sizes/font_size = 50
 text = "抓住那个小孩子，把他吃掉！"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="KeyMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="KeyMarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="KeyMarginContainer/Control"]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "返回"
+
+[node name="Guide" type="Button" parent="KeyMarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "指导"
 
 [connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]

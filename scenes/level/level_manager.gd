@@ -5,7 +5,6 @@ extends Node
 @onready var start_count_down: Timer = $StartCountDown
 
 func _ready() -> void:
-	DataManager.select_level(1)
 	start_count_down.start()
 	main_level_hud.show_guide_panel(true)
 	start_count_down.timeout.connect(_on_start_count_down_timeout)
