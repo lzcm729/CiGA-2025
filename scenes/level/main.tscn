@@ -7,10 +7,13 @@
 
 [node name="Main" type="Node3D"]
 
-[node name="Level1" parent="." instance=ExtResource("1_64aob")]
-
-[node name="Level2" parent="." instance=ExtResource("2_gjage")]
+[node name="p1" parent="." instance=ExtResource("4_2hqms")]
 
 [node name="Level3" parent="." instance=ExtResource("3_x0mk0")]
+visible = false
 
-[node name="main" parent="." instance=ExtResource("4_2hqms")]
+[node name="Level2" parent="." instance=ExtResource("2_gjage")]
+visible = false
+
+[node name="Level1" parent="." instance=ExtResource("1_64aob")]
+visible = false

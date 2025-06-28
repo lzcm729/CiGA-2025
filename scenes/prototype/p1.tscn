@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://ngf71gejgjys"]
+[gd_scene load_steps=126 format=3 uid="uid://ngf71gejgjys"]
 
 [ext_resource type="PackedScene" uid="uid://do7n8eggqiiyq" path="res://test/Prefabs/Attic_WoodenFrame_03_LP.tscn" id="1_kohiv"]
 [ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
@@ -138,14 +138,9 @@ albedo_color = Color(1, 1, 0.309804, 1)
 material = SubResource("StandardMaterial3D_nd4gh")
 size = Vector3(0.1, 0.1, 5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_nd4gh"]
-size = Vector3(0.5, 2, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_fdwyv"]
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_kohiv"]
 
-[node name="main" type="Node3D"]
+[node name="p1" type="Node3D"]
 script = ExtResource("1_o2jhi")
 
 [node name="Attic_Wall_01_LP2" parent="." instance=ExtResource("2_pc2c4")]
@@ -2828,7 +2823,6 @@ transform = Transform3D(1.05, 0, 0, 0, 0.804346, 0.642788, 0, 0.674928, -0.76604
 
 [node name="prototype_common" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.267962, 0, -0.96343, 0, 1, 0, 0.96343, 0, 0.267962, -7.28384, 8.3051, 5.24273)
-visible = false
 
 [node name="floor" type="MeshInstance3D" parent="prototype_common"]
 transform = Transform3D(1.82931, 0, 0, 0, 1, 0, 0, 0, 1, 0.120263, -0.178691, -0.316364)
@@ -2855,7 +2849,7 @@ mesh = SubResource("BoxMesh_suqva")
 skeleton = NodePath("../../..")
 
 [node name="Wall4" type="MeshInstance3D" parent="prototype_common/walltotal"]
-transform = Transform3D(-0.143411, 0, 0.968032, 0, 1, 0, -0.405882, 0, -0.0637858, 0.109416, 1.25972, -2.86862)
+transform = Transform3D(-0.0817642, 0, 2.09797, 0, 2.23561, 0, -0.231409, 0, -0.13824, 1.03258, 1.95683, -3.05177)
 mesh = SubResource("BoxMesh_suqva")
 skeleton = NodePath("../..")
 
@@ -2868,87 +2862,6 @@ mesh = SubResource("BoxMesh_fdwyv")
 skeleton = NodePath("../../..")
 
 [node name="gear" type="Node3D" parent="prototype_common"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="prototype_common/gear"]
-transform = Transform3D(0.989191, 0, -0.146636, 0, 1, 0, 0.146636, 0, 0.989191, 1.38489, 1.40477, -0.148992)
-mesh = SubResource("BoxMesh_nd4gh")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="prototype_common/gear"]
-transform = Transform3D(0.850161, -0.303288, -0.121003, 0.512792, 0.5078, -0.0305324, 0.119463, -0.0213616, 0.992182, 0.221974, 0.814172, -0.162472)
-mesh = SubResource("CapsuleMesh_fdwyv")
-skeleton = NodePath("../MeshInstance3D")
-
-[node name="Attic_WoodenFrame_03_LP8" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.331815, -0.353531, 0.886998, -0.220069, 0.931387, 0.411379, 0.971578, 0.331702, -0.209748, -2.71596, 2.66518, -0.511341)
-
-[node name="Attic_WoodenFrame_03_LP12" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0672216, -0.409457, 0.9186, 0.051635, 0.966632, 0.38738, 1.04657, -0.0213924, -0.0781137, -3.73851, 3.17899, -4.86672)
-
-[node name="Attic_WoodenFrame_03_LP13" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0672216, -0.409457, 0.9186, 0.0516349, 0.966631, 0.38738, 1.04657, -0.0213925, -0.0781137, -2.99633, 4.79465, -4.9213)
-
-[node name="Attic_WoodenFrame_03_LP16" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0672216, -0.409457, 0.9186, 0.0516349, 0.966632, 0.38738, 1.04657, -0.0213925, -0.0781137, 2.56472, -3.24015, -5.76386)
-
-[node name="Attic_WoodenFrame_03_LP17" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0672216, -0.409457, 0.9186, 0.0516349, 0.966631, 0.387379, 1.04657, -0.0213925, -0.0781136, 3.21391, -1.52979, -5.8052)
-
-[node name="Attic_WoodenFrame_03_LP23" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0424935, -0.812421, 0.632207, 0.031529, 0.665048, 0.773245, 1.04866, 0.0129242, -0.0488662, 3.00502, 0.0839222, -5.74529)
-
-[node name="Attic_WoodenFrame_03_LP24" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.031445, -0.825573, 0.617159, 0.0410101, 0.648777, 0.785286, 1.04872, -0.000617288, -0.0492131, 2.83666, 1.34453, -5.69788)
-
-[node name="Attic_WoodenFrame_03_LP25" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0677831, -0.823356, 0.617196, 0.00425898, 0.649619, 0.785614, 1.0478, 0.0506222, -0.0431202, 2.80263, 2.68213, -5.66498)
-
-[node name="Attic_WoodenFrame_03_LP26" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0245821, -0.825792, 0.617176, 0.0479336, 0.648417, 0.785199, 1.04861, -0.0102825, -0.0503606, 2.62172, 3.88209, -5.60573)
-
-[node name="Attic_WoodenFrame_03_LP28" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0424935, -0.812421, 0.632207, 0.031529, 0.665048, 0.773245, 1.04866, 0.0129242, -0.0488662, 3.06205, 0.214831, -2.61023)
-
-[node name="Attic_WoodenFrame_03_LP29" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.031445, -0.825573, 0.617159, 0.0410101, 0.648777, 0.785285, 1.04872, -0.00061731, -0.0492131, 2.89369, 1.47543, -2.56282)
-
-[node name="Attic_WoodenFrame_03_LP30" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0160271, -0.825976, 0.617206, 0.0565568, 0.647879, 0.78508, 1.04835, -0.0223256, -0.0517896, 2.69095, 2.83703, -2.50909)
-
-[node name="Attic_WoodenFrame_03_LP31" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0245821, -0.825792, 0.617175, 0.0479336, 0.648417, 0.785198, 1.04861, -0.0102825, -0.0503606, 2.67875, 4.013, -2.47066)
-
-[node name="Attic_WoodenFrame_03_LP27" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.06714, -0.823411, 0.617193, 0.00491059, 0.649619, 0.785609, 1.04784, 0.0497145, -0.0432282, 2.5613, 4.85718, -5.53175)
-
-[node name="Attic_WoodenFrame_03_LP18" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(-0.0524539, -0.404621, 0.921411, 0.171762, 0.952293, 0.38817, 1.03452, -0.178626, -0.0177289, 2.71261, -2.92926, 1.8905)
-
-[node name="Attic_WoodenFrame_03_LP19" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(-0.0524539, -0.404621, 0.921411, 0.171762, 0.952293, 0.38817, 1.03452, -0.178626, -0.0177289, 3.36211, -1.21884, 1.85534)
-
-[node name="Attic_WoodenFrame_03_LP14" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0966022, 0.442534, 0.90216, -0.0301812, 0.952088, -0.420676, 1.04511, -0.0134109, -0.0955372, -1.52766, 5.04091, -5.09283)
-
-[node name="Attic_WoodenFrame_03_LP15" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.0966022, 0.442533, 0.90216, -0.0301812, 0.952087, -0.420676, 1.04511, -0.0134109, -0.0955371, 0.00530875, 5.55632, -5.2663)
-
-[node name="Attic_WoodenFrame_03_LP20" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.096602, 0.442533, 0.902159, -0.0301812, 0.952086, -0.420676, 1.04511, -0.0134109, -0.095537, 1.01199, 5.9512, -5.37901)
-
-[node name="Attic_WoodenFrame_03_LP22" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.100581, 1.00086, 0.286733, -0.00589477, 0.303002, -0.957434, 1.04515, -0.0946105, -0.0329935, 2.19011, 5.95598, -5.52075)
-
-[node name="Attic_WoodenFrame_03_LP9" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.339263, -0.350471, 0.885542, -0.227853, 0.928902, 0.412628, 0.967201, 0.341763, -0.213412, -2.18919, 4.15431, -0.542705)
-
-[node name="Attic_WoodenFrame_03_LP10" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.339596, 0.491601, 0.822303, -0.189461, 0.927757, -0.432113, 0.975331, 0.00905027, -0.370253, -1.22762, 4.65318, -0.449021)
-
-[node name="Attic_WoodenFrame_03_LP11" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.418747, 0.498646, 0.784482, -0.272505, 0.922877, -0.400145, 0.923517, 0.0462162, -0.473775, -0.174042, 5.65701, -1.09799)
-
-[node name="Attic_WoodenFrame_03_LP21" parent="prototype_common/gear/MeshInstance3D2" instance=ExtResource("1_kohiv")]
-transform = Transform3D(0.418747, 0.498646, 0.784482, -0.272505, 0.922877, -0.400145, 0.923517, 0.0462162, -0.473775, 1.02119, 6.04155, -1.23362)
 
 [node name="characterarea" type="MeshInstance3D" parent="prototype_common"]
 transform = Transform3D(-0.996022, 0, -0.089103, 0, 0.00804355, 0, 0.089103, 0, -0.996022, -0.330153, 0.00379944, 3.13745)
