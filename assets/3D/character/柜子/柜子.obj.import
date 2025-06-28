@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dynadglrnvjp4"
+path="res://.godot/imported/柜子.obj-c6c4108129cc73f421a309c784a791ad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/柜子.obj-c6c4108129cc73f421a309c784a791ad.mesh"]
+
+source_file="res://assets/3D/character/柜子/柜子.obj"
+dest_files=["res://.godot/imported/柜子.obj-c6c4108129cc73f421a309c784a791ad.mesh", "res://.godot/imported/柜子.obj-c6c4108129cc73f421a309c784a791ad.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

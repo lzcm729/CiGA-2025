@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://w4knshu08toe"]
+
+[ext_resource type="ArrayMesh" uid="uid://bkj4ihqimukye" path="res://assets/3D/character/灯/base.obj" id="1_vw5q7"]
+[ext_resource type="Texture2D" uid="uid://dxurraa77seku" path="res://assets/3D/character/灯/ltexture_diffuse.png" id="2_nnub4"]
+[ext_resource type="Texture2D" uid="uid://db0y1xepgjtar" path="res://assets/3D/character/灯/ltexture_metallic.png" id="3_k5vf7"]
+[ext_resource type="Texture2D" uid="uid://babg7c343264y" path="res://assets/3D/character/灯/ltexture_normal.png" id="4_itv2s"]
+[ext_resource type="Texture2D" uid="uid://cj0xcvipp67d" path="res://assets/3D/character/灯/ltexture_roughness.png" id="5_av4ii"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmhcu"]
+albedo_texture = ExtResource("2_nnub4")
+metallic = 1.0
+metallic_texture = ExtResource("3_k5vf7")
+roughness_texture = ExtResource("5_av4ii")
+normal_enabled = true
+normal_texture = ExtResource("4_itv2s")
+
+[node name="灯" type="Node3D"]
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221167, 0, 0.00607038)
+mesh = ExtResource("1_vw5q7")
+surface_material_override/0 = SubResource("StandardMaterial3D_cmhcu")

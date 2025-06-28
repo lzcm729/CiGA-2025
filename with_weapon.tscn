@@ -1,0 +1,37 @@
+[gd_scene load_steps=12 format=3 uid="uid://dn8ni4vh3u5yg"]
+
+[ext_resource type="PackedScene" uid="uid://cidocnwv2wogf" path="res://test/toy/with weapon.fbx" id="1_6qni0"]
+[ext_resource type="Texture2D" uid="uid://dsbpsm3ybsjao" path="res://test/toy/texture_diffuse.png" id="2_0skvs"]
+[ext_resource type="Texture2D" uid="uid://byt7aqxlxvq7s" path="res://test/toy/texture_metallic.png" id="3_rdwdp"]
+[ext_resource type="Texture2D" uid="uid://ck40drhpxlx75" path="res://test/toy/texture_normal.png" id="4_8m4xf"]
+[ext_resource type="Texture2D" uid="uid://bxle5xlx0ks2i" path="res://test/toy/texture_roughness.png" id="5_36s4r"]
+[ext_resource type="Texture2D" uid="uid://bbvdh5pcle2x1" path="res://test/toy/weapon/texture_diffuse.png" id="6_lq5sd"]
+[ext_resource type="Texture2D" uid="uid://0gh7ovedtln7" path="res://test/toy/weapon/texture_metallic.png" id="7_vblb5"]
+[ext_resource type="Texture2D" uid="uid://1bbsla4q7fwa" path="res://test/toy/weapon/texture_normal.png" id="8_v8g0x"]
+[ext_resource type="Texture2D" uid="uid://caa0cnj55kqa6" path="res://test/toy/weapon/texture_roughness.png" id="9_vlanp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oiy0g"]
+albedo_texture = ExtResource("2_0skvs")
+metallic = 1.0
+metallic_texture = ExtResource("3_rdwdp")
+roughness_texture = ExtResource("5_36s4r")
+normal_enabled = true
+normal_texture = ExtResource("4_8m4xf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yslr"]
+albedo_texture = ExtResource("6_lq5sd")
+metallic = 1.0
+metallic_texture = ExtResource("7_vblb5")
+roughness_texture = ExtResource("9_vlanp")
+normal_enabled = true
+normal_texture = ExtResource("8_v8g0x")
+
+[node name="with weapon" instance=ExtResource("1_6qni0")]
+transform = Transform3D(239.366, 0, 0, 0, 239.366, 0, 0, 0, 239.366, 0, 0, 0)
+
+[node name="base2_Mesh" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92016e-06, 0.00949739, 4.04999e-06)
+surface_material_override/0 = SubResource("StandardMaterial3D_oiy0g")
+
+[node name="base3_Mesh" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4yslr")

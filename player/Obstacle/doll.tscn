@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://butuc2lnc4o5o"]
+
+[ext_resource type="PackedScene" uid="uid://cln2eg0iy0xny" path="res://assets/3D/character/玩偶/玩偶.tscn" id="1_5yq6o"]
+[ext_resource type="PackedScene" uid="uid://bmav6jja2v0pl" path="res://assets/3D/character/玩偶/with weapon act.fbx" id="2_weoh8"]
+
+[node name="Doll" type="Node3D"]
+
+[node name="doll" parent="." instance=ExtResource("1_5yq6o")]
+
+[node name="with weapon act" parent="." instance=ExtResource("2_weoh8")]

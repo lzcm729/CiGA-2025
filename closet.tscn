@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dbx3i41l7s2m7"]
 
-[ext_resource type="Script" uid="uid://cfm1ntuwr7hbu" path="res://node_3d.gd" id="1_48ji0"]
+[ext_resource type="Script" path="res://node_3d.gd" id="1_48ji0"]
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="2_bewde"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_wvv42"]
 
