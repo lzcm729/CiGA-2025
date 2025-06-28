@@ -32,8 +32,13 @@ script = ExtResource("8_6ulxj")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="MainLevelHud" parent="." instance=ExtResource("6_x0mk0")]
+[node name="MainLevelHud" parent="." node_paths=PackedStringArray("gameplay") instance=ExtResource("6_x0mk0")]
+gameplay = NodePath("../GamePlay")
 
-[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay")]
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay", "main_level_hud")]
 script = ExtResource("10_1o8wa")
 gameplay = NodePath("../GamePlay")
+main_level_hud = NodePath("../MainLevelHud")
+
+[node name="StartCountDown" type="Timer" parent="LevelManager"]
+one_shot = true
