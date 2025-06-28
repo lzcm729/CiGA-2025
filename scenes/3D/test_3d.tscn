@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_jstem"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="4_k5aas"]
 [ext_resource type="PackedScene" path="res://closet.tscn" id="5_rx5g4"]
-[ext_resource type="PackedScene" uid="uid://b07wy55rqrshd" path="res://scenes/3D/canvas_layer_crt.tscn" id="6_cjix8"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="6_cjix8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a402t"]
 albedo_color = Color(0.733333, 1, 1, 1)

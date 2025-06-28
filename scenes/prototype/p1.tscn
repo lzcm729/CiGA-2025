@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://ngf71gejgjys"]
+[gd_scene load_steps=128 format=3 uid="uid://ngf71gejgjys"]
 
 [ext_resource type="PackedScene" uid="uid://do7n8eggqiiyq" path="res://test/Prefabs/Attic_WoodenFrame_03_LP.tscn" id="1_kohiv"]
 [ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
@@ -119,8 +119,6 @@
 [ext_resource type="PackedScene" uid="uid://ba7rgg64wnc56" path="res://test/Prefabs/Attic_WoodenFrame_02_LP.tscn" id="117_0uvxp"]
 [ext_resource type="PackedScene" uid="uid://bst28kcm466sn" path="res://test/Prefabs/Attic_WoodenFrame_04_LP.tscn" id="118_uorg8"]
 [ext_resource type="PackedScene" uid="uid://nk8dk8b1x21s" path="res://test/Prefabs/Attic_WoodenFrame_05_LP.tscn" id="119_2xc81"]
-[ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="120_pc2c4"]
-[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="121_kv05t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -147,15 +145,7 @@ size = Vector3(0.5, 2, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kohiv"]
 
-[sub_resource type="Curve3D" id="Curve3D_o2jhi"]
-bake_interval = 0.01
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.001, 0, -0.005, 0, 0, 0, 0, 0, 0, -0.591, 0, 0.263, 0.021, 0, -0.038, -0.021, 0, 0.038, -1.135, 0, 0.727, 0.04, 0, 0.073, -0.04, 0, -0.073, -2.435, 0, 0.626, 0, 0, 0, 0, 0, 0, -3.103, 0, 0.895, 0, 0, 0, 0, 0, 0, -3.738, 0, 0.951, 0, 0, 0, 0, 0, 0, -4.371, 0, 0.621, 0, 0, 0, 0, 0, 0, -4.389, 0, 1.556, 0, 0, 0, 0, 0, 0, -5.53, 0, 1.448),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 9
-
-[node name="level" type="Node3D"]
+[node name="main" type="Node3D"]
 script = ExtResource("1_o2jhi")
 
 [node name="Attic_Wall_01_LP2" parent="." instance=ExtResource("2_pc2c4")]
@@ -2963,19 +2953,3 @@ transform = Transform3D(0.418747, 0.498646, 0.784482, -0.272505, 0.922877, -0.40
 [node name="characterarea" type="MeshInstance3D" parent="prototype_common"]
 transform = Transform3D(-0.996022, 0, -0.089103, 0, 0.00804355, 0, 0.089103, 0, -0.996022, -0.330153, 0.00379944, 3.13745)
 mesh = SubResource("CylinderMesh_kohiv")
-
-[node name="Level01" type="Node3D" parent="."]
-
-[node name="Gear01" parent="Level01" node_paths=PackedStringArray("path") instance=ExtResource("120_pc2c4")]
-transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.45221, 8.32653, 3.82993)
-path = NodePath("../Path3D/PathFollow3D")
-
-[node name="Path3D" type="Path3D" parent="Level01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47509, 8.46807, 4.07433)
-curve = SubResource("Curve3D_o2jhi")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Level01/Path3D"]
-transform = Transform3D(-0.412409, 0, 0.910994, 0, 0.99999, 0, -0.910994, 0, -0.412409, 0.001, 0, -0.005)
-
-[node name="PathPolygon" parent="Level01/Path3D" instance=ExtResource("121_kv05t")]
-path_node = NodePath("..")
