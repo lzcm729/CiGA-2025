@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://couxe3lmrvlgf" path="res://scripts/Scene/path_polygon.gd" id="2_we0tt"]
 
 [node name="PathPolygon" type="CSGPolygon3D"]
-polygon = PackedVector2Array(-0.2, 0, -0.2, 0.2, 0.2, 0.2, 0.2, 0)
+polygon = PackedVector2Array(-0.1, 0, -0.1, 0.1, 0.1, 0.1, 0.1, 0)
 mode = 2
 path_node = NodePath("")
 path_interval_type = 0

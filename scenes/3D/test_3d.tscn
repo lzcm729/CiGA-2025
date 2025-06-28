@@ -21,7 +21,7 @@ sky = SubResource("Sky_rx5g4")
 
 [sub_resource type="Curve3D" id="Curve3D_5qlw0"]
 _data = {
-"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.441, 0, 0.659, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.925, 0, 10.218),
+"points": PackedVector3Array(-1.44071, -0.257439, -0.65867, 1.441, 0, 0.659, 1.54094, 0, -2.90404, 0.829, 0, -0.734, -0.829, 0, 0.734, 3.229, 0, 0.248, 1.355, 0, -1.785, -1.355, 0, 1.785, -1.10501, 0, 1.493, -0.45, 0, -0.675, 0, 0, 0, -0.572399, -0.011113, 8.76197),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -61,11 +61,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.31365, 0.519753, 0)
 index = 2
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573944, 1.843)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573944, 3.1275)
 curve = SubResource("Curve3D_5qlw0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.415886, 0, -0.909394, 0, 0.999981, 0, 0.909396, 0, -0.415885, 1.54094, 0, -2.90404)
+transform = Transform3D(0.0377794, 0, 0.99926, 0, 0.999976, 0, -0.999263, 0, 0.0377793, 1.66549, 0, 0.486511)
+progress = 5.68818
 loop = false
 
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("4_k5aas")]
