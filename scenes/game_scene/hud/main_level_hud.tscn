@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmn5u610ah61f"]
+
+[ext_resource type="Script" uid="uid://doh7fx1twqcvh" path="res://scenes/game_scene/hud/main_level_hud.gd" id="1_8thkc"]
+
+[node name="MainLevelHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8thkc")
+
+[node name="TimeMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="TimeMarginContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="TimeMarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.5
+offset_top = -67.0
+offset_right = 270.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+
+[node name="ProgressMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="ProgressMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProgressMarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -186.0
+offset_bottom = 186.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="ChildPortrait" type="Panel" parent="ProgressMarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+
+[node name="Distance" type="Panel" parent="ProgressMarginContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(68, 300)
+layout_mode = 2
+
+[node name="KeyMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="KeyMarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="KeyMarginContainer/Control"]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "返回"
+
+[node name="Guide" type="Button" parent="KeyMarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "指导"
+
+[node name="CountDownMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

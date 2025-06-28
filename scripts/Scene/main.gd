@@ -10,6 +10,8 @@ func switch_level(index:int) ->void:
 		if level.Index == index:
 			add_child(level)
 			level.scene = self
+		else:
+			remove_child(level)
 
 
 func _ready() -> void:
