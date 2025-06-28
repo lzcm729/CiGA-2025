@@ -25,9 +25,9 @@ func switch_scene(target_scene:int) -> void:
 	get_tree().change_scene_to_file(scene_info['scene_file'])
 
 func select_level(target_level:int) -> void:
-	if cur_scene_id != Consts.SCENES.LEVEL_SELECT:
-		print("Not In Level Select")
-		return
+	#if cur_scene_id != Consts.SCENES.LEVEL_SELECT:
+		#print("Not In Level Select")
+		#return
 	current_level = target_level
 
 func handle_item_signal(level_index:int, item_enum:int) -> void:

@@ -1,24 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://c60ihoh1r4y3j"]
+[gd_scene load_steps=7 format=3 uid="uid://dbx3i41l7s2m7"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_48ji0"]
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="2_bewde"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_wvv42"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bewde"]
 size = Vector3(0.5, 2, 1)
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Curve3D" id="Curve3D_d0ker"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.687, 0, -0.282923, 0, 0, 0, 0, 0, 0, 1.80602, 0.0361547, -0.183318, 0, 0, 0, 0, 0, 0, 2.14733, -0.0488777, 0.402416),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0ker"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Closet" type="Node3D"]
 script = ExtResource("1_48ji0")
 
-[node name="Closet" type="MeshInstance3D" parent="."]
+[node name="衣柜" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_bewde")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="柜门" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329579, 0, 0.499802)
 
-[node name="Door" type="MeshInstance3D" parent="Node3D"]
+[node name="Door" type="MeshInstance3D" parent="柜门"]
 transform = Transform3D(0.303764, 0, 0, 0, 1, 0, 1.49012e-08, 0, 0.975493, 0, 0, -0.495065)
 mesh = SubResource("BoxMesh_bewde")
 skeleton = NodePath("../..")
 
 [node name="DoorSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_bewde")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_d0ker")
+
+[node name="PathPolygon" parent="Path3D" instance=ExtResource("3_wvv42")]
+path_node = NodePath("..")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.86512, -0.0448876, -0.499552, -0.122951, 0.984576, 0.124456, 0.486262, 0.16909, -0.857296, 2.14733, -0.0488777, 0.402416)
+progress = 2.55315
+loop = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+mesh = SubResource("BoxMesh_d0ker")
+skeleton = NodePath("../..")
