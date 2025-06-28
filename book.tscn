@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://imi3g3ltdb7e"]
+
+[ext_resource type="PackedScene" uid="uid://dljlxy1fp1grc" path="res://assets/3D/character/book/cartoon.fbx" id="1_3r6c0"]
+[ext_resource type="Texture2D" uid="uid://drddx3wcwk0rr" path="res://assets/3D/character/book/eye_defaultMat1_Base_color.png" id="2_xeei7"]
+[ext_resource type="Texture2D" uid="uid://d367d0k8i36n3" path="res://assets/3D/character/book/eye_defaultMat1_Metallic.png" id="3_rm7y6"]
+[ext_resource type="Texture2D" uid="uid://cmm2mw2b5lu0i" path="res://assets/3D/character/book/eye_defaultMat1_Normal.png" id="4_7wrkw"]
+[ext_resource type="Texture2D" uid="uid://cuwkspsm46rhg" path="res://assets/3D/character/book/eye_defaultMat1_Roughness.png" id="5_gw1ob"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt8fr"]
+albedo_texture = ExtResource("2_xeei7")
+metallic = 1.0
+metallic_texture = ExtResource("3_rm7y6")
+roughness_texture = ExtResource("5_gw1ob")
+normal_enabled = true
+normal_texture = ExtResource("4_7wrkw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37pi6"]
+albedo_texture = ExtResource("2_xeei7")
+metallic = 1.0
+metallic_texture = ExtResource("3_rm7y6")
+roughness_texture = ExtResource("5_gw1ob")
+normal_enabled = true
+normal_texture = ExtResource("4_7wrkw")
+
+[node name="cartoon" instance=ExtResource("1_3r6c0")]
+
+[node name="dimo_eye_Group48518" parent="." index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tt8fr")
+
+[node name="dimo_Group48518" parent="." index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_37pi6")
