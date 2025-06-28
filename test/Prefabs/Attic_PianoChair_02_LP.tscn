@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcg5fja2xhqgm"]
+
+[ext_resource type="PackedScene" uid="uid://bhoo8pooceyvu" path="res://Geometry/Meshes/Attic_PianoChair_02_LP.glb" id="1_dc7dm"]
+[ext_resource type="Material" uid="uid://dokbr1abmy7x2" path="res://Materials/Wood/MI_PianoChair1.tres" id="2_cskpc"]
+
+[node name="Attic_PianoChair_02_LP" instance=ExtResource("1_dc7dm")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cskpc")

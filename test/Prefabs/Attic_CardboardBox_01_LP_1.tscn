@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://clpk1qqwc2x4e"]
+
+[ext_resource type="PackedScene" uid="uid://bsm4impi3g7ou" path="res://Geometry/Meshes/Attic_CardboardBox_01_LP.glb" id="1_bj30j"]
+[ext_resource type="Material" uid="uid://c8mlckprdcrgv" path="res://Materials/CardBoard/MI_DetectiveBox2.tres" id="2_dy8mc"]
+
+[node name="Attic_CardboardBox_01_LP_1" instance=ExtResource("1_bj30j")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dy8mc")

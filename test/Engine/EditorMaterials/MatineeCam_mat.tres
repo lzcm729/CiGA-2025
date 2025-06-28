@@ -1,0 +1,9 @@
+[gd_resource type = "ShaderMaterial" load_steps=2 format=3 uid="uid://r68vpj51yvex"]
+
+[ext_resource type="Shader" uid="uid://dcser5rvfbqup" path="res://Shaders/MatineeCam_mat.tres" id="2_qh3sl"]
+[ext_resource type="Texture2D" uid="uid://dviy7uf8dlbdr" path="res:///Engine/EditorResources/MatineeCam_D.png" id="1_brtri"]
+
+[resource]
+resource_name = "MatineeCam_mat"
+render_priority = 0
+shader = ExtResource("2_qh3sl")

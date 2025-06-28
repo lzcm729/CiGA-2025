@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1o2ktg8g3pjh"]
+
+[ext_resource type="PackedScene" uid="uid://b78par73dso6r" path="res://Geometry/Meshes/Attic_Hatch_01_LP.glb" id="1_c4sar"]
+[ext_resource type="Material" uid="uid://vtdns4ig87cv" path="res://Materials/Hatch/MI_Hatch.tres" id="2_c20hc"]
+
+[node name="Attic_Hatch_01_LP" instance=ExtResource("1_c4sar")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_c20hc")

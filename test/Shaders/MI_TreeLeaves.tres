@@ -1,0 +1,1016 @@
+[gd_resource type="VisualShader" load_steps=82 format=3 uid="uid://4go57qqbsxx4"]
+
+[ext_resource type="Texture2D" uid="uid://odxyic4yal72" path="res://test/Textures/Trees/tree_mangoLeaves_DIF.png" id="1_dlpki"]
+[ext_resource type="Texture2D" uid="uid://doqesv67mdlsf" path="res://test/Textures/Trees/tree_mangoLeaves_MSK.png" id="2_dlquw"]
+[ext_resource type="Texture2D" uid="uid://oboilxe7xhkh" path="res://test/Textures/Trees/tree_mangoLeaves_SSS.png" id="4_cej46"]
+[ext_resource type="Texture2D" uid="uid://6eyjwrt4a7k7" path="res://test/Textures/Trees/tree_mangoLeaves_SPC.png" id="5_cml8d"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_c24ejld7jv3wn"]
+expanded_output_ports = [0]
+texture = ExtResource("1_dlpki")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_c25syk7ffnd4r"]
+expanded_output_ports = [0]
+texture = ExtResource("2_dlquw")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_c25cntvdp3g8p"]
+size = Vector2(980, 1250)
+expression = "//NormalTexture:4(null)
+vec4 Normal4 = texture( input2, UV );
+Normal4 = Normal4 * vec4(2, 2, 2, 2) - vec4(1, 1, 1, 1);
+output0 = Normal4.xyz;
+output1 = Normal4.x;
+output2 = Normal4.y;
+output3 = Normal4.z;
+output3 = Normal4.w;
+output5 = Normal4;
+"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_c25cm7xmbamre"]
+parameter_name = "Generated_tree_mangoLeaves_NMM"
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_c24ushv0w0idq"]
+expanded_output_ports = [0]
+texture = ExtResource("4_cej46")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_c23wbbr5lmjxv"]
+expanded_output_ports = [0]
+texture = ExtResource("5_cml8d")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeMultiplyAdd" id="VisualShaderNodeMultiplyAdd_bkppqqwbjkpso"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.5, 0.5, 0.5), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_dayy6rlnt5572"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_d3lobis5anp3m"]
+constant = 0.3333
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_rrk7xsafv4q3"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_d32yd6bfqryok"]
+size = Vector2(980, 630)
+expression = "//RotateAboutAxis:11(SimpleGrassWind)
+float angle = input1 * 6.28318548;
+vec4 AxisAngle = vec4( input0, angle );
+output0 = RotateAboutAxis( AxisAngle, input2, input3 );"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cnfi1d0d7xjj6"]
+operator = 8
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_bdrm2sfpeb6y5"]
+default_input_values = [0, Vector3(0, 1, 0)]
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_d3bwb5wticlvl"]
+size = Vector2(980, 340)
+expression = "//ComponentMask:14(SimpleGrassWind)
+output0 =  input0.rgb;
+"
+
+[sub_resource type="VisualShaderNodeVec4Constant" id="VisualShaderNodeVec4Constant_bv5jcp3hmauas"]
+expanded_output_ports = [0]
+constant = Quaternion(0, 1, 0, 1)
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_p7m3cmwjyos5"]
+expanded_output_ports = [0]
+constant = Vector3(0, 0, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_do3oiesiy25wf"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeDotProduct" id="VisualShaderNodeDotProduct_bf4tk6lohcan0"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cei5aytajt605"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_b350yewfe4c65"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_cy04vygeekpr0"]
+default_input_values = [0, 1.0, 1, 1.0]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_b8byamjsxv3lo"]
+constant = 3.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bttf2dpm23qhf"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_d00al2o3oi3ql"]
+function = 12
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bkmvaqdfrrfum"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cnsxpk8c5sbx2"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_pr88p7gbm08u"]
+function = 18
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_442pmyaqrsbi"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_b7e4atiafnrm"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_b2xy464ryrpdt"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cl8d37cxaoq41"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_h8ah0ndsv3ew"]
+size = Vector2(980, 340)
+expression = "//ComponentMask:32(SimpleGrassWind)
+output0 =  input0.a;
+"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bugguu1n81jei"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_rry2c6tfbaut"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bxr3cnpjaptsn"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_d0arcrham21pm"]
+constant = 1.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_d8aek64uggo4"]
+constant = -0.5
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_h4xj5r45hnee"]
+default_input_values = [0, Vector3(1, 1, 1), 1, Vector3(2, 2, 2)]
+operator = 3
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_d3d658p7dw68c"]
+input_name = "node_position_world"
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_dhfs8c4u6mtep"]
+constant = 1024.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_ch8pl3t4i0x1f"]
+constant = 0.5
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_c1pv1ct42owur"]
+constant = 2.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_crifgh2c3vuub"]
+constant = -1.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_ch2ki7um2v5wf"]
+constant = 2.0
+
+[sub_resource type="VisualShaderNodeVectorDistance" id="VisualShaderNodeVectorDistance_ddq6ru7mipyae"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dydhsdcipxhiw"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dnetqi3c23u2i"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_bfbho8l274g3j"]
+default_input_values = [0, 1.0, 1, 1.0]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_c6ax4mctjme4k"]
+constant = 3.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_deerqgh771cik"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_ovqj1v312qlu"]
+function = 12
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_urjgc4mkww0i"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1guywnxkmwt2"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_824j3oepwteg"]
+function = 18
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dat7b4nfhyjld"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dft77lmmvvw7j"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_d25sssl5xqhom"]
+default_input_values = [0, Vector3(1, 1, 1), 1, Vector3(2, 2, 2)]
+operator = 3
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_crumrs3eiddvk"]
+input_name = "node_position_world"
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_dx84ml3e7vgi1"]
+constant = 200.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_du67vv2dnxgu3"]
+constant = 0.5
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_dlr80g1085xkq"]
+constant = 2.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_deap17red5t78"]
+constant = -1.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_c30egqg5on07n"]
+constant = 2.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_cv1k6uj63u2tq"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_c0tn1jlqsyq30"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_cxrpholgkwm5x"]
+expanded_output_ports = [0]
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_b1l4mk47emqw2"]
+expanded_output_ports = [0]
+constant = Vector3(0, 0, -10)
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_coptaoikly07g"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_c7y62jd8jpo6f"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_cjxrydjwt5c81"]
+parameter_name = "WindIntensity"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_crhsevkdc2vsi"]
+parameter_name = "WindWeight"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_kb15oqjnuv6g"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_5sshqa2u31ya"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_b6lkvi7702jgk"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_ekf2kiloncec"]
+size = Vector2(980, 500)
+expression = "//Scale down to Godot Units, Unreal is in cm
+output0 = input0 + input1 / 100.0;"
+
+[sub_resource type="VisualShaderNodeGlobalExpression" id="VisualShaderNodeGlobalExpression_ceq1w0b3vhrg5"]
+size = Vector2(940, 380)
+expression = "//Exported with UnrealToGodot : https://www.fab.com/listings/61983625-664c-4308-9b26-edfd58d41002
+float saturate(float val)
+{
+	return clamp( val, 0.0, 1.0 );
+}
+vec2 saturate2(vec2 val)
+{
+	return clamp( val, 0.0, 1.0 );
+}
+vec3 saturate3(vec3 val)
+{
+	return clamp( val, 0.0, 1.0 );
+}
+vec2 mul( mat2 mat, vec2 vector )
+{
+	return mat * vector;
+}
+float rcp(float val)
+{
+	return 1.0 / val;
+}
+void sincos( float x, out float s, out float c )
+{
+	s = sin(x);
+	c = cos(x);
+}
+vec2 UnitVectorToOctahedron( vec3 Nparam )
+{
+Nparam.xy /= vec2( dot( vec3(1.0,1.0,1.0), abs(Nparam) ), dot( vec3(1.0,1.0,1.0), abs(Nparam) ) );
+if( Nparam.z <= 0.0 )
+{
+	vec2 val = vec2(-1,-1);	if ( Nparam.x >= 0.0 && Nparam.y >= 0.0 ) val = vec2(1,1);	Nparam.xy = ( 1.0 - abs(Nparam.yx) ) * val;
+}
+return Nparam.xy;
+}
+vec3 RotateAboutAxis(vec4 NormalizedRotationAxisAndAngle, vec3 PositionOnAxis, vec3 Position)
+{
+vec3 ClosestPointOnAxis = PositionOnAxis + NormalizedRotationAxisAndAngle.xyz * dot(NormalizedRotationAxisAndAngle.xyz, Position - PositionOnAxis);
+vec3 UAxis = Position - ClosestPointOnAxis;
+vec3 VAxis = cross(NormalizedRotationAxisAndAngle.xyz, UAxis);
+float CosAngle;
+float SinAngle;
+sincos(NormalizedRotationAxisAndAngle.w, SinAngle, CosAngle); 
+vec3 R = UAxis * CosAngle + VAxis * SinAngle;
+vec3 RotatedPosition = ClosestPointOnAxis + R;
+return RotatedPosition - Position;
+}
+vec3 hash_noise_range_UTG( vec3 p ) {
+p *= mat3(vec3(127.1, 311.7, -53.7), vec3(269.5, 183.3, 77.1), vec3(-301.7, 27.3, 215.3));
+return 2.0 * fract(fract(p)*4375.55) -1.;
+}
+"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_rsxud8nprmxu"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha;
+
+uniform float WindWeight = 0.0;
+uniform float WindIntensity = 0.0;
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_3 : source_color;
+uniform sampler2D tex_frg_6 : source_color;
+uniform sampler2D tex_frg_7 : source_color;
+uniform sampler2D Generated_tree_mangoLeaves_NMM : hint_normal;
+
+
+// GlobalExpression:0
+	//Exported with UnrealToGodot : https://www.fab.com/listings/61983625-664c-4308-9b26-edfd58d41002
+	float saturate(float val)
+	{
+		return clamp( val, 0.0, 1.0 );
+	}
+	vec2 saturate2(vec2 val)
+	{
+		return clamp( val, 0.0, 1.0 );
+	}
+	vec3 saturate3(vec3 val)
+	{
+		return clamp( val, 0.0, 1.0 );
+	}
+	vec2 mul( mat2 mat, vec2 vector )
+	{
+		return mat * vector;
+	}
+	float rcp(float val)
+	{
+		return 1.0 / val;
+	}
+	void sincos( float x, out float s, out float c )
+	{
+		s = sin(x);
+		c = cos(x);
+	}
+	vec2 UnitVectorToOctahedron( vec3 Nparam )
+	{
+	Nparam.xy /= vec2( dot( vec3(1.0,1.0,1.0), abs(Nparam) ), dot( vec3(1.0,1.0,1.0), abs(Nparam) ) );
+	if( Nparam.z <= 0.0 )
+	{
+		vec2 val = vec2(-1,-1);	if ( Nparam.x >= 0.0 && Nparam.y >= 0.0 ) val = vec2(1,1);	Nparam.xy = ( 1.0 - abs(Nparam.yx) ) * val;
+	}
+	return Nparam.xy;
+	}
+	vec3 RotateAboutAxis(vec4 NormalizedRotationAxisAndAngle, vec3 PositionOnAxis, vec3 Position)
+	{
+	vec3 ClosestPointOnAxis = PositionOnAxis + NormalizedRotationAxisAndAngle.xyz * dot(NormalizedRotationAxisAndAngle.xyz, Position - PositionOnAxis);
+	vec3 UAxis = Position - ClosestPointOnAxis;
+	vec3 VAxis = cross(NormalizedRotationAxisAndAngle.xyz, UAxis);
+	float CosAngle;
+	float SinAngle;
+	sincos(NormalizedRotationAxisAndAngle.w, SinAngle, CosAngle); 
+	vec3 R = UAxis * CosAngle + VAxis * SinAngle;
+	vec3 RotatedPosition = ClosestPointOnAxis + R;
+	return RotatedPosition - Position;
+	}
+	vec3 hash_noise_range_UTG( vec3 p ) {
+	p *= mat3(vec3(127.1, 311.7, -53.7), vec3(269.5, 183.3, 77.1), vec3(-301.7, 27.3, 215.3));
+	return 2.0 * fract(fract(p)*4375.55) -1.;
+	}
+	
+
+void vertex() {
+// Input:84
+	vec3 n_out84p0 = VERTEX;
+
+
+// Vector4Constant:15
+	vec4 n_out15p0 = vec4(0.000000, 1.000000, 0.000000, 1.000000);
+
+
+	vec3 n_out14p0;
+// Expression:14
+	n_out14p0 = vec3(0.0, 0.0, 0.0);
+	{
+		//ComponentMask:14(SimpleGrassWind)
+		n_out14p0 =  n_out15p0.rgb;
+		
+	}
+
+
+// VectorFunc:13
+	vec3 n_out13p0 = normalize(n_out14p0);
+
+
+// Vector3Constant:16
+	vec3 n_out16p0 = vec3(0.000000, 0.000000, 1.000000);
+
+
+// VectorOp:12
+	vec3 n_out12p0 = cross(n_out13p0, n_out16p0);
+
+
+// FloatConstant:22
+	float n_out22p0 = 3.000000;
+
+
+	float n_out32p0;
+// Expression:32
+	n_out32p0 = 0.0;
+	{
+		//ComponentMask:32(SimpleGrassWind)
+		n_out32p0 =  n_out15p0.a;
+		
+	}
+
+
+// Input:35
+	float n_out35p0 = TIME;
+
+
+// FloatConstant:36
+	float n_out36p0 = 1.000000;
+
+
+// VectorOp:34
+	vec3 n_out34p0 = vec3(n_out35p0) * vec3(n_out36p0);
+
+
+// FloatConstant:37
+	float n_out37p0 = -0.500000;
+
+
+// VectorOp:33
+	vec3 n_out33p0 = n_out34p0 * vec3(n_out37p0);
+
+
+// VectorOp:31
+	vec3 n_out31p0 = vec3(n_out32p0) * n_out33p0;
+
+
+// VectorOp:30
+	vec3 n_out30p0 = n_out13p0 * n_out31p0;
+
+
+// Input:39
+	vec3 n_out39p0 = NODE_POSITION_WORLD;
+
+
+// FloatConstant:40
+	float n_out40p0 = 1024.000000;
+
+
+// VectorOp:38
+	vec3 n_out38p0 = n_out39p0 / vec3(n_out40p0);
+
+
+// VectorOp:29
+	vec3 n_out29p0 = n_out30p0 + n_out38p0;
+
+
+// FloatConstant:41
+	float n_out41p0 = 0.500000;
+
+
+// VectorOp:28
+	vec3 n_out28p0 = n_out29p0 + vec3(n_out41p0);
+
+
+// VectorFunc:27
+	vec3 n_out27p0 = fract(n_out28p0);
+
+
+// FloatConstant:42
+	float n_out42p0 = 2.000000;
+
+
+// VectorOp:26
+	vec3 n_out26p0 = n_out27p0 * vec3(n_out42p0);
+
+
+// FloatConstant:43
+	float n_out43p0 = -1.000000;
+
+
+// VectorOp:25
+	vec3 n_out25p0 = n_out26p0 + vec3(n_out43p0);
+
+
+// FloatFunc:24
+	float n_out24p0 = abs(n_out25p0.x);
+
+
+// FloatConstant:44
+	float n_out44p0 = 2.000000;
+
+
+// VectorOp:23
+	vec3 n_out23p0 = vec3(n_out24p0) * vec3(n_out44p0);
+
+
+// FloatOp:21
+	float n_out21p0 = n_out22p0 - n_out23p0.x;
+
+
+// VectorOp:20
+	vec3 n_out20p0 = vec3(n_out21p0) * vec3(n_out24p0);
+
+
+// VectorOp:19
+	vec3 n_out19p0 = n_out20p0 * vec3(n_out24p0);
+
+
+// DotProduct:18
+	float n_out18p0 = dot(n_out13p0, n_out19p0);
+
+
+// FloatConstant:49
+	float n_out49p0 = 3.000000;
+
+
+// Input:58
+	vec3 n_out58p0 = NODE_POSITION_WORLD;
+
+
+// FloatConstant:59
+	float n_out59p0 = 200.000000;
+
+
+// VectorOp:57
+	vec3 n_out57p0 = n_out58p0 / vec3(n_out59p0);
+
+
+// VectorOp:56
+	vec3 n_out56p0 = n_out31p0 + n_out57p0;
+
+
+// FloatConstant:60
+	float n_out60p0 = 0.500000;
+
+
+// VectorOp:55
+	vec3 n_out55p0 = n_out56p0 + vec3(n_out60p0);
+
+
+// VectorFunc:54
+	vec3 n_out54p0 = fract(n_out55p0);
+
+
+// FloatConstant:61
+	float n_out61p0 = 2.000000;
+
+
+// VectorOp:53
+	vec3 n_out53p0 = n_out54p0 * vec3(n_out61p0);
+
+
+// FloatConstant:62
+	float n_out62p0 = -1.000000;
+
+
+// VectorOp:52
+	vec3 n_out52p0 = n_out53p0 + vec3(n_out62p0);
+
+
+// FloatFunc:51
+	float n_out51p0 = abs(n_out52p0.x);
+
+
+// FloatConstant:63
+	float n_out63p0 = 2.000000;
+
+
+// VectorOp:50
+	vec3 n_out50p0 = vec3(n_out51p0) * vec3(n_out63p0);
+
+
+// FloatOp:48
+	float n_out48p0 = n_out49p0 - n_out50p0.x;
+
+
+// VectorOp:47
+	vec3 n_out47p0 = vec3(n_out48p0) * vec3(n_out51p0);
+
+
+// VectorOp:46
+	vec3 n_out46p0 = n_out47p0 * vec3(n_out51p0);
+
+
+// FloatConstant:64
+	float n_out64p0 = 0.000000;
+
+
+// Distance:45
+	float n_out45p0 = distance(n_out46p0, vec3(n_out64p0));
+
+
+// VectorOp:17
+	vec3 n_out17p0 = vec3(n_out18p0) + vec3(n_out45p0);
+
+
+// FloatConstant:72
+	float n_out72p0 = 0.000000;
+
+
+// Vector3Constant:67
+	vec3 n_out67p0 = vec3(0.000000, 0.000000, -10.000000);
+
+
+// VectorOp:65
+	vec3 n_out65p0 = vec3(n_out72p0) + n_out67p0;
+
+
+	vec3 n_out11p0;
+// Expression:11
+	n_out11p0 = vec3(0.0, 0.0, 0.0);
+	{
+		//RotateAboutAxis:11(SimpleGrassWind)
+		float angle = n_out17p0.x * 6.28318548;
+		vec4 AxisAngle = vec4( n_out12p0, angle );
+		n_out11p0 = RotateAboutAxis( AxisAngle, n_out65p0, vec3(n_out72p0) );
+	}
+
+
+// FloatParameter:71
+	float n_out71p0 = WindWeight;
+
+
+// VectorOp:10
+	vec3 n_out10p0 = n_out11p0 * vec3(n_out71p0);
+
+
+// FloatParameter:70
+	float n_out70p0 = WindIntensity;
+
+
+// VectorOp:9
+	vec3 n_out9p0 = n_out10p0 * vec3(n_out70p0);
+
+
+// VectorOp:8
+	vec3 n_out8p0 = n_out9p0 + vec3(n_out72p0);
+
+
+	vec3 n_out85p0;
+// Expression:85
+	n_out85p0 = vec3(0.0, 0.0, 0.0);
+	{
+		//Scale down to Godot Units, Unreal is in cm
+		n_out85p0 = n_out84p0 + n_out8p0 / 100.0;
+	}
+
+
+// Output:0
+	VERTEX = n_out85p0;
+
+
+}
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Texture2D:6
+	vec4 n_out6p0 = texture(tex_frg_6, UV);
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_frg_7, UV);
+
+
+// Clamp:87
+	float n_in87p1 = 0.00000;
+	float n_in87p2 = 1.00000;
+	float n_out87p0 = clamp(n_out7p0.x, n_in87p1, n_in87p2);
+
+
+	vec3 n_out4p0;
+	float n_out4p1;
+	float n_out4p2;
+	float n_out4p3;
+	float n_out4p4;
+	vec4 n_out4p5;
+// Expression:4
+	n_out4p0 = vec3(0.0, 0.0, 0.0);
+	n_out4p1 = 0.0;
+	n_out4p2 = 0.0;
+	n_out4p3 = 0.0;
+	n_out4p4 = 0.0;
+	n_out4p5 = vec4(0.0, 0.0, 0.0, 0.0);
+	{
+		//NormalTexture:4(null)
+		vec4 Normal4 = texture( Generated_tree_mangoLeaves_NMM, UV );
+		Normal4 = Normal4 * vec4(2, 2, 2, 2) - vec4(1, 1, 1, 1);
+		n_out4p0 = Normal4.xyz;
+		n_out4p1 = Normal4.x;
+		n_out4p2 = Normal4.y;
+		n_out4p3 = Normal4.z;
+		n_out4p3 = Normal4.w;
+		n_out4p5 = Normal4;
+		
+	}
+
+
+// MultiplyAdd:86
+	vec3 n_in86p1 = vec3(0.50000, 0.50000, 0.50000);
+	vec3 n_in86p2 = vec3(0.50000, 0.50000, 0.50000);
+	vec3 n_out86p0 = (n_out4p0 * n_in86p1) + n_in86p2;
+
+
+// FloatConstant:88
+	float n_out88p0 = 0.333300;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out3p0.x;
+	ROUGHNESS = n_out6p0.x;
+	SPECULAR = n_out87p0;
+	NORMAL_MAP = n_out86p0;
+	ALPHA_SCISSOR_THRESHOLD = n_out88p0;
+
+
+}
+"
+graph_offset = Vector2(-523.783, 120.943)
+modes/cull = 2
+flags/depth_prepass_alpha = true
+nodes/vertex/0/position = Vector2(64, 0)
+nodes/vertex/8/node = SubResource("VisualShaderNodeVectorOp_5sshqa2u31ya")
+nodes/vertex/8/position = Vector2(-711, 2157)
+nodes/vertex/9/node = SubResource("VisualShaderNodeVectorOp_rsxud8nprmxu")
+nodes/vertex/9/position = Vector2(-943, 2024)
+nodes/vertex/10/node = SubResource("VisualShaderNodeVectorOp_rrk7xsafv4q3")
+nodes/vertex/10/position = Vector2(-1179, 1957)
+nodes/vertex/11/node = SubResource("VisualShaderNodeExpression_d32yd6bfqryok")
+nodes/vertex/11/position = Vector2(-1382, 1821)
+nodes/vertex/11/size = Vector2(980, 630)
+nodes/vertex/11/input_ports = "0,4,input0;1,0,input1;2,4,input2;3,4,input3;"
+nodes/vertex/11/output_ports = "0,4,output0;"
+nodes/vertex/11/expression = "//RotateAboutAxis:11(SimpleGrassWind)
+float angle = input1 * 6.28318548;
+vec4 AxisAngle = vec4( input0, angle );
+output0 = RotateAboutAxis( AxisAngle, input2, input3 );"
+nodes/vertex/12/node = SubResource("VisualShaderNodeVectorOp_cnfi1d0d7xjj6")
+nodes/vertex/12/position = Vector2(-6726, 585)
+nodes/vertex/13/node = SubResource("VisualShaderNodeVectorFunc_bdrm2sfpeb6y5")
+nodes/vertex/13/position = Vector2(-6945, 488)
+nodes/vertex/14/node = SubResource("VisualShaderNodeExpression_d3bwb5wticlvl")
+nodes/vertex/14/position = Vector2(-7136, 498)
+nodes/vertex/14/size = Vector2(980, 340)
+nodes/vertex/14/input_ports = "0,5,input0;"
+nodes/vertex/14/output_ports = "0,4,output0;"
+nodes/vertex/14/expression = "//ComponentMask:14(SimpleGrassWind)
+output0 =  input0.rgb;
+"
+nodes/vertex/15/node = SubResource("VisualShaderNodeVec4Constant_bv5jcp3hmauas")
+nodes/vertex/15/position = Vector2(-7639, 596)
+nodes/vertex/16/node = SubResource("VisualShaderNodeVec3Constant_p7m3cmwjyos5")
+nodes/vertex/16/position = Vector2(-6945, 675)
+nodes/vertex/17/node = SubResource("VisualShaderNodeVectorOp_do3oiesiy25wf")
+nodes/vertex/17/position = Vector2(-2667, 1730)
+nodes/vertex/18/node = SubResource("VisualShaderNodeDotProduct_bf4tk6lohcan0")
+nodes/vertex/18/position = Vector2(-2900, 1561)
+nodes/vertex/19/node = SubResource("VisualShaderNodeVectorOp_cei5aytajt605")
+nodes/vertex/19/position = Vector2(-3711, 1167)
+nodes/vertex/20/node = SubResource("VisualShaderNodeVectorOp_b350yewfe4c65")
+nodes/vertex/20/position = Vector2(-3915, 1160)
+nodes/vertex/21/node = SubResource("VisualShaderNodeFloatOp_cy04vygeekpr0")
+nodes/vertex/21/position = Vector2(-4113, 1160)
+nodes/vertex/22/node = SubResource("VisualShaderNodeFloatConstant_b8byamjsxv3lo")
+nodes/vertex/22/position = Vector2(-4311, 1071)
+nodes/vertex/23/node = SubResource("VisualShaderNodeVectorOp_bttf2dpm23qhf")
+nodes/vertex/23/position = Vector2(-4309, 1261)
+nodes/vertex/24/node = SubResource("VisualShaderNodeFloatFunc_d00al2o3oi3ql")
+nodes/vertex/24/position = Vector2(-4530, 1069)
+nodes/vertex/25/node = SubResource("VisualShaderNodeVectorOp_bkmvaqdfrrfum")
+nodes/vertex/25/position = Vector2(-4742, 1140)
+nodes/vertex/26/node = SubResource("VisualShaderNodeVectorOp_cnsxpk8c5sbx2")
+nodes/vertex/26/position = Vector2(-4956, 1070)
+nodes/vertex/27/node = SubResource("VisualShaderNodeVectorFunc_pr88p7gbm08u")
+nodes/vertex/27/position = Vector2(-5179, 1053)
+nodes/vertex/28/node = SubResource("VisualShaderNodeVectorOp_442pmyaqrsbi")
+nodes/vertex/28/position = Vector2(-5384, 1050)
+nodes/vertex/29/node = SubResource("VisualShaderNodeVectorOp_b7e4atiafnrm")
+nodes/vertex/29/position = Vector2(-6266, 840)
+nodes/vertex/30/node = SubResource("VisualShaderNodeVectorOp_b2xy464ryrpdt")
+nodes/vertex/30/position = Vector2(-6482, 714)
+nodes/vertex/31/node = SubResource("VisualShaderNodeVectorOp_cl8d37cxaoq41")
+nodes/vertex/31/position = Vector2(-6714, 852)
+nodes/vertex/32/node = SubResource("VisualShaderNodeExpression_h8ah0ndsv3ew")
+nodes/vertex/32/position = Vector2(-7238, 696)
+nodes/vertex/32/size = Vector2(980, 340)
+nodes/vertex/32/input_ports = "0,5,input0;"
+nodes/vertex/32/output_ports = "0,0,output0;"
+nodes/vertex/32/expression = "//ComponentMask:32(SimpleGrassWind)
+output0 =  input0.a;
+"
+nodes/vertex/33/node = SubResource("VisualShaderNodeVectorOp_bugguu1n81jei")
+nodes/vertex/33/position = Vector2(-6957, 1034)
+nodes/vertex/34/node = SubResource("VisualShaderNodeVectorOp_rry2c6tfbaut")
+nodes/vertex/34/position = Vector2(-7161, 993)
+nodes/vertex/35/node = SubResource("VisualShaderNodeInput_bxr3cnpjaptsn")
+nodes/vertex/35/position = Vector2(-7465, 909)
+nodes/vertex/36/node = SubResource("VisualShaderNodeFloatConstant_d0arcrham21pm")
+nodes/vertex/36/position = Vector2(-7442, 1027)
+nodes/vertex/37/node = SubResource("VisualShaderNodeFloatConstant_d8aek64uggo4")
+nodes/vertex/37/position = Vector2(-7189, 1136)
+nodes/vertex/38/node = SubResource("VisualShaderNodeVectorOp_h4xj5r45hnee")
+nodes/vertex/38/position = Vector2(-6409, 1231)
+nodes/vertex/39/node = SubResource("VisualShaderNodeInput_d3d658p7dw68c")
+nodes/vertex/39/position = Vector2(-6710, 1059)
+nodes/vertex/40/node = SubResource("VisualShaderNodeFloatConstant_dhfs8c4u6mtep")
+nodes/vertex/40/position = Vector2(-6655, 1340)
+nodes/vertex/41/node = SubResource("VisualShaderNodeFloatConstant_ch8pl3t4i0x1f")
+nodes/vertex/41/position = Vector2(-5586, 1118)
+nodes/vertex/42/node = SubResource("VisualShaderNodeFloatConstant_c1pv1ct42owur")
+nodes/vertex/42/position = Vector2(-5168, 1243)
+nodes/vertex/43/node = SubResource("VisualShaderNodeFloatConstant_crifgh2c3vuub")
+nodes/vertex/43/position = Vector2(-4956, 1261)
+nodes/vertex/44/node = SubResource("VisualShaderNodeFloatConstant_ch2ki7um2v5wf")
+nodes/vertex/44/position = Vector2(-4521, 1262)
+nodes/vertex/45/node = SubResource("VisualShaderNodeVectorDistance_ddq6ru7mipyae")
+nodes/vertex/45/position = Vector2(-2904, 1754)
+nodes/vertex/46/node = SubResource("VisualShaderNodeVectorOp_dydhsdcipxhiw")
+nodes/vertex/46/position = Vector2(-3711, 1725)
+nodes/vertex/47/node = SubResource("VisualShaderNodeVectorOp_dnetqi3c23u2i")
+nodes/vertex/47/position = Vector2(-3906, 1724)
+nodes/vertex/48/node = SubResource("VisualShaderNodeFloatOp_bfbho8l274g3j")
+nodes/vertex/48/position = Vector2(-4104, 1724)
+nodes/vertex/49/node = SubResource("VisualShaderNodeFloatConstant_c6ax4mctjme4k")
+nodes/vertex/49/position = Vector2(-4302, 1635)
+nodes/vertex/50/node = SubResource("VisualShaderNodeVectorOp_deerqgh771cik")
+nodes/vertex/50/position = Vector2(-4298, 1825)
+nodes/vertex/51/node = SubResource("VisualShaderNodeFloatFunc_ovqj1v312qlu")
+nodes/vertex/51/position = Vector2(-4519, 1633)
+nodes/vertex/52/node = SubResource("VisualShaderNodeVectorOp_urjgc4mkww0i")
+nodes/vertex/52/position = Vector2(-4731, 1704)
+nodes/vertex/53/node = SubResource("VisualShaderNodeVectorOp_1guywnxkmwt2")
+nodes/vertex/53/position = Vector2(-4945, 1634)
+nodes/vertex/54/node = SubResource("VisualShaderNodeVectorFunc_824j3oepwteg")
+nodes/vertex/54/position = Vector2(-5168, 1617)
+nodes/vertex/55/node = SubResource("VisualShaderNodeVectorOp_dat7b4nfhyjld")
+nodes/vertex/55/position = Vector2(-5373, 1614)
+nodes/vertex/56/node = SubResource("VisualShaderNodeVectorOp_dft77lmmvvw7j")
+nodes/vertex/56/position = Vector2(-6409, 2143)
+nodes/vertex/57/node = SubResource("VisualShaderNodeVectorOp_d25sssl5xqhom")
+nodes/vertex/57/position = Vector2(-6656, 2144)
+nodes/vertex/58/node = SubResource("VisualShaderNodeInput_crumrs3eiddvk")
+nodes/vertex/58/position = Vector2(-6924, 2028)
+nodes/vertex/59/node = SubResource("VisualShaderNodeFloatConstant_dx84ml3e7vgi1")
+nodes/vertex/59/position = Vector2(-6927, 2223)
+nodes/vertex/60/node = SubResource("VisualShaderNodeFloatConstant_du67vv2dnxgu3")
+nodes/vertex/60/position = Vector2(-5575, 1682)
+nodes/vertex/61/node = SubResource("VisualShaderNodeFloatConstant_dlr80g1085xkq")
+nodes/vertex/61/position = Vector2(-5157, 1807)
+nodes/vertex/62/node = SubResource("VisualShaderNodeFloatConstant_deap17red5t78")
+nodes/vertex/62/position = Vector2(-4945, 1825)
+nodes/vertex/63/node = SubResource("VisualShaderNodeFloatConstant_c30egqg5on07n")
+nodes/vertex/63/position = Vector2(-4512, 1826)
+nodes/vertex/64/node = SubResource("VisualShaderNodeFloatConstant_cv1k6uj63u2tq")
+nodes/vertex/64/position = Vector2(-3110, 1825)
+nodes/vertex/65/node = SubResource("VisualShaderNodeVectorOp_c0tn1jlqsyq30")
+nodes/vertex/65/position = Vector2(-1915, 1446)
+nodes/vertex/66/node = SubResource("VisualShaderNodeVec3Constant_cxrpholgkwm5x")
+nodes/vertex/66/position = Vector2(-2103, 2205)
+nodes/vertex/67/node = SubResource("VisualShaderNodeVec3Constant_b1l4mk47emqw2")
+nodes/vertex/67/position = Vector2(-2124, 1453)
+nodes/vertex/68/node = SubResource("VisualShaderNodeFloatConstant_coptaoikly07g")
+nodes/vertex/68/position = Vector2(-1393, 2016)
+nodes/vertex/69/node = SubResource("VisualShaderNodeFloatConstant_c7y62jd8jpo6f")
+nodes/vertex/69/position = Vector2(-1389, 2210)
+nodes/vertex/70/node = SubResource("VisualShaderNodeFloatParameter_cjxrydjwt5c81")
+nodes/vertex/70/position = Vector2(-460, 652)
+nodes/vertex/71/node = SubResource("VisualShaderNodeFloatParameter_crhsevkdc2vsi")
+nodes/vertex/71/position = Vector2(-460, 748)
+nodes/vertex/72/node = SubResource("VisualShaderNodeFloatConstant_kb15oqjnuv6g")
+nodes/vertex/72/position = Vector2(-381, 898)
+nodes/vertex/84/node = SubResource("VisualShaderNodeInput_b6lkvi7702jgk")
+nodes/vertex/84/position = Vector2(-480, 0)
+nodes/vertex/85/node = SubResource("VisualShaderNodeExpression_ekf2kiloncec")
+nodes/vertex/85/position = Vector2(264, 288)
+nodes/vertex/85/size = Vector2(980, 500)
+nodes/vertex/85/input_ports = "0,4,input0;1,4,input1;"
+nodes/vertex/85/output_ports = "0,4,output0;"
+nodes/vertex/85/expression = "//Scale down to Godot Units, Unreal is in cm
+output0 = input0 + input1 / 100.0;"
+nodes/vertex/89/node = SubResource("VisualShaderNodeGlobalExpression_ceq1w0b3vhrg5")
+nodes/vertex/89/position = Vector2(264, 288)
+nodes/vertex/89/size = Vector2(940, 380)
+nodes/vertex/89/input_ports = ""
+nodes/vertex/89/output_ports = ""
+nodes/vertex/89/expression = "//Exported with UnrealToGodot : https://www.fab.com/listings/61983625-664c-4308-9b26-edfd58d41002
+float saturate(float val)
+{
+	return clamp( val, 0.0, 1.0 );
+}
+vec2 saturate2(vec2 val)
+{
+	return clamp( val, 0.0, 1.0 );
+}
+vec3 saturate3(vec3 val)
+{
+	return clamp( val, 0.0, 1.0 );
+}
+vec2 mul( mat2 mat, vec2 vector )
+{
+	return mat * vector;
+}
+float rcp(float val)
+{
+	return 1.0 / val;
+}
+void sincos( float x, out float s, out float c )
+{
+	s = sin(x);
+	c = cos(x);
+}
+vec2 UnitVectorToOctahedron( vec3 Nparam )
+{
+Nparam.xy /= vec2( dot( vec3(1.0,1.0,1.0), abs(Nparam) ), dot( vec3(1.0,1.0,1.0), abs(Nparam) ) );
+if( Nparam.z <= 0.0 )
+{
+	vec2 val = vec2(-1,-1);	if ( Nparam.x >= 0.0 && Nparam.y >= 0.0 ) val = vec2(1,1);	Nparam.xy = ( 1.0 - abs(Nparam.yx) ) * val;
+}
+return Nparam.xy;
+}
+vec3 RotateAboutAxis(vec4 NormalizedRotationAxisAndAngle, vec3 PositionOnAxis, vec3 Position)
+{
+vec3 ClosestPointOnAxis = PositionOnAxis + NormalizedRotationAxisAndAngle.xyz * dot(NormalizedRotationAxisAndAngle.xyz, Position - PositionOnAxis);
+vec3 UAxis = Position - ClosestPointOnAxis;
+vec3 VAxis = cross(NormalizedRotationAxisAndAngle.xyz, UAxis);
+float CosAngle;
+float SinAngle;
+sincos(NormalizedRotationAxisAndAngle.w, SinAngle, CosAngle); 
+vec3 R = UAxis * CosAngle + VAxis * SinAngle;
+vec3 RotatedPosition = ClosestPointOnAxis + R;
+return RotatedPosition - Position;
+}
+vec3 hash_noise_range_UTG( vec3 p ) {
+p *= mat3(vec3(127.1, 311.7, -53.7), vec3(269.5, 183.3, 77.1), vec3(-301.7, 27.3, 215.3));
+return 2.0 * fract(fract(p)*4375.55) -1.;
+}
+"
+nodes/vertex/connections = PackedInt32Array(8, 0, 85, 1, 9, 0, 8, 0, 10, 0, 9, 0, 11, 0, 10, 0, 12, 0, 11, 0, 13, 0, 12, 0, 14, 0, 13, 0, 15, 0, 14, 0, 16, 0, 12, 1, 17, 0, 11, 1, 18, 0, 17, 0, 13, 0, 18, 0, 19, 0, 18, 1, 20, 0, 19, 0, 21, 0, 20, 0, 22, 0, 21, 0, 23, 0, 21, 1, 24, 0, 23, 0, 25, 0, 24, 0, 26, 0, 25, 0, 27, 0, 26, 0, 28, 0, 27, 0, 29, 0, 28, 0, 30, 0, 29, 0, 13, 0, 30, 0, 31, 0, 30, 1, 32, 0, 31, 0, 15, 0, 32, 0, 33, 0, 31, 1, 34, 0, 33, 0, 35, 0, 34, 0, 36, 0, 34, 1, 37, 0, 33, 1, 38, 0, 29, 1, 39, 0, 38, 0, 40, 0, 38, 1, 41, 0, 28, 1, 42, 0, 26, 1, 43, 0, 25, 1, 44, 0, 23, 1, 24, 0, 20, 1, 24, 0, 19, 1, 45, 0, 17, 1, 46, 0, 45, 0, 47, 0, 46, 0, 48, 0, 47, 0, 49, 0, 48, 0, 50, 0, 48, 1, 51, 0, 50, 0, 52, 0, 51, 0, 53, 0, 52, 0, 54, 0, 53, 0, 55, 0, 54, 0, 56, 0, 55, 0, 31, 0, 56, 0, 57, 0, 56, 1, 58, 0, 57, 0, 59, 0, 57, 1, 60, 0, 55, 1, 61, 0, 53, 1, 62, 0, 52, 1, 63, 0, 50, 1, 51, 0, 47, 1, 51, 0, 46, 1, 64, 0, 45, 1, 65, 0, 11, 2, 72, 0, 65, 0, 67, 0, 65, 1, 72, 0, 11, 3, 71, 0, 10, 1, 70, 0, 9, 1, 72, 0, 8, 1, 84, 0, 85, 0, 85, 0, 0, 0)
+nodes/fragment/0/position = Vector2(64, 0)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_c24ejld7jv3wn")
+nodes/fragment/2/position = Vector2(-345, -364)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_c25syk7ffnd4r")
+nodes/fragment/3/position = Vector2(-595, 76)
+nodes/fragment/4/node = SubResource("VisualShaderNodeExpression_c25cntvdp3g8p")
+nodes/fragment/4/position = Vector2(-519, 378)
+nodes/fragment/4/size = Vector2(980, 1250)
+nodes/fragment/4/input_ports = "0,3,input0;1,0,input1;2,8,input2;"
+nodes/fragment/4/output_ports = "0,4,output0;1,0,output1;2,0,output2;3,0,output3;4,0,output4;5,5,output5;"
+nodes/fragment/4/expression = "//NormalTexture:4(null)
+vec4 Normal4 = texture( input2, UV );
+Normal4 = Normal4 * vec4(2, 2, 2, 2) - vec4(1, 1, 1, 1);
+output0 = Normal4.xyz;
+output1 = Normal4.x;
+output2 = Normal4.y;
+output3 = Normal4.z;
+output3 = Normal4.w;
+output5 = Normal4;
+"
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_c25cm7xmbamre")
+nodes/fragment/5/position = Vector2(-1359, 378)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_c24ushv0w0idq")
+nodes/fragment/6/position = Vector2(-364, -76)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_c23wbbr5lmjxv")
+nodes/fragment/7/position = Vector2(-345, 211)
+nodes/fragment/86/node = SubResource("VisualShaderNodeMultiplyAdd_bkppqqwbjkpso")
+nodes/fragment/86/position = Vector2(-240, 0)
+nodes/fragment/87/node = SubResource("VisualShaderNodeClamp_dayy6rlnt5572")
+nodes/fragment/87/position = Vector2(-240, 0)
+nodes/fragment/88/node = SubResource("VisualShaderNodeFloatConstant_d3lobis5anp3m")
+nodes/fragment/88/position = Vector2(-240, 0)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 6, 0, 0, 3, 7, 0, 87, 0, 4, 0, 86, 0, 5, 0, 4, 2, 3, 0, 0, 1, 86, 0, 0, 9, 87, 0, 0, 4, 88, 0, 0, 19)

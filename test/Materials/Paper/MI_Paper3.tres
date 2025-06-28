@@ -1,0 +1,21 @@
+[gd_resource type = "ShaderMaterial" load_steps=4 format=3 uid="uid://1axkgkw03sey"]
+
+[ext_resource type="Shader" uid="uid://cwfuualmwbmc" path="res://Shaders/MI_Paper3.tres" id="4_b0oif"]
+[ext_resource type="Texture2D" uid="uid://c1bdiqqd8fo8l" path="res://Textures/Paper/Paper3/Attic_Paper_03_LP_15_-_Default_Normal.png" id="1_bjorj"]
+[ext_resource type="Texture2D" uid="uid://cnlds8urhr7ne" path="res://Textures/Paper/Paper3/Attic_Paper_03_LP_15_-_Default_Diffuse.png" id="2_cx2g4"]
+[ext_resource type="Texture2D" uid="uid://bpeumkehv157h" path="res://Textures/Paper/Paper3/Attic_Paper_03_LP_15_-_Default_RMAO.png" id="3_dh1hu"]
+
+[resource]
+resource_name = "MI_Paper3"
+render_priority = 0
+shader = ExtResource("4_b0oif")
+shader_parameter/HueShift = 1.054305
+shader_parameter/BaseColor = ExtResource("2_cx2g4")
+shader_parameter/UV_Tiling = 1.000000
+shader_parameter/UV_Offset = 0.000000
+shader_parameter/Desaturation = -0.180952
+shader_parameter/BaseColor_Strength = 0.977208
+shader_parameter/Normal = ExtResource("1_bjorj")
+shader_parameter/Roughness_Strength = 2.000000
+shader_parameter/R_M_AO = ExtResource("3_dh1hu")
+shader_parameter/Subsurface_Strength = 0.500000

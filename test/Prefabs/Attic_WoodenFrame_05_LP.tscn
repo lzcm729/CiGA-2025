@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://nk8dk8b1x21s"]
+
+[ext_resource type="PackedScene" uid="uid://dw17d7h0v062u" path="res://Geometry/Meshes/Attic_WoodenFrame_05_LP.glb" id="1_debdn"]
+[ext_resource type="Material" uid="uid://c00vux8jsdb0r" path="res://Materials/Wood/MI_WoodenPanel5.tres" id="2_humas"]
+
+[node name="Attic_WoodenFrame_05_LP" instance=ExtResource("1_debdn")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_humas")

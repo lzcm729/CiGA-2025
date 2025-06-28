@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtl6ya4xchmm6"]
+
+[ext_resource type="PackedScene" uid="uid://bwt2gwkq88qtq" path="res://Geometry/Greybox/House_01_LP.glb" id="1_cxvob"]
+[ext_resource type="Material" uid="uid://c00vux8jsdb0r" path="res://Materials/Wood/MI_WoodenPanel5.tres" id="2_humas"]
+
+[node name="House_01_LP" instance=ExtResource("1_cxvob")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_humas")
