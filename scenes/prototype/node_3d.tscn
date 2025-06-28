@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
-[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="2_nd4gh"]
+[ext_resource type="PackedScene" path="res://closet.tscn" id="2_nd4gh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)

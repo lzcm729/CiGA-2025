@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b07wy55rqrshd"]
+
+[ext_resource type="Shader" uid="uid://toxygcfx5lxu" path="res://assets/3D/Shader/crt.gdshader" id="1_va2ik"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mbti"]
+shader = ExtResource("1_va2ik")
+shader_parameter/brightnessMult = 4.0
+shader_parameter/wiggleMult = 0.005
+shader_parameter/chromaticAberrationOffset = 0.001
+
+[node name="CanvasLayer_CRT" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4mbti")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

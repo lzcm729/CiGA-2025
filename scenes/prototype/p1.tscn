@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://b575c8jrw6taj"]
+[gd_scene load_steps=131 format=3 uid="uid://ngf71gejgjys"]
 
 [ext_resource type="PackedScene" uid="uid://do7n8eggqiiyq" path="res://test/Prefabs/Attic_WoodenFrame_03_LP.tscn" id="1_kohiv"]
 [ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
@@ -2978,5 +2978,4 @@ curve = SubResource("Curve3D_o2jhi")
 transform = Transform3D(-0.412409, 0, 0.910994, 0, 0.99999, 0, -0.910994, 0, -0.412409, 0.001, 0, -0.005)
 
 [node name="PathPolygon" parent="Level01/Path3D" instance=ExtResource("121_kv05t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 path_node = NodePath("..")
