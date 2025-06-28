@@ -1,16 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://px33mjbxlxid"]
+[gd_scene load_steps=5 format=3 uid="uid://px33mjbxlxid"]
 
-[ext_resource type="Script" uid="uid://4ve24poo2esn" path="res://scripts/Player/player.gd" id="1_sigqt"]
+[ext_resource type="Script" uid="uid://be3m50ipbfg3f" path="res://player/Monster/draw.gd" id="1_frhej"]
 
-[node name="Draw" type="Node3D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_frhej"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 4.0
 
-[node name="draw" type="CharacterBody3D" parent="." groups=["PlayerGroup"]]
-transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, 0, 0, 0)
-script = ExtResource("1_sigqt")
-index = 1
+[sub_resource type="SphereMesh" id="SphereMesh_frhej"]
+radius = 0.1
+height = 0.2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="draw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_frhej"]
+size = Vector3(0.5, 4.40192, 0.5)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="draw"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+[node name="Draw" type="CharacterBody3D" groups=["PlayerGroup"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+motion_mode = 1
+script = ExtResource("1_frhej")
+ignore_gravity = true
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.00017156, 2.91534, -0.00324895)
+mesh = SubResource("CylinderMesh_frhej")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0.86603, 0)
+mesh = SubResource("SphereMesh_frhej")
 skeleton = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 2.88841, 0)
+shape = SubResource("BoxShape3D_frhej")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-2.76449, 0.573976, 4.1265, 0.0554453, 4.95695, -0.652342, -4.16586, -0.314919, -2.74705, 3.92948, 1.39684, -1.20734)
+current = true
