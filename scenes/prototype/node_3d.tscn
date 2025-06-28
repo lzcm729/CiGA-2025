@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://de1rprmpcnrdl"]
+[gd_scene load_steps=20 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
-[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="2_nd4gh"]
+[ext_resource type="PackedScene" path="res://closet.tscn" id="2_nd4gh"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_ib8j6"]
 [ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]
+[ext_resource type="PackedScene" path="res://scenes/prototype/light.tscn" id="5_l3ian"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -44,13 +45,16 @@ sky = SubResource("Sky_ycwqe")
 [sub_resource type="Curve3D" id="Curve3D_l3hl8"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.001, 0, -0.005, 0, 0, 0, 0, 0, 0, -0.591, 0, 0.263, 0.021, 0, -0.038, -0.021, 0, 0.038, -1.135, 0, 0.727, 0.04, 0, 0.073, -0.04, 0, -0.073, -2.435, 0, 0.626, 0, 0, 0, 0, 0, 0, -3.103, 0, 0.895, 0, 0, 0, 0, 0, 0, -3.738, 0, 0.951, 0, 0, 0, 0, 0, 0, -4.371, 0, 0.621, 0, 0, 0, 0, 0, 0, -4.389, 0, 1.556, 0, 0, 0, 0, 0, 0, -5.53, 0, 1.448),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.001, 0, -0.005, 0, 0, 0, 0, 0, 0, -0.591, 0, 0.263, 0.021, 0, -0.038, -0.021, 0, 0.038, -1.135, 0, 0.727, 0.04, 0, 0.073, -0.04, 0, -0.073, -2.435, 0, 0.626, 0, 0, 0, 0, 0, 0, -3.103, 0, 3.68792, 0, 0, 0, 0, 0, 0, -3.738, 0, 0.951, 0, 0, 0, 0, 0, 0, -4.371, 0, 0.621, 0, 0, 0, 0, 0, 0, -4.389, 0, 1.556, 0, 0, 0, 0, 0, 0, -5.53, 0, 1.448),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 9
 
 [sub_resource type="BoxMesh" id="BoxMesh_17h8h"]
 size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3ian"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="level" type="Node3D"]
 
@@ -131,3 +135,11 @@ speed = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D2"]
 mesh = SubResource("BoxMesh_17h8h")
+
+[node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D2/MeshInstance3D" groups=["test"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D2/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_l3ian")
+
+[node name="Light" parent="." instance=ExtResource("5_l3ian")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.233324, 0)

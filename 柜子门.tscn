@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://cquws6mp8q038"]
+
+[ext_resource type="PackedScene" uid="uid://cbjdo4gknrdju" path="res://test/柜子/柜门/柜子.fbx" id="1_oc0bq"]
+[ext_resource type="Texture2D" uid="uid://gikolavjb1xb" path="res://test/柜子/柜门/initialShadingGroup_Base_color.png" id="2_ydvmg"]
+[ext_resource type="Texture2D" uid="uid://dbf25a1cah4g4" path="res://test/柜子/柜门/initialShadingGroup_Height.png" id="3_3prwv"]
+[ext_resource type="Texture2D" uid="uid://yd1fakmnc8pl" path="res://test/柜子/柜门/initialShadingGroup_Metallic.png" id="4_65dvd"]
+[ext_resource type="Texture2D" uid="uid://bir3mywwb1y5e" path="res://test/柜子/柜门/initialShadingGroup_Normal_OpenGL.png" id="5_lggna"]
+[ext_resource type="Texture2D" uid="uid://cheoqgemapwg" path="res://test/柜子/柜门/initialShadingGroup_Roughness.png" id="6_11c32"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ba668"]
+albedo_texture = ExtResource("2_ydvmg")
+metallic = 1.0
+metallic_texture = ExtResource("4_65dvd")
+roughness_texture = ExtResource("6_11c32")
+normal_enabled = true
+normal_texture = ExtResource("5_lggna")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_3prwv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdo0l"]
+albedo_texture = ExtResource("2_ydvmg")
+metallic = 1.0
+metallic_texture = ExtResource("4_65dvd")
+roughness_texture = ExtResource("6_11c32")
+normal_enabled = true
+normal_texture = ExtResource("5_lggna")
+
+[node name="柜子" instance=ExtResource("1_oc0bq")]
+
+[node name="Group18918" parent="." index="0"]
+transform = Transform3D(571.258, 0, 0, 0, 571.258, 0, 0, 0, 571.258, 0, 0, -0.010898)
+
+[node name="polySurface1" parent="Group18918" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ba668")
+
+[node name="polySurface2" parent="Group18918" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kdo0l")
