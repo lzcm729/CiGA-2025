@@ -13,6 +13,7 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 @export var index : int
 @export var path : PathFollow3D
 @export var enable_jump = false
+@export var ignore_gravity = false
 @onready var mesh: Node3D = $Mesh
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
@@ -121,7 +122,7 @@ func _ready() -> void:
 		mesh.rotation.y = path.global_rotation.y + 180
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
+	if not is_on_floor() && not ignore_gravity:
 		velocity.y -= gravity * delta
 	if is_input_valid() :
 		var input_dir : Vector2 
