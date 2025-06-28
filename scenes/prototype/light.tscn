@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://jsswx28hejj6"]
+
+[ext_resource type="Script" uid="uid://c72sjt8uobt7d" path="res://scenes/prototype/light.gd" id="1_jadup"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k36dg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jadup"]
+albedo_color = Color(0.363101, 0.220417, 0.0897022, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_16keo"]
+top_radius = 0.3
+bottom_radius = 0.8
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k36dg"]
+transparency = 1
+albedo_color = Color(0.882353, 0.858824, 0, 0.254902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bykto"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16keo"]
+albedo_color = Color(0.55136, 0.399519, 0.265664, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jadup"]
+height = 2.46
+radius = 0.75
+
+[node name="Light" type="Node3D"]
+script = ExtResource("1_jadup")
+
+[node name="Lamp" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.534492, 0, 0, 0, 0.315266, 0, 0, 0, 0.505566, 0, 2.00309, 0)
+mesh = SubResource("BoxMesh_k36dg")
+surface_material_override/0 = SubResource("StandardMaterial3D_jadup")
+
+[node name="Light" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.61709, 0, 0, 0, 1, 0, 0.912171, 0)
+mesh = SubResource("CylinderMesh_16keo")
+surface_material_override/0 = SubResource("StandardMaterial3D_k36dg")
+
+[node name="Switch" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.144794, 0, 0, 0, 0.0941876, 0, 0, 0, 0.108264, 0.00303727, 1.95243, -0.30411)
+mesh = SubResource("BoxMesh_bykto")
+surface_material_override/0 = SubResource("StandardMaterial3D_16keo")
+
+[node name="OpenGap" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25233, 0)
+shape = SubResource("CylinderShape3D_jadup")
+
+[connection signal="timeout" from="OpenGap" to="." method="_on_open_gap_timeout"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
