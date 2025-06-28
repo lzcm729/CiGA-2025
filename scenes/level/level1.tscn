@@ -13,19 +13,17 @@ point_count = 7
 
 [node name="Level1" type="Node3D"]
 
-[node name="Level01" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019598, 0, 0.00676858)
+[node name="Gear01" parent="." node_paths=PackedStringArray("path") instance=ExtResource("1_pgq8h")]
+transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -5.20652, 8.39084, 4.4735)
+index = 1
+path = NodePath("Path3D/PathFollow3D")
 
-[node name="Gear01" parent="Level01" node_paths=PackedStringArray("path") instance=ExtResource("1_pgq8h")]
-transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -5.20848, 8.39084, 4.46673)
-path = NodePath("../Path3D/PathFollow3D")
-
-[node name="Path3D" type="Path3D" parent="Level01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63422, 8.56221, 4.0907)
+[node name="Path3D" type="Path3D" parent="Gear01"]
+transform = Transform3D(1.91494, 0, 4.61875, 0, 5, 0, -4.61875, 0, 1.91494, -0.637115, 0.856853, -3.37244)
 curve = SubResource("Curve3D_1ob00")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Level01/Path3D"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Gear01/Path3D"]
 transform = Transform3D(-0.875237, 0, 0.483684, 0, 0.99999, 0, -0.483684, 0, -0.875237, -0.682315, 0, 0.465202)
 
-[node name="PathPolygon" parent="Level01/Path3D" instance=ExtResource("2_5yh3o")]
+[node name="PathPolygon" parent="Gear01/Path3D" instance=ExtResource("2_5yh3o")]
 path_node = NodePath("..")

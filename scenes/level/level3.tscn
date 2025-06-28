@@ -1,7 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://hel1mej6t04v"]
+[gd_scene load_steps=9 format=3 uid="uid://hel1mej6t04v"]
 
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="1_ga8lq"]
+[ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_hkmq7"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_w4sk7"]
+[ext_resource type="PackedScene" path="res://closet.tscn" id="3_ojmut"]
+
+[sub_resource type="Curve3D" id="Curve3D_duul2"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0.04, 0, 0.073, -0.021, 0, 0.038, -0.677631, 0, 0.461109, 0, 0, 0, 0, 0, 0, -1.39373, 0, 0.973281, 0, 0, 0, 0, 0, 0, -2.65138, 0, 0.302175, 0, 0, 0, 0, 0, 0, -2.98706, 0, 1.06959, 0, 0, 0, 0, 0, 0, -4.389, 0, 1.556, 0, 0, 0, 0, 0, 0, -5.53, 0, 1.448),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_07jeq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hkmq7"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Curve3D" id="Curve3D_hkmq7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.01239, -0.626314, 0.338084, 0, 0, 0, 0, 0, 0, -2.43611, -0.858068, -0.0981746, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
 
 [node name="Level3" type="Node3D"]
 
-[node name="level" parent="." instance=ExtResource("1_ga8lq")]
+[node name="Gear01" parent="." instance=ExtResource("1_hkmq7")]
+transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.97602, 8.39489, 4.25387)
+index = 1
+
+[node name="Path3D" type="Path3D" parent="Gear01"]
+transform = Transform3D(1.91494, 0, 4.61875, 0, 5, 0, -4.61875, 0, 1.91494, -0.637116, 0.551411, -3.37244)
+curve = SubResource("Curve3D_duul2")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Gear01/Path3D"]
+transform = Transform3D(-0.875237, 0, 0.483684, 0, 0.99999, 0, -0.483684, 0, -0.875237, -0.677631, 0, 0.461109)
+
+[node name="PathPolygon" parent="Gear01/Path3D" instance=ExtResource("2_w4sk7")]
+path_node = NodePath("..")
+
+[node name="clost" parent="." instance=ExtResource("3_ojmut")]
+transform = Transform3D(0.770168, 0, -0.637841, 0, 1, 0, 0.637841, 0, 0.770168, -7.95069, 9.26543, 3.88208)
+
+[node name="Gearclost_02" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.49068, 0.0736166, 0.0617563, 0, 0.321347, -0.383061, -0.0960898, -0.375921, -0.315357, -7.06409, 8.88021, 5.05773)
+mesh = SubResource("CapsuleMesh_07jeq")
+
+[node name="p1" parent="." instance=ExtResource("1_ga8lq")]
+
+[node name="Watcher" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
+mesh = SubResource("BoxMesh_hkmq7")
+
+[node name="Path3D" type="Path3D" parent="Watcher"]
+curve = SubResource("Curve3D_hkmq7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Watcher/Path3D"]
+transform = Transform3D(-0.316749, -0.480035, 0.818067, 1.49011e-08, 0.862476, 0.506095, -0.948508, 0.160305, -0.273189, 0, 0, 0)
+
+[node name="PathPolygon" parent="Watcher/Path3D" instance=ExtResource("2_w4sk7")]
+path_node = NodePath("..")

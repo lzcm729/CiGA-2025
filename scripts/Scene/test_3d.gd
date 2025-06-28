@@ -1,5 +1,5 @@
 extends Node3D
-class_name Scene
+
 @onready var currentIndex : int = 1
 @export var PostEffect_CRT : CanvasLayer
 var playNum : int = 0
