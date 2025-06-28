@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://de1rprmpcnrdl"]
+[gd_scene load_steps=18 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
 [ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="2_nd4gh"]
+[ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_ib8j6"]
+[ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -10,6 +12,9 @@ refraction_enabled = true
 [sub_resource type="BoxMesh" id="BoxMesh_56wem"]
 material = SubResource("StandardMaterial3D_56wem")
 size = Vector3(5, 0.5, 8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ib8j6"]
+data = PackedVector3Array(-2.5, 0.25, 4, 2.5, 0.25, 4, -2.5, -0.25, 4, 2.5, 0.25, 4, 2.5, -0.25, 4, -2.5, -0.25, 4, 2.5, 0.25, -4, -2.5, 0.25, -4, 2.5, -0.25, -4, -2.5, 0.25, -4, -2.5, -0.25, -4, 2.5, -0.25, -4, 2.5, 0.25, 4, 2.5, 0.25, -4, 2.5, -0.25, 4, 2.5, 0.25, -4, 2.5, -0.25, -4, 2.5, -0.25, 4, -2.5, 0.25, -4, -2.5, 0.25, 4, -2.5, -0.25, -4, -2.5, 0.25, 4, -2.5, -0.25, 4, -2.5, -0.25, -4, 2.5, 0.25, 4, -2.5, 0.25, 4, 2.5, 0.25, -4, -2.5, 0.25, 4, -2.5, 0.25, -4, 2.5, 0.25, -4, -2.5, -0.25, 4, 2.5, -0.25, 4, -2.5, -0.25, -4, 2.5, -0.25, 4, 2.5, -0.25, -4, -2.5, -0.25, -4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_suqva"]
 size = Vector3(0.5, 2, 5)
@@ -36,13 +41,30 @@ sky_material = SubResource("PanoramaSkyMaterial_nd4gh")
 background_mode = 2
 sky = SubResource("Sky_ycwqe")
 
+[sub_resource type="Curve3D" id="Curve3D_l3hl8"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.001, 0, -0.005, 0, 0, 0, 0, 0, 0, -0.591, 0, 0.263, 0.021, 0, -0.038, -0.021, 0, 0.038, -1.135, 0, 0.727, 0.04, 0, 0.073, -0.04, 0, -0.073, -2.435, 0, 0.626, 0, 0, 0, 0, 0, 0, -3.103, 0, 0.895, 0, 0, 0, 0, 0, 0, -3.738, 0, 0.951, 0, 0, 0, 0, 0, 0, -4.371, 0, 0.621, 0, 0, 0, 0, 0, 0, -4.389, 0, 1.556, 0, 0, 0, 0, 0, 0, -5.53, 0, 1.448),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[sub_resource type="BoxMesh" id="BoxMesh_17h8h"]
+size = Vector3(0.3, 0.3, 0.3)
+
 [node name="level" type="Node3D"]
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.82931, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0, -0.178699)
 mesh = SubResource("BoxMesh_56wem")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ib8j6")
+
 [node name="walltotal" type="Node3D" parent="."]
+visible = false
 
 [node name="Wall3" type="MeshInstance3D" parent="walltotal"]
 transform = Transform3D(0.0139651, -1.16415e-10, -0.999757, 0, 1, -1.16415e-10, 0.633924, 0, 0.0220242, -0.100863, 1.26778, 2.52839)
@@ -60,6 +82,7 @@ mesh = SubResource("BoxMesh_suqva")
 skeleton = NodePath("../..")
 
 [node name="symbol" type="MeshInstance3D" parent="."]
+visible = false
 
 [node name="ruler 5m" type="MeshInstance3D" parent="symbol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238178, 0.359018, -0.384588)
@@ -67,6 +90,7 @@ mesh = SubResource("BoxMesh_fdwyv")
 skeleton = NodePath("../..")
 
 [node name="gear" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="gear"]
 transform = Transform3D(0.989191, 0, -0.146636, 0, 1, 0, 0.146636, 0, 0.989191, 1.38489, 1.40477, -0.148992)
@@ -85,7 +109,25 @@ transform = Transform3D(1, 0, 0, 0, 0.263637, 0.964622, 0, -0.964622, 0.263637, 
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.998485, 0.0413663, 0.0362983, 0.0545543, 0.830865, 0.553793, -0.00725056, 0.554934, -0.831863, -0.755087, 3.5343, -4.8163)
+transform = Transform3D(-0.998485, 0.0413663, 0.0362983, 0.0545543, 0.830865, 0.553793, -0.00725056, 0.554934, -0.831863, 0.707102, 2.75398, -4.80495)
 
-[node name="Node3D" parent="." instance=ExtResource("2_nd4gh")]
+[node name="closet" parent="." instance=ExtResource("2_nd4gh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56372, 1.31556, -0.394279)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03255, 0.625915, -4.0469)
+curve = SubResource("Curve3D_l3hl8")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.412409, 0, 0.910994, 0, 0.99999, 0, -0.910994, 0, -0.412409, 0.001, 0, -0.005)
+
+[node name="PathPolygon" parent="Path3D" instance=ExtResource("3_ib8j6")]
+path_node = NodePath("..")
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.41241, 0, 0.910994, 0, 1, 0, -0.910994, 0, -0.41241, 0.001, 0, -0.005)
+script = ExtResource("4_l3ian")
+speed = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D2"]
+mesh = SubResource("BoxMesh_17h8h")
