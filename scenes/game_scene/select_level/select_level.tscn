@@ -1,0 +1,142 @@
+[gd_scene load_steps=2 format=3 uid="uid://umxxocvujlih"]
+
+[ext_resource type="Script" uid="uid://b7a7i470eclv8" path="res://scenes/game_scene/select_level/select_level.gd" id="1_la6f6"]
+
+[node name="SelectLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la6f6")
+back_path = "uid://dboeh8i18e2sh"
+level_path = "uid://d30t2bi4w65jl"
+
+[node name="EnterMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="EnterMarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="EnterMarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.5
+offset_top = -455.0
+offset_right = 145.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="EnterMarginContainer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "当前关卡："
+
+[node name="EnterGame" type="Button" parent="EnterMarginContainer/Control"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 77.5
+offset_right = 125.0
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "开始游戏"
+
+[node name="SwitchLevelMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="SwitchLevelMarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SwitchLevelMarginContainer/Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 150.0
+offset_bottom = 230.0
+grow_horizontal = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Last" type="Button" parent="SwitchLevelMarginContainer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "上一个"
+
+[node name="Next" type="Button" parent="SwitchLevelMarginContainer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "下一个"
+
+[node name="KeyMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="KeyMarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Back" type="Button" parent="KeyMarginContainer/Control"]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "返回"
+
+[node name="Guide" type="Button" parent="KeyMarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "指导"
