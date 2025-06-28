@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbx3i41l7s2m7"]
+[gd_scene load_steps=4 format=3 uid="uid://dbx3i41l7s2m7"]
 
 [ext_resource type="Script" uid="uid://cfm1ntuwr7hbu" path="res://node_3d.gd" id="1_48ji0"]
+[ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="2_bewde"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bewde"]
 size = Vector3(0.5, 2, 1)
@@ -18,3 +19,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329579, 0, 0.499802)
 transform = Transform3D(0.303764, 0, 0, 0, 1, 0, 1.49012e-08, 0, 0.975493, 0, 0, -0.495065)
 mesh = SubResource("BoxMesh_bewde")
 skeleton = NodePath("../..")
+
+[node name="DoorSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_bewde")
