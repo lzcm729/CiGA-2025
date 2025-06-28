@@ -29,7 +29,7 @@ point_count = 4
 script = ExtResource("1_5qlw0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0.0397894, -0.491477, 0.284211)
 use_collision = true
 material = SubResource("StandardMaterial3D_a402t")
 
