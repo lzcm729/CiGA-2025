@@ -11,6 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="8_cg7ya"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="9_tma88"]
 [ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="10_5vs8q"]
+[ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="14_c0g5h"]
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="18_svtae"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="19_de5xp"]
 
@@ -53,9 +54,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
-
-[sub_resource type="BoxMesh" id="BoxMesh_i0l86"]
-size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Closet" type="CharacterBody3D"]
 script = ExtResource("1_svtae")
@@ -108,6 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801158, 0)
 curve = SubResource("Curve3D_a6kfy")
 
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("19_de5xp")]
+visible = false
 path_node = NodePath("..")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
@@ -115,6 +114,4 @@ transform = Transform3D(-0.865121, -0.0448874, -0.499551, -0.122951, 0.984576, 0
 progress = 2.55315
 loop = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
-mesh = SubResource("BoxMesh_i0l86")
-skeleton = NodePath("../..")
+[node name="Doll" parent="Path3D/PathFollow3D" instance=ExtResource("14_c0g5h")]

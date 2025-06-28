@@ -1,6 +1,6 @@
 extends Player
 
-@onready var toy = $Path3D/PathFollow3D/MeshInstance3D
+@onready var toy = $Path3D/PathFollow3D/Doll
 
 var start_remove := false
 
