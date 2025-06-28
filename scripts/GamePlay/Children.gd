@@ -103,5 +103,5 @@ func _process(delta: float) -> void:
 		last_past_time -= cur_time_target
 
 func _ready() -> void:
-	var gameplay = get_node("/root/test/Gameplay")
+	var gameplay = get_node("/root/Main/GamePlay")
 	gameplay.connect("GAME_START", child_on_game_start)

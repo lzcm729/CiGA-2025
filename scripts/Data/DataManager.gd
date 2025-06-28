@@ -23,7 +23,6 @@ func switch_scene(target_scene:int) -> void:
 	print(scene_info['scene_file'])
 	cur_scene_id = target_scene
 	get_tree().change_scene_to_file(scene_info['scene_file'])
-	get_tree().NOTIFICATION_PREDELETE
 
 func select_level(target_level:int) -> void:
 	if cur_scene_id != Consts.SCENES.LEVEL_SELECT:
@@ -48,6 +47,12 @@ func handle_level_success(level_index:int) -> void:
 	if achievement[level_index] == null:
 		achievement[level_index] = {"level" : false, "item":{}, "block":{}}
 	achievement[level_index]["level"] = true
+
+func get_cur_level_config() ->Array:
+	if current_level == 0:
+		return [current_level, {}]
+	else:
+		return [current_level, data_config.LEVEL_INFO[current_level]]
 
 func _ready() -> void:
 	print("hello world")
