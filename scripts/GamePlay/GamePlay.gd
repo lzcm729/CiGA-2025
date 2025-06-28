@@ -12,6 +12,7 @@ func game_start(total_time:float) -> void:
 	if count_down >= 0:
 		return
 	count_down = total_time
+	count_down_time_show = total_time
 	emit_signal("GAME_START", total_time)
 
 func _process(delta: float) -> void:
