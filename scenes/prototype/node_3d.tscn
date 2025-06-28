@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://de1rprmpcnrdl"]
 
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
-[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="2_nd4gh"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_ib8j6"]
 [ext_resource type="Script" uid="uid://c2rdge22herm0" path="res://lqz/path_follow_3d_2.gd" id="4_l3ian"]
+[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="5_l3hl8"]
 [ext_resource type="PackedScene" uid="uid://jsswx28hejj6" path="res://scenes/prototype/light.tscn" id="5_l3ian"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
@@ -115,9 +115,6 @@ shadow_enabled = true
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.998485, 0.0413663, 0.0362983, 0.0545543, 0.830865, 0.553793, -0.00725056, 0.554934, -0.831863, 0.707102, 2.75398, -4.80495)
 
-[node name="closet" parent="." instance=ExtResource("2_nd4gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56372, 1.31556, -0.394279)
-
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03255, 0.625915, -4.0469)
 curve = SubResource("Curve3D_l3hl8")
@@ -143,3 +140,6 @@ shape = SubResource("BoxShape3D_l3ian")
 
 [node name="Light" parent="." instance=ExtResource("5_l3ian")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.233324, 0)
+
+[node name="Closet" parent="." instance=ExtResource("5_l3hl8")]
+transform = Transform3D(0.983749, 0, 0.17953, 0, 1, 0, -0.17953, 0, 0.983749, -3.42545, 0.625915, -0.74174)
