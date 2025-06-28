@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 			print("Light is gone")
 			decal.visible = false
 			light.visible = false
+			decal.queue_free()
+			light.queue_free()
 			gone = true
 	else:
 		if cylinder_mesh.bottom_radius < default_radius:
