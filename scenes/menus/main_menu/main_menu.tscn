@@ -10,3 +10,58 @@ script = ExtResource("2_ub2bi")
 game_scene_path = "res://scenes/game_scene/game_ui.tscn"
 options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_peecx")
+
+[node name="VersionMargin" parent="." index="3"]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 88.0
+offset_bottom = 26.0
+grow_horizontal = 1
+grow_vertical = 1
+horizontal_alignment = 0
+
+[node name="MenuContainer" parent="." index="4"]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 594.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+theme_override_font_sizes/font_size = 120
+text = "GameName"
+
+[node name="SubTitleMargin" parent="MenuContainer" index="1"]
+visible = false
+
+[node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -208.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0

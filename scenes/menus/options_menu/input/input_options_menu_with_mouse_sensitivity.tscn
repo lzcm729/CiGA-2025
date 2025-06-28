@@ -7,7 +7,7 @@
 [node name="Controls" instance=ExtResource("1_56ptf")]
 script = ExtResource("2_n50lr")
 
-[node name="VBoxContainer" parent="." index="0"]
+[node name="VBoxContainer" parent="." index="1"]
 theme_override_constants/separation = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" index="0"]

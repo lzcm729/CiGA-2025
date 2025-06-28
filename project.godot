@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Maaack's Game Template"
-run/main_scene="uid://bhrryxcew0rw1"
+config/name="GameName"
+run/main_scene="uid://dboeh8i18e2sh"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
 
