@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://ngf71gejgjys"]
+[gd_scene load_steps=125 format=3 uid="uid://ngf71gejgjys"]
 
 [ext_resource type="PackedScene" uid="uid://do7n8eggqiiyq" path="res://test/Prefabs/Attic_WoodenFrame_03_LP.tscn" id="1_kohiv"]
 [ext_resource type="Script" uid="uid://3ji7gdrvimlh" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
@@ -111,7 +111,6 @@
 [ext_resource type="PackedScene" uid="uid://dr2fptfe8yk6y" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_17.tscn" id="109_puhra"]
 [ext_resource type="PackedScene" uid="uid://cau1t1ehptd7j" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_18.tscn" id="110_if3t3"]
 [ext_resource type="PackedScene" uid="uid://bcjsl3w1djm3m" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_19.tscn" id="111_26pcm"]
-[ext_resource type="PackedScene" uid="uid://b0w76fqk0kmfg" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_20.tscn" id="112_h3cto"]
 [ext_resource type="PackedScene" uid="uid://dmoce0fcq3l34" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_21.tscn" id="113_psg85"]
 [ext_resource type="PackedScene" uid="uid://dbbeq4jwg3egn" path="res://test/WorldEnvironment.tscn" id="114_0cc84"]
 [ext_resource type="PackedScene" uid="uid://chl1xv6idi7x0" path="res://test/Prefabs/Attic_WoodenFrame_06_LP.tscn" id="115_fnn5n"]
@@ -119,6 +118,8 @@
 [ext_resource type="PackedScene" uid="uid://ba7rgg64wnc56" path="res://test/Prefabs/Attic_WoodenFrame_02_LP.tscn" id="117_0uvxp"]
 [ext_resource type="PackedScene" uid="uid://bst28kcm466sn" path="res://test/Prefabs/Attic_WoodenFrame_04_LP.tscn" id="118_uorg8"]
 [ext_resource type="PackedScene" uid="uid://nk8dk8b1x21s" path="res://test/Prefabs/Attic_WoodenFrame_05_LP.tscn" id="119_2xc81"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kohiv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -138,10 +139,13 @@ albedo_color = Color(1, 1, 0.309804, 1)
 material = SubResource("StandardMaterial3D_nd4gh")
 size = Vector3(0.1, 0.1, 5)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_kohiv"]
-
 [node name="p1" type="Node3D"]
 script = ExtResource("1_o2jhi")
+
+[node name="characterarea" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.352741, 0, 0.935721, 0, 0.00804355, 0, -0.935721, 0, -0.352741, -10.395, 8.3089, 5.76537)
+mesh = SubResource("CylinderMesh_kohiv")
+skeleton = NodePath("../prototype_common")
 
 [node name="Attic_Wall_01_LP2" parent="." instance=ExtResource("2_pc2c4")]
 transform = Transform3D(0.0899251, 0, -0.996326, 0, 1.05, 0, -1.04614, 0, -0.085643, 0.442192, -0.749749, -3.51389)
@@ -221,7 +225,7 @@ transform = Transform3D(0.09152, 0, 1.046, 0, 1.05, 0, -1.046, 0, 0.09152, -8.61
 transform = Transform3D(0, 0, -0.5625, 0, 0.98, 0, 1, 0, 0, -11.52, 7.03, 6.49)
 
 [node name="Attic_MetalShelf_01_LP" parent="art" instance=ExtResource("10_hdrfc")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -9.65365, 7.02, 7.5764)
+transform = Transform3D(0.0678585, 0, -0.997695, 0, 1, 0, 0.997695, 0, 0.0678585, -4.42151, 7.02, 4.70807)
 
 [node name="Attic_MetalShelf_01_LP2" parent="art" instance=ExtResource("10_hdrfc")]
 transform = Transform3D(-0.087156, 0, 0.996195, 0, 1, 0, -0.996195, 0, -0.087156, -9.17345, 7.03, 2.85919)
@@ -242,7 +246,7 @@ transform = Transform3D(-1.046, 0, 0.091513, 0, 1.05, 0, -0.091513, 0, -1.046, -
 transform = Transform3D(0, 0, -1.05, 0, 1.05, 0, 1.05, 0, 0, -10.747, 7.8, 7.7737)
 
 [node name="Attic_CardboardBox_03_LP3" parent="art" instance=ExtResource("14_nq0j7")]
-transform = Transform3D(1.03405, 0, -0.182332, 0, 1.05, 0, 0.182332, 0, 1.03405, -10.2217, 7.04, 6.85952)
+transform = Transform3D(-0.0547871, 0, 1.04857, 0, 1.05, 0, -1.04857, 0, -0.0547871, -4.36233, 7.60395, 4.99962)
 
 [node name="Attic_Book_02_LP" parent="art" instance=ExtResource("15_jncvf")]
 transform = Transform3D(-0.342025, 2e-06, 0.939691, -0.081897, 0.996195, -0.029811, -0.936115, -0.087154, -0.340723, -11.54, 8.47, 6.49)
@@ -374,7 +378,7 @@ transform = Transform3D(-1.03405, 0, 0.182337, 0, 1.05, 0, -0.182337, 0, -1.0340
 transform = Transform3D(-1.01422, 0, -0.271755, 0, 1.05, 0, 0.271755, 0, -1.01422, -9.08, 7.18, 3.34)
 
 [node name="Attic_CardboardBox_01_LP18" parent="art" instance=ExtResource("7_5keui")]
-transform = Transform3D(-0.359127, 0, -0.986675, 0, 1.05, 0, 0.986675, 0, -0.359127, -9.27, 7.16, 7.55)
+transform = Transform3D(0.233509, 0.000877475, -1.02371, 3.28475e-06, 1.05, 0.000900768, 1.02371, -0.000203547, 0.233509, -9.19331, 7.16, 6.84936)
 
 [node name="Attic_CardboardBox_04_LP6" parent="art" instance=ExtResource("11_ppb71")]
 transform = Transform3D(1.05, 0, 6e-06, 0, 1.05, 0, -6e-06, 0, 1.05, -10.1911, 7.81, 8.47973)
@@ -422,7 +426,7 @@ transform = Transform3D(0, 3e-06, 1, -0.087156, 0.996195, -3e-06, -0.996195, -0.
 transform = Transform3D(-0.087157, 0, -0.778277, 0, 1, 0, 0.996195, 0, -0.068091, -11.5626, 6.03, 3.3645)
 
 [node name="Attic_CardboardBox_01_LP19" parent="art" instance=ExtResource("6_cwjc1")]
-transform = Transform3D(1.04997, 0.007983, -6e-06, -0.007975, 1.04897, 0.045799, 0.000355, -0.045798, 1.049, -9.13, 7.81, 3.91)
+transform = Transform3D(0.630139, 0.0414171, -0.838873, -0.007975, 1.04897, 0.045799, 0.839858, -0.0211142, 0.629836, -10.7258, 7.07719, 5.15221)
 
 [node name="Attic_MetalShelf_01_LP5" parent="art" instance=ExtResource("10_hdrfc")]
 transform = Transform3D(-0.087155, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.087155, -5.30271, 7.03, 7.22359)
@@ -467,7 +471,7 @@ transform = Transform3D(0.091508, 0, -1.04601, 0, 1.05, 0, 1.04601, 0, 0.091508,
 transform = Transform3D(1.046, 0, -0.091518, 0, 1.05, 0, 0.091518, 0, 1.046, -4.39385, 8.98, 7.33114)
 
 [node name="Attic_CardboardBox_01_LP23" parent="art" instance=ExtResource("6_cwjc1")]
-transform = Transform3D(-0.359117, 0, 0.986679, 0, 1.05, 0, -0.986679, 0, -0.359117, -5.3, 8.97, 7.43)
+transform = Transform3D(-0.359117, 0, 0.986679, 0, 1.05, 0, -0.986679, 0, -0.359117, -4.27861, 8.96934, 4.71919)
 
 [node name="Attic_CardboardBox_01_LP24" parent="art" instance=ExtResource("6_cwjc1")]
 transform = Transform3D(1.03405, 0, 0.182327, 0, 1.05, 0, -0.182327, 0, 1.03405, -4.34, 7.17, 7.79)
@@ -545,13 +549,13 @@ transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -2.77, 7.03, 6.78)
 transform = Transform3D(0, 0, -1.15625, 0, 0.875, 0, 1.1875, 0, 0, -0.65, 6.99, 6.58)
 
 [node name="Attic_Pillow_03_LP" parent="art" instance=ExtResource("36_c6tcj")]
-transform = Transform3D(-1e-06, 0, 0.85, -0.074082, 0.846766, 0, -0.846766, -0.074082, -1e-06, -0.53, 7.07, 5.60111)
+transform = Transform3D(-0.0472174, 0.539692, 0.654984, -0.0570846, 0.652491, -0.541753, -0.846766, -0.074082, -1e-06, -10.2997, 7.24462, 4.94205)
 
 [node name="Attic_Pillow_05_LP" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(0.842505, -0.03839, -0.307819, 0.07844, 0.466966, 0, 0.306648, -0.013973, 0.845723, -2.74051, 7.56261, 4.32834)
+transform = Transform3D(0.410114, -0.0186874, -0.800324, 0.433025, 0.399149, 0.187539, 0.674015, -0.245065, 0.366483, -10.1322, 7.46678, 4.19091)
 
 [node name="Attic_RockingChair_01_LP" parent="art" instance=ExtResource("38_x46c3")]
-transform = Transform3D(-0.345439, 0, -0.94909, 0, 1.01, 0, 0.94909, 0, -0.345439, -2.77628, 7.04, 4.29689)
+transform = Transform3D(-0.898141, 0, -0.461999, 0, 1.01, 0, 0.461999, 0, -0.898141, -18.908, 7.04538, 3.32455)
 
 [node name="Attic_CardboardBox_01_LP28" parent="art" instance=ExtResource("6_cwjc1")]
 transform = Transform3D(0.09151, 0, -1.04601, 0, 1.05, 0, 1.04601, 0, 0.09151, -3.74576, 7.41, 7.91825)
@@ -656,34 +660,34 @@ transform = Transform3D(0, 0, 1, 0, 1.0625, 0, -0.84375, 0, 0, -10.25, 7.58, 7.5
 transform = Transform3D(0, 0, 1, 0, 1.0625, 0, -0.84375, 0, 0, -9.0783, 7.58, 7.55103)
 
 [node name="Attic_PianoChair_02_LP2" parent="art" instance=ExtResource("42_x048a")]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -11.11, 7.03, 6.95)
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -10.1511, 7.03, 5.77908)
 
 [node name="Attic_PianoChair_02_LP3" parent="art" instance=ExtResource("42_x048a")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -9.77, 7.03, 2.96)
 
 [node name="Attic_Pillow_05_LP2" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(0.696277, 2e-06, -0.487543, 0.126185, 0.821037, 0.180212, 0.47093, -0.219998, 0.672552, -1.25633, 7.02, 5.46534)
+transform = Transform3D(0.696277, 2e-06, -0.487543, 0.126185, 0.821037, 0.180212, 0.47093, -0.219998, 0.672552, -9.96027, 7.02, 4.27542)
 
 [node name="Attic_Pillow_05_LP3" parent="art" instance=ExtResource("37_pjdf3")]
 transform = Transform3D(0.061215, 0.002664, -0.747256, 0.037314, 0.374469, 0.008668, 0.715166, -0.019766, 0.06351, -7.23744, 7.54282, 2.90242)
 
 [node name="Attic_Pillow_05_LP4" parent="art" instance=ExtResource("43_8g5tm")]
-transform = Transform3D(0.325569, -0.563901, -0.54637, 0.736121, 0.425001, 0, 0.273186, -0.47317, 0.651137, -0.483597, 7.36, 6.80501)
+transform = Transform3D(0.444613, -0.0685501, -0.721193, 0.392904, 0.733742, 0.172481, 0.608643, -0.423585, 0.415487, -9.79348, 7.36, 6.86742)
 
 [node name="Attic_Pillow_03_LP2" parent="art" instance=ExtResource("44_i7tl4")]
-transform = Transform3D(0, -0.798739, -0.290716, 0, 0.290716, -0.798739, 0.85, 0, 0, -0.33, 7.37, 3.51)
+transform = Transform3D(-0.845922, 0.0759927, -0.0337844, 0.0689461, 0.447733, -0.719223, -0.0465051, -0.718512, -0.451749, -9.06629, 7.2993, 6.25646)
 
 [node name="Attic_Pillow_05_LP5" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(0.325571, -0.563898, -0.546372, 0.757128, 0.382146, 0.056752, -0.20799, 0.508412, -0.648658, -0.513597, 7.39, 2.75501)
+transform = Transform3D(0.35044, -0.731889, 0.253041, 0.757128, 0.382146, 0.056752, 0.162629, -0.201996, -0.809475, -1.04481, 7.39, 4.02329)
 
 [node name="Attic_Pillow_01_LP2" parent="art" instance=ExtResource("45_y4suc")]
 transform = Transform3D(-0.837087, 0, -0.141089, 0, 0.85, 0, 0.147601, 0, -0.800156, -0.85, 6.99, 2.89981)
 
 [node name="Attic_Pillow_05_LP6" parent="art" instance=ExtResource("46_rgg5o")]
-transform = Transform3D(0.69628, 0, 0.487539, 0, 0.85, 0, -0.487539, 0, 0.69628, -2.79406, 6.98, 6.00623)
+transform = Transform3D(0.69628, 0, 0.487539, 0, 0.85, 0, -0.487539, 0, 0.69628, -11.498, 6.98, 4.81631)
 
 [node name="Attic_Pillow_05_LP7" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(0.780238, -0.335966, -0.029246, 0.322958, 0.765611, -0.178991, 0.097089, 0.153189, 0.830426, -0.503597, 7.24, 6.18501)
+transform = Transform3D(0.778208, 0.309368, -0.145547, -0.0603261, 0.48042, 0.698612, 0.336531, -0.629276, 0.461799, -8.90751, 7.28375, 6.37137)
 
 [node name="Box Brush5" type="Node3D" parent="art"]
 
@@ -704,7 +708,7 @@ transform = Transform3D(0.780238, -0.335966, -0.029246, 0.322958, 0.765611, -0.1
 [node name="Box Brush13" type="Node3D" parent="art"]
 
 [node name="Attic_Pillow_05_LP8" parent="art" instance=ExtResource("47_tjkqo")]
-transform = Transform3D(0.650641, -0.216653, -0.502222, 0.261986, 0.808564, -0.009397, 0.480135, -0.147601, 0.6857, -0.786331, 7.04, 3.46534)
+transform = Transform3D(-0.0548879, 0.0079269, -0.848189, 0.261986, 0.808564, -0.00939699, 0.806753, -0.262034, -0.0546549, -1.79035, 7.04, 4.17536)
 
 [node name="Attic_Pillow_02_LP2" parent="art" instance=ExtResource("48_1eaod")]
 transform = Transform3D(0.002513, -0.219166, 0.821255, -0.019173, 0.821035, 0.219166, -0.84978, -0.019172, -0.002516, -0.50133, 7.05, 3.85049)
@@ -713,10 +717,10 @@ transform = Transform3D(0.002513, -0.219166, 0.821255, -0.019173, 0.821035, 0.21
 transform = Transform3D(0.797219, -0.060685, 0.288546, 0.042492, 0.846765, 0.060686, -0.29178, -0.042493, 0.797219, -0.306331, 7.02, 3.22534)
 
 [node name="Attic_Pillow_05_LP11" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(1.12857, -0.108944, 0.526262, 0.098736, 1.24524, 0.046043, -0.528272, -1e-06, 1.13288, -1.14427, 6.8895, 3.95327)
+transform = Transform3D(1.0523, -0.0585876, -0.672095, 0.098736, 1.24524, 0.046043, 0.66738, -0.0918492, 1.05293, -2.39421, 6.8895, 4.13599)
 
 [node name="Attic_Pillow_05_LP12" parent="art" instance=ExtResource("47_tjkqo")]
-transform = Transform3D(0.970486, 0.193511, 0.231134, -0.187638, 1.20799, 0.219672, -0.151487, -0.256558, 1.20864, -2.33338, 6.97424, 6.57546)
+transform = Transform3D(0.649629, 0.320367, -0.894682, -0.187638, 1.20799, 0.219672, 0.736732, 0.0251725, 0.844854, -4.17243, 6.97424, 4.54365)
 
 [node name="Attic_Pillow_05_LP13" parent="art" instance=ExtResource("37_pjdf3")]
 transform = Transform3D(0.528868, -0.21972, -0.62811, 0.079118, 0.817398, -0.219318, 0.660711, 0.077995, 0.529035, -2.79406, 7.03, 4.89623)
@@ -725,7 +729,7 @@ transform = Transform3D(0.528868, -0.21972, -0.62811, 0.079118, 0.817398, -0.219
 transform = Transform3D(0.368063, -0.637497, -0.425002, 0.736119, 0.425004, 0, -0.212503, 0.368061, -0.736121, -0.553597, 8.11, 1.52501)
 
 [node name="Attic_Pillow_05_LP16" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(0.650641, -0.216653, -0.502222, 0.261986, 0.808564, -0.009397, 0.480135, -0.147601, 0.6857, -0.866331, 7.07, 6.18534)
+transform = Transform3D(0.0341225, 0.170862, -0.831951, 0.404656, 0.728773, 0.166269, 0.746719, -0.402737, -0.0520849, -9.07504, 7.65559, 6.5501)
 
 [node name="Attic_Pillow_02_LP3" parent="art" instance=ExtResource("50_bwea5")]
 transform = Transform3D(0.002513, -0.219166, 0.821255, -0.019173, 0.821035, 0.219166, -0.84978, -0.019172, -0.002516, -0.40133, 7.05, 6.80049)
@@ -734,16 +738,16 @@ transform = Transform3D(0.002513, -0.219166, 0.821255, -0.019173, 0.821035, 0.21
 transform = Transform3D(0.835775, -0.052384, 0.145726, 0.042492, 0.846765, 0.060686, -0.148912, -0.052385, 0.835213, -0.566331, 6.96, 6.22534)
 
 [node name="Attic_Pillow_05_LP18" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(1.12857, -0.108944, 0.526262, 0.098736, 1.24524, 0.046043, -0.528272, -1e-06, 1.13288, -1.22427, 6.92294, 6.68534)
+transform = Transform3D(-0.958791, -0.352666, -0.720304, 0.156014, 1.0192, -0.706674, 0.786683, -0.631947, -0.737741, -9.50931, 7.31083, 6.61577)
 
 [node name="Attic_Pillow_01_LP3" parent="art" instance=ExtResource("51_ag0x0")]
-transform = Transform3D(1.14704, 0, -0.299256, 0, 0.5625, 0, 0.307344, 0, 1.11685, -1.75, 7, 6.84)
+transform = Transform3D(0.357745, 0, -1.10253, 0, 0.5625, 0, 1.13233, 0, 0.348328, -4.08343, 7.00017, 5.17508)
 
 [node name="Attic_Pillow_03_LP3" parent="art" instance=ExtResource("44_i7tl4")]
-transform = Transform3D(0.85, 0, 0, 0, 0.290716, -0.798739, 0, -0.798739, -0.290716, -1.8986, 7.37, 7.0886)
+transform = Transform3D(-0.325813, 0.606803, 0.498133, 0.0385383, 0.551038, -0.646043, 0.784131, 0.225049, 0.23873, -9.81908, 7.3054, 4.64697)
 
 [node name="Attic_Pillow_05_LP19" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(-0.368064, 0.637497, -0.425001, 0.736119, 0.425004, 0, 0.212502, -0.368061, -0.736121, -2.5036, 7.45, 6.79501)
+transform = Transform3D(-0.377096, 0.653142, 0.392051, 0.736119, 0.425004, 1.2666e-08, -0.196028, 0.339524, -0.754186, -5.52106, 7.45, 6.03222)
 
 [node name="Attic_Pillow_05_LP20" parent="art" instance=ExtResource("46_rgg5o")]
 transform = Transform3D(0.373478, -0.53338, -0.54637, 0.696278, 0.487541, 0, -0.313386, 0.447559, -0.651137, -1.33477, 7.21279, 2.58921)
@@ -761,46 +765,46 @@ transform = Transform3D(0.087156, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.087156, 
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -9.981, 7.17, 7.53558)
 
 [node name="Attic_Book_01_LP25" parent="art" instance=ExtResource("20_sj27a")]
-transform = Transform3D(0.984808, 0.173646, -1e-06, 0, 2e-06, 1, 0.173646, -0.984808, 1e-06, -10.5661, 7.24, 7.0104)
+transform = Transform3D(-0.0521813, -0.998638, 1.1992e-06, 0, 2e-06, 1, -0.998638, 0.0521813, 7.49607e-07, -4.08478, 7.80395, 5.30129)
 
 [node name="Attic_Book_03_LP35" parent="art" instance=ExtResource("16_t5l4n")]
-transform = Transform3D(0.984808, 0.173646, -1e-06, 0, 2e-06, 1, 0.173646, -0.984808, 1e-06, -10.4079, 7.22, 7.07124)
+transform = Transform3D(-0.0521813, -0.998638, 1.1992e-06, 0, 2e-06, 1, -0.998638, 0.0521813, 7.49607e-07, -4.06106, 7.78395, 5.13346)
 
 [node name="Attic_Book_04_LP11" parent="art" instance=ExtResource("17_wven1")]
-transform = Transform3D(0.984808, 0.173646, -1e-06, 0, 2e-06, 1, 0.173646, -0.984808, 1e-06, -10.3488, 7.22, 7.08166)
+transform = Transform3D(-0.0521813, -0.998638, 1.1992e-06, 0, 2e-06, 1, -0.998638, 0.0521813, 7.49607e-07, -4.06419, 7.78395, 5.07353)
 
 [node name="Attic_Book_01_LP26" parent="art" instance=ExtResource("20_sj27a")]
-transform = Transform3D(0.984808, 0.173646, 0, 0, 2e-06, 1, 0.173646, -0.984808, 2e-06, -9.93907, 7.28, 7.13985)
+transform = Transform3D(-0.0521813, -0.998638, 1.94881e-06, 0, 2e-06, 1, -0.998638, 0.0521813, -4.49596e-07, -4.0996, 7.84395, 4.66121)
 
 [node name="Attic_Book_03_LP36" parent="art" instance=ExtResource("16_t5l4n")]
-transform = Transform3D(0.984808, 0.173646, 0, 0, 2e-06, 1, 0.173646, -0.984808, 2e-06, -10.0772, 7.28, 7.14901)
+transform = Transform3D(-0.0521813, -0.998638, 1.94881e-06, 0, 2e-06, 1, -0.998638, 0.0521813, -4.49596e-07, -4.05962, 7.84395, 4.79375)
 
 [node name="Attic_Book_04_LP12" parent="art" instance=ExtResource("17_wven1")]
-transform = Transform3D(0.759685, 0.193339, -0.620886, 0.640341, -0.056021, 0.766045, 0.113323, -0.979531, -0.166362, -10.223, 7.25, 7.11447)
+transform = Transform3D(-0.0603531, -0.997923, -0.02253, 0.640341, -0.056021, 0.766045, -0.765716, 0.0318061, 0.642393, -4.0605, 7.81395, 4.94358)
 
 [node name="Attic_Book_03_LP37" parent="art" instance=ExtResource("16_t5l4n")]
 transform = Transform3D(0, 0.6428, 0.766034, 1, 0, 0, 0, 0.766034, -0.6428, -10.0092, 7.47, 7.07638)
 
 [node name="Attic_Book_01_LP27" parent="art" instance=ExtResource("20_sj27a")]
-transform = Transform3D(0, 0.766042, 0.642791, 1, 0, 0, 0, 0.642791, -0.766042, -9.79022, 7.07, 6.49967)
+transform = Transform3D(0, 0.766042, 0.642791, 1, 0, 0, 0, 0.642791, -0.766042, -9.54709, 7.07, 5.63833)
 
 [node name="Attic_Book_01_LP28" parent="art" instance=ExtResource("20_sj27a")]
-transform = Transform3D(0, 0.984808, 0.173645, 1, 0, 0, 0, 0.173645, -0.984808, -10.2691, 7.09, 6.92523)
+transform = Transform3D(0, 0.984808, 0.173645, 1, 0, 0, 0, 0.173645, -0.984808, -10.1445, 6.99542, 6.33441)
 
 [node name="Attic_Book_01_LP29" parent="art" instance=ExtResource("20_sj27a")]
 transform = Transform3D(0, 0.984808, 0.173645, 1, 0, 0, 0, 0.173645, -0.984808, -10.4858, 7.09, 6.88703)
 
 [node name="Attic_Book_03_LP38" parent="art" instance=ExtResource("16_t5l4n")]
-transform = Transform3D(-0.173645, 0.984808, -1e-06, 0, 1e-06, 1, 0.984808, 0.173645, 0, -10.4514, 7.17, 6.63956)
+transform = Transform3D(0.818663, 0.574274, -4.23393e-07, 0, 1e-06, 1, 0.574274, -0.818663, 9.05946e-07, -10.954, 7.17, 5.71481)
 
 [node name="Attic_Book_04_LP13" parent="art" instance=ExtResource("17_wven1")]
-transform = Transform3D(-0.173645, 0.984808, -1e-06, 0, 1e-06, 1, 0.984808, 0.173645, 0, -10.4618, 7.17, 6.69865)
+transform = Transform3D(0.998637, -0.0521823, 2.24798e-07, 0, 1e-06, 1, -0.0521823, -0.998637, 9.74405e-07, -4.412, 7.73395, 5.26974)
 
 [node name="Attic_Book_03_LP39" parent="art" instance=ExtResource("16_t5l4n")]
-transform = Transform3D(0.173652, 3e-06, 0.984807, 1e-06, 1, -4e-06, -0.984807, 2e-06, 0.173652, -9.99044, 7.06, 6.69276)
+transform = Transform3D(0.173652, 3e-06, 0.984807, 1e-06, 1, -4e-06, -0.984807, 2e-06, 0.173652, -10.4291, 7.06, 6.22655)
 
 [node name="Attic_Book_04_LP14" parent="art" instance=ExtResource("17_wven1")]
-transform = Transform3D(0.173652, 3e-06, 0.984807, 1e-06, 1, -4e-06, -0.984807, 2e-06, 0.173652, -10.0009, 7.06, 6.75185)
+transform = Transform3D(-0.998638, 1.27442e-06, -0.0521752, 1e-06, 1, -4e-06, 0.0521752, -3.37281e-06, -0.998638, -4.46377, 7.62395, 4.80868)
 
 [node name="Attic_Pillow_05_LP21" parent="art" instance=ExtResource("37_pjdf3")]
 transform = Transform3D(0.601042, 0, 0.60104, 0, 0.85, 0, -0.60104, 0, 0.601042, -5.64406, 6.97, 7.13623)
@@ -815,22 +819,13 @@ transform = Transform3D(0.601042, 0, 0.60104, 0, 0.85, 0, -0.60104, 0, 0.601042,
 transform = Transform3D(0.69628, 0, 0.487539, 0, 0.85, 0, -0.487539, 0, 0.69628, -0.664058, 6.96, 4.40623)
 
 [node name="Attic_Pillow_05_LP26" parent="art" instance=ExtResource("37_pjdf3")]
-transform = Transform3D(1.12857, -0.108944, 0.526262, 0.098736, 1.24524, 0.046043, -0.528272, -1e-06, 1.13288, -1.51427, 6.97294, 6.00534)
+transform = Transform3D(0.301453, 0.0209452, -1.21292, 0.098736, 1.24524, 0.046043, 1.20908, -0.106912, 0.298652, -10.7396, 6.97623, 6.8169)
 
 [node name="Attic_Pillow_05_LP27" parent="art" instance=ExtResource("37_pjdf3")]
 transform = Transform3D(0.601041, 0, 0.60104, 0, 0.71875, 0, -0.60104, 0, 0.601041, -4.65406, 6.96, 6.31623)
 
 [node name="Attic_Pillow_05_LP28" parent="art" instance=ExtResource("37_pjdf3")]
 transform = Transform3D(0.643981, 0.502361, -0.235418, -0.084659, 0.445449, 0.718963, 0.548289, -0.521258, 0.387517, -3.80406, 7.93, 7.95623)
-
-[node name="CineCameraActor4" parent="art" instance=ExtResource("54_sdy8q")]
-transform = Transform3D(0, -3e-06, -1, 0, 1, -3e-06, 1, 0, 0, -11.25, 6.96998, 5.05001)
-
-[node name="CineCameraActor5" parent="art" instance=ExtResource("54_sdy8q")]
-transform = Transform3D(-0.173652, -0.085835, -0.981059, 0, 0.996194, -0.087159, 0.984807, -0.015135, -0.172991, -9.33329, 7.10001, 2.7871)
-
-[node name="CineCameraActor7" parent="art" instance=ExtResource("54_sdy8q")]
-transform = Transform3D(-0.316381, -0.025951, -0.948277, -0.008724, 0.999663, -0.024447, 0.948592, 0.000538, -0.3165, -9.17955, 7.24532, 2.98647)
 
 [node name="Attic_Crate_01_LP6" parent="art" instance=ExtResource("55_d407d")]
 transform = Transform3D(1.09581, 0, 0.09588, 0, 1.1, 0, -0.09588, 0, 1.09581, -3.82354, 7.02, 1.47139)
@@ -941,10 +936,10 @@ transform = Transform3D(0, 0.766055, 0.642775, -1, 0, 0, 0, -0.642775, 0.766055,
 transform = Transform3D(0.984808, 0, 0.17365, 0, 1, 0, -0.17365, 0, 0.984808, -3.69, 7.91, 1.52)
 
 [node name="Attic_Box_06_LP7" parent="art" instance=ExtResource("53_orywe")]
-transform = Transform3D(0.996195, 0, 0.087157, 0, 1.25, 0, -0.087157, 0, 0.996195, -9.06, 7.44, 3.94)
+transform = Transform3D(0.996195, 0, 0.087157, 0, 1.25, 0, -0.087157, 0, 0.996195, -7.27477, 7.92417, 2.51904)
 
 [node name="Attic_Box_06_LP8" parent="art" instance=ExtResource("27_hxtt8")]
-transform = Transform3D(0.984808, 0, 0.17365, 0, 1.25, 0, -0.17365, 0, 0.984808, -9.06, 7.05, 3.96)
+transform = Transform3D(0.984808, 0, 0.17365, 0, 1.25, 0, -0.17365, 0, 0.984808, -7.25248, 7.05, 2.86818)
 
 [node name="Attic_Box_06_LP9" parent="art" instance=ExtResource("27_hxtt8")]
 transform = Transform3D(0, 0, -1, 0, 1.25, 0, 1, 0, 0, -5.29008, 7.43, 6.06174)
@@ -1391,7 +1386,7 @@ transform = Transform3D(-0.602253, 0, -0.860111, 0, 1.05, 0, 0.860111, 0, -0.602
 transform = Transform3D(-0.602253, 0, -0.860111, 0, 1.05, 0, 0.860111, 0, -0.602253, -5.51, 7.054, 5.72)
 
 [node name="Attic_Paper_03_LP6" parent="art" instance=ExtResource("71_6mli8")]
-transform = Transform3D(-0.182328, 0, -1.03405, 0, 1.05, 0, 1.03405, 0, -0.182328, -9.74, 7.054, 6.59)
+transform = Transform3D(-0.182328, 0, -1.03405, 0, 1.05, 0, 1.03405, 0, -0.182328, -10.8425, 7.054, 5.12203)
 
 [node name="Attic_Paper_03_LP7" parent="art" instance=ExtResource("71_6mli8")]
 transform = Transform3D(0.909328, 0, 0.524998, 0, 1.05, 0, -0.524998, 0, 0.909328, -8.16, 8.064, 2.34)
@@ -1487,7 +1482,7 @@ transform = Transform3D(-0.602254, -0.074966, -0.856837, 0, 1.046, -0.091516, 0.
 transform = Transform3D(-0.091514, -0.091168, -1.04202, 0, 1.046, -0.091517, 1.046, -0.007976, -0.091165, -7.65, 7.046, 3.41)
 
 [node name="Attic_Paper_02_LP9" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(0.951623, 0, -0.443749, 0, 1.05, 0, 0.443749, 0, 0.951623, -6.99, 7.05, 5.5)
+transform = Transform3D(0.951623, 0, -0.443749, 0, 1.05, 0, 0.443749, 0, 0.951623, -4.33505, 7.05, 8.1905)
 
 [node name="Attic_Paper_02_LP10" parent="art" instance=ExtResource("70_ylsl8")]
 transform = Transform3D(0.804347, 0, 0.674927, 0, 1.05, 0, -0.674927, 0, 0.804347, -5.32, 7.05, 3.9)
@@ -1730,7 +1725,7 @@ transform = Transform3D(0.866025, 0.500001, 0, 0, 0, -1, -0.500001, 0.866025, 0,
 transform = Transform3D(-0.984809, -0.173615, -0.003031, 0, 0.017452, -0.999848, 0.173642, -0.984659, -0.017187, -5.33, 9.345, 7.35)
 
 [node name="Attic_Folder_02_LP9" parent="art" instance=ExtResource("78_yh783")]
-transform = Transform3D(0.965925, 0.25882, 0, 0, 0, -1, -0.25882, 0.965925, 0, -5.33, 9.36, 7.35)
+transform = Transform3D(0.965925, 0.25882, 0, 0, 0, -1, -0.25882, 0.965925, 0, -5.33, 9.36, 4.65088)
 
 [node name="Attic_Folder_02_LP10" parent="art" instance=ExtResource("78_yh783")]
 transform = Transform3D(-0.984807, 0.173629, 0.00303, 0, 0.017452, -0.999848, -0.173655, -0.984657, -0.017187, -5.33, 9.375, 7.35)
@@ -1739,7 +1734,7 @@ transform = Transform3D(-0.984807, 0.173629, 0.00303, 0, 0.017452, -0.999848, -0
 transform = Transform3D(0.965925, 0.25882, 0, 0, 0, -1, -0.25882, 0.965925, 0, -5.33, 9.39, 7.35)
 
 [node name="Attic_Folder_02_LP12" parent="art" instance=ExtResource("78_yh783")]
-transform = Transform3D(-0.984809, -0.173615, -0.003031, 0, 0.017452, -0.999848, 0.173642, -0.984659, -0.017187, -5.33, 9.405, 7.35)
+transform = Transform3D(-0.984809, -0.173615, -0.003031, 0, 0.017452, -0.999848, 0.173642, -0.984659, -0.017187, -4.30861, 9.40434, 4.63919)
 
 [node name="Attic_Folder_02_LP13" parent="art" instance=ExtResource("78_yh783")]
 transform = Transform3D(0.965926, 0.25882, 0, 0, 0, -1, -0.25882, 0.965926, 0, -2.8, 9.05, 7.56)
@@ -2063,7 +2058,7 @@ transform = Transform3D(0.951623, 0, -0.443749, 0, 1.05, 0, 0.443749, 0, 0.95162
 transform = Transform3D(0.602255, 0, -0.86011, 0, 1.05, 0, 0.86011, 0, 0.602255, -3.79309, 7.06, 6.48989)
 
 [node name="Attic_BookOpen01_01_LP9" parent="art" instance=ExtResource("60_8i0yo")]
-transform = Transform3D(-0.630934, 0, -0.982982, 0, 1.2, 0, 0.901067, 0, -0.688292, -9.10091, 7.046, 7.27134)
+transform = Transform3D(-0.630771, -0.0272667, -0.982728, -0.0143362, 1.19969, -0.0223355, 0.901067, 0, -0.688292, -9.73029, 7.046, 5.099)
 
 [node name="Attic_Paper_05_LP31" parent="art" instance=ExtResource("73_nipay")]
 transform = Transform3D(-0.091514, -0.091168, -1.04202, 0, 1.046, -0.091517, 1.046, -0.007976, -0.091165, -8.42, 7.046, 3.54)
@@ -2249,19 +2244,16 @@ transform = Transform3D(0, 0, -1, 0, 1.25, 0, 1, 0, 0, -1.78043, 7.43, 1.34433)
 transform = Transform3D(0.087157, 0, -0.996195, 0, 1.25, 0, 0.996195, 0, 0.087157, -1.78035, 7.05, 1.34258)
 
 [node name="Attic_Pillow_03_LP4" parent="art" instance=ExtResource("36_c6tcj")]
-transform = Transform3D(-0.357859, -0.031309, 0.770361, 0.060306, 0.84556, 0.062379, -0.768635, 0.080918, -0.353769, -0.53, 6.96, 6.06)
+transform = Transform3D(0.833582, 0.125052, -0.10955, -0.155913, 0.393592, -0.737073, -0.0577113, 0.742931, 0.408927, -9.05059, 7.30296, 3.94856)
 
 [node name="CineCameraActor16" parent="art" instance=ExtResource("54_sdy8q")]
 transform = Transform3D(0.830072, -0.093849, 0.549703, -0.016884, 0.981056, 0.192989, -0.557401, -0.169475, 0.812762, -0.88096, 8.65185, 7.60817)
-
-[node name="Attic_Carpet_01_LP" parent="art" instance=ExtResource("82_wxmx6")]
-transform = Transform3D(1.33114, 0, 0.620722, 0, 1.46875, 0, -0.620722, 0, 1.33114, -2.86306, 7.047, 7.10813)
 
 [node name="Attic_Carpet_01_LP3" parent="art" instance=ExtResource("83_yvpq3")]
 transform = Transform3D(-1.44644, 0, -0.255042, 0, 1.46875, 0, 0.255042, 0, -1.44644, -10.0265, 7.047, 7.96553)
 
 [node name="Attic_Carpet_01_LP4" parent="art" instance=ExtResource("82_wxmx6")]
-transform = Transform3D(1.33114, 0, -0.620728, 0, 1.46875, 0, 0.620728, 0, 1.33114, -9.79645, 7.047, 3.05553)
+transform = Transform3D(1.33059, 0, 0.621901, 0, 1.46875, 0, -0.621901, 0, 1.33059, -9.97651, 7.047, 2.36034)
 
 [node name="Attic_Paper_01_LP20" parent="art" instance=ExtResource("69_mw6j3")]
 transform = Transform3D(0.804346, 0, -0.674928, 0, 1.05, 0, 0.674928, 0, 0.804346, -3.59, 7.047, 3.36)
@@ -2300,7 +2292,7 @@ transform = Transform3D(-0.271761, 0, 1.01422, 0, 1.05, 0, -1.01422, 0, -0.27176
 transform = Transform3D(0.55, 0, -1.03923, 0, 1.2, 0, 0.952628, 0, 0.6, -6.19091, 7.051, 3.27134)
 
 [node name="Attic_FilingCabinet_01_LP2" parent="art" instance=ExtResource("61_rmsiv")]
-transform = Transform3D(1, 0, 4e-06, 0, 1.05, 0, -4e-06, 0, 1.1, -8.51, 7.03, 6.42)
+transform = Transform3D(-0.0678625, 0, 1.09746, 0, 1.05, 0, -0.997695, 0, -0.0746484, -6.42996, 7.03, 3.28978)
 
 [node name="Attic_PaperRoll_01_LP43" parent="art" instance=ExtResource("75_svfc3")]
 transform = Transform3D(-0.528584, 0.961369, 0.087065, 0.283618, 0.067889, 1.15706, 0.922041, 0.530246, -0.305996, -8.57, 7.83, 6.37)
@@ -2309,13 +2301,13 @@ transform = Transform3D(-0.528584, 0.961369, 0.087065, 0.283618, 0.067889, 1.157
 transform = Transform3D(-1.03366, -0.353532, 0.140372, 0, -0.376221, -1.12763, 0.376221, -0.971325, 0.385672, -8.65, 7.82, 6.36)
 
 [node name="Attic_NotesCurled_01_LP7" parent="art" instance=ExtResource("77_j1iaq")]
-transform = Transform3D(1, 0, 4e-06, 0, 1, 0, -4e-06, 0, 1, -8.83, 7.84, 6.32)
+transform = Transform3D(1, 0, 4e-06, -4.10494e-08, 0.999947, 0.0102624, -3.99979e-06, -0.0102624, 0.999947, -4.86641, 7.8388, 6.31915)
 
 [node name="Attic_Folder_01_LP2" parent="art" instance=ExtResource("79_oce7i")]
-transform = Transform3D(-1, 0, -2e-06, 0, -0.984808, -0.173649, -2e-06, -0.173649, 0.984808, -8.77, 7.73, 6.58)
+transform = Transform3D(-1, 2.79899e-14, -2e-06, -2.05247e-08, -0.986538, -0.163533, -1.99989e-06, -0.163533, 0.986538, -4.80641, 7.73147, 6.58027)
 
 [node name="Attic_NotesCurled_01_LP8" parent="art" instance=ExtResource("77_j1iaq")]
-transform = Transform3D(-0.996194, 0, -0.08716, 0, -1, 0, 0.08716, 0, -0.996194, -8.81, 7.7, 6.41)
+transform = Transform3D(-0.996194, 0, -0.08716, 0.000894467, -0.999947, -0.0102233, 0.0871554, 0.0102624, -0.996142, -4.84641, 7.69973, 6.41058)
 
 [node name="Attic_Box_06_LP76" parent="art" instance=ExtResource("27_hxtt8")]
 transform = Transform3D(0.087155, 0, 0.996195, 0, 1.25, 0, -0.996195, 0, 0.087155, -8.26012, 7.43, 6.85085)
@@ -2396,7 +2388,7 @@ transform = Transform3D(0.095865, 0, -1.12072, 0, 1.1, 0, 1.09581, 0, 0.098044, 
 transform = Transform3D(-1.1, 0, 8e-06, 0, 1.1, 0, 8e-06, 0, 1.125, -3.79454, 8.32, 1.66349)
 
 [node name="Attic_CrateCloth_01_LP3" parent="art" instance=ExtResource("87_eetpu")]
-transform = Transform3D(1.12072, 0, 0.098041, 0, 1.136, 0, -0.098041, 0, 1.12072, -6.83283, 8.372, 8.62169)
+transform = Transform3D(1.12072, 0, 0.098041, 0, 1.136, 0, -0.098041, 0, 1.12072, -6.97768, 8.372, 7.5599)
 
 [node name="Attic_CrateCloth_01_LP4" parent="art" instance=ExtResource("87_eetpu")]
 transform = Transform3D(0.100763, 0, -1.12072, 0, 1.18, 0, 1.15185, 0, 0.09804, -11.5575, 8.44, 7.96095)
@@ -2581,26 +2573,8 @@ transform = Transform3D(0.381857, 0.647339, -0.054871, -0.177711, 0.071686, -0.7
 [node name="Attic_Paper_02_LP73" parent="art" instance=ExtResource("70_ylsl8")]
 transform = Transform3D(0.326436, 0.588887, -0.169964, -0.263939, 0.005461, -0.651492, -0.463034, 0.412049, 0.251541, -4.03693, 9.99089, 6.18457)
 
-[node name="Attic_Paper_02_LP74" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(-0.328913, -0.79302, -0.032229, 0.129307, -0.03223, -0.862329, 0.69674, -0.368383, 0.144824, -6.80974, 9.76367, 5.67576)
-
-[node name="Attic_Paper_02_LP75" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(-0.330169, -0.79302, 0, 0.061711, -0.03223, -0.87167, 0.705359, -0.368383, 0.076261, -6.53071, 9.69974, 5.2025)
-
-[node name="Attic_Paper_02_LP76" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(-0.308307, -0.622557, 0.057594, -0.061478, -0.025863, -0.714797, 0.540178, -0.358268, -0.048479, -6.22413, 9.7282, 4.70092)
-
-[node name="Attic_Paper_02_LP77" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(-0.280651, -0.708052, -0.085454, 0.229716, -0.028777, -0.735786, 0.584056, -0.328915, 0.248331, -7.07454, 9.93396, 6.17303)
-
-[node name="Attic_Paper_02_LP78" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(-0.286136, -0.708053, -0.057334, 0.17241, -0.028776, -0.755737, 0.60088, -0.328915, 0.18954, -6.93302, 9.83409, 5.92237)
-
 [node name="Attic_Paper_02_LP79" parent="art" instance=ExtResource("70_ylsl8")]
 transform = Transform3D(-0.298793, -0.591827, -0.051974, -0.004148, 0.062928, -0.684597, 0.513074, -0.344147, -0.035802, -6.12536, 9.75285, 4.52712)
-
-[node name="Attic_Paper_02_LP80" parent="art" instance=ExtResource("70_ylsl8")]
-transform = Transform3D(-0.383679, -0.641132, 0.095952, -0.12863, -0.015431, -0.767299, 0.555789, -0.446165, -0.111343, -5.86254, 9.81594, 4.14042)
 
 [node name="Attic_Paper_02_LP81" parent="art" instance=ExtResource("70_ylsl8")]
 transform = Transform3D(-0.331731, -0.602077, 0.092575, -0.216929, 0.054768, -0.671839, 0.483241, -0.388723, -0.238041, -5.73304, 9.89133, 3.93072)
@@ -2670,17 +2644,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00268459, 0.00868368, 0.000
 
 [node name="Attic_Cable_01_LP_Splines_19" parent="art" instance=ExtResource("111_26pcm")]
 
-[node name="Attic_Cable_01_LP_Splines_20" parent="art" instance=ExtResource("112_h3cto")]
-
 [node name="Attic_Cable_01_LP_Splines_21" parent="art" instance=ExtResource("113_psg85")]
 
 [node name="WorldEnvironment" parent="art" instance=ExtResource("114_0cc84")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188009, -3.76854, 0.537544)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="art"]
-transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, -9.30329, 8.01421, 5.07224)
+transform = Transform3D(0, 0, -1, -0.999215, -0.039626, 0, -0.039626, 0.999215, 0, -10.336, 9.43479, 5.78479)
 light_color = Color(0.417738, 0.320214, 0.755926, 1)
-light_energy = 5.45
+light_energy = 1.574
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 7.465
@@ -2688,20 +2660,13 @@ shadow_blur = 5.288
 omni_range = 7.22772
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="art"]
-transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, -10.954, 7.41537, 7.2217)
+transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, -10.1672, 8.37928, 5.8263)
 light_color = Color(0.417738, 0.320214, 0.755926, 1)
 light_energy = 0.5
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 7.465
 shadow_blur = 5.288
-omni_range = 7.22772
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="art"]
-transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, -2.12357, 8.48668, 4.74689)
-light_color = Color(0.108534, 0.0924713, 0.259423, 1)
-light_energy = 0.53
-shadow_enabled = true
 omni_range = 7.22772
 
 [node name="Attic_WoodenFrame_06_LP" parent="art" instance=ExtResource("115_fnn5n")]
@@ -2782,9 +2747,6 @@ transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1, -4.8, 10.85, 5)
 [node name="Attic_WoodenFrame_05_LP4" parent="art" instance=ExtResource("119_2xc81")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1, -6.32, 10.85, 5)
 
-[node name="Attic_WoodenFrame_05_LP5" parent="art" instance=ExtResource("119_2xc81")]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1, -7.8, 10.85, 5)
-
 [node name="Attic_WoodenFrame_05_LP6" parent="art" instance=ExtResource("119_2xc81")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1, -9.17, 10.85, 5)
 
@@ -2822,7 +2784,7 @@ transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, -1, -6.07, 8.13, 8.99)
 transform = Transform3D(1.05, 0, 0, 0, 0.804346, 0.642788, 0, 0.674928, -0.766044, -6.07, 7.46, 9.22)
 
 [node name="prototype_common" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.267962, 0, -0.96343, 0, 1, 0, 0.96343, 0, 0.267962, -7.28384, 8.3051, 5.24273)
+transform = Transform3D(0.275313, 0.00980147, -0.961305, -0.00146589, 0.999951, 0.00977569, 0.961354, -0.0012822, 0.275313, -7.28384, 8.3051, 5.24273)
 visible = false
 
 [node name="floor" type="MeshInstance3D" parent="prototype_common"]
@@ -2863,7 +2825,3 @@ mesh = SubResource("BoxMesh_fdwyv")
 skeleton = NodePath("../../..")
 
 [node name="gear" type="Node3D" parent="prototype_common"]
-
-[node name="characterarea" type="MeshInstance3D" parent="prototype_common"]
-transform = Transform3D(-0.996022, 0, -0.089103, 0, 0.00804355, 0, 0.089103, 0, -0.996022, -0.330153, 0.00379944, 3.13745)
-mesh = SubResource("CylinderMesh_kohiv")
