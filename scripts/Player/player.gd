@@ -16,7 +16,7 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 @export var ignore_gravity = false
 @onready var mesh: Node3D = $Mesh
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
-@onready var camera_3d: Camera3D = $SpringArm3D/Camera3D
+var camera_3d: Camera3D
  
 #@onready var is_moving : bool = false :
 	#set(value):
@@ -29,6 +29,7 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 var is_switching : bool = false
 var is_back : bool = false
 var is_follow_path: bool = false
+var is_current : bool = false
 
 func move() -> void:
 	if anim_state_machine:
@@ -91,23 +92,21 @@ func switch_camera_with_tween(next_player: Player) -> void :
 	)
 
 func pre_switch() -> void :
-	camera_3d.current = false
+	make_current(false)
 	direction = Vector3(0, 0, 0)
 	is_switching = true
 	level.is_switching = true
 	idle()
 
 func post_switch() -> void :
-	camera_3d.current = true
+	make_current(true)
 	is_switching = false
 	level.is_switching = false
 	level.currentPlayerIndex = index
 	
 
 func is_current_valid() -> bool :
-	if not level:
-		return false
-	return level.currentPlayerIndex == index
+	return is_current
 
 func is_input_valid() -> bool :
 	return visible and is_current_valid() and (not is_switching) and (not is_back)
@@ -116,10 +115,35 @@ func start_back() -> void :
 	if state_machine:
 		state_machine.change_state("Back")
 
+func find_camera_3d() -> void:
+	if !camera_3d:
+		for child in get_children():
+			if child is Camera3D:
+				camera_3d = child
+				return
+			elif child is SpringArm3D:
+				for child1 in child.get_children():
+					if child1 is Camera3D:
+						camera_3d = child1
+						return
+
+func make_current(is_enable:bool) -> void:
+	find_camera_3d()
+	if camera_3d:
+		is_current = is_enable
+		print("player make current:" + name)
+		if is_enable:
+			camera_3d.make_current()
+		else:
+			camera_3d.clear_current(false)
+	else:
+		is_current = false
+
 func _ready() -> void:
 	state_machine = $StateMachine
 	animation_tree = $AnimationTree
 	anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
+	find_camera_3d()
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
@@ -135,7 +159,7 @@ func _physics_process(delta: float) -> void:
 		if path :
 			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
 			direction = Vector3(input_dir.y, 0, 0)
-		else: 
+		elif spring_arm_3d: 
 			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
 			var rotation :Quaternion = Quaternion.from_euler(Vector3(0, spring_arm_3d.transform.basis.get_euler().y, 0))
 			direction = (rotation * Vector3(input_dir.x, 0, -input_dir.y)).normalized()
