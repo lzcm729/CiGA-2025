@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name Player
 
-var test_3d: Scene
+var scene: Scene
 
 @export var speed = 5.0
 @export var jump_velocity = 5
@@ -53,7 +53,7 @@ func switch_camera_with_tween(next_player: Player) -> void :
 	temp_camera.global_transform = camera_3d.global_transform
 	temp_camera.fov = camera_3d.fov
 	
-	test_3d.add_child(temp_camera)
+	scene.add_child(temp_camera)
 	temp_camera.current = true
 	
 	# 开始过渡动画
@@ -72,17 +72,19 @@ func pre_switch() -> void :
 	camera_3d.current = false
 	direction = Vector3(0, 0, 0)
 	is_switching = true
+	scene.is_switching = true
 
 func post_switch() -> void :
 	camera_3d.current = true
 	is_switching = false
-	test_3d.currentIndex = index
+	scene.is_switching = false
+	scene.currentIndex = index
 
 func is_current() -> bool :
-	return test_3d.currentIndex == index and (not is_switching)
+	return scene.currentIndex == index and (not is_switching)
 
 func _ready() -> void:
-	test_3d = get_tree().current_scene
+	scene = get_tree().current_scene
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
@@ -96,7 +98,7 @@ func _physics_process(delta: float) -> void:
 	if is_current() :
 		var input_dir : Vector2 
 		if path :
-			input_dir = Input.get_vector("", "", "move_down", "move_up")
+			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
 			direction = Vector3(input_dir.y, 0, 0)
 		else: 
 			input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up")
