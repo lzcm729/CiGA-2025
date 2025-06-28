@@ -88,6 +88,7 @@ func pre_switch() -> void :
 	direction = Vector3(0, 0, 0)
 	is_switching = true
 	level.is_switching = true
+	idle()
 
 func post_switch() -> void :
 	camera_3d.current = true

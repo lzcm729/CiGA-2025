@@ -76,7 +76,7 @@ point_count = 4
 
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_w4sk7")
-Index = 3
+levelIndex = 3
 
 [node name="book" parent="." groups=["PlayerGroup"] instance=ExtResource("1_hkmq7")]
 transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.97602, 8.39489, 4.25387)

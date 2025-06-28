@@ -1,18 +1,19 @@
 extends Node3D
 class_name Level
 @onready var currentPlayerIndex : int = 1
-@export var Index : int = 0
+@export var levelIndex : int = 0
 var scene : MainScene
-var playNum : int = 0
+var is_current : bool = false
+
+var playerList : Array[Player] = []
 
 #关卡正在切换角色
 var is_switching : bool = false
 
 func find_player(index:int) -> Player:
-	for player in get_tree().get_nodes_in_group("PlayerGroup"):
-		if player is Player :
-			if player.index == index :
-				return player
+	for player in playerList:
+		if player.index == index :
+			return player
 	return null
 
 func switch_player(index:int) ->void:
@@ -23,16 +24,29 @@ func switch_player(index:int) ->void:
 			cur_player.pre_switch()
 			cur_player.switch_camera_with_tween(next_player)
 
+func make_play_list() -> void:
+	if playerList.is_empty():
+		for child in get_children():
+			if child is Player:
+				playerList.append(child)
+
+func make_current(is_enable:bool) -> void:
+	is_current = is_enable
+	print(name + ", is_current:" + str(is_current) + ", levelIndex:" + str(levelIndex))
+	make_play_list()
+	for child in playerList:
+		if (child.index == currentPlayerIndex):
+			child.camera_3d.make_current()
+		else:
+			child.camera_3d.clear_current(false)
+
 func _ready() -> void:
-	playNum = 1
-	for player in get_tree().get_nodes_in_group("PlayerGroup"):
-		if player is Player :
-			playNum += 1
+	make_play_list()
 	
 func _input(event: InputEvent) -> void:
 	if visible:
 		var action = "switch"
-		for i in range(1, playNum, 1) :
-			var playerIndex = action + str(i)
+		for player in playerList :
+			var playerIndex = action + str(player.index)
 			if event.is_action_pressed(playerIndex) :
-				switch_player(i)
+				switch_player(player.index)

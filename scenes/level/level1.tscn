@@ -14,7 +14,7 @@ point_count = 7
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_5yh3o")
-Index = 1
+levelIndex = 1
 
 [node name="Gear01" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"] instance=ExtResource("1_pgq8h")]
 transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -5.20652, 8.39084, 4.4735)
