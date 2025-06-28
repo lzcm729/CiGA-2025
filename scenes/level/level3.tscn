@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://hel1mej6t04v"]
+[gd_scene load_steps=24 format=3 uid="uid://hel1mej6t04v"]
 
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="1_ga8lq"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_hkmq7"]
@@ -14,7 +14,6 @@
 [ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="12_mfwob"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="13_ajr51"]
 [ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="14_pyco3"]
-[ext_resource type="Script" uid="uid://cy3s66yh28pyj" path="res://scripts/Scene/spring_arm_3d.gd" id="15_nm1dm"]
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="16_25b5m"]
 [ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="17_yma1a"]
 
@@ -78,9 +77,10 @@ point_count = 4
 script = ExtResource("1_w4sk7")
 levelIndex = 3
 
-[node name="book" parent="." groups=["PlayerGroup"] instance=ExtResource("1_hkmq7")]
-transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.97602, 8.39489, 4.25387)
+[node name="book" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"] instance=ExtResource("1_hkmq7")]
+transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, -4.96078, 8.39489, 4.33372)
 index = 1
+path = NodePath("../Path3D/PathFollow3D")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.40176, 8.50517, 3.87784)
@@ -88,6 +88,7 @@ curve = SubResource("Curve3D_duul2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(-0.875237, 0, 0.483684, 0, 0.99999, 0, -0.483684, 0, -0.875237, -0.677631, 0, 0.461109)
+loop = false
 
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("2_w4sk7")]
 path_node = NodePath("..")
@@ -103,6 +104,7 @@ curve = SubResource("Curve3D_hkmq7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
 transform = Transform3D(-0.31675, -0.480036, 0.818066, 1.49011e-08, 0.862475, 0.506096, -0.948507, 0.160306, -0.27319, 0, 0, 0)
+loop = false
 
 [node name="PathPolygon" parent="Path3D2" instance=ExtResource("2_w4sk7")]
 path_node = NodePath("../../Path3D2")
@@ -143,17 +145,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vydre")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21079, -0.0621202)
 shape = SubResource("CapsuleShape3D_w8f2n")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Closet"]
-transform = Transform3D(-0.552899, 0.114795, 0.825303, 0.0110891, 0.99139, -0.130468, -0.833175, -0.062984, -0.549411, 3.92948, 1.39684, -1.20734)
-collision_mask = 0
-spring_length = 5.0
-script = ExtResource("15_nm1dm")
-
-[node name="Camera3D" type="Camera3D" parent="Closet/SpringArm3D"]
-transform = Transform3D(0.639096, 0.261442, -0.723328, -0.067264, 0.95585, 0.286055, 0.766181, -0.134163, 0.628466, -1.53381, 0.0661449, -0.886165)
-current = true
-fov = 74.1
-
 [node name="Sound" type="AudioStreamPlayer3D" parent="Closet"]
 stream = ExtResource("16_25b5m")
 
@@ -173,5 +164,9 @@ loop = false
 [node name="Doll" parent="Closet/Path3D/PathFollow3D" instance=ExtResource("17_yma1a")]
 transform = Transform3D(2.28816, 0.155567, -1.93394, -0.330557, 2.97788, -0.151559, 1.91182, 0.32869, 2.28843, 0.410281, -0.657824, -0.449132)
 
+[node name="Camera3D" type="Camera3D" parent="Closet"]
+transform = Transform3D(0.271254, -0.145549, 0.95144, -0.15956, 0.968023, 0.193576, -0.949191, -0.20432, 0.239357, 4.05376, 1.56102, 0.553296)
+current = true
+fov = 74.1
+
 [node name="p1" parent="." instance=ExtResource("1_ga8lq")]
-visible = false
