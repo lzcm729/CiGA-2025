@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5qpoma7x63bs"]
+
+[ext_resource type="PackedScene" uid="uid://fsecj076ukn3" path="res://Geometry/Meshes/Attic_Pillow_05_LP.glb" id="1_cejnd"]
+[ext_resource type="Material" uid="uid://drqppa0iaof56" path="res://Materials/Cloth/MI_Pillows2.tres" id="2_dosm3"]
+
+[node name="Attic_Pillow_05_LP_1" instance=ExtResource("1_cejnd")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dosm3")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ldqy1r67a1g"]
+
+[ext_resource type="PackedScene" uid="uid://dxt6i7654hyfe" path="res://Geometry/Meshes/Attic_FilingCabinet_01_LP.glb" id="1_b5djl"]
+[ext_resource type="Material" uid="uid://bdl3ydvbbkoio" path="res://Materials/Metal/MI_FilingCase1.tres" id="2_csyou"]
+
+[node name="Attic_FilingCabinet_01_LP" instance=ExtResource("1_b5djl")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_csyou")

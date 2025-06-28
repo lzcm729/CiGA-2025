@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbbeq4jwg3egn"]
+
+[ext_resource type="CameraAttributesPractical" uid="uid://4cfoi3npjx37" path="res://CameraAttributes.tres" id="1_q0a8c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06w47"]
+sky_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_ye75x"]
+sky_material = SubResource("ProceduralSkyMaterial_06w47")
+
+[sub_resource type="Environment" id="Environment_7y8hs"]
+background_mode = 2
+background_color = Color(0.403694, 0.382089, 0.378428, 1)
+background_energy_multiplier = 0.64
+background_intensity = 4742.86
+sky = SubResource("Sky_ye75x")
+ambient_light_source = 3
+ambient_light_energy = 1.41
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.4344
+volumetric_fog_albedo = Color(0.148627, 0.180163, 0.247899, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7y8hs")
+camera_attributes = ExtResource("1_q0a8c")

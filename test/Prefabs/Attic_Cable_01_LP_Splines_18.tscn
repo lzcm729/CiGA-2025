@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cau1t1ehptd7j"]
+
+[ext_resource type="PackedScene" uid="uid://cki0sncv0yom7" path="res://Attic_Cable_01_LP_Splines_18.glb" id="1_cexrw"]
+[ext_resource type="Material" uid="uid://con3ij6hifehr" path="res://Materials/MI_Grey04.tres" id="2_jcfhf"]
+
+[node name="Attic_Cable_01_LP_Splines_18" instance=ExtResource("1_cexrw")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jcfhf")

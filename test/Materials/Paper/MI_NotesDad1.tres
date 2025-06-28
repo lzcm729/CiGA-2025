@@ -1,0 +1,21 @@
+[gd_resource type = "ShaderMaterial" load_steps=4 format=3 uid="uid://dago03pprad3y"]
+
+[ext_resource type="Shader" uid="uid://cdc5y3j2xhn2i" path="res://Shaders/MI_NotesDad1.tres" id="4_qtven"]
+[ext_resource type="Texture2D" uid="uid://cr8s77bm6bk1e" path="res://Textures/Paper/NotesDad/Attic_NotesDad_01_LP_15_-_Default_Normal.png" id="1_cv7e3"]
+[ext_resource type="Texture2D" uid="uid://cou6mppwjdd6x" path="res://Textures/Paper/NotesDad/Attic_NotesDad_01_LP_15_-_Default_Diffuse.png" id="2_dn5vw"]
+[ext_resource type="Texture2D" uid="uid://5snh6koypjru" path="res://Textures/Paper/NotesDad/Attic_NotesDad_01_LP_15_-_Default_RMAO.png" id="3_bjrsv"]
+
+[resource]
+resource_name = "MI_NotesDad1"
+render_priority = 0
+shader = ExtResource("4_qtven")
+shader_parameter/HueShift = 0.085714
+shader_parameter/BaseColor = ExtResource("2_dn5vw")
+shader_parameter/UV_Tiling = 1.000000
+shader_parameter/UV_Offset = 0.000000
+shader_parameter/Desaturation = 0.657143
+shader_parameter/BaseColor_Strength = 1.140461
+shader_parameter/Normal = ExtResource("1_cv7e3")
+shader_parameter/Roughness_Strength = 2.000000
+shader_parameter/R_M_AO = ExtResource("3_bjrsv")
+shader_parameter/Subsurface_Strength = 0.500000

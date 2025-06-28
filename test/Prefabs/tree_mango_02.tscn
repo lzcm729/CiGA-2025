@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://71y8s6svboyc"]
+
+[ext_resource type="PackedScene" uid="uid://7djrem3f4xw7" path="res://Geometry/Trees/tree_mango_02.glb" id="1_b0pv7"]
+[ext_resource type="Material" uid="uid://dppxlc1squoys" path="res://Materials/Trees/MI_TreeBark.tres" id="2_bcib5"]
+[ext_resource type="Material" uid="uid://dkds23wkmogjk" path="res://Materials/Trees/MI_TreeLeaves.tres" id="3_dtaoa"]
+
+[node name="tree_mango_02" instance=ExtResource("1_b0pv7")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bcib5")
+surface_material_override/1 = ExtResource("3_dtaoa")

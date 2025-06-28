@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0tv0i7sfiqca"]
+
+[ext_resource type="PackedScene" uid="uid://dofuewkcyjug5" path="res://Geometry/Meshes/Attic_Book_01_LP.glb" id="1_botxb"]
+[ext_resource type="Material" uid="uid://pc7hyv4pgjqv" path="res://Materials/Paper/MI_Paper2.tres" id="2_bnhyh"]
+
+[node name="Attic_Book_01_LP" instance=ExtResource("1_botxb")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bnhyh")

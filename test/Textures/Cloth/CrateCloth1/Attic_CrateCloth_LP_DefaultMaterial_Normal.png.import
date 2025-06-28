@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bglj06tu4me2x"
+path.s3tc="res://.godot/imported/Attic_CrateCloth_LP_DefaultMaterial_Normal.png-18b1ca2f5b3b0189a59d11f6e4100b03.s3tc.ctex"
+path.etc2="res://.godot/imported/Attic_CrateCloth_LP_DefaultMaterial_Normal.png-18b1ca2f5b3b0189a59d11f6e4100b03.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://test/Textures/Cloth/CrateCloth1/Attic_CrateCloth_LP_DefaultMaterial_Normal.png"
+dest_files=["res://.godot/imported/Attic_CrateCloth_LP_DefaultMaterial_Normal.png-18b1ca2f5b3b0189a59d11f6e4100b03.s3tc.ctex", "res://.godot/imported/Attic_CrateCloth_LP_DefaultMaterial_Normal.png-18b1ca2f5b3b0189a59d11f6e4100b03.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=false
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

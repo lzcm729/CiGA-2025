@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxyfsvi6xisho"]
+
+[ext_resource type="PackedScene" uid="uid://bgdbyyhoysau7" path="res://Geometry/Meshes/Attic_Fan_01_LP.glb" id="1_dfixe"]
+[ext_resource type="Material" uid="uid://cxsa44xhubn2x" path="res://Materials/Metal/MI_Fan.tres" id="2_bvwqy"]
+
+[node name="Attic_Fan_01_LP" instance=ExtResource("1_dfixe")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bvwqy")

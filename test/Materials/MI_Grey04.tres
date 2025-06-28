@@ -1,0 +1,37 @@
+[gd_resource type = "ShaderMaterial" load_steps=2 format=3 uid="uid://con3ij6hifehr"]
+
+[ext_resource type="Shader" uid="uid://dt3i8axm54l5c" path="res://Shaders/MI_Grey04.tres" id="2_drl4n"]
+[ext_resource type="Texture2D" uid="uid://d0jvimb7yghyf" path="res://Textures/Dirt/T_DirtChipsClouds_Masks.png" id="1_cshjk"]
+
+[resource]
+resource_name = "MI_Grey04"
+render_priority = 0
+shader = ExtResource("2_drl4n")
+shader_parameter/Specular = 0.000000
+shader_parameter/Emmisive = 0.000000
+shader_parameter/Basecolor = Vector4(0.010417, 0.010417, 0.010417, 1.000000)
+shader_parameter/Metallic = 0.000000
+shader_parameter/Opacity = 0.000000
+shader_parameter/Roughness_Base = 0.700000
+shader_parameter/Extra_Dirt_Strength = 0.200000
+shader_parameter/Generated_T_DirtChipsClouds_Masks = ExtResource("1_cshjk")
+shader_parameter/Dirt_Variation_Scale = 100.000000
+shader_parameter/Main_Dirt_Strength = 1.000000
+shader_parameter/AO_Multiply = 0.000000
+shader_parameter/AOpower = 0.000000
+shader_parameter/Dirt_Mask_Exponent = 3.000000
+shader_parameter/Roughness_Dirt = 1.000000
+shader_parameter/Specular_VS = 0.000000
+shader_parameter/Emmisive_VS = 0.000000
+shader_parameter/Basecolor_VS = Vector4(0.010417, 0.010417, 0.010417, 1.000000)
+shader_parameter/Metallic_VS = 0.000000
+shader_parameter/Opacity_VS = 0.000000
+shader_parameter/Roughness_Base_VS = 0.700000
+shader_parameter/Extra_Dirt_Strength_VS = 0.200000
+shader_parameter/Generated_T_DirtChipsClouds_Masks_VS = ExtResource("1_cshjk")
+shader_parameter/Dirt_Variation_Scale_VS = 100.000000
+shader_parameter/Main_Dirt_Strength_VS = 1.000000
+shader_parameter/AO_Multiply_VS = 0.000000
+shader_parameter/AOpower_VS = 0.000000
+shader_parameter/Dirt_Mask_Exponent_VS = 3.000000
+shader_parameter/Roughness_Dirt_VS = 1.000000

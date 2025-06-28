@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://rxfmywtqiiy3"]
+
+[ext_resource type="PackedScene" uid="uid://dgdbcd8iffg8i" path="res://Geometry/Meshes/Attic_MetalShelf_01_LP.glb" id="1_bryyr"]
+[ext_resource type="Material" uid="uid://cxr7gtxe4177k" path="res://Materials/Metal/MI_MetalShelf1.tres" id="2_ud6ug"]
+
+[node name="Attic_MetalShelf_01_LP" instance=ExtResource("1_bryyr")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ud6ug")

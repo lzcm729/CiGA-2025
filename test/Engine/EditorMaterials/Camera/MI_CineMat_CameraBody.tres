@@ -1,0 +1,11 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://efpw18pw8h81"]
+
+[ext_resource type="Shader" uid="uid://uo4nxywhxjb5" path="res://Shaders/MI_CineMat_CameraBody.tres" id="1_bhybh"]
+
+[resource]
+resource_name = "MI_CineMat_CameraBody"
+render_priority = 0
+shader = ExtResource("1_bhybh")
+shader_parameter/Base_Color = Vector4(0.043137, 0.043137, 0.043137, 0.000000)
+shader_parameter/Roughness = 0.200000
+shader_parameter/Specular = 0.300000

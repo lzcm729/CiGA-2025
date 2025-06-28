@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://buyc1ufmpfeih"]
+
+[ext_resource type="PackedScene" uid="uid://gxufvbq7emjl" path="res://Geometry/Meshes/Attic_CableAttachment_01_LP.glb" id="1_bppun"]
+[ext_resource type="Material" uid="uid://d2agwop8uh2vq" path="res://Engine/EngineMaterials/WorldGridMaterial.tres" id="2_cfajr"]
+
+[node name="Attic_CableAttachment_01_LP" instance=ExtResource("1_bppun")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cfajr")
