@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 func change_state(target_state_name: String) -> void:
 	var target_state = get_node_or_null(target_state_name)
 	if target_state == null :
-		printerr("change_state error:%s", target_state_name)
+		printerr("change_state error " + target_state_name)
 		return
 	current_state.exit()
 	current_state = target_state
