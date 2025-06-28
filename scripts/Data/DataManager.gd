@@ -12,9 +12,16 @@ func switch_scene(target_scene:int) -> void:
 	if (target_scene > Consts.SCENES.ABOUT) or (target_scene < Consts.SCENES.START_UP) :
 		print("error scene")
 		return	
+
+	if (target_scene == cur_scene_id):
+		print("already in scene", current_level)
+		return
+
 	var scene_info = data_config.SCENE_INFO[target_scene]
 	print(scene_info['scene_file'])
-	#get_tree().change_scene_to_file(scene_info['scene_file'])
+	cur_scene_id = target_scene
+	get_tree().change_scene_to_file(scene_info['scene_file'])
+	get_tree().NOTIFICATION_PREDELETE
 
 func handle_item_signal(level_index:int, item_enum:int) -> void:
 	print(level_index, item_enum)

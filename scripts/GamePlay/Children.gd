@@ -1,0 +1,103 @@
+extends Node
+
+const STATE_0 = 0 # 从 没有到 开始数 3
+const STATE_3 = 1 # 从 数3 到 数2
+const STATE_2 = 2 # 从 数2 到 数1 -> 等于结束
+const STATE_1 = 3 # 从 数1 的 hold
+
+var cur_state = 0
+var state_map = {
+	STATE_0 : STATE_3,
+	STATE_3 : STATE_2,
+	STATE_2 : STATE_1,
+	STATE_1 : STATE_0
+}
+
+signal CHILD_COUNT_3()
+signal CHILD_COUNT_2()
+signal CHILD_COUNT_1_START()
+signal CHILD_COUNT_1_END()
+signal CHILD_CATCH_YOU()
+
+# 数据格式 ： {无 -> 3, 3 -> 2, 2 -> 1, 1 hold 时长}
+# 趣味性上 可以是以下几种的随机组合 可以以固定的 5s 作为一组来设计差分
+# 以人的反应来说 建议可以以 0.5 - 1s 作为检查节点 即 最少间隔为 0.5s
+var cur_rule = 0
+var tolerate = 0.5 # 回头状态下的容忍度
+var state_rule = {
+	1 : [3, 2, 0.5, 1],
+	2 : [2, 2, 1, 1],
+	3 : [1, 1.5, 2, 1]
+}
+const RULE_COUNT = 3
+
+var total_time = 0.0
+var last_past_time = 0.0
+func child_on_game_start(input_time:float):
+	total_time = input_time
+	print("child listen game start", input_time)
+
+var is_key_pressed = false
+var key_press_time = 0.0
+func _process(delta: float) -> void:
+	if total_time <= 0:
+		return
+	
+	if cur_rule == 0:
+		cur_rule = randi_range(1, RULE_COUNT)
+		cur_state = STATE_0
+	
+	var rule = state_rule[cur_rule]
+	var cur_time_target = rule[cur_state]
+
+	total_time -= delta
+	last_past_time += delta
+	
+	# 回头状态下 开始检测玩家是否按键：
+	if cur_state == STATE_1:
+		# 处理按键状态
+		if Input.is_action_pressed("move_up"):
+			if not is_key_pressed:
+				is_key_pressed = true
+				key_press_time = 0.0
+			key_press_time += delta
+		else:
+			if is_key_pressed and key_press_time < tolerate:
+				print("你及时停止了运动 逃过一劫")
+			is_key_pressed = false
+			key_press_time = 0.0
+		
+		# 检查按键时长
+		if key_press_time >= tolerate:
+			print("孩子看到你了 你被抓住了")
+			key_press_time = 0.0	 
+			cur_state = STATE_0
+			total_time = -1
+			emit_signal("CHILD_CATCH_YOU")
+			return
+
+	# 处理下一个状态
+	if last_past_time >= cur_time_target:
+		# 一个状态的结束 切换到下一个状态并作上一个状态的结算
+		match cur_state:
+			STATE_0:
+				print("COUNT 3")
+			STATE_3:
+				print("COUNT 2")
+			STATE_2:
+				print("COUNT 1 - 并回头")
+				# 需要预处理玩家的按键状态
+				if Input.is_action_pressed("move_up"):
+					is_key_pressed = true
+					key_press_time = 0.0
+				else:
+					is_key_pressed = false
+					key_press_time = 0.0
+			STATE_1:
+				print("回头结束 等待下一轮计数")
+		cur_state = state_map[cur_state]
+		last_past_time -= cur_time_target
+
+func _ready() -> void:
+	var gameplay = get_node("/root/test/Gameplay")
+	gameplay.connect("GAME_START", child_on_game_start)
