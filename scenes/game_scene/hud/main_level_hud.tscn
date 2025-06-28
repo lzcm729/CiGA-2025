@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmn5u610ah61f"]
+[gd_scene load_steps=4 format=3 uid="uid://cmn5u610ah61f"]
 
 [ext_resource type="Script" uid="uid://doh7fx1twqcvh" path="res://scenes/game_scene/hud/main_level_hud.gd" id="1_8thkc"]
+[ext_resource type="Script" uid="uid://c7y68enith4ac" path="res://scenes/game_scene/hud/num.gd" id="2_ipx17"]
+[ext_resource type="Script" uid="uid://if2uuun3bji6" path="res://scenes/game_scene/hud/panel.gd" id="3_w5gns"]
 
 [node name="MainLevelHud" type="Control"]
 layout_mode = 3
@@ -77,6 +79,77 @@ layout_mode = 2
 custom_minimum_size = Vector2(68, 300)
 layout_mode = 2
 
+[node name="CountDownMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CountDownMarginContainer"]
+layout_mode = 2
+
+[node name="Num" type="Label" parent="CountDownMarginContainer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -123.0
+offset_right = 115.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 180
+text = "3"
+horizontal_alignment = 1
+script = ExtResource("2_ipx17")
+
+[node name="Timer" type="Timer" parent="CountDownMarginContainer/Control"]
+one_shot = true
+
+[node name="GoalMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="GoalMarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GoalMarginContainer/Control"]
+custom_minimum_size = Vector2(50, 200)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_w5gns")
+
+[node name="Label" type="Label" parent="GoalMarginContainer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "抓住那个小孩子，把他吃掉！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="KeyMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -110,10 +183,4 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "指导"
 
-[node name="CountDownMarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]

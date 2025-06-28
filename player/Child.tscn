@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://0fx1uag1qdyr"]
+[gd_scene load_steps=2 format=3 uid="uid://0fx1uag1qdyr"]
+
+[ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="1_k85rn"]
 
 [node name="Child" type="Node3D"]
+
+[node name="Doll" parent="." instance=ExtResource("1_k85rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00552624, -2.38419e-07, -0.00610638)

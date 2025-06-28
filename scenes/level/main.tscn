@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://d30t2bi4w65jl"]
+[gd_scene load_steps=13 format=3 uid="uid://d30t2bi4w65jl"]
 
 [ext_resource type="PackedScene" uid="uid://b1mrhfhcittfm" path="res://scenes/level/level1.tscn" id="1_64aob"]
 [ext_resource type="Script" uid="uid://b64tu3o5s7vgp" path="res://scripts/Scene/main.gd" id="1_x0mk0"]
 [ext_resource type="PackedScene" uid="uid://dlxkrr6i53h27" path="res://scenes/level/level2.tscn" id="2_gjage"]
 [ext_resource type="PackedScene" uid="uid://hel1mej6t04v" path="res://scenes/level/level3.tscn" id="3_x0mk0"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="4_2hqms"]
+[ext_resource type="PackedScene" uid="uid://cwcabhr6c4ypo" path="res://scenes/level/level4.tscn" id="4_rjhew"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="6_x0mk0"]
 [ext_resource type="Script" uid="uid://3s3uube6r4tx" path="res://scripts/GamePlay/Children.gd" id="7_1bkat"]
 [ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="7_2hqms"]
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="8_6ulxj"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="10_1o8wa"]
+[ext_resource type="PackedScene" uid="uid://0fx1uag1qdyr" path="res://player/Child.tscn" id="12_3lrgn"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_x0mk0")
@@ -18,11 +20,19 @@ script = ExtResource("1_x0mk0")
 
 [node name="p1" parent="." instance=ExtResource("4_2hqms")]
 
+[node name="Level4" parent="." instance=ExtResource("4_rjhew")]
+visible = false
+
 [node name="Level3" parent="." groups=["LevelGroup"] instance=ExtResource("3_x0mk0")]
+visible = false
 
 [node name="Level2" parent="." groups=["LevelGroup"] instance=ExtResource("2_gjage")]
+visible = false
 
 [node name="Level1" parent="." groups=["LevelGroup"] instance=ExtResource("1_64aob")]
+
+[node name="Child" parent="." instance=ExtResource("12_3lrgn")]
+transform = Transform3D(-1.31209, 0, 1.50944, 0, 2, 0, -1.50944, 0, -1.31209, -10.2769, 8.27802, 5.74927)
 
 [node name="Children" type="Node" parent="."]
 script = ExtResource("7_1bkat")
@@ -32,8 +42,13 @@ script = ExtResource("8_6ulxj")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="MainLevelHud" parent="." instance=ExtResource("6_x0mk0")]
+[node name="MainLevelHud" parent="." node_paths=PackedStringArray("gameplay") instance=ExtResource("6_x0mk0")]
+gameplay = NodePath("../GamePlay")
 
-[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay")]
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay", "main_level_hud")]
 script = ExtResource("10_1o8wa")
 gameplay = NodePath("../GamePlay")
+main_level_hud = NodePath("../MainLevelHud")
+
+[node name="StartCountDown" type="Timer" parent="LevelManager"]
+one_shot = true

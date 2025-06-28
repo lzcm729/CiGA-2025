@@ -2,7 +2,7 @@ extends Node3D
 class_name MainScene
 @onready var PostEffect_CRT: CanvasLayer = $CanvasLayer_CRT
 
-var currentLevelIndex = 1
+var currentLevelIndex = 2
 var levels = [] as Array[Level]
 func switch_level(index:int) ->void:
 	# 添加新场景到场景树
@@ -21,5 +21,6 @@ func _ready() -> void:
 			remove_child(level)
 			levels.append(level)
 	PostEffect_CRT.hide()		
+	currentLevelIndex = DataManager.get_cur_level_config()[0]	
+	print('bbbbbbbbbbb',currentLevelIndex)	
 	switch_level(currentLevelIndex)
-	
