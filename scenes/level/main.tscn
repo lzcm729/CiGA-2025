@@ -33,7 +33,7 @@ visible = false
 visible = false
 
 [node name="Child" parent="." groups=["LevelGroup"] instance=ExtResource("12_3lrgn")]
-transform = Transform3D(-1.31209, 0, 1.50944, 0, 2, 0, -1.50944, 0, -1.31209, -10.2769, 8.27802, 5.74927)
+transform = Transform3D(-1.31209, 0, 1.50944, 0, 2, 0, -1.50944, 0, -1.31209, -10.2035, 8.83145, 5.75599)
 
 [node name="Children" type="Node" parent="."]
 script = ExtResource("7_1bkat")

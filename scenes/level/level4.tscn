@@ -1,6 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwcabhr6c4ypo"]
+[gd_scene load_steps=32 format=3 uid="uid://cwcabhr6c4ypo"]
 
-[ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_2b7xl"]
+[ext_resource type="Script" uid="uid://dhqxy415sgrm" path="res://player/Obstacle/light.gd" id="1_4lbx7"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_80v56"]
 [ext_resource type="Script" uid="uid://4ve24poo2esn" path="res://scripts/Player/player.gd" id="2_dfykx"]
 [ext_resource type="PackedScene" uid="uid://dvgmwr8lrkugy" path="res://assets/3D/character/book/cartoon.tscn" id="3_4lbx7"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="15_fvvi0"]
 [ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="16_3p2pj"]
 [ext_resource type="PackedScene" uid="uid://bw0l0xdq8l3sh" path="res://player/Obstacle/Light.tscn" id="18_qwk53"]
+[ext_resource type="Script" path="res://player/Monster/draw.gd" id="19_m84cw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5nui"]
 size = Vector3(0.462, 0.573, 0.671)
@@ -84,15 +85,15 @@ top_radius = 0.03
 bottom_radius = 0.03
 height = 4.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_n075g"]
+[sub_resource type="SphereMesh" id="SphereMesh_frhej"]
 radius = 0.1
 height = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_frhej"]
+size = Vector3(0.5, 4.40192, 0.5)
 
 [node name="Level4" type="Node3D" groups=["LevelGroup"]]
-script = ExtResource("1_2b7xl")
-levelIndex = 4
+script = ExtResource("1_4lbx7")
 
 [node name="book" type="CharacterBody3D" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"]]
 transform = Transform3D(-0.284183, 0, 0.95877, 0, 1, 0, -0.95877, 0, -0.284183, -4.91773, 8.63219, 4.86294)
@@ -442,31 +443,34 @@ path_node = NodePath("../../Path3D2")
 
 [node name="p1" parent="." instance=ExtResource("4_pjvq8")]
 
-[node name="Draw" type="Node3D" parent="."]
-transform = Transform3D(0.0435846, 0, -0.99905, 0, 1, 0, 0.99905, 0, 0.0435846, -9.34452, 8.90084, 4.86189)
-
-[node name="draw" type="CharacterBody3D" parent="Draw" groups=["PlayerGroup"]]
-transform = Transform3D(0.076598, 0, -0.184751, 0, 0.2, 0, 0.184751, 0, 0.076598, 0, 0, 0)
-script = ExtResource("2_dfykx")
+[node name="Draw" type="CharacterBody3D" parent="." groups=["PlayerGroup"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.58299, 9.27132, 4.72642)
+motion_mode = 1
+script = ExtResource("19_m84cw")
 index = 4
+ignore_gravity = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Draw/draw"]
+[node name="Mesh" type="Node3D" parent="Draw"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Draw/Mesh"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.00017156, 2.91534, -0.00324895)
 mesh = SubResource("CylinderMesh_frhej")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Draw/draw"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Draw/Mesh"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0.86603, 0)
-mesh = SubResource("SphereMesh_n075g")
+mesh = SubResource("SphereMesh_frhej")
 skeleton = NodePath("../MeshInstance3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Draw/draw"]
-transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 3.133, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draw"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 2.88841, 0)
 shape = SubResource("BoxShape3D_frhej")
 
-[node name="Camera3D" type="Camera3D" parent="Draw/draw"]
-transform = Transform3D(-1.91494, 2.30938, -3.99996, 0, 4.33013, 2.5, 4.61875, 0.95747, -1.65839, -4.68086, 6.9842, -1.92428)
+[node name="Camera3D" type="Camera3D" parent="Draw"]
+transform = Transform3D(-2.76449, 0.573976, 4.1265, 0.0554453, 4.95695, -0.652342, -4.16586, -0.314919, -2.74705, 3.92948, 1.39684, -1.20734)
+current = true
 
-[node name="Light" parent="Draw/draw" instance=ExtResource("18_qwk53")]
-transform = Transform3D(1.91494, 0, 4.61875, 0, 5, 0, -4.61875, 0, 1.91494, -0.0499153, -3.19854, 0.106897)
+[node name="Light" parent="Draw" instance=ExtResource("18_qwk53")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0589371, -2.394, -0.476227)
 
 [editable path="book/Mesh"]

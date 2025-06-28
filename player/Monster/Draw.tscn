@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://px33mjbxlxid"]
 
-[ext_resource type="Script" uid="uid://be3m50ipbfg3f" path="res://player/Monster/draw.gd" id="1_frhej"]
+[ext_resource type="Script" path="res://player/Monster/draw.gd" id="1_frhej"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_frhej"]
 top_radius = 0.03
