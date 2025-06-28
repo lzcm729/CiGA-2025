@@ -37,10 +37,7 @@ func make_current(is_enable:bool) -> void:
 	print(name + ", is_current:" + str(is_current) + ", levelIndex:" + str(levelIndex))
 	make_play_list()
 	for child in playerList:
-		if (child.index == currentPlayerIndex):
-			child.camera_3d.make_current()
-		else:
-			child.camera_3d.clear_current(false)
+		child.make_current(child.index == currentPlayerIndex)
 
 func _ready() -> void:
 	make_play_list()

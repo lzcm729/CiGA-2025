@@ -10,13 +10,16 @@ func _ready() -> void:
 		if child is StateBase:
 			child.state_machine = self
 	await get_parent().ready
-	current_state.enter()
+	if current_state:
+		current_state.enter()
 	
 func _process(delta: float) -> void:
-	current_state.process_update(delta)
+	if current_state:
+		current_state.process_update(delta)
 	
 func _physics_process(delta: float) -> void:
-	current_state.physics_process_update(delta)
+	if current_state:
+		current_state.physics_process_update(delta)
 	
 func change_state(target_state_name: String) -> void:
 	var target_state = get_node_or_null(target_state_name)
