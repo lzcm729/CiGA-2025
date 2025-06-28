@@ -1,4 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://de1rprmpcnrdl"]
+[gd_scene load_steps=13 format=3 uid="uid://de1rprmpcnrdl"]
+
+[ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_suqva"]
+[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="2_nd4gh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wem"]
 albedo_color = Color(0.160784, 0.545098, 0.815686, 0.278431)
@@ -22,6 +25,16 @@ size = Vector3(0.1, 0.1, 5)
 size = Vector3(0.5, 2, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fdwyv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nd4gh"]
+panorama = ExtResource("1_suqva")
+
+[sub_resource type="Sky" id="Sky_ycwqe"]
+sky_material = SubResource("PanoramaSkyMaterial_nd4gh")
+
+[sub_resource type="Environment" id="Environment_fdwyv"]
+background_mode = 2
+sky = SubResource("Sky_ycwqe")
 
 [node name="level" type="Node3D"]
 
@@ -63,3 +76,16 @@ mesh = SubResource("BoxMesh_nd4gh")
 transform = Transform3D(0.850161, -0.303288, -0.121003, 0.512792, 0.5078, -0.0305324, 0.119463, -0.0213616, 0.992182, 0.221974, 0.814172, -0.162472)
 mesh = SubResource("CapsuleMesh_fdwyv")
 skeleton = NodePath("../MeshInstance3D")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fdwyv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.263637, 0.964622, 0, -0.964622, 0.263637, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.998485, 0.0413663, 0.0362983, 0.0545543, 0.830865, 0.553793, -0.00725056, 0.554934, -0.831863, -0.755087, 3.5343, -4.8163)
+
+[node name="Node3D" parent="." instance=ExtResource("2_nd4gh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56372, 1.31556, -0.394279)

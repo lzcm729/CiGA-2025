@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbx3i41l7s2m7"]
+
+[ext_resource type="Script" uid="uid://cfm1ntuwr7hbu" path="res://node_3d.gd" id="1_48ji0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bewde"]
+size = Vector3(0.5, 2, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_48ji0")
+
+[node name="Closet" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bewde")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329579, 0, 0.499802)
+
+[node name="Door" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.303764, 0, 0, 0, 1, 0, 1.49012e-08, 0, 0.975493, 0, 0, -0.495065)
+mesh = SubResource("BoxMesh_bewde")
+skeleton = NodePath("../..")

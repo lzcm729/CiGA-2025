@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhrryxcew0rw1"]
+[gd_scene load_steps=11 format=3 uid="uid://bhrryxcew0rw1"]
 
 [ext_resource type="Script" uid="uid://dsev0gu62uxc4" path="res://scripts/Scene/test_3d.gd" id="1_5qlw0"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_a402t"]
 [ext_resource type="Texture2D" uid="uid://c72b2r4h1jdo6" path="res://assets/3D/Sky.png" id="1_jstem"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="4_k5aas"]
+[ext_resource type="PackedScene" uid="uid://dbx3i41l7s2m7" path="res://closet.tscn" id="5_rx5g4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a402t"]
 albedo_color = Color(0.733333, 1, 1, 1)
@@ -11,12 +12,12 @@ albedo_color = Color(0.733333, 1, 1, 1)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_l4nri"]
 panorama = ExtResource("1_jstem")
 
-[sub_resource type="Sky" id="Sky_ycwqe"]
+[sub_resource type="Sky" id="Sky_rx5g4"]
 sky_material = SubResource("PanoramaSkyMaterial_l4nri")
 
 [sub_resource type="Environment" id="Environment_c5k37"]
 background_mode = 2
-sky = SubResource("Sky_ycwqe")
+sky = SubResource("Sky_rx5g4")
 
 [sub_resource type="Curve3D" id="Curve3D_5qlw0"]
 _data = {
@@ -69,3 +70,6 @@ loop = false
 
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("4_k5aas")]
 path_node = NodePath("..")
+
+[node name="Node3D" parent="." instance=ExtResource("5_rx5g4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3853, 1.04564, 0)
