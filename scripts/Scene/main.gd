@@ -25,5 +25,4 @@ func _ready() -> void:
 			print(level.levelIndex)
 	PostEffect_CRT.hide()		
 	currentLevelIndex = DataManager.get_cur_level_config()[0]	
-	print('bbbbbbbbbbb',currentLevelIndex)	
 	switch_level(currentLevelIndex)
