@@ -5,3 +5,4 @@
 [node name="Light" type="Node3D"]
 
 [node name="灯" parent="." instance=ExtResource("1_uyeer")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
