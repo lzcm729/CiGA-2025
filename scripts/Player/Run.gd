@@ -5,10 +5,11 @@ func enter() -> void:
 	super.enter()
 	#print("enter Run")
 	player.move()
+	player.sound_move.play()
 	
 
 func exit() -> void:
-	pass
+	player.sound_move.stop()
 	
 func process_update(delta: float) -> void:
 	pass

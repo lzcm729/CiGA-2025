@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmn5u610ah61f"]
+[gd_scene load_steps=17 format=3 uid="uid://cmn5u610ah61f"]
 
 [ext_resource type="Script" uid="uid://doh7fx1twqcvh" path="res://scenes/game_scene/hud/main_level_hud.gd" id="1_8thkc"]
 [ext_resource type="Script" uid="uid://c7y68enith4ac" path="res://scenes/game_scene/hud/num.gd" id="2_ipx17"]
@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://bejjmbi2o131a" path="res://assets/child_speak/scare3.png" id="7_5c7kb"]
 [ext_resource type="Texture2D" uid="uid://c23ax73l2n3a6" path="res://assets/child_speak/scare2.png" id="8_7nw2e"]
 [ext_resource type="Texture2D" uid="uid://db7xdgmsjkks4" path="res://assets/child_speak/scare1.png" id="9_ub2gk"]
+[ext_resource type="PackedScene" uid="uid://bvqplqbdxody3" path="res://zyh/player_portrait.tscn" id="10_ub2gk"]
+[ext_resource type="Texture2D" uid="uid://ug21tuscf5un" path="res://assets/player_portrait/closet_portrait_normal.png" id="11_awofo"]
+[ext_resource type="Texture2D" uid="uid://c30pbmgm5iaig" path="res://assets/player_portrait/closet_portrait_select.png" id="12_5fie3"]
+[ext_resource type="Texture2D" uid="uid://de56b68fkbbjf" path="res://assets/player_portrait/watcher_portrait_normal.png" id="13_lx47f"]
+[ext_resource type="Texture2D" uid="uid://b6p4epr4w8lgr" path="res://assets/player_portrait/watcher_portrait_select.png" id="14_f2cej"]
+[ext_resource type="Texture2D" uid="uid://biuaoe0kc2pro" path="res://assets/player_portrait/lamp_portrait_normal.png" id="15_5fie3"]
+[ext_resource type="Texture2D" uid="uid://dexsyv5pek817" path="res://assets/player_portrait/lamp_portrait_select.png" id="16_lx47f"]
 
 [node name="MainLevelHud" type="Control"]
 layout_mode = 3
@@ -358,3 +365,60 @@ text = "返回"
 
 [connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
 [connection signal="pressed" from="EndContainer/Control/Back" to="." method="_on_back_pressed"]
+
+[node name="PlayerPortrait" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -311.0
+offset_top = -141.0
+offset_right = 311.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerPortrait"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -46.0
+offset_right = 627.0
+offset_bottom = 95.0
+alignment = 1
+
+[node name="Book" parent="PlayerPortrait/HBoxContainer" instance=ExtResource("10_ub2gk")]
+layout_mode = 2
+
+[node name="Closet" parent="PlayerPortrait/HBoxContainer" instance=ExtResource("10_ub2gk")]
+layout_mode = 2
+
+[node name="NoSelect" parent="PlayerPortrait/HBoxContainer/Closet" index="0"]
+texture = ExtResource("11_awofo")
+
+[node name="Select" parent="PlayerPortrait/HBoxContainer/Closet" index="1"]
+texture = ExtResource("12_5fie3")
+
+[node name="Watcher" parent="PlayerPortrait/HBoxContainer" instance=ExtResource("10_ub2gk")]
+layout_mode = 2
+
+[node name="NoSelect" parent="PlayerPortrait/HBoxContainer/Watcher" index="0"]
+texture = ExtResource("13_lx47f")
+
+[node name="Select" parent="PlayerPortrait/HBoxContainer/Watcher" index="1"]
+texture = ExtResource("14_f2cej")
+
+[node name="Lamp" parent="PlayerPortrait/HBoxContainer" instance=ExtResource("10_ub2gk")]
+layout_mode = 2
+
+[node name="NoSelect" parent="PlayerPortrait/HBoxContainer/Lamp" index="0"]
+texture = ExtResource("15_5fie3")
+
+[node name="Select" parent="PlayerPortrait/HBoxContainer/Lamp" index="1"]
+texture = ExtResource("16_lx47f")
+
+[connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
+
+[editable path="PlayerPortrait/HBoxContainer/Closet"]
+[editable path="PlayerPortrait/HBoxContainer/Watcher"]
+[editable path="PlayerPortrait/HBoxContainer/Lamp"]

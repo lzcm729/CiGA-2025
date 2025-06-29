@@ -5,7 +5,6 @@ func enter() -> void:
 	super.enter()
 	#print("enter Idle")
 	player.idle()
-	
 
 func exit() -> void:
 	pass
