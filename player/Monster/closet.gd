@@ -31,6 +31,7 @@ func _ready() -> void:
 
 
 func _process(delta):
+	if not is_current: return
 	if be_seen: return
 	if opened: return  # 如果已经打开了，就不再处理
 	if Input.is_action_pressed("interact"):  # 默认是空格，或自己在项目设置里映射一个动作

@@ -7,6 +7,7 @@ var is_finished := false
 
 
 func _process(delta: float) -> void:
+	if not is_current: return
 	if is_finished: return
 	if lamp.is_relighting: return
 	if Input.is_action_pressed("interact"):
