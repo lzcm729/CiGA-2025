@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmn5u610ah61f"]
+[gd_scene load_steps=10 format=3 uid="uid://cmn5u610ah61f"]
 
 [ext_resource type="Script" uid="uid://doh7fx1twqcvh" path="res://scenes/game_scene/hud/main_level_hud.gd" id="1_8thkc"]
 [ext_resource type="Script" uid="uid://c7y68enith4ac" path="res://scenes/game_scene/hud/num.gd" id="2_ipx17"]
 [ext_resource type="Script" uid="uid://if2uuun3bji6" path="res://scenes/game_scene/hud/panel.gd" id="3_w5gns"]
+[ext_resource type="Texture2D" uid="uid://d1xfj3aes84em" path="res://assets/child_speak/3.png" id="4_dkotl"]
+[ext_resource type="Texture2D" uid="uid://c2m3kuh2ktw4v" path="res://assets/child_speak/2.png" id="5_xrwvm"]
+[ext_resource type="Texture2D" uid="uid://f2t1pwx3314s" path="res://assets/child_speak/1.png" id="6_iwwe3"]
+[ext_resource type="Texture2D" uid="uid://bejjmbi2o131a" path="res://assets/child_speak/scare3.png" id="7_5c7kb"]
+[ext_resource type="Texture2D" uid="uid://c23ax73l2n3a6" path="res://assets/child_speak/scare2.png" id="8_7nw2e"]
+[ext_resource type="Texture2D" uid="uid://db7xdgmsjkks4" path="res://assets/child_speak/scare1.png" id="9_ub2gk"]
 
 [node name="MainLevelHud" type="Control"]
 layout_mode = 3
@@ -200,5 +206,106 @@ offset_bottom = 50.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "指导"
+
+[node name="ChildSpeak" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 258)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 524.0
+offset_top = 28.0
+offset_right = 1091.0
+offset_bottom = 289.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+
+[node name="Num" type="Control" parent="ChildSpeak"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="3" type="TextureRect" parent="ChildSpeak/Num"]
+visible = false
+custom_minimum_size = Vector2(189, 258)
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 258.0
+mouse_filter = 2
+texture = ExtResource("4_dkotl")
+
+[node name="2" type="TextureRect" parent="ChildSpeak/Num"]
+visible = false
+custom_minimum_size = Vector2(189, 258)
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 258.0
+mouse_filter = 2
+texture = ExtResource("5_xrwvm")
+
+[node name="1" type="TextureRect" parent="ChildSpeak/Num"]
+visible = false
+custom_minimum_size = Vector2(189, 258)
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 258.0
+mouse_filter = 2
+texture = ExtResource("6_iwwe3")
+
+[node name="Mark" type="Control" parent="ChildSpeak"]
+anchors_preset = 0
+offset_left = 141.0
+offset_top = -37.0
+offset_right = 720.0
+offset_bottom = 263.0
+mouse_filter = 2
+
+[node name="Scare3" type="TextureRect" parent="ChildSpeak/Mark"]
+visible = false
+layout_mode = 0
+offset_left = -3.85717
+offset_top = 2.71428
+offset_right = 185.143
+offset_bottom = 350.714
+scale = Vector2(0.9, 0.9)
+mouse_filter = 2
+texture = ExtResource("7_5c7kb")
+
+[node name="Scare2" type="HBoxContainer" parent="ChildSpeak/Mark"]
+visible = false
+layout_mode = 0
+offset_left = 14.7143
+offset_top = 127.0
+offset_right = 253.714
+offset_bottom = 188.0
+mouse_filter = 2
+
+[node name="Point" type="TextureRect" parent="ChildSpeak/Mark/Scare2"]
+layout_mode = 2
+texture = ExtResource("8_7nw2e")
+
+[node name="Point2" type="TextureRect" parent="ChildSpeak/Mark/Scare2"]
+layout_mode = 2
+texture = ExtResource("8_7nw2e")
+
+[node name="Point3" type="TextureRect" parent="ChildSpeak/Mark/Scare2"]
+layout_mode = 2
+texture = ExtResource("8_7nw2e")
+
+[node name="Scare1" type="HBoxContainer" parent="ChildSpeak/Mark"]
+visible = false
+layout_mode = 0
+offset_left = 24.7143
+offset_top = 138.429
+offset_right = 406.714
+offset_bottom = 178.429
+mouse_filter = 2
+
+[node name="Wait" type="TextureRect" parent="ChildSpeak/Mark/Scare1"]
+layout_mode = 2
+texture = ExtResource("9_ub2gk")
+
+[node name="Wait2" type="TextureRect" parent="ChildSpeak/Mark/Scare1"]
+layout_mode = 2
+texture = ExtResource("9_ub2gk")
 
 [connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
