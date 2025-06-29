@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://cwcabhr6c4ypo"]
 
-[ext_resource type="Script" uid="uid://dhqxy415sgrm" path="res://player/Obstacle/light.gd" id="1_4lbx7"]
+[ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_4lbx7"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_80v56"]
 [ext_resource type="Script" uid="uid://4ve24poo2esn" path="res://scripts/Player/player.gd" id="2_dfykx"]
 [ext_resource type="PackedScene" uid="uid://dvgmwr8lrkugy" path="res://assets/3D/character/book/cartoon.tscn" id="3_4lbx7"]
@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="15_fvvi0"]
 [ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="16_3p2pj"]
 [ext_resource type="PackedScene" uid="uid://bw0l0xdq8l3sh" path="res://player/Obstacle/Light.tscn" id="18_qwk53"]
-[ext_resource type="Script" path="res://player/Monster/draw.gd" id="19_m84cw"]
+[ext_resource type="Script" uid="uid://be3m50ipbfg3f" path="res://player/Monster/draw.gd" id="19_m84cw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5nui"]
 size = Vector3(0.462, 0.573, 0.671)
@@ -94,6 +94,8 @@ size = Vector3(0.5, 4.40192, 0.5)
 
 [node name="Level4" type="Node3D" groups=["LevelGroup"]]
 script = ExtResource("1_4lbx7")
+levelIndex = 4
+metadata/_custom_type_script = "uid://bmxapiuq18xom"
 
 [node name="book" type="CharacterBody3D" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"]]
 transform = Transform3D(-0.284183, 0, 0.95877, 0, 1, 0, -0.95877, 0, -0.284183, -4.91773, 8.63219, 4.86294)
@@ -352,7 +354,6 @@ shape = SubResource("BoxShape3D_b5nui")
 
 [node name="Camera3D" type="Camera3D" parent="book"]
 transform = Transform3D(0.997281, 0.0368454, -0.063818, -7.9936e-15, 0.866025, 0.5, 0.0736907, -0.498641, 0.863671, 0.0163963, 0.760892, 0.735392)
-current = true
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.40176, 8.50517, 3.87784)
@@ -422,7 +423,6 @@ transform = Transform3D(2.28816, 0.155567, -1.93394, -0.330557, 2.97788, -0.1515
 
 [node name="Camera3D" type="Camera3D" parent="Closet"]
 transform = Transform3D(0.250864, 0.123545, 0.960107, 0.0110888, 0.991391, -0.130468, -0.96796, 0.0433761, 0.247334, 3.99068, 1.39684, 0.433607)
-current = true
 
 [node name="Watcher" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"] instance=ExtResource("1_80v56")]
 transform = Transform3D(-0.0287987, 0, -0.197916, 0, 0.2, 0, 0.197916, 0, -0.0287987, -5.02816, 11.7575, 5.86388)
@@ -443,10 +443,11 @@ path_node = NodePath("../../Path3D2")
 
 [node name="p1" parent="." instance=ExtResource("4_pjvq8")]
 
-[node name="Draw" type="CharacterBody3D" parent="." groups=["PlayerGroup"]]
+[node name="Draw" type="CharacterBody3D" parent="." node_paths=PackedStringArray("lamp") groups=["PlayerGroup"]]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.58299, 9.27132, 4.72642)
 motion_mode = 1
 script = ExtResource("19_m84cw")
+lamp = NodePath("../Lamp")
 index = 4
 ignore_gravity = true
 
@@ -470,7 +471,7 @@ shape = SubResource("BoxShape3D_frhej")
 transform = Transform3D(-2.76449, 0.573976, 4.1265, 0.0554453, 4.95695, -0.652342, -4.16586, -0.314919, -2.74705, 3.92948, 1.39684, -1.20734)
 current = true
 
-[node name="Light" parent="Draw" instance=ExtResource("18_qwk53")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0589371, -2.394, -0.476227)
+[node name="Lamp" parent="." instance=ExtResource("18_qwk53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.59478, 8.79252, 4.63117)
 
 [editable path="book/Mesh"]
