@@ -159,6 +159,9 @@ func on_game_start(total_time:float) -> void:
 	
 func on_game_end() -> void:
 	is_game_start = false
+	
+func on_game_end2(time:float) -> void:
+	is_game_start = false
 
 func _ready() -> void:
 	DataManager.update_datamanager_listener()
@@ -167,7 +170,7 @@ func _ready() -> void:
 
 	if gameplay:
 		gameplay.GAME_START.connect(on_game_start)
-		gameplay.GAME_SUCCESS.connect(on_game_end)
+		gameplay.GAME_SUCCESS.connect(on_game_end2)
 		gameplay.GAME_TIMEOUT.connect(on_game_end)
 	
 	for child in get_children():

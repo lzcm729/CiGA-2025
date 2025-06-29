@@ -12,6 +12,7 @@ const STATE_3 = 1 # 从 数3 到 数2
 const STATE_2 = 2 # 从 数2 到 数1 -> 等于结束
 const STATE_1 = 3 # 从 数1 的 hold
 const STATE_CATCH = 4 # 从被抓 到 回到原点
+const STATE_SUCCESS = 5
 
 var cur_state = 0
 var state_map = {
@@ -51,6 +52,9 @@ var key_press_time = 0.0
 func _process(delta: float) -> void:
 	if total_time <= 0:
 		return
+		
+	if cur_state == STATE_SUCCESS:
+		return
 	
 	if cur_rule == 0:
 		cur_rule = randi_range(1, RULE_COUNT)
@@ -76,7 +80,7 @@ func _process(delta: float) -> void:
 		#[0.5, 1] -> 	[1, 0]
 		var material = PostEffect_Edge_Rect.material
 		material.set_shader_parameter("ratio", material_ratio)
-		print("material_ratio:" + str(material_ratio))
+		#print("material_ratio:" + str(material_ratio))
 
 	# 回退状态下不再处理状态变化 直到回退状态结束
 	if cur_state == STATE_CATCH:
@@ -182,6 +186,9 @@ func on_item_back_end() -> void:
 
 func register_item_signal(item:Player) -> void:
 	item.back_end.connect(on_item_back_end)	
+
+func register_success(time:float):
+	cur_state = STATE_SUCCESS
 
 func _ready() -> void:
 	DataManager.update_datamanager_listener()

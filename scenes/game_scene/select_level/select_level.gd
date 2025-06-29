@@ -54,8 +54,8 @@ func change_cur_select_level(step:int):
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 
-func update_sub_sticker_visible(node:Node):
-	var cur_level_ach = DataManager.get_cur_level_ach()
+func update_sub_sticker_visible(index:int, node:Node):
+	var cur_level_ach = DataManager.get_cur_level_ach(index)
 
 	var book = node.find_child("Book")
 	var closet = node.find_child("Closet")
@@ -85,16 +85,16 @@ func update_level_sticker_visibility():
 	match cur_select_index:
 		1:
 			level_1_sticker.visible = true
-			update_sub_sticker_visible(level_1_sticker)
+			update_sub_sticker_visible(1, level_1_sticker)
 		2:
 			level_2_sticker.visible = true
-			update_sub_sticker_visible(level_2_sticker)
+			update_sub_sticker_visible(2, level_2_sticker)
 		3:
 			level_3_sticker.visible = true
-			update_sub_sticker_visible(level_3_sticker)
+			update_sub_sticker_visible(3, level_3_sticker)
 		4:
 			level_4_sticker.visible = true
-			update_sub_sticker_visible(level_4_sticker)
+			update_sub_sticker_visible(4, level_4_sticker)
 
 func on_enter_game_pressed():
 	DataManager.select_level(cur_select_index)
