@@ -6,6 +6,12 @@ extends Control
 @onready var levels: Control = $Levels
 
 
+@onready var level_1_sticker: Control = $EnterMarginContainer/Level1Sticker
+@onready var level_2_sticker: Control = $EnterMarginContainer/Level2Sticker
+@onready var level_3_sticker: Control = $EnterMarginContainer/Level3Sticker
+@onready var level_4_sticker: Control = $EnterMarginContainer/Level4Sticker
+
+
 @export_file("*.tscn") var back_path : String
 @export_file("*.tscn") var level_path : String
 
@@ -19,12 +25,17 @@ func _ready() -> void:
 	next.pressed.connect(on_next_pressed)
 	enter_game.pressed.connect(on_enter_game_pressed)
 	back.pressed.connect(on_back_pressed)
+	# 初始化时设置正确的sticker显示
+	update_level_sticker_visibility()
 
 func on_last_pressed():
 	change_cur_select_level(-1)
 	
 func on_next_pressed():
 	change_cur_select_level(1)
+	
+
+	
 	
 func change_cur_select_level(step:int):
 	cur_select_index = cur_select_index + step
@@ -35,11 +46,32 @@ func change_cur_select_level(step:int):
 		
 	print(cur_select_index)
 	
+	# 更新sticker显示
+	update_level_sticker_visibility()
+	
 	# 创建tween动画进行平滑旋转
 	var tween = create_tween()
 	tween.tween_property(levels, "rotation_degrees", levels.rotation_degrees + (-step*90), 0.5)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
+
+func update_level_sticker_visibility():
+	# 隐藏所有sticker
+	level_1_sticker.visible = false
+	level_2_sticker.visible = false
+	level_3_sticker.visible = false
+	level_4_sticker.visible = false
+	
+	# 显示当前选中关卡对应的sticker
+	match cur_select_index:
+		1:
+			level_1_sticker.visible = true
+		2:
+			level_2_sticker.visible = true
+		3:
+			level_3_sticker.visible = true
+		4:
+			level_4_sticker.visible = true
 
 func on_enter_game_pressed():
 	DataManager.select_level(cur_select_index)
