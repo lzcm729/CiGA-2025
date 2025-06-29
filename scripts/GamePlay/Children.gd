@@ -33,9 +33,9 @@ signal CHILD_CATCH_YOU()
 var cur_rule = 0
 var tolerate = 0.5 # 回头状态下的容忍度
 var state_rule = {
-	1 : [3, 2, 0.5, 1],
-	2 : [2, 2, 1, 1],
-	3 : [1, 1.5, 2, 1]
+	1 : [3, 2, 0.5, 3],
+	2 : [2, 2, 1, 3],
+	3 : [1, 1.5, 2, 3]
 }
 const RULE_COUNT = 3
 
