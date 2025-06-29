@@ -4,6 +4,8 @@ const MAX_ANGLE := -45.0
 const ROT_SPEED := 25.0  # 度/秒
 
 var opened := false
+var be_seen := false
+var is_eating := false
 
 @onready var toy = $Path3D/PathFollow3D/Doll
 @onready var closet:    MeshInstance3D = $"Mesh/柜子"
@@ -29,9 +31,9 @@ func _ready() -> void:
 
 
 func _process(delta):
+	if be_seen: return
+	if opened: return  # 如果已经打开了，就不再处理
 	if Input.is_action_pressed("interact"):  # 默认是空格，或自己在项目设置里映射一个动作
-		if opened:
-			return  # 如果已经打开了，就不再处理
 		# 启动音效（按下时只播一次）
 		if door_sound.playing == false:
 			door_sound.play()
@@ -49,21 +51,28 @@ func _process(delta):
 		# 松开键后只要不再按就不会再转
 		door_sound.stop()
 		stop_action.emit(Consts.ITEMS.CLOSET)
+		
+		
+func start_back() -> void :
+	if is_eating: return
+	shut_door()
+	stop_action.emit(Consts.ITEMS.CLOSET)
+	be_seen = true
 
 
 # 缓慢打开门到指定角度（度），用时 duration 秒
-func open_door_slow(angle_deg: float, duration: float) -> void:
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SINE)
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(left_door, "rotation_degrees:y", angle_deg, duration)
-	tween.tween_callback(remove_toy)
-	door_sound.play()	
+#func open_door_slow(angle_deg: float, duration: float) -> void:
+	#var tween = create_tween()
+	#tween.set_trans(Tween.TRANS_SINE)
+	#tween.set_ease(Tween.EASE_IN_OUT)
+	#tween.tween_property(left_door, "rotation_degrees:y", angle_deg, duration)
+	#tween.tween_callback(remove_toy)
+	#door_sound.play()	
 	
 
 func remove_toy() -> void:
-	if not toy:
-		return  # 如果玩具已经被移除，则不再执行
+	if not toy: return  # 如果玩具已经被移除，则不再执行
+	is_eating = true
 	var mover = toy.get_parent() as PathFollow3D
 	var close_speed = 3.0
 	var duration = mover.progress / close_speed    # 距离／速度 = 时间
@@ -82,5 +91,7 @@ func shut_door() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(left_door, "rotation_degrees:y", 0.0, 0.1)
-	#tween.tween_callback(remove_toy)
+	tween.tween_callback(func():
+		be_seen = false
+	)
 	door_sound.play()

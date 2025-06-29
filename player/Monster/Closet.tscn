@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmj1qnrayspc8"]
+[gd_scene load_steps=19 format=3 uid="uid://cmj1qnrayspc8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="1_78tyg"]
 [ext_resource type="Script" uid="uid://dgmplgwr81qaf" path="res://player/Monster/closet.gd" id="1_svtae"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bj8xja2wcmad5" path="res://assets/3D/character/柜子/initialShadingGroup_Metallic.png" id="4_a6kfy"]
 [ext_resource type="Texture2D" uid="uid://cdd2ykvbacfmy" path="res://assets/3D/character/柜子/initialShadingGroup_Normal_OpenGL.png" id="5_i0l86"]
 [ext_resource type="Texture2D" uid="uid://dtpkbr3weh8c5" path="res://assets/3D/character/柜子/initialShadingGroup_Roughness.png" id="6_2cuyi"]
-[ext_resource type="Script" uid="uid://cy3s66yh28pyj" path="res://scripts/Scene/spring_arm_3d.gd" id="8_6qog1"]
 [ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="8_cg7ya"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="9_tma88"]
 [ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="10_5vs8q"]
@@ -92,15 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21079, -0.0621202)
 shape = SubResource("CapsuleShape3D_w8f2n")
 disabled = true
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(-0.552899, 0.114795, 0.825303, 0.0110891, 0.99139, -0.130468, -0.833175, -0.062984, -0.549411, 3.92948, 1.39684, -1.20734)
-collision_mask = 0
-spring_length = 5.0
-script = ExtResource("8_6qog1")
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-current = true
-
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_svtae")
 
@@ -119,3 +109,7 @@ loop = false
 
 [node name="Doll" parent="Path3D/PathFollow3D" instance=ExtResource("14_c0g5h")]
 transform = Transform3D(-2.81328, -0.620118, -0.83721, -0.808939, 2.81935, 0.630004, 0.656569, 0.816543, -2.81108, 0.0927074, -0.742393, -0.0938423)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.552899, 0.114795, 0.825303, 0.0110891, 0.991391, -0.130468, -0.833175, -0.0629838, -0.549412, 3.92948, 1.39684, -1.20734)
+current = true
