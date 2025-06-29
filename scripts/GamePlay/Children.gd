@@ -80,7 +80,7 @@ func _process(delta: float) -> void:
 		#[0.5, 1] -> 	[1, 0]
 		var material = PostEffect_Edge_Rect.material
 		material.set_shader_parameter("ratio", material_ratio)
-		print("material_ratio:" + str(material_ratio))
+		#print("material_ratio:" + str(material_ratio))
 
 	# 回退状态下不再处理状态变化 直到回退状态结束
 	if cur_state == STATE_CATCH:
