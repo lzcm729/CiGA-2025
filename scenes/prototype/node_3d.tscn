@@ -84,7 +84,7 @@ size = Vector3(0.5, 4.40192, 0.5)
 script = ExtResource("1_l3hl8")
 
 [node name="Closet2" parent="." instance=ExtResource("6_l3hl8")]
-transform = Transform3D(0.939119, 0, 0.343583, 0, 1, 0, -0.343583, 0, 0.939119, -2.32608, 0.249555, 0.522496)
+transform = Transform3D(0.939119, 0, 0.343583, 0, 1, 0, -0.343583, 0, 0.939119, -2.32608, 0.598239, 0.522496)
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.82931, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0, -0.178699)

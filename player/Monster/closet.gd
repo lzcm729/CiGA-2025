@@ -79,5 +79,5 @@ func shut_door() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(left_door, "rotation_degrees:y", 0.0, 0.1)
-	tween.tween_callback(remove_toy)
+	#tween.tween_callback(remove_toy)
 	door_sound.play()
