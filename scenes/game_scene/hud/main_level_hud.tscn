@@ -315,6 +315,57 @@ texture = ExtResource("9_ub2gk")
 layout_mode = 2
 texture = ExtResource("9_ub2gk")
 
+[node name="EndContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="EndContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="EndContainer/Control"]
+custom_minimum_size = Vector2(50, 200)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = 244.0
+offset_right = 1227.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_w5gns")
+
+[node name="Label" type="Label" parent="EndContainer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -4.0
+offset_right = 216.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "你成功吃掉了了小孩"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="EndContainer/Control"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 492.0
+offset_right = 860.0
+offset_bottom = 616.0
+theme_override_font_sizes/font_size = 50
+text = "返回"
+
+[connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
+[connection signal="pressed" from="EndContainer/Control/Back" to="." method="_on_back_pressed"]
+
 [node name="PlayerPortrait" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
