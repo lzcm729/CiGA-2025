@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="20_8f5mf"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="21_72ut4"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="22_658b7"]
+
 [ext_resource type="PackedScene" path="res://player/child_new.tscn" id="23_dkogb"]
 [ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="23_uv4tv"]
 
