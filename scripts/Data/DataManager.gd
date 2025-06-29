@@ -69,22 +69,19 @@ func get_cur_level_config() ->Array:
 	else:
 		return [current_level, data_config.LEVEL_INFO[current_level]]
 		
-func get_cur_level_ach() -> Dictionary:
-	if current_level == 0:
+func get_cur_level_ach(target_level:int) -> Dictionary:
+	if target_level == 0:
 		return new_achievement()
 	else:
-		if not achievements.has(current_level):
-			achievements[current_level] = new_achievement()
-		return achievements[current_level]
+		if not achievements.has(target_level):
+			achievements[target_level] = new_achievement()
+		return achievements[target_level]
 
 var last_level = 0
 var cur_game_play:GamePlay
 var cur_children:Children
 var cur_main_hud:MainLevelHUD
 func update_datamanager_listener() -> void:
-	if last_level != 0:
-		cur_game_play.GAME_SUCCESS.disconnect(handle_level_success)
-		cur_game_play.GAME_ITEM_ACHIEVEMENT.disconnect(handle_item_signal)
 	cur_game_play = get_node("/root/Level" + str(current_level) + "/GamePlay")
 	cur_children = get_node("/root/Level" + str(current_level) + "/Children")
 	cur_main_hud = get_node("/root/Level" + str(current_level) + "/MainLevelHud")
