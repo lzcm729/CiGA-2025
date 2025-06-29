@@ -6,6 +6,7 @@ signal start_action(en:int)
 signal stop_action(en:int)
 signal finish_action(en:int)
 signal back_end()
+signal switch_player_end()
 
 var level: Level
 var animation_tree: AnimationTree
@@ -113,6 +114,7 @@ func post_switch() -> void :
 	is_switching = false
 	level.is_switching = false
 	level.currentPlayerIndex = index
+	emit_signal("switch_player_end")
 	
 
 func is_current_valid() -> bool :
