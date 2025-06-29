@@ -1,5 +1,7 @@
 extends Node
 
+class_name Children
+
 const STATE_0 = 0 # 从 没有到 开始数 3
 const STATE_3 = 1 # 从 数3 到 数2
 const STATE_2 = 2 # 从 数2 到 数1 -> 等于结束

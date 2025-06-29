@@ -28,7 +28,10 @@ func select_level(target_level:int) -> void:
 	#if cur_scene_id != Consts.SCENES.LEVEL_SELECT:
 		#print("Not In Level Select")
 		#return
+	if last_level != current_level and target_level != current_level:
+		last_level = current_level
 	current_level = target_level
+	update_datamanager_listener()
 
 func handle_item_signal(level_index:int, item_enum:int) -> void:
 	print(level_index, item_enum)
@@ -53,6 +56,22 @@ func get_cur_level_config() ->Array:
 		return [current_level, {}]
 	else:
 		return [current_level, data_config.LEVEL_INFO[current_level]]
+
+var last_level = 0
+var cur_game_play:GamePlay
+var cur_children:Children
+func update_datamanager_listener() -> void:
+	if last_level != 0:
+		var last_level_info = data_config.LEVEL_INFO[last_level]
+		# 处理各种 node
+	cur_game_play = get_node("/root/Level" + str(current_level) + "/GamePlay")
+	cur_children = get_node("/root/Level" + str(current_level) + "/Children")
+	
+func get_cur_gameplay() -> GamePlay:
+	return cur_game_play
+
+func get_cur_children() -> Children:
+	return cur_children
 
 func _ready() -> void:
 	print("hello world")
