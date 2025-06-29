@@ -4,6 +4,7 @@ class_name Children
 
 @onready var PostEffect_EdgeChange: CanvasLayer = $"../CanvasLayer_EdgeChange"
 @onready var PostEffect_CRT: CanvasLayer = $"../CanvasLayer_CRT"
+@onready var PostEffect_Edge_Rect: ColorRect = $"../CanvasLayer_EdgeChange/ColorRect"
 @onready var timer: Timer = $"../Timer"
 
 const STATE_0 = 0 # 从 没有到 开始数 3
@@ -60,12 +61,27 @@ func _process(delta: float) -> void:
 	total_time -= delta
 	last_past_time += delta
 
+	var cur_time_target
+	if cur_state == STATE_CATCH:
+		cur_time_target = rule[STATE_1]
+	else:
+		cur_time_target = rule[cur_state]
+	if PostEffect_EdgeChange.visible:
+		var material_ratio = clamp(last_past_time / cur_time_target, 0, 1)
+		if material_ratio < 0.5 :
+			material_ratio = material_ratio * 2
+		else:
+			material_ratio = -material_ratio * 2 + 2
+		#[0,   0.5] -> 	[0, 1]
+		#[0.5, 1] -> 	[1, 0]
+		var material = PostEffect_Edge_Rect.material
+		material.set_shader_parameter("ratio", material_ratio)
+		print("material_ratio:" + str(material_ratio))
+
 	# 回退状态下不再处理状态变化 直到回退状态结束
 	if cur_state == STATE_CATCH:
 		return
-
-	var cur_time_target = rule[cur_state]
-
+	
 	# 回头状态下 开始检测玩家是否按键：
 	if cur_state == STATE_1:
 		# 处理按键状态

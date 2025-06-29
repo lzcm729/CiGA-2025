@@ -49,17 +49,18 @@ uniform sampler2D noise_texture : hint_default_white;
 
 // 控制参数
 uniform vec4 glow_color : source_color = vec4(0.2, 0.6, 1.0, 0.5); // 呼吸灯颜色
-uniform float speed : hint_range(0.1, 5.0) = 1.0; // 呼吸速度
-uniform float width : hint_range(0.0, 0.5) = 0.1; // 边缘宽度
+uniform float use_breath : hint_range(0.0, 1.0) = 1.0;
+uniform float speed : hint_range(0.1, 10.0) = 1.0; // 呼吸速度
+uniform float width : hint_range(0.0, 1.0) = 0.1; // 边缘宽度
 uniform float intensity : hint_range(0.0, 2.0) = 1.0; // 最大强度
-
+uniform float ratio : hint_range(0.0, 1.0) = 1.0;
 void fragment() {
     // 计算到边缘的距离 (0-0.5)
     vec2 edge_dist = min(UV, 1.0 - UV);
-    float edge_factor = smoothstep(width, 0.0, min(edge_dist.x, edge_dist.y));
+    float edge_factor = smoothstep(width * ratio, 0.0, min(edge_dist.x, edge_dist.y));
     
     // 呼吸效果 (0-1循环)
-    float breath = (sin(TIME * speed) + 1.0) / 2.0;
+    float breath = (use_breath > 0.f) ? (sin(TIME * speed) + 1.0) / 2.0 : 1.0;
     float noise = (texture(noise_texture, UV).r > 0.4) ? 1.f : 0.f;
     // 组合效果
     float glow_strength = edge_factor * breath * intensity * noise;
