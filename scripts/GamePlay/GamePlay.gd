@@ -4,15 +4,20 @@ class_name GamePlay
 @onready var PostEffect_EdgeChange: CanvasLayer = $"../CanvasLayer_EdgeChange"
 
 var timer = 0
+var past_time = 0
+var game_is_finish = false
 @export var count_down = -1
 @export var count_down_time_show = -1
 
 signal GAME_START(total_time)
 signal GAME_TIMEOUT()
+signal GAME_SUCCESS(past_time)
 
 func game_start(total_time:float) -> void:
 	if count_down >= 0:
 		return
+	game_is_finish = false
+	past_time = 0
 	count_down = total_time
 	count_down_time_show = total_time
 	emit_signal("GAME_START", total_time)
@@ -23,6 +28,9 @@ func _process(delta: float) -> void:
 	
 	timer += delta
 	count_down_time_show -= delta
+	if !game_is_finish:
+		past_time += delta
+
 	if (timer >= 1):
 		timer -= 1
 		count_down -= 1
@@ -37,7 +45,6 @@ func on_timer_end() -> void:
 	time.stop()
 	var cur_level_info = DataManager.get_cur_level_config()
 	game_start(cur_level_info[1]["total_time"])
-
 
 func on_single_timer_end() -> void:
 	emit_signal("TIME_COUNTDOWN", times)
