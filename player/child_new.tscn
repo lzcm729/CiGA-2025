@@ -484,13 +484,6 @@ node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Child" type="CharacterBody3D"]
 script = ExtResource("1_58dp7")
-yaw_offset = null
-speed = null
-back_speed = null
-jump_velocity = null
-index = null
-enable_jump = null
-ignore_gravity = null
 metadata/_custom_type_script = "uid://4ve24poo2esn"
 
 [node name="Area3D" type="Area3D" parent="."]

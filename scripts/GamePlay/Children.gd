@@ -4,6 +4,7 @@ class_name Children
 
 @onready var PostEffect_EdgeChange: CanvasLayer = $"../CanvasLayer_EdgeChange"
 @onready var PostEffect_CRT: CanvasLayer = $"../CanvasLayer_CRT"
+@onready var timer: Timer = $"../Timer"
 
 const STATE_0 = 0 # 从 没有到 开始数 3
 const STATE_3 = 1 # 从 数3 到 数2
@@ -32,9 +33,9 @@ signal CHILD_CATCH_YOU()
 var cur_rule = 0
 var tolerate = 0.5 # 回头状态下的容忍度
 var state_rule = {
-	1 : [3, 2, 0.5, 1],
-	2 : [2, 2, 1, 1],
-	3 : [1, 1.5, 2, 1]
+	1 : [3, 2, 0.5, 3],
+	2 : [2, 2, 1, 3],
+	3 : [1, 1.5, 2, 3]
 }
 const RULE_COUNT = 3
 
@@ -57,14 +58,14 @@ func _process(delta: float) -> void:
 	var rule = state_rule[cur_rule]
 
 	total_time -= delta
+	last_past_time += delta
 
 	# 回退状态下不再处理状态变化 直到回退状态结束
 	if cur_state == STATE_CATCH:
 		return
 
 	var cur_time_target = rule[cur_state]
-	last_past_time += delta
-	
+
 	# 回头状态下 开始检测玩家是否按键：
 	if cur_state == STATE_1:
 		# 处理按键状态
@@ -81,6 +82,7 @@ func _process(delta: float) -> void:
 				var cur_player = level.find_player(level.currentPlayerIndex)			
 				cur_player.start_back()
 				PostEffect_CRT.show()
+				cur_player.is_catch = true
 
 				emit_signal("CHILD_CATCH_YOU")
 			else:
@@ -105,6 +107,7 @@ func _process(delta: float) -> void:
 			var cur_player = level.find_player(level.currentPlayerIndex)			
 			cur_player.start_back()
 			PostEffect_CRT.show()
+			cur_player.is_catch = true
 
 			emit_signal("CHILD_CATCH_YOU")
 			return
@@ -138,14 +141,28 @@ func _process(delta: float) -> void:
 		cur_state = state_map[cur_state]
 		last_past_time -= cur_time_target
 
-func on_item_back_end() -> void:
-	# 回退到原点 开始下一轮
-	PostEffect_CRT.hide()
-	PostEffect_EdgeChange.hide()
-	print("回退到原点 开始下一轮")
+func on_item_lock() -> void:
 	cur_rule = 0
 	last_past_time = 0
 	cur_state = STATE_0
+	
+	var level:Level = get_parent()
+	var cur_player = level.find_player(level.currentPlayerIndex)
+	PostEffect_EdgeChange.hide()
+	cur_player.is_catch = false
+
+	timer.stop()
+	timer.disconnect("timeout", on_item_lock)
+
+func on_item_back_end() -> void:
+	# 回退到原点 开始下一轮
+	PostEffect_CRT.hide()
+	print("回退到原点 开始下一轮")
+	var rule = state_rule[cur_rule]
+	var cur_time_target = rule[STATE_1]
+	
+	timer.connect("timeout", on_item_lock)
+	timer.start(cur_time_target - last_past_time)
 
 func register_item_signal(item:Player) -> void:
 	item.back_end.connect(on_item_back_end)	

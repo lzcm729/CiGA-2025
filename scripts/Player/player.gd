@@ -14,7 +14,7 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 
 #相对于path的yaw偏移
 @export var yaw_offset = 180
-@export var speed = 5.0
+@export var speed = 1.25
 @export var back_speed = 15.0
 @export var jump_velocity = 5
 @export var index : int
@@ -39,6 +39,7 @@ var is_follow_path: bool = false
 var is_current : bool = false
 var is_game_start : bool = false
 var is_finished : bool = false
+var is_catch : bool = false
 
 func move() -> void:
 	if anim_state_machine:
@@ -118,7 +119,7 @@ func is_current_valid() -> bool :
 	return is_current
 
 func is_input_valid() -> bool :
-	return visible and is_current_valid() and (not is_switching) and (not is_back) and (is_game_start) and (not is_finished)
+	return visible and is_current_valid() and (not is_switching) and (not is_back) and (is_game_start) and (not is_finished) and (not is_catch)
 
 func start_back() -> void :
 	if state_machine:

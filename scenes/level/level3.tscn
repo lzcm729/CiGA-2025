@@ -38,7 +38,7 @@ levelIndex = 3
 [node name="Child2" parent="." instance=ExtResource("24_mfwob")]
 transform = Transform3D(0.998543, 0.000994347, 0.0539478, 0, 0.99983, -0.0184296, -0.0539565, 0.0184028, 0.998374, -9.89706, 8.42125, 5.72153)
 yaw_offset = 180
-speed = 5.0
+speed = 1.25
 back_speed = 15.0
 jump_velocity = 5
 index = 0
