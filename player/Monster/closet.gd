@@ -39,13 +39,16 @@ func _process(delta):
 		var y = left_door.rotation_degrees.y
 		y = max(y - ROT_SPEED * delta, MAX_ANGLE)
 		left_door.rotation_degrees.y = y
+		start_action.emit(Consts.ITEMS.CLOSET)
 		# 到位后开始移除玩具
 		if y <= MAX_ANGLE:
 			remove_toy()
 			opened = true
+			finish_action.emit(Consts.ITEMS.CLOSET)
 	else:
 		# 松开键后只要不再按就不会再转
 		door_sound.stop()
+		stop_action.emit(Consts.ITEMS.CLOSET)
 
 
 # 缓慢打开门到指定角度（度），用时 duration 秒
