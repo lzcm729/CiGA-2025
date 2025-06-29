@@ -10,7 +10,10 @@ var current_level = 0
 
 var achievements = {}
 func new_achievement() -> Dictionary:
-	return {"level" : false, "success_time":-1, "item":{}, "block":{}}
+	var res = {"level" : false, "success_time":-1, "item":{}, "block":{}}
+	for item_enum in range(Consts.ITEMS.BOOK, Consts.ITEMS.DRAW + 1):
+		res["item"][item_enum] = false
+	return res
 
 func switch_scene(target_scene:int) -> void:
 	if (target_scene > Consts.SCENES.ABOUT) or (target_scene < Consts.SCENES.START_UP) :
@@ -65,6 +68,12 @@ func get_cur_level_config() ->Array:
 		return [current_level, {}]
 	else:
 		return [current_level, data_config.LEVEL_INFO[current_level]]
+		
+func get_cur_level_ach() -> Dictionary:
+	if current_level == 0:
+		return new_achievement()
+	else:
+		return achievements[current_level]
 
 var last_level = 0
 var cur_game_play:GamePlay
