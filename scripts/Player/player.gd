@@ -108,11 +108,13 @@ func pre_switch() -> void :
 	level.is_switching = true
 	idle()
 
+signal switch_player_end
 func post_switch() -> void :
 	make_current(true)
 	is_switching = false
 	level.is_switching = false
 	level.currentPlayerIndex = index
+	emit_signal("switch_player_end")
 	
 
 func is_current_valid() -> bool :
