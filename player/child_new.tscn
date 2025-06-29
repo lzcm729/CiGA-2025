@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b50huuhx2kvma"]
+
+[ext_resource type="PackedScene" uid="uid://r8mumlxwxvo5" path="res://assets/3D/character/主角/主角.tscn" id="1_g0sg5"]
+[ext_resource type="PackedScene" uid="uid://4bwcutld60ky" path="res://assets/3D/character/主角/被子_烘焙.tscn" id="2_kt4f0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0sg5"]
+size = Vector3(1.51978, 1.93533, 1.41504)
+
+[node name="Child" type="Node3D"]
+
+[node name="Mesh" parent="." instance=ExtResource("1_g0sg5")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052124, 0.848259, -0.00537109)
+shape = SubResource("BoxShape3D_g0sg5")
+
+[node name="被子 烘焙" parent="." instance=ExtResource("2_kt4f0")]
