@@ -31,7 +31,7 @@ func _check_for_victory(node: Node) -> void:
 func _is_book_or_watch(node: Node) -> bool:
 	# 检查节点名称是否包含book或watch
 	var node_name = node.name.to_lower()
-	if "book" in node_name or "watch" in node_name:
+	if "Book" in node_name or "Watcher" in node_name:
 		return true
 	
 	# 检查父节点

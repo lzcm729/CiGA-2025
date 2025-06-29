@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1wycrd0aseh2"]
+
+[ext_resource type="ArrayMesh" uid="uid://dq45gaqempt5h" path="res://assets/3D/character/鬼手/hand.obj" id="1_hi0rm"]
+[ext_resource type="Texture2D" uid="uid://c7pp0xj0or6ow" path="res://assets/3D/character/鬼手/lambert2SG_Base_color.png" id="2_rnqro"]
+[ext_resource type="Texture2D" uid="uid://c201hboc5nmhq" path="res://assets/3D/character/鬼手/lambert2SG_Metallic.png" id="3_yhd5v"]
+[ext_resource type="Texture2D" uid="uid://bm2x8incbsen2" path="res://assets/3D/character/鬼手/lambert2SG_Normal.png" id="4_3dknw"]
+[ext_resource type="Texture2D" uid="uid://0fujoylm6lbi" path="res://assets/3D/character/鬼手/lambert2SG_Roughness.png" id="5_upkqo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpg8u"]
+albedo_texture = ExtResource("2_rnqro")
+metallic = 1.0
+metallic_specular = 0.66
+metallic_texture = ExtResource("3_yhd5v")
+roughness_texture = ExtResource("5_upkqo")
+normal_enabled = true
+normal_texture = ExtResource("4_3dknw")
+
+[node name="手" type="Node2D"]
+
+[node name="Hand" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.578285, 1.19209e-07, -0.194395)
+mesh = ExtResource("1_hi0rm")
+surface_material_override/0 = SubResource("StandardMaterial3D_fpg8u")
