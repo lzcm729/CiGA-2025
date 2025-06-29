@@ -51,5 +51,6 @@ func Relight() -> void:
 	tween.tween_property(cylinder_mesh, "bottom_radius", default_radius, 0.2)
 	tween.tween_callback(func():
 		is_relighting = false
-		draw.back_end.emit()
+		if draw:
+			draw.back_end.emit()
 	)
