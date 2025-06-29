@@ -89,5 +89,6 @@ func shut_door() -> void:
 	tween.tween_property(left_door, "rotation_degrees:y", 0.0, 0.1)
 	tween.tween_callback(func():
 		be_seen = false
+		back_end.emit()
 	)
 	door_sound.play()

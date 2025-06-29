@@ -10,6 +10,9 @@ class_name Draw
 
 #var is_finished := false
 
+func _ready() -> void:
+	super()
+	lamp.draw = self
 
 func _process(delta: float) -> void:
 	if not is_current: return
@@ -45,3 +48,4 @@ func _process(delta: float) -> void:
 func start_back() -> void :
 	lamp.Relight()
 	stop_action.emit(Consts.ITEMS.DRAW)
+	
