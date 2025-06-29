@@ -11,10 +11,12 @@ noise = SubResource("FastNoiseLite_nvfql")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m831j"]
 shader = ExtResource("1_nvfql")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_a8dut")
-shader_parameter/glow_color = Color(0.352358, 0.578052, 0.991324, 0.5)
-shader_parameter/speed = 3.0
-shader_parameter/width = 0.141
+shader_parameter/glow_color = Color(0.513726, 0, 0.0235294, 1)
+shader_parameter/use_breath = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/width = 0.474
 shader_parameter/intensity = 0.887
+shader_parameter/ratio = 0.0
 
 [node name="CanvasLayerEdgeChange" type="CanvasLayer"]
 
