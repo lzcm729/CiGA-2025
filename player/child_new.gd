@@ -2,7 +2,6 @@ extends Player
 
 # 用于跟踪level3和level4中的状态
 var has_entered_area_once = false
-var is_movement_disabled = false
 
 func _ready() -> void:
 	super()
@@ -36,38 +35,34 @@ func _show_quilt_for_level3_and_level4() -> void:
 			quilt.visible = false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	var current_level = DataManager.get_cur_level_config()[0]
-	
-	# 在level3和level4中的特殊逻辑
-	if current_level == 3 or current_level == 4:
-		_handle_level34_area_entered(body)
-	else:
-		# 其他关卡的原有逻辑
-		_check_for_victory(body)
+	_handle_area_entered(body)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	_handle_area_entered(area)
+
+func _handle_area_entered(node: Node) -> void:
+	# 检查是否是book或watcher对象
+	if not _is_book_or_watch(node):
+		return
+	
 	var current_level = DataManager.get_cur_level_config()[0]
 	
-	# 在level3和level4中的特殊逻辑
 	if current_level == 3 or current_level == 4:
-		_handle_level34_area_entered(area)
+		# level3和level4的特殊逻辑
+		if not has_entered_area_once:
+			# 第一次进入area
+			print("第一次进入area - 移除被子并禁用物体移动")
+			_remove_quilt()
+			_disable_entering_object_movement(node)
+			has_entered_area_once = true
+		else:
+			# 第二次进入area - 触发胜利
+			print("第二次进入area - 触发胜利")
+			_trigger_victory()
 	else:
-		# 其他关卡的原有逻辑
-		_check_for_victory(area)
-
-func _handle_level34_area_entered(node: Node) -> void:
-	if not has_entered_area_once:
-		# 第一次进入area
-		print("第一次进入area - 移除被子并禁用进入物体的移动")
-		_remove_quilt()
-		_disable_entering_object_movement(node)
-		has_entered_area_once = true
-	else:
-		# 第二次进入area - 触发胜利
-		print("第二次进入area - 触发胜利")
-		var gameplay = DataManager.get_cur_gameplay()
-		if gameplay:
-			gameplay.on_catch_child()
+		# 其他关卡 - 直接触发胜利
+		print("非level3/4关卡 - 直接触发胜利")
+		_trigger_victory()
 
 func _remove_quilt() -> void:
 	var quilt = get_node_or_null("被子 烘焙")
@@ -78,9 +73,13 @@ func _remove_quilt() -> void:
 func _disable_entering_object_movement(node: Node) -> void:
 	# 查找进入area的物体（book或watcher）
 	var target_object = _find_book_or_watcher_object(node)
-	if target_object and target_object is Player:
-		target_object.is_finished = true
-		print("已禁用物体移动:", target_object.name)
+	if target_object:
+		# 检查是否是Player类型（CharacterBody3D的子类）
+		if target_object.has_method("is_input_valid"):
+			target_object.is_finished = true
+			print("已禁用物体移动:", target_object.name)
+		else:
+			print("找到物体但不是Player类型:", target_object.name)
 	else:
 		print("未找到可禁用的物体")
 
@@ -96,19 +95,15 @@ func _find_book_or_watcher_object(node: Node) -> Node:
 	
 	return null
 
-func _check_for_victory(node: Node) -> void:
-	# 检查是否是book或watch对象
-	if _is_book_or_watch(node):
-		print("胜利！检测到目标对象：", node.name)
-		# 触发胜利事件
-		var gameplay = DataManager.get_cur_gameplay()
-		if gameplay:
-			gameplay.on_catch_child()
+func _trigger_victory() -> void:
+	var gameplay = DataManager.get_cur_gameplay()
+	if gameplay:
+		gameplay.on_catch_child()
 
 func _is_book_or_watch(node: Node) -> bool:
 	# 检查节点名称是否包含book或watch
 	var node_name = node.name.to_lower()
-	if "Book" in node_name or "Watcher" in node_name:
+	if "book" in node_name or "watcher" in node_name:
 		return true
 	
 	# 检查父节点

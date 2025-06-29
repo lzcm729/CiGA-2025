@@ -484,17 +484,26 @@ node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Child" type="CharacterBody3D"]
 script = ExtResource("1_58dp7")
+yaw_offset = null
+speed = null
+back_speed = null
+jump_velocity = null
+index = null
+enable_jump = null
+ignore_gravity = null
 metadata/_custom_type_script = "uid://4ve24poo2esn"
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.052124, 0.848259, -0.00537109)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0285985, 0.361305, -0.0173769)
 shape = SubResource("BoxShape3D_g0sg5")
+debug_color = Color(0.217042, 0.631139, 0.300152, 0.42)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.052124, 0.363479, -0.00537109)
 shape = SubResource("BoxShape3D_g0sg5")
+debug_color = Color(0.217042, 0.631139, 0.300152, 0.42)
 
 [node name="StateMachine" type="Node3D" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("8_swbb8")
@@ -505,8 +514,9 @@ script = ExtResource("9_52wo7")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://bca2cipd0j606"
 
-[node name="Turn" type="Node3D" parent="StateMachine"]
+[node name="Turn" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("4_58dp7")
+player = NodePath("../..")
 metadata/_custom_type_script = "uid://bca2cipd0j606"
 
 [node name="被子 烘焙" type="Node3D" parent="."]

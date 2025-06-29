@@ -1,22 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://hel1mej6t04v"]
+[gd_scene load_steps=16 format=3 uid="uid://hel1mej6t04v"]
 
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="1_ga8lq"]
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_w4sk7"]
 [ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_mfwob"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_w4sk7"]
-[ext_resource type="Script" uid="uid://dgmplgwr81qaf" path="res://player/Monster/closet.gd" id="5_amlx2"]
-[ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="6_wgq0p"]
-[ext_resource type="Texture2D" uid="uid://2i8jy3cn3n5h" path="res://assets/3D/character/柜子/initialShadingGroup_Base_color.png" id="7_sit12"]
-[ext_resource type="Texture2D" uid="uid://ca3e2tc5q338q" path="res://assets/3D/character/柜子/initialShadingGroup_Height.png" id="8_0k37d"]
-[ext_resource type="Texture2D" uid="uid://bj8xja2wcmad5" path="res://assets/3D/character/柜子/initialShadingGroup_Metallic.png" id="9_v8yas"]
-[ext_resource type="Texture2D" uid="uid://cdd2ykvbacfmy" path="res://assets/3D/character/柜子/initialShadingGroup_Normal_OpenGL.png" id="10_rt8em"]
-[ext_resource type="Texture2D" uid="uid://dtpkbr3weh8c5" path="res://assets/3D/character/柜子/initialShadingGroup_Roughness.png" id="11_y753q"]
-[ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="12_mfwob"]
-[ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="13_ajr51"]
-[ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="14_pyco3"]
-[ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="16_25b5m"]
+[ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="13_hl87u"]
 [ext_resource type="PackedScene" uid="uid://bmlppv0vwywit" path="res://scenes/3D/book.tscn" id="17_amlx2"]
-[ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="17_yma1a"]
 [ext_resource type="Script" uid="uid://3s3uube6r4tx" path="res://scripts/GamePlay/Children.gd" id="20_pyco3"]
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="21_nm1dm"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="22_25b5m"]
@@ -40,47 +29,6 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q8gb"]
-albedo_texture = ExtResource("7_sit12")
-metallic = 1.0
-metallic_texture = ExtResource("9_v8yas")
-roughness_texture = ExtResource("11_y753q")
-normal_enabled = true
-normal_texture = ExtResource("10_rt8em")
-heightmap_enabled = true
-heightmap_texture = ExtResource("8_0k37d")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knflk"]
-albedo_texture = ExtResource("7_sit12")
-metallic = 1.0
-metallic_texture = ExtResource("9_v8yas")
-roughness_texture = ExtResource("11_y753q")
-normal_enabled = true
-normal_texture = ExtResource("13_ajr51")
-heightmap_enabled = true
-heightmap_texture = ExtResource("8_0k37d")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vydre"]
-albedo_texture = ExtResource("7_sit12")
-metallic = 1.0
-metallic_texture = ExtResource("9_v8yas")
-roughness_texture = ExtResource("11_y753q")
-normal_enabled = true
-normal_texture = ExtResource("13_ajr51")
-heightmap_enabled = true
-heightmap_texture = ExtResource("8_0k37d")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8f2n"]
-radius = 0.689692
-height = 2.5
-
-[sub_resource type="Curve3D" id="Curve3D_a6kfy"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.687, 0, -0.282923, 0, 0, 0, 0, 0, 0, 1.80602, 0.0361547, -0.183318, 0, 0, 0, 0, 0, 0, 2.14733, -0.0488777, 0.402416),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
-
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_w4sk7")
 levelIndex = 3
@@ -89,6 +37,12 @@ levelIndex = 3
 
 [node name="Child2" parent="." instance=ExtResource("24_mfwob")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
+yaw_offset = 180
+speed = 5.0
+back_speed = 15.0
+jump_velocity = 5
+index = 0
+enable_jump = false
 ignore_gravity = true
 
 [node name="Book" parent="." node_paths=PackedStringArray("path") instance=ExtResource("17_amlx2")]
@@ -118,71 +72,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
 curve = SubResource("Curve3D_hkmq7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.494885, -0.546972, 0.6752, -2.98021e-08, 0.777023, 0.62946, -0.868949, 0.311513, -0.384541, -1.32268, -0.544846, -1.51432)
+transform = Transform3D(-0.494887, -0.546971, 0.675199, 0, 0.777023, 0.62946, -0.868948, 0.311513, -0.384542, -1.32268, -0.544846, -1.51432)
 loop = false
 
 [node name="PathPolygon" parent="Path3D2" instance=ExtResource("2_w4sk7")]
 path_node = NodePath("..")
-
-[node name="Closet" type="CharacterBody3D" parent="." groups=["PlayerGroup"]]
-transform = Transform3D(0.677248, 0, -0.735754, 0, 1, 0, 0.735754, 0, 0.677248, -8.33914, 8.42957, 3.23638)
-script = ExtResource("5_amlx2")
-index = 2
-metadata/_custom_type_script = "uid://4ve24poo2esn"
-
-[node name="Mesh" type="Node3D" parent="Closet"]
-transform = Transform3D(0.887791, 0, -0.460246, 0, 1, 0, 0.460246, 0, 0.887791, 1.8967, 0, -0.747379)
-
-[node name="柜子" type="MeshInstance3D" parent="Closet/Mesh"]
-transform = Transform3D(3.31652, 0, 0, 0, 3.31652, 0, 0, 0, 3.31652, -1.12367, 1.19209e-07, 1.16798)
-mesh = ExtResource("6_wgq0p")
-surface_material_override/0 = SubResource("StandardMaterial3D_3q8gb")
-
-[node name="Left" type="Node3D" parent="Closet/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05062, 0, 1.58903)
-
-[node name="Door" type="MeshInstance3D" parent="Closet/Mesh/Left"]
-transform = Transform3D(332.967, -24.7915, -20.301, 24.3986, 339.965, 0.196765, 21.7383, -1.83499, 310.732, 0.300831, 0.816138, -0.0778975)
-mesh = ExtResource("12_mfwob")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_knflk")
-
-[node name="Right" type="Node3D" parent="Closet/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14792, 5.96046e-08, 0.867813)
-
-[node name="Door2" type="MeshInstance3D" parent="Closet/Mesh/Right"]
-transform = Transform3D(375.368, -20.2295, 71.0416, 21.453, 353.96, 4.06016, -71.1576, 0, 375.981, 0.21301, 0.802165, 0.0529866)
-mesh = ExtResource("14_pyco3")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_vydre")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Closet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21079, -0.0621202)
-shape = SubResource("CapsuleShape3D_w8f2n")
-
-[node name="Sound" type="AudioStreamPlayer3D" parent="Closet"]
-stream = ExtResource("16_25b5m")
-
-[node name="Path3D" type="Path3D" parent="Closet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801158, 0)
-curve = SubResource("Curve3D_a6kfy")
-
-[node name="PathPolygon" parent="Closet/Path3D" instance=ExtResource("2_w4sk7")]
-visible = false
-path_node = NodePath("..")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Closet/Path3D"]
-transform = Transform3D(-0.865121, -0.0448874, -0.499551, -0.122951, 0.984576, 0.124456, 0.486261, 0.169089, -0.857297, 2.14733, -0.0488777, 0.402416)
-progress = 2.55315
-loop = false
-
-[node name="Doll" parent="Closet/Path3D/PathFollow3D" instance=ExtResource("17_yma1a")]
-transform = Transform3D(2.28816, 0.155567, -1.93394, -0.330557, 2.97788, -0.151559, 1.91182, 0.32869, 2.28843, 0.410281, -0.657824, -0.449132)
-
-[node name="Camera3D" type="Camera3D" parent="Closet"]
-transform = Transform3D(0.271254, -0.145549, 0.95144, -0.15956, 0.968023, 0.193576, -0.949191, -0.20432, 0.239357, 4.05376, 1.56102, 0.553296)
-current = true
-fov = 74.1
 
 [node name="p1" parent="." instance=ExtResource("1_ga8lq")]
 
@@ -203,3 +97,15 @@ script = ExtResource("23_yma1a")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("24_13rsg")]
+
+[node name="Closet" parent="." groups=["PlayerGroup"] instance=ExtResource("13_hl87u")]
+transform = Transform3D(0.45737, -0.0316455, -0.888713, 0.0690252, 0.997615, 0, 0.886594, -0.0613436, 0.458463, -8.18173, 8.32797, 3.1554)
+index = 2
+
+[node name="PathFollow3D" parent="Closet/Path3D" index="1"]
+transform = Transform3D(-0.865121, -0.0448874, -0.499551, -0.122951, 0.984576, 0.124456, 0.486261, 0.169089, -0.857297, 2.14733, -0.0488777, 0.402416)
+
+[node name="Doll" parent="Closet/Path3D/PathFollow3D" index="0"]
+transform = Transform3D(2.90596, -0.21909, -0.71231, 0.260396, 2.9852, 0.144142, 0.69827, -0.201451, 2.91064, 0.28322, -0.732337, 0.183754)
+
+[editable path="Closet"]

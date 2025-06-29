@@ -10,9 +10,8 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="20_8f5mf"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="21_72ut4"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="22_658b7"]
-
-[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="23_dkogb"]
-[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="23_uv4tv"]
+[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="23_dkogb"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="23_uv4tv"]
 
 [sub_resource type="Curve3D" id="Curve3D_hpcx2"]
 bake_interval = 0.01
@@ -80,6 +79,12 @@ visible = false
 
 [node name="Child2" parent="." instance=ExtResource("23_dkogb")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
+yaw_offset = 180
+speed = 5.0
+back_speed = 15.0
+jump_velocity = 5
+index = 0
+enable_jump = false
 ignore_gravity = true
 
 [editable path="Closet2"]
