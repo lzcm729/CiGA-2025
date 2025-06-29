@@ -35,21 +35,21 @@ func select_level(target_level:int) -> void:
 func handle_item_signal(item_enum:int) -> void:
 	var level_index = current_level
 	print(level_index, item_enum)
-	if achievements[level_index] == null:
+	if not achievements.has(level_index):
 		achievements[level_index] = new_achievement()
 	achievements[level_index]["item"][item_enum] = true
 
 func handle_block_signal(block_enum:int) -> void:
 	var level_index = current_level
 	print(level_index, block_enum)
-	if achievements[level_index] == null:
+	if not achievements.has(level_index):
 		achievements[level_index] = new_achievement()
 	achievements[level_index]["block"][block_enum] = true
 
 func handle_level_success(past_time:float) -> void:
 	var level_index = current_level
 	print(level_index)
-	if achievements[level_index] == null:
+	if not achievements.has(level_index):
 		achievements[level_index] = new_achievement()
 	var achievement = achievements[level_index]
 	if achievement["level"] != true:
