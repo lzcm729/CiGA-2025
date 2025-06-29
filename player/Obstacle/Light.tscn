@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw0l0xdq8l3sh"]
+[gd_scene load_steps=7 format=3 uid="uid://bw0l0xdq8l3sh"]
 
 [ext_resource type="Script" uid="uid://dhqxy415sgrm" path="res://player/Obstacle/light.gd" id="1_ru4q6"]
 [ext_resource type="PackedScene" uid="uid://cg26yufvcsov1" path="res://assets/3D/character/灯/灯.tscn" id="1_uyeer"]
+[ext_resource type="AudioStream" uid="uid://dbre7haluogro" path="res://assets/audios/关灯.mp3" id="3_0ldrq"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ru4q6"]
 top_radius = 0.04
@@ -34,3 +35,6 @@ shape = SubResource("ConcavePolygonShape3D_0ldrq")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.69595, 0)
 spot_range = 2.0
 spot_angle = 25.0
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_0ldrq")
