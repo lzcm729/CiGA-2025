@@ -1,5 +1,7 @@
 extends Control
 
+class_name MainLevelHUD
+
 @export var gameplay:GamePlay
 @onready var count_down_num: Label = $CountDownMarginContainer/Control/Num
 @onready var goal_panel: Panel = $GoalMarginContainer/Control/Panel
@@ -49,9 +51,6 @@ func _ready() -> void:
 	child.CHILD_COUNT_1_START.connect(on_child_count1_show)
 	child.CHILD_COUNT_1_END.connect(on_child_count1_end)
 	now_level = get_parent()
-	#for i:Player in now_level.playerList:
-		#i.switch_player_end.connect(update_player_portrait)
-
 	change_player_portrait_show_by_level()
 
 func register_switch_end(i:Player):

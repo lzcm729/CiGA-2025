@@ -28,9 +28,9 @@ func switch_player(index:int) ->void:
 			cur_player.switch_camera_with_tween(next_player)
 
 func make_play_list() -> void:
-	var gameplay = DataManager.get_cur_gameplay()
-	var children = DataManager.get_cur_children()
-	var main_hud = self.find_child("main_level_hud")
+	var gameplay:GamePlay = DataManager.get_cur_gameplay()
+	var children:Children = DataManager.get_cur_children()
+	var main_hud:MainLevelHUD = DataManager.get_cur_mainhud()
 	if playerList.is_empty():
 		for child in get_children():
 			if child is Player:
@@ -38,9 +38,7 @@ func make_play_list() -> void:
 				child.level = self
 				gameplay.register_item_signal(child)
 				children.register_item_signal(child)
-				if main_hud:
-					main_hud.register_item_signal(child)
-				
+				main_hud.register_switch_end(child)
 
 func make_current(is_enable:bool) -> void:
 	is_current = is_enable

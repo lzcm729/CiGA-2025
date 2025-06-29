@@ -80,12 +80,14 @@ func get_cur_level_ach() -> Dictionary:
 var last_level = 0
 var cur_game_play:GamePlay
 var cur_children:Children
+var cur_main_hud:MainLevelHUD
 func update_datamanager_listener() -> void:
 	if last_level != 0:
 		cur_game_play.GAME_SUCCESS.disconnect(handle_level_success)
 		cur_game_play.GAME_ITEM_ACHIEVEMENT.disconnect(handle_item_signal)
 	cur_game_play = get_node("/root/Level" + str(current_level) + "/GamePlay")
 	cur_children = get_node("/root/Level" + str(current_level) + "/Children")
+	cur_main_hud = get_node("root/Level" + str(current_level) + "/MainLevelHud")
 	if not cur_game_play.GAME_SUCCESS.has_connections():
 		cur_game_play.GAME_SUCCESS.connect(handle_level_success)
 	if not cur_game_play.GAME_ITEM_ACHIEVEMENT.has_connections():
@@ -96,6 +98,9 @@ func get_cur_gameplay() -> GamePlay:
 
 func get_cur_children() -> Children:
 	return cur_children
+	
+func get_cur_mainhud() -> MainLevelHUD:
+	return cur_main_hud
 
 func _ready() -> void:
 	pass
