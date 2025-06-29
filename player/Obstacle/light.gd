@@ -5,7 +5,6 @@ var default_radius: float
 var min_radius: float = 0.2
 var shrink_rate: float = 1.0
 var cylinder_mesh: CylinderMesh
-var gone: bool = false
 
 @onready var decal: MeshInstance3D = $Decal
 @onready var light: SpotLight3D = $SpotLight3D
@@ -19,19 +18,22 @@ func _ready() -> void:
 		push_error("Decal mesh is not a CylinderMesh!")
 
 
-func decrease_light(delta) -> void:
-	if gone: return
+func decrease_light(delta) -> bool:
 	if cylinder_mesh.bottom_radius > min_radius:
 		cylinder_mesh.bottom_radius = cylinder_mesh.bottom_radius - shrink_rate * delta
+		return true
 	else:
 		print("Light is gone")
 		decal.visible = false
 		light.visible = false
 		decal.queue_free()
 		light.queue_free()
-		gone = true
+		return false
 	
 	
-func increase_light(delta) -> void:
+func increase_light(delta) -> bool:
 	if cylinder_mesh.bottom_radius < default_radius:
 		cylinder_mesh.bottom_radius = cylinder_mesh.bottom_radius + shrink_rate * delta
+		return true
+	else:
+		return false

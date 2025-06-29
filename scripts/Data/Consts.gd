@@ -13,7 +13,8 @@ enum ITEMS {
 	BOOK,
 	CLOSET,
 	PAINTING,
-	CAMERA
+	CAMERA,
+	DRAW,
 }
 
 # 障碍物
