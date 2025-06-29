@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dlxkrr6i53h27"]
 
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_7jkud"]
-[ext_resource type="PackedScene" uid="uid://b07wy55rqrshd" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_dkogb"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_dkogb"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_i27ya"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="3_i27ya"]
 [ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="16_7cd37"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="20_8f5mf"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="21_72ut4"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="22_658b7"]
-[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="23_dkogb"]
+
+[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="23_dkogb"]
 [ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="23_uv4tv"]
 
 [sub_resource type="Curve3D" id="Curve3D_hpcx2"]
@@ -26,6 +27,7 @@ script = ExtResource("1_7jkud")
 levelIndex = 2
 
 [node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_dkogb")]
+visible = false
 
 [node name="Closet2" parent="." instance=ExtResource("16_7cd37")]
 transform = Transform3D(-0.149794, 0, 0.988717, 0, 1, 0, -0.988717, 0, -0.149794, -7.31238, 8.28516, 6.99854)
@@ -74,6 +76,7 @@ script = ExtResource("22_658b7")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("23_uv4tv")]
+visible = false
 
 [node name="Child2" parent="." instance=ExtResource("23_dkogb")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
