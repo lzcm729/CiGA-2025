@@ -15,6 +15,8 @@ extends Control
 var total_time:int
 
 func _ready() -> void:
+	var cur_level = DataManager.get_cur_level_config()[0]
+	gameplay = get_node("/root/Level" + str(cur_level) + "/GamePlay")
 	gameplay.TIME_COUNTDOWN.connect(on_time_countdown)
 	back.pressed.connect(on_back_pressed)
 	gameplay.GAME_START.connect(on_game_start)

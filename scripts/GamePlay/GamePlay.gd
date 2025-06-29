@@ -1,5 +1,7 @@
 extends Node
 class_name GamePlay
+@onready var PostEffect_CRT: CanvasLayer = $"../CanvasLayer_CRT"
+@onready var PostEffect_EdgeChange: CanvasLayer = $"../CanvasLayer_EdgeChange"
 
 var timer = 0
 @export var count_down = -1
@@ -51,4 +53,5 @@ func count_down_and_start_game() -> void:
 	time.start(1)
 
 func _ready() -> void:
-	return
+	PostEffect_CRT.hide()
+	PostEffect_EdgeChange.hide()

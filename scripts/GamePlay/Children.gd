@@ -103,5 +103,6 @@ func _process(delta: float) -> void:
 		last_past_time -= cur_time_target
 
 func _ready() -> void:
-	var gameplay = get_node("/root/Main/GamePlay")
+	var cur_level = DataManager.get_cur_level_config()[0]
+	var gameplay = get_node("/root/Level" + str(cur_level) + "/GamePlay")
 	gameplay.connect("GAME_START", child_on_game_start)
