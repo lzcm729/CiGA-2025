@@ -21,9 +21,9 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="21_nm1dm"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="22_25b5m"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="23_yma1a"]
-[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="24_13rsg"]
-[ext_resource type="PackedScene" uid="uid://dolm7js3b1amk" path="res://player/Monster/Watcher.tscn" id="24_ajr51"]
-[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="24_mfwob"]
+[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="24_13rsg"]
+[ext_resource type="PackedScene" uid="uid://je3ik5f2bo3i" path="res://player/Monster/Watcher.tscn" id="24_ajr51"]
+[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="24_mfwob"]
 
 [sub_resource type="Curve3D" id="Curve3D_duul2"]
 bake_interval = 0.01
@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
 curve = SubResource("Curve3D_hkmq7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.494885, -0.546972, 0.6752, -2.98021e-08, 0.777023, 0.62946, -0.868949, 0.311513, -0.384541, -1.32268, -0.544846, -1.51432)
+transform = Transform3D(-0.494887, -0.546971, 0.675199, 0, 0.777023, 0.62946, -0.868948, 0.311513, -0.384542, -1.32268, -0.544846, -1.51432)
 loop = false
 
 [node name="PathPolygon" parent="Path3D2" instance=ExtResource("2_w4sk7")]

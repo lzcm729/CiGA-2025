@@ -233,7 +233,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96652, 12.1672, 5.68698)
 curve = SubResource("Curve3D_maq55")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.386672, -0.676069, 0.627217, -0.431511, 0.733706, 0.52484, -0.815028, -0.0677105, -0.575442, -5.16821, -3.32668, 0.35496)
+transform = Transform3D(-0.386832, -0.675979, 0.627215, -0.431341, 0.733807, 0.524839, -0.815042, -0.067519, -0.575445, -5.16821, -3.32668, 0.35496)
 progress = 6.29784
 loop = false
 
