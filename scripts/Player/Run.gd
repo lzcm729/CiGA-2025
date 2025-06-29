@@ -19,8 +19,12 @@ func physics_process_update(delta: float) -> void:
 		if player.is_follow_path :
 			var last_progress = player.path.progress
 			var last_pos = Vector3(player.path.global_position.x, player.global_position.y, player.path.global_position.z)
+			if player.ignore_gravity :
+				last_pos.y = player.path.global_position.y
 			player.path.progress = player.path.progress + player.direction.x * player.speed * 0.01
 			var new_pos = Vector3(player.path.global_position.x, player.global_position.y, player.path.global_position.z)
+			if player.ignore_gravity :
+				new_pos.y = player.path.global_position.y
 			player.velocity = (new_pos - last_pos) / delta
 			
 			var collision = player.move_and_collide(new_pos - last_pos, true)
