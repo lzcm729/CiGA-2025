@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://clc0qiuuou4fg" path="res://assets/ui_cut/level3.png" id="3_v5gfa"]
 [ext_resource type="Texture2D" uid="uid://b5et5thuinqt8" path="res://assets/ui_cut/level4.png" id="4_k0alc"]
 [ext_resource type="Texture2D" uid="uid://db2q7rwuj7030" path="res://assets/stickers/book.png" id="8_exe35"]
-[ext_resource type="PackedScene" uid="uid://bx2yuesn43peu" path="res://zyh/sticker.tscn" id="8_j2dwn"]
+[ext_resource type="PackedScene" path="res://zyh/sticker.tscn" id="8_j2dwn"]
 [ext_resource type="Texture2D" uid="uid://bk40ngndp4djm" path="res://assets/stickers/book_outline.png" id="9_j2dwn"]
 [ext_resource type="Texture2D" uid="uid://chxkdos12eyg6" path="res://assets/stickers/closet.png" id="11_tu867"]
 [ext_resource type="Texture2D" uid="uid://dpbue1x37v8nk" path="res://assets/stickers/closet_outline.png" id="12_0atba"]
@@ -158,6 +158,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_r13gc")
 [node name="Level1Sticker" type="Control" parent="EnterMarginContainer"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Book" parent="EnterMarginContainer/Level1Sticker" instance=ExtResource("8_j2dwn")]
 custom_minimum_size = Vector2(126, 145)
@@ -180,6 +181,7 @@ texture = ExtResource("9_j2dwn")
 [node name="Level2Sticker" type="Control" parent="EnterMarginContainer"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Book" parent="EnterMarginContainer/Level2Sticker" instance=ExtResource("8_j2dwn")]
 custom_minimum_size = Vector2(126, 145)
@@ -220,6 +222,7 @@ texture = ExtResource("12_0atba")
 [node name="Level3Sticker" type="Control" parent="EnterMarginContainer"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Book" parent="EnterMarginContainer/Level3Sticker" instance=ExtResource("8_j2dwn")]
 custom_minimum_size = Vector2(126, 145)
@@ -276,6 +279,7 @@ texture = ExtResource("14_7bta7")
 
 [node name="Level4Sticker" type="Control" parent="EnterMarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Book" parent="EnterMarginContainer/Level4Sticker" instance=ExtResource("8_j2dwn")]
 custom_minimum_size = Vector2(126, 145)
