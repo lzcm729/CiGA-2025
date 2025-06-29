@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://umxxocvujlih"]
+[gd_scene load_steps=28 format=3 uid="uid://umxxocvujlih"]
 
 [ext_resource type="Script" uid="uid://b7a7i470eclv8" path="res://scenes/game_scene/select_level/select_level.gd" id="1_la6f6"]
 [ext_resource type="Texture2D" uid="uid://3k6a0d7sejjg" path="res://assets/ui_cut/door_finished.png" id="2_15idh"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://c4m7qjp8epygy" path="res://assets/ui_cut/door_normal.png" id="3_p1cwx"]
 [ext_resource type="Texture2D" uid="uid://clc0qiuuou4fg" path="res://assets/ui_cut/level3.png" id="3_v5gfa"]
 [ext_resource type="Texture2D" uid="uid://b5et5thuinqt8" path="res://assets/ui_cut/level4.png" id="4_k0alc"]
+[ext_resource type="Texture2D" uid="uid://db2q7rwuj7030" path="res://assets/stickers/book.png" id="8_exe35"]
+[ext_resource type="PackedScene" path="res://zyh/sticker.tscn" id="8_j2dwn"]
+[ext_resource type="Texture2D" uid="uid://bk40ngndp4djm" path="res://assets/stickers/book_outline.png" id="9_j2dwn"]
+[ext_resource type="Texture2D" uid="uid://chxkdos12eyg6" path="res://assets/stickers/closet.png" id="11_tu867"]
+[ext_resource type="Texture2D" uid="uid://dpbue1x37v8nk" path="res://assets/stickers/closet_outline.png" id="12_0atba"]
+[ext_resource type="Texture2D" uid="uid://dam011cic41ve" path="res://assets/stickers/watcher.png" id="13_2iwd8"]
+[ext_resource type="Texture2D" uid="uid://dqgo2573urkcj" path="res://assets/stickers/watcher_outline.png" id="14_7bta7"]
+[ext_resource type="Texture2D" uid="uid://dnhng3o6ptkck" path="res://assets/stickers/lamp.png" id="15_rcmxi"]
+[ext_resource type="Texture2D" uid="uid://b2f550m0cdg0e" path="res://assets/stickers/lamp_outline.png" id="16_v3lr1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bscb1"]
 
@@ -71,6 +80,7 @@ pivot_offset = Vector2(520, 520)
 
 [node name="Level1" type="TextureRect" parent="Levels"]
 custom_minimum_size = Vector2(520, 520)
+layout_mode = 0
 offset_right = 520.0
 offset_bottom = 520.0
 texture = ExtResource("2_v5gfa")
@@ -145,6 +155,202 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_0atba")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_of733")
 theme_override_styles/normal = SubResource("StyleBoxTexture_r13gc")
 
+[node name="Level1Sticker" type="Control" parent="EnterMarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Book" parent="EnterMarginContainer/Level1Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(126, 145)
+layout_mode = 1
+offset_left = 590.0
+offset_top = 391.0
+offset_right = -544.0
+offset_bottom = -174.0
+
+[node name="Stamp" parent="EnterMarginContainer/Level1Sticker/Book" index="0"]
+custom_minimum_size = Vector2(126, 145)
+texture = ExtResource("8_exe35")
+
+[node name="Outline" parent="EnterMarginContainer/Level1Sticker/Book" index="1"]
+custom_minimum_size = Vector2(126, 145)
+offset_right = 126.0
+offset_bottom = 145.0
+texture = ExtResource("9_j2dwn")
+
+[node name="Level2Sticker" type="Control" parent="EnterMarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Book" parent="EnterMarginContainer/Level2Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(126, 145)
+layout_mode = 1
+offset_left = 594.0
+offset_top = 333.0
+offset_right = -540.0
+offset_bottom = -232.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Stamp" parent="EnterMarginContainer/Level2Sticker/Book" index="0"]
+custom_minimum_size = Vector2(126, 145)
+texture = ExtResource("8_exe35")
+
+[node name="Outline" parent="EnterMarginContainer/Level2Sticker/Book" index="1"]
+custom_minimum_size = Vector2(126, 145)
+offset_right = 126.0
+offset_bottom = 145.0
+texture = ExtResource("9_j2dwn")
+
+[node name="Closet" parent="EnterMarginContainer/Level2Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(419, 519)
+layout_mode = 1
+offset_left = 593.0
+offset_top = 463.0
+offset_right = -248.0
+offset_bottom = 272.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Stamp" parent="EnterMarginContainer/Level2Sticker/Closet" index="0"]
+custom_minimum_size = Vector2(419, 519)
+texture = ExtResource("11_tu867")
+
+[node name="Outline" parent="EnterMarginContainer/Level2Sticker/Closet" index="1"]
+custom_minimum_size = Vector2(419, 519)
+texture = ExtResource("12_0atba")
+
+[node name="Level3Sticker" type="Control" parent="EnterMarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Book" parent="EnterMarginContainer/Level3Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(126, 145)
+layout_mode = 1
+offset_left = 581.0
+offset_top = 303.0
+offset_right = -553.0
+offset_bottom = -262.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Stamp" parent="EnterMarginContainer/Level3Sticker/Book" index="0"]
+custom_minimum_size = Vector2(126, 145)
+texture = ExtResource("8_exe35")
+
+[node name="Outline" parent="EnterMarginContainer/Level3Sticker/Book" index="1"]
+custom_minimum_size = Vector2(126, 145)
+offset_right = 126.0
+offset_bottom = 145.0
+texture = ExtResource("9_j2dwn")
+
+[node name="Closet" parent="EnterMarginContainer/Level3Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(419, 519)
+layout_mode = 1
+offset_left = 627.0
+offset_top = 408.0
+offset_right = -214.0
+offset_bottom = 217.0
+scale = Vector2(0.25, 0.25)
+
+[node name="Stamp" parent="EnterMarginContainer/Level3Sticker/Closet" index="0"]
+custom_minimum_size = Vector2(419, 519)
+texture = ExtResource("11_tu867")
+
+[node name="Outline" parent="EnterMarginContainer/Level3Sticker/Closet" index="1"]
+custom_minimum_size = Vector2(419, 519)
+texture = ExtResource("12_0atba")
+
+[node name="Watcher" parent="EnterMarginContainer/Level3Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(454, 387)
+layout_mode = 1
+offset_left = 551.0
+offset_top = 529.0
+offset_right = -255.0
+offset_bottom = 206.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Stamp" parent="EnterMarginContainer/Level3Sticker/Watcher" index="0"]
+custom_minimum_size = Vector2(454, 387)
+texture = ExtResource("13_2iwd8")
+
+[node name="Outline" parent="EnterMarginContainer/Level3Sticker/Watcher" index="1"]
+custom_minimum_size = Vector2(454, 387)
+texture = ExtResource("14_7bta7")
+
+[node name="Level4Sticker" type="Control" parent="EnterMarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Book" parent="EnterMarginContainer/Level4Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(126, 145)
+layout_mode = 1
+offset_left = 623.0
+offset_top = 305.0
+offset_right = -511.0
+offset_bottom = -260.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Stamp" parent="EnterMarginContainer/Level4Sticker/Book" index="0"]
+custom_minimum_size = Vector2(126, 145)
+texture = ExtResource("8_exe35")
+
+[node name="Outline" parent="EnterMarginContainer/Level4Sticker/Book" index="1"]
+custom_minimum_size = Vector2(126, 145)
+offset_right = 126.0
+offset_bottom = 145.0
+texture = ExtResource("9_j2dwn")
+
+[node name="Closet" parent="EnterMarginContainer/Level4Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(419, 519)
+layout_mode = 1
+offset_left = 626.0
+offset_top = 421.0
+offset_right = -215.0
+offset_bottom = 230.0
+scale = Vector2(0.25, 0.25)
+
+[node name="Stamp" parent="EnterMarginContainer/Level4Sticker/Closet" index="0"]
+custom_minimum_size = Vector2(419, 519)
+texture = ExtResource("11_tu867")
+
+[node name="Outline" parent="EnterMarginContainer/Level4Sticker/Closet" index="1"]
+custom_minimum_size = Vector2(419, 519)
+texture = ExtResource("12_0atba")
+
+[node name="Watcher" parent="EnterMarginContainer/Level4Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(454, 387)
+layout_mode = 1
+offset_left = 560.0
+offset_top = 558.0
+offset_right = -246.0
+offset_bottom = 235.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Stamp" parent="EnterMarginContainer/Level4Sticker/Watcher" index="0"]
+custom_minimum_size = Vector2(454, 387)
+texture = ExtResource("13_2iwd8")
+
+[node name="Outline" parent="EnterMarginContainer/Level4Sticker/Watcher" index="1"]
+custom_minimum_size = Vector2(454, 387)
+texture = ExtResource("14_7bta7")
+
+[node name="Lamp" parent="EnterMarginContainer/Level4Sticker" instance=ExtResource("8_j2dwn")]
+custom_minimum_size = Vector2(235, 920)
+layout_mode = 1
+offset_left = 568.0
+offset_top = 372.0
+offset_right = -457.0
+offset_bottom = 582.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Stamp" parent="EnterMarginContainer/Level4Sticker/Lamp" index="0"]
+custom_minimum_size = Vector2(235, 920)
+texture = ExtResource("15_rcmxi")
+
+[node name="Outline" parent="EnterMarginContainer/Level4Sticker/Lamp" index="1"]
+custom_minimum_size = Vector2(235, 920)
+texture = ExtResource("16_v3lr1")
+
 [node name="SwitchLevelMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -214,3 +420,14 @@ offset_bottom = 50.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "指导"
+
+[editable path="EnterMarginContainer/Level1Sticker/Book"]
+[editable path="EnterMarginContainer/Level2Sticker/Book"]
+[editable path="EnterMarginContainer/Level2Sticker/Closet"]
+[editable path="EnterMarginContainer/Level3Sticker/Book"]
+[editable path="EnterMarginContainer/Level3Sticker/Closet"]
+[editable path="EnterMarginContainer/Level3Sticker/Watcher"]
+[editable path="EnterMarginContainer/Level4Sticker/Book"]
+[editable path="EnterMarginContainer/Level4Sticker/Closet"]
+[editable path="EnterMarginContainer/Level4Sticker/Watcher"]
+[editable path="EnterMarginContainer/Level4Sticker/Lamp"]
