@@ -35,8 +35,8 @@ func _ready() -> void:
 	var child = DataManager.get_cur_children()
 	child.CHILD_COUNT_3.connect(on_child_count3_show)
 	child.CHILD_COUNT_2.connect(on_child_count2_show)
-	child.CHILD_COUNT_1.connect(on_child_count1_show)
-	
+	child.CHILD_COUNT_1_START.connect(on_child_count1_show)
+	child.CHILD_COUNT_1_END.connect(on_child_count1_end)
 
 ##初始化所有的小孩子说话显示
 func init_child_speak():
@@ -76,14 +76,20 @@ func show_child_speak_scare3():
 
 
 func on_child_count3_show():
+	init_child_speak()
 	show_child_count3()
 
 func on_child_count2_show():
+	init_child_speak()
 	show_child_count2()
 
 func on_child_count1_show():
+	init_child_speak()
 	show_child_count1()
 
+
+func on_child_count1_end():
+	init_child_speak()
 
 
 
