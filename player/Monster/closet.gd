@@ -1,7 +1,7 @@
 extends Player
 
 const MAX_ANGLE := -45.0
-const ROT_SPEED := 25.0  # 度/秒
+const ROT_SPEED := 10.0  # 度/秒
 
 var opened := false
 var be_seen := false
@@ -12,11 +12,6 @@ var is_eating := false
 @onready var left_door: Node3D       = $Mesh/Left
 @onready var door_sound: AudioStreamPlayer3D = $Sound
 
-
-func _ready() -> void:
-	pass
-	# 1.5 秒内打开 45°
-	#open_door_slow(-45.0, 3)
 	
 	
 # func _process(delta: float) -> void:
@@ -34,7 +29,7 @@ func _process(delta):
 	if not is_current: return
 	if be_seen: return
 	if opened: return  # 如果已经打开了，就不再处理
-	if Input.is_action_pressed("interact"):  # 默认是空格，或自己在项目设置里映射一个动作
+	if Input.is_action_pressed("move_up"):  # 默认是空格，或自己在项目设置里映射一个动作
 		# 启动音效（按下时只播一次）
 		if door_sound.playing == false:
 			door_sound.play()

@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	if is_finished: return
 	if lamp.is_relighting: return
 
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_pressed("move_up"):
 		var res = lamp.decrease_light(delta)
 		# ↓ 限制 Mesh 最低高度
 		var dy = move_speed * delta
