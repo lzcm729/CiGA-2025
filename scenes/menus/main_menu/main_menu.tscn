@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://dboeh8i18e2sh"]
+[gd_scene load_steps=42 format=3 uid="uid://dboeh8i18e2sh"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_peecx"]
 [ext_resource type="Script" uid="uid://w0trtg53nc1y" path="res://scenes/menus/main_menu/main_menu.gd" id="2_ub2bi"]
 [ext_resource type="PackedScene" uid="uid://boicxc6x4554n" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_x31ro"]
 [ext_resource type="PackedScene" uid="uid://bg8qlntq37pp" path="res://scenes/credits/scrollable_credits.tscn" id="4_peecx"]
 [ext_resource type="Texture2D" uid="uid://ci2yvfai0q7ek" path="res://assets/ui_cut/start_game_push.png" id="5_0jpat"]
+[ext_resource type="Shader" uid="uid://cj7mlf3wrwpgc" path="res://assets/3D/Shader/glitch.gdshader" id="5_3nv00"]
 [ext_resource type="Texture2D" uid="uid://7ifumt5pnk3s" path="res://Bg.png" id="5_dc6ug"]
 [ext_resource type="Texture2D" uid="uid://blemw2srj7pov" path="res://assets/ui_cut/start_game_hover.png" id="6_m0ubd"]
 [ext_resource type="Texture2D" uid="uid://diabjyvjeukei" path="res://assets/ui_cut/start_game_normal.png" id="7_627ab"]
@@ -14,6 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://bwnjqea20yd0p" path="res://assets/ui_cut/exit_hover.png" id="11_88r3n"]
 [ext_resource type="Texture2D" uid="uid://x668vphe5udv" path="res://assets/ui_cut/exit_push.png" id="12_dc6ug"]
 [ext_resource type="Texture2D" uid="uid://cdlh0wl07j4ih" path="res://assets/ui_cut/exit_normal.png" id="13_3nv00"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nv00"]
+shader = ExtResource("5_3nv00")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jpat"]
 
@@ -80,7 +89,7 @@ game_scene_path = "uid://umxxocvujlih"
 options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_peecx")
 
-[node name="Bg" type="TextureRect" parent="." index="0"]
+[node name="Bg" type="TextureRect" parent="." index="3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +103,18 @@ grow_vertical = 2
 texture = ExtResource("5_dc6ug")
 expand_mode = 1
 
-[node name="VersionMargin" parent="." index="4"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+material = SubResource("ShaderMaterial_3nv00")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VersionMargin" parent="." index="5"]
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -114,7 +134,7 @@ grow_horizontal = 1
 grow_vertical = 1
 horizontal_alignment = 0
 
-[node name="MenuContainer" parent="." index="5"]
+[node name="MenuContainer" parent="." index="6"]
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -132,7 +152,7 @@ grow_horizontal = 1
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.384314, 1, 0.682353, 1)
 theme_override_font_sizes/font_size = 120
-text = "抓住那个小孩"
+text = "GameName"
 
 [node name="SubTitleMargin" parent="MenuContainer" index="1"]
 visible = false
