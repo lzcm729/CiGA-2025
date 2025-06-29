@@ -363,9 +363,6 @@ offset_bottom = 616.0
 theme_override_font_sizes/font_size = 50
 text = "返回"
 
-[connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
-[connection signal="pressed" from="EndContainer/Control/Back" to="." method="_on_back_pressed"]
-
 [node name="PlayerPortrait" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -418,6 +415,7 @@ texture = ExtResource("15_5fie3")
 texture = ExtResource("16_lx47f")
 
 [connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
+[connection signal="pressed" from="EndContainer/Control/Back" to="." method="_on_back_pressed"]
 
 [editable path="PlayerPortrait/HBoxContainer/Closet"]
 [editable path="PlayerPortrait/HBoxContainer/Watcher"]
