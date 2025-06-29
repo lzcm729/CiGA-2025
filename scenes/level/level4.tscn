@@ -26,10 +26,10 @@ point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_maq55"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.64443, -0.326949, 0.296443, 0, 0, 0, 0, 0, 0, -2.20083, -1.38051, -0.192087, 0, 0, 0, 0, 0, 0, -3.12105, -3.01579, -1.19444, 0, 0, 0, 0, 0, 0, -3.84891, -2.59691, -0.657119, 0, 0, 0, 0, 0, 0, -4.29456, -2.59563, -0.446579, 0, 0, 0, 0, 0, 0, -5.16821, -3.32668, 0.35496),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.64443, -0.326949, 0.296443, 0, 0, 0, 0, 0, 0, -2.20754, -1.29388, -0.192087, 0, 0, 0, 0, 0, 0, -3.3216, -3.32611, -1.27616, 0, 0, 0, 0, 0, 0, -3.586, -2.59563, -0.157603, 0, 0, 0, 0, 0, 0, -5.16821, -3.32668, 0.35496),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 6
+point_count = 5
 
 [node name="Level4" type="Node3D" groups=["LevelGroup"]]
 script = ExtResource("1_4lbx7")
@@ -75,7 +75,7 @@ one_shot = true
 visible = false
 
 [node name="Child2" parent="." instance=ExtResource("28_fvvi0")]
-transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
+transform = Transform3D(0.998265, 0.00108491, 0.058861, 0, 0.99983, -0.0184296, -0.0588706, 0.0183977, 0.998096, -9.89706, 8.42125, 5.72153)
 ignore_gravity = true
 
 [node name="Path3D2" type="Path3D" parent="."]
@@ -83,7 +83,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96652, 12.1672, 5.68698)
 curve = SubResource("Curve3D_maq55")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.386832, -0.675979, 0.627215, -0.431341, 0.733807, 0.524839, -0.815041, -0.067519, -0.575445, -5.16821, -3.32668, 0.35496)
+transform = Transform3D(0.0816028, -0.48462, 0.870902, -0.684516, 0.607863, 0.402395, -0.724405, -0.628983, -0.282132, -4.59401, -3.06137, 0.168946)
 progress = 6.29784
 loop = false
 
