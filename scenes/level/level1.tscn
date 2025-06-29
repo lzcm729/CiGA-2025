@@ -25,7 +25,6 @@ script = ExtResource("1_5yh3o")
 levelIndex = 1
 
 [node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_m2gd4")]
-visible = false
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.63226, 8.56221, 4.09747)
@@ -62,7 +61,6 @@ script = ExtResource("10_gp5im")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("11_kifar")]
-visible = false
 
 [node name="Child" parent="." instance=ExtResource("11_m2gd4")]
 transform = Transform3D(0.483664, 0, -0.875254, 0, 1, 0, 0.875254, 0, 0.483664, -10.0177, 8.35293, 5.70043)

@@ -23,9 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="25_maq55"]
 [ext_resource type="PackedScene" uid="uid://bmlppv0vwywit" path="res://scenes/3D/book.tscn" id="26_e472f"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="26_wl44m"]
-[ext_resource type="PackedScene" uid="uid://je3ik5f2bo3i" path="res://player/Monster/Watcher.tscn" id="27_16ykl"]
-[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="27_dfykx"]
-[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="28_fvvi0"]
+[ext_resource type="PackedScene" uid="uid://dolm7js3b1amk" path="res://player/Monster/Watcher.tscn" id="27_16ykl"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="27_dfykx"]
+[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="28_fvvi0"]
 
 [sub_resource type="Curve3D" id="Curve3D_6u2ve"]
 bake_interval = 0.01
@@ -101,7 +101,6 @@ levelIndex = 4
 metadata/_custom_type_script = "uid://bmxapiuq18xom"
 
 [node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_16ykl")]
-visible = false
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.40176, 8.50517, 3.87784)
@@ -222,7 +221,6 @@ script = ExtResource("26_wl44m")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("27_dfykx")]
-visible = false
 
 [node name="Child2" parent="." instance=ExtResource("28_fvvi0")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
@@ -233,7 +231,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96652, 12.1672, 5.68698)
 curve = SubResource("Curve3D_maq55")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.386832, -0.675979, 0.627215, -0.431341, 0.733807, 0.524839, -0.815042, -0.067519, -0.575445, -5.16821, -3.32668, 0.35496)
+transform = Transform3D(-0.386672, -0.676069, 0.627217, -0.431511, 0.733706, 0.52484, -0.815028, -0.0677105, -0.575442, -5.16821, -3.32668, 0.35496)
 progress = 6.29784
 loop = false
 
