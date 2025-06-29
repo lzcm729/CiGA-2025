@@ -30,7 +30,7 @@ func _ready() -> void:
 	else:
 		print("错误：无法找到 MeshInstance3D 或 MeshInstance3D2")
 
-	lamp.draw = self
+	#lamp.draw = self
 
 func _process(delta: float) -> void:
 	if not is_current: return

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_5yh3o"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_5yh3o"]
-[ext_resource type="PackedScene" uid="uid://b07wy55rqrshd" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_m2gd4"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_m2gd4"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="4_5yh3o"]
 [ext_resource type="PackedScene" uid="uid://bmlppv0vwywit" path="res://scenes/3D/book.tscn" id="4_mg8dc"]
 [ext_resource type="Script" uid="uid://3s3uube6r4tx" path="res://scripts/GamePlay/Children.gd" id="7_tlhdo"]
@@ -50,6 +50,7 @@ transform = Transform3D(-0.0296736, 0, -0.00441305, 0, 0.03, 0, 0.00441305, 0, -
 
 [node name="dimo_eye_Group48518" parent="Book/Mesh" index="6"]
 transform = Transform3D(0.575216, 0, 0.334608, 0, 0.665459, 0, -0.334608, 0, 0.575216, 0.0308595, 8.3926, 0.334175)
+surface_material_override/0 = null
 
 [node name="dimo_Group48518" parent="Book/Mesh" index="7"]
 transform = Transform3D(1.50094, -1.4546, -0.379689, 1.48798, 1.51395, 0.0820344, 0.214424, -0.32391, 2.08851, 2.84289, 3.5487, 1.38713)
@@ -162,6 +163,15 @@ bones/112/rotation = Quaternion(0.0345105, -0.0426022, 0.0461337, 0.99743)
 bones/113/rotation = Quaternion(0.0345105, -0.0426022, 0.0461337, 0.99743)
 bones/114/rotation = Quaternion(0.0345105, -0.0426022, 0.0461337, 0.99743)
 bones/115/rotation = Quaternion(0.0345105, -0.0426022, 0.0461337, 0.99743)
+
+[node name="tentacle1_rsMaterial3_0" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton/Skeleton3D" index="0"]
+surface_material_override/0 = null
+
+[node name="tentacle2_rsMaterial3_0" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton/Skeleton3D" index="1"]
+surface_material_override/0 = null
+
+[node name="tentacle3_rsMaterial3_0" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton/Skeleton3D" index="2"]
+surface_material_override/0 = null
 
 [node name="Children" type="Node" parent="."]
 script = ExtResource("7_tlhdo")
