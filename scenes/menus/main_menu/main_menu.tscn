@@ -79,7 +79,16 @@ game_scene_path = "uid://umxxocvujlih"
 options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_peecx")
 
-[node name="VersionMargin" parent="." index="3"]
+[node name="Bg" type="ColorRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VersionMargin" parent="." index="4"]
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -99,7 +108,7 @@ grow_horizontal = 1
 grow_vertical = 1
 horizontal_alignment = 0
 
-[node name="MenuContainer" parent="." index="4"]
+[node name="MenuContainer" parent="." index="5"]
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20

@@ -1,9 +1,10 @@
 extends Control
-@onready var last: Button = $SwitchLevelMarginContainer/Control/HBoxContainer/Last
-@onready var next: Button = $SwitchLevelMarginContainer/Control/HBoxContainer/Next
-@onready var label: Label = $EnterMarginContainer/Control/Panel/Label
+@onready var last: Button = $SwitchLevelMarginContainer/Control/Last
+@onready var next: Button = $SwitchLevelMarginContainer/Control/Next
 @onready var enter_game: Button = $EnterMarginContainer/Control/EnterGame
 @onready var back: Button = $KeyMarginContainer/Control/Back
+@onready var levels: Control = $Levels
+
 
 @export_file("*.tscn") var back_path : String
 @export_file("*.tscn") var level_path : String
@@ -18,8 +19,6 @@ func _ready() -> void:
 	next.pressed.connect(on_next_pressed)
 	enter_game.pressed.connect(on_enter_game_pressed)
 	back.pressed.connect(on_back_pressed)
-	label.text = "当前关卡：" + str(cur_select_index)
-	
 
 func on_last_pressed():
 	change_cur_select_level(-1)
@@ -33,14 +32,19 @@ func change_cur_select_level(step:int):
 		cur_select_index += level_num
 	elif cur_select_index > level_num:
 		cur_select_index -= level_num
-	label.text = "当前关卡：" + str(cur_select_index)
+		
+	print(cur_select_index)
 	
+	# 创建tween动画进行平滑旋转
+	var tween = create_tween()
+	tween.tween_property(levels, "rotation_degrees", levels.rotation_degrees + (-step*90), 0.5)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+
 func on_enter_game_pressed():
 	DataManager.select_level(cur_select_index)
 	var level_info = DataManager.get_cur_level_config()
 	SceneLoader.load_scene(level_info[1]["level_path"])
-	#SceneLoader.load_scene(level_path)
-
 
 func on_back_pressed():
 	SceneLoader.load_scene(back_path)
