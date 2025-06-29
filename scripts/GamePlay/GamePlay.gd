@@ -54,10 +54,16 @@ func on_single_timer_end() -> void:
 		time.start(1)
 	times -= 1
 
+signal COUNTDOWN_5_START()
 func count_down_and_start_game() -> void:
 	times = 5
 	time.connect("timeout", on_single_timer_end)
 	time.start(1)
+	emit_signal("COUNTDOWN_5_START")
+
+func on_catch_child() -> void:
+	game_is_finish = true
+	emit_signal("GAME_SUCCESS", past_time)
 
 func _ready() -> void:
 	PostEffect_CRT.hide()
