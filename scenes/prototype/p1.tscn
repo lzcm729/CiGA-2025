@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://ngf71gejgjys"]
+[gd_scene load_steps=126 format=3 uid="uid://ngf71gejgjys"]
 
 [ext_resource type="PackedScene" uid="uid://do7n8eggqiiyq" path="res://test/Prefabs/Attic_WoodenFrame_03_LP.tscn" id="1_kohiv"]
 [ext_resource type="Script" uid="uid://3ji7gdrvimlh" path="res://scripts/Scene/test_3d.gd" id="1_o2jhi"]
@@ -118,6 +118,7 @@
 [ext_resource type="PackedScene" uid="uid://ba7rgg64wnc56" path="res://test/Prefabs/Attic_WoodenFrame_02_LP.tscn" id="117_0uvxp"]
 [ext_resource type="PackedScene" uid="uid://bst28kcm466sn" path="res://test/Prefabs/Attic_WoodenFrame_04_LP.tscn" id="118_uorg8"]
 [ext_resource type="PackedScene" uid="uid://nk8dk8b1x21s" path="res://test/Prefabs/Attic_WoodenFrame_05_LP.tscn" id="119_2xc81"]
+[ext_resource type="AudioStream" uid="uid://dyu1xv5awlv8i" path="res://assets/audios/很轻的BGM.mp3" id="119_kohiv"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kohiv"]
 
@@ -2827,3 +2828,7 @@ mesh = SubResource("BoxMesh_fdwyv")
 skeleton = NodePath("../../..")
 
 [node name="gear" type="Node3D" parent="prototype_common"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("119_kohiv")
+volume_db = 60.0
