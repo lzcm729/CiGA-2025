@@ -34,7 +34,6 @@ func on_last_pressed():
 func on_next_pressed():
 	change_cur_select_level(1)
 	
-
 	
 	
 func change_cur_select_level(step:int):
