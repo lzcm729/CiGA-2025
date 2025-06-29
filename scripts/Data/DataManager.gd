@@ -73,6 +73,8 @@ func get_cur_level_ach() -> Dictionary:
 	if current_level == 0:
 		return new_achievement()
 	else:
+		if not achievements.has(current_level):
+			achievements[current_level] = new_achievement()
 		return achievements[current_level]
 
 var last_level = 0
