@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 	# 回头状态下 开始检测玩家是否按键：
 	if cur_state == STATE_1:
 		# 处理按键状态
-		if Input.is_action_pressed("move_up"):
+		if Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
 			# 新按前进键的时候 只要按键了 就被抓了
 			if (not is_key_pressed):
 				# 直接抓住
@@ -144,7 +144,7 @@ func _process(delta: float) -> void:
 				PostEffect_EdgeChange.show()
 				emit_signal("CHILD_COUNT_1_START")
 				# 需要预处理玩家的按键状态
-				if Input.is_action_pressed("move_up"):
+				if Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
 					is_key_pressed = true
 					key_press_time = 0.0
 				else:

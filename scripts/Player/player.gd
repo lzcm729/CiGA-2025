@@ -25,7 +25,9 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 @onready var mesh: Node3D = $Mesh
 var spring_arm_3d: SpringArm3D
 var camera_3d: Camera3D
- 
+@onready var sound_move: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var sound_back: AudioStreamPlayer3D = $AudioStreamPlayer3D2
+
 #@onready var is_moving : bool = false :
 	#set(value):
 		#is_moving = value
@@ -126,6 +128,7 @@ func is_input_valid() -> bool :
 func start_back() -> void :
 	if state_machine:
 		state_machine.change_state("Back")
+		sound_back.play()
 
 func find_camera_3d() -> void:
 	if !camera_3d:

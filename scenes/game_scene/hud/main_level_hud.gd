@@ -10,6 +10,7 @@ extends Control
 @onready var time_margin_container: MarginContainer = $TimeMarginContainer
 @onready var progress_margin_container: MarginContainer = $ProgressMarginContainer
 @onready var key_margin_container: MarginContainer = $KeyMarginContainer
+@onready var player_portrait: Control = $PlayerPortrait
 
 ##小孩子的倒计时
 @onready var child_speak: Control = $ChildSpeak
@@ -21,22 +22,39 @@ extends Control
 @onready var child_speak_scare_2: HBoxContainer = $ChildSpeak/Mark/Scare2
 @onready var child_speak_scare_3: TextureRect = $ChildSpeak/Mark/Scare3
 
+@onready var book: PlayerPortrait = $PlayerPortrait/HBoxContainer/Book
+@onready var closet: PlayerPortrait = $PlayerPortrait/HBoxContainer/Closet
+@onready var watcher: PlayerPortrait = $PlayerPortrait/HBoxContainer/Watcher
+@onready var lamp: PlayerPortrait = $PlayerPortrait/HBoxContainer/Lamp
+
+
 
 var total_time:int
+var now_level:Level
+var cur_level:int
 
 func _ready() -> void:
-	var cur_level = DataManager.get_cur_level_config()[0]
+	cur_level = DataManager.get_cur_level_config()[0]
 	gameplay = get_node("/root/Level" + str(cur_level) + "/GamePlay")
 	gameplay.TIME_COUNTDOWN.connect(on_time_countdown)
 	back.pressed.connect(on_back_pressed)
 	gameplay.GAME_START.connect(on_game_start)
 	init_time_show()
 	switch_hud_show(false)
+	show_guide_panel(true)
 	var child = DataManager.get_cur_children()
 	child.CHILD_COUNT_3.connect(on_child_count3_show)
 	child.CHILD_COUNT_2.connect(on_child_count2_show)
 	child.CHILD_COUNT_1_START.connect(on_child_count1_show)
 	child.CHILD_COUNT_1_END.connect(on_child_count1_end)
+	now_level = get_parent()
+	#for i:Player in now_level.playerList:
+		#i.switch_player_end.connect(update_player_portrait)
+
+	change_player_portrait_show_by_level()
+
+func register_switch_end(i:Player):
+	i.switch_player_end.connect(update_player_portrait)
 
 ##初始化所有的小孩子说话显示
 func init_child_speak():
@@ -92,7 +110,36 @@ func on_child_count1_end():
 	init_child_speak()
 
 
+func update_player_portrait():
+	book.change_portrait_select_state(now_level.currentPlayerIndex==1)
+	closet.change_portrait_select_state(now_level.currentPlayerIndex==2)
+	watcher.change_portrait_select_state(now_level.currentPlayerIndex==3)
+	lamp.change_portrait_select_state(now_level.currentPlayerIndex==4)
 
+
+#根据当前的关卡显示对应的头像
+func init_player_portrait():
+	book.visible = false
+	closet.visible = false
+	watcher.visible = false
+	lamp.visible = false
+
+func change_player_portrait_show_by_level():
+	init_player_portrait()
+	if cur_level ==1:
+		book.visible = true
+	elif cur_level == 2:
+		book.visible = true
+		closet.visible = true
+	elif cur_level == 3:
+		book.visible = true
+		closet.visible = true
+		watcher.visible = true
+	elif cur_level == 4:
+		book.visible = true
+		closet.visible = true
+		watcher.visible = true
+		lamp.visible = true
 
 	
 	
@@ -103,7 +150,9 @@ func _process(delta: float) -> void:
 		remain_time.text = "%02d:%02d"%([(gameplay.count_down_time_show/60),(int(gameplay.count_down_time_show)%60)])
 
 func on_time_countdown(cur_times:int):
+	show_guide_panel(false)
 	count_down_num.change_num(cur_times)
+	update_player_portrait()
 
 func show_guide_panel(is_show:bool):
 	goal_panel.visible = is_show
@@ -122,6 +171,7 @@ func switch_hud_show(is_show):
 	time_margin_container.visible = is_show
 	progress_margin_container.visible = is_show
 	key_margin_container.visible = is_show
+	player_portrait.visible = is_show
 	
 
 func init_time_show():

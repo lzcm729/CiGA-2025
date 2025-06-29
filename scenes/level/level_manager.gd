@@ -8,12 +8,10 @@ func _ready() -> void:
 	var cur_level = DataManager.get_cur_level_config()[0]
 	start_count_down.start()
 	main_level_hud = get_node("/root/Level" + str(cur_level) + "/MainLevelHud")
-	main_level_hud.show_guide_panel(true)
 	start_count_down.timeout.connect(_on_start_count_down_timeout)
 	gameplay = get_node("/root/Level" + str(cur_level) + "/GamePlay")
 
 
 func _on_start_count_down_timeout() -> void:
-	main_level_hud.show_guide_panel(false)
 	if gameplay:
 		gameplay.count_down_and_start_game()
