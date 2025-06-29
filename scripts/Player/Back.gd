@@ -36,6 +36,7 @@ func physics_process_update(delta: float) -> void:
 			
 		if player.path.progress == 0:
 			player.velocity = Vector3(0, 0, 0)
+			player.direction = Vector3(0, 0, 0)
 			state_machine.change_state("Idle")
 			player.is_back = false
 			player.emit_signal("back_end")		
