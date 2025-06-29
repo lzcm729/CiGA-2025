@@ -1,5 +1,9 @@
 extends Player
 
+# 用于跟踪level3和level4中的状态
+var has_entered_area_once = false
+var is_movement_disabled = false
+
 func _ready() -> void:
 	super()
 	# 连接 CHILD_COUNT_1_START 信号到 turn 函数
@@ -12,12 +16,85 @@ func _ready() -> void:
 	if area3d:
 		area3d.body_entered.connect(_on_area_3d_body_entered)
 		area3d.area_entered.connect(_on_area_3d_area_entered)
+	
+	# 在level3和level4场景中显示被子
+	_show_quilt_for_level3_and_level4()
+
+func _show_quilt_for_level3_and_level4() -> void:
+	var current_level = DataManager.get_cur_level_config()[0]
+	if current_level == 3 or current_level == 4:
+		var quilt = get_node_or_null("被子 烘焙")
+		if quilt:
+			quilt.visible = true
+			print("在关卡", current_level, "中显示被子")
+		else:
+			print("未找到被子对象")
+	else:
+		# 在其他关卡中隐藏被子
+		var quilt = get_node_or_null("被子 烘焙")
+		if quilt:
+			quilt.visible = false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	_check_for_victory(body)
+	var current_level = DataManager.get_cur_level_config()[0]
+	
+	# 在level3和level4中的特殊逻辑
+	if current_level == 3 or current_level == 4:
+		_handle_level34_area_entered(body)
+	else:
+		# 其他关卡的原有逻辑
+		_check_for_victory(body)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	_check_for_victory(area)
+	var current_level = DataManager.get_cur_level_config()[0]
+	
+	# 在level3和level4中的特殊逻辑
+	if current_level == 3 or current_level == 4:
+		_handle_level34_area_entered(area)
+	else:
+		# 其他关卡的原有逻辑
+		_check_for_victory(area)
+
+func _handle_level34_area_entered(node: Node) -> void:
+	if not has_entered_area_once:
+		# 第一次进入area
+		print("第一次进入area - 移除被子并禁用进入物体的移动")
+		_remove_quilt()
+		_disable_entering_object_movement(node)
+		has_entered_area_once = true
+	else:
+		# 第二次进入area - 触发胜利
+		print("第二次进入area - 触发胜利")
+		var gameplay = DataManager.get_cur_gameplay()
+		if gameplay:
+			gameplay.on_catch_child()
+
+func _remove_quilt() -> void:
+	var quilt = get_node_or_null("被子 烘焙")
+	if quilt:
+		quilt.queue_free()
+		print("被子已移除")
+
+func _disable_entering_object_movement(node: Node) -> void:
+	# 查找进入area的物体（book或watcher）
+	var target_object = _find_book_or_watcher_object(node)
+	if target_object and target_object is Player:
+		target_object.is_finished = true
+		print("已禁用物体移动:", target_object.name)
+	else:
+		print("未找到可禁用的物体")
+
+func _find_book_or_watcher_object(node: Node) -> Node:
+	# 检查当前节点是否是book或watcher
+	if _is_book_or_watch(node):
+		return node
+	
+	# 检查父节点
+	var parent = node.get_parent()
+	if parent and parent != self:
+		return _find_book_or_watcher_object(parent)
+	
+	return null
 
 func _check_for_victory(node: Node) -> void:
 	# 检查是否是book或watch对象
@@ -53,17 +130,6 @@ func turn() -> void:
 			idle()
 		)
 		timer1.start()
-#
-		## 创建定时器，延迟恢复动画
-		#var timer2 = Timer.new()
-		#add_child(timer2)
-		#timer2.wait_time = 3.0  # 暂停2秒
-		#timer2.one_shot = true
-		#timer2.timeout.connect(func():
-			#animation_tree.active = true
-			#timer2.queue_free()
-		#)
-		#timer2.start()
 
 func move() -> void:
 	pass

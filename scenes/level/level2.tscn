@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dlxkrr6i53h27"]
 
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_7jkud"]
-[ext_resource type="PackedScene" uid="uid://b07wy55rqrshd" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_dkogb"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_dkogb"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_i27ya"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="3_i27ya"]
 [ext_resource type="PackedScene" uid="uid://cmj1qnrayspc8" path="res://player/Monster/Closet.tscn" id="16_7cd37"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="21_72ut4"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="22_658b7"]
 [ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="23_dkogb"]
-[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="23_uv4tv"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="23_uv4tv"]
 
 [sub_resource type="Curve3D" id="Curve3D_hpcx2"]
 bake_interval = 0.01
