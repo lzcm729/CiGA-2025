@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4ve24poo2esn" path="res://scripts/Player/player.gd" id="1_b5nui"]
 [ext_resource type="Script" uid="uid://cy3s66yh28pyj" path="res://scripts/Scene/spring_arm_3d.gd" id="8_2ydgo"]
-[ext_resource type="PackedScene" path="res://assets/3D/character/book/cartoon.tscn" id="8_ro6wf"]
+[ext_resource type="PackedScene" uid="uid://dvgmwr8lrkugy" path="res://assets/3D/character/book/cartoon.tscn" id="8_ro6wf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5nui"]
 size = Vector3(0.462, 0.573, 0.671)

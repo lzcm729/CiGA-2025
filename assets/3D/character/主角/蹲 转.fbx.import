@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="animation_library"
 importer_version=1
-type="PackedScene"
+type="AnimationLibrary"
 uid="uid://cpaqbniydm1yb"
-path="res://.godot/imported/蹲 转.fbx-78dd28fa23def5ea1ff2f51b70aad96c.scn"
+path="res://.godot/imported/蹲 转.fbx-78dd28fa23def5ea1ff2f51b70aad96c.res"
 
 [deps]
 
 source_file="res://assets/3D/character/主角/蹲 转.fbx"
-dest_files=["res://.godot/imported/蹲 转.fbx-78dd28fa23def5ea1ff2f51b70aad96c.scn"]
+dest_files=["res://.godot/imported/蹲 转.fbx-78dd28fa23def5ea1ff2f51b70aad96c.res"]
 
 [params]
 
