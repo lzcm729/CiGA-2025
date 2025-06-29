@@ -129,6 +129,7 @@ func _process(delta: float) -> void:
 					is_key_pressed = false
 					key_press_time = 0.0
 			STATE_1:
+				PostEffect_EdgeChange.hide()
 				print("回头结束 等待下一轮计数")
 				emit_signal("CHILD_COUNT_1_END")
 		cur_state = state_map[cur_state]
@@ -137,9 +138,11 @@ func _process(delta: float) -> void:
 func on_item_back_end() -> void:
 	# 回退到原点 开始下一轮
 	PostEffect_CRT.hide()
+	PostEffect_EdgeChange.hide()
 	print("回退到原点 开始下一轮")
-	cur_state = state_map[cur_state]
+	cur_rule = 0
 	last_past_time = 0
+	cur_state = STATE_0
 
 func register_item_signal(item:Player) -> void:
 	item.back_end.connect(on_item_back_end)	

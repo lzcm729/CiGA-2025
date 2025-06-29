@@ -38,6 +38,7 @@ var is_back : bool = false
 var is_follow_path: bool = false
 var is_current : bool = false
 var is_game_start : bool = false
+var is_finished : bool = false
 
 func move() -> void:
 	if anim_state_machine:
@@ -117,7 +118,7 @@ func is_current_valid() -> bool :
 	return is_current
 
 func is_input_valid() -> bool :
-	return visible and is_current_valid() and (not is_switching) and (not is_back) and (is_game_start)
+	return visible and is_current_valid() and (not is_switching) and (not is_back) and (is_game_start) and (not is_finished)
 
 func start_back() -> void :
 	if state_machine:
@@ -157,9 +158,7 @@ func _ready() -> void:
 	DataManager.update_datamanager_listener()
 	var children = DataManager.get_cur_children()
 	var gameplay = DataManager.get_cur_gameplay()
-	if children:
-		children.CHILD_CATCH_YOU.connect(start_back)
-		
+
 	if gameplay:
 		gameplay.GAME_START.connect(on_game_start)
 		gameplay.GAME_SUCCESS.connect(on_game_end)
