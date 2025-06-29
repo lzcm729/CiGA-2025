@@ -8,7 +8,7 @@ class_name Draw
 @onready var mesh_node: Node3D = $"Mesh"       # 引用 Mesh 节点
 @onready var init_y: float = $"Mesh".position.y  # 记录原始高度
 
-var is_finished := false
+#var is_finished := false
 
 
 func _process(delta: float) -> void:
@@ -34,11 +34,11 @@ func _process(delta: float) -> void:
 		lamp.increase_light(delta)
 		# ↑ 未按下时上升，但不超原位
 		var rise = move_speed * delta
-		var curr_y = mesh_node.translation.y
+		var curr_y = mesh_node.position.y
 		if curr_y + rise < init_y:
 			mesh_node.translate(Vector3(0, rise, 0))
 		else:
-			mesh_node.translation.y = init_y
+			mesh_node.position.y = init_y
 		stop_action.emit(Consts.ITEMS.DRAW)
 
 
