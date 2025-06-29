@@ -4,9 +4,11 @@ class_name Draw
 
 @export var lamp : Lamp
 var is_finished := false
+var be_seen := false
 
 
 func _process(delta: float) -> void:
+	if be_seen: return
 	if is_finished: return
 	if Input.is_action_pressed("interact"):
 		var res = lamp.decrease_light(delta)
