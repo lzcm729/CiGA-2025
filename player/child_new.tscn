@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b50huuhx2kvma"]
+[gd_scene load_steps=32 format=4 uid="uid://b50huuhx2kvma"]
 
 [ext_resource type="Script" uid="uid://dipbdotyy16o1" path="res://player/child_new.gd" id="1_58dp7"]
 [ext_resource type="Texture2D" uid="uid://bekts6v6cppom" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Base_color.png" id="3_ng5v8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0s0yp7em11h" path="res://assets/3D/character/主角/DefaultMaterial_Normal.png" id="9_p2skl"]
 [ext_resource type="Texture2D" uid="uid://m12oj4jjg32b" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Normal_OpenGL.png" id="11_swbb8"]
 [ext_resource type="AnimationLibrary" uid="uid://cpaqbniydm1yb" path="res://assets/3D/character/主角/蹲 转.fbx" id="13_52wo7"]
+[ext_resource type="AudioStream" uid="uid://dy17mxg6d8ivf" path="res://assets/audios/小孩哈欠.mp3" id="13_swbb8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0sg5"]
 size = Vector3(1.51978, 1.93533, 1.41504)
@@ -829,3 +830,6 @@ libraries = {
 root_node = NodePath("../Mesh")
 tree_root = SubResource("AnimationNodeBlendTree_p2skl")
 anim_player = NodePath("../Mesh/AnimationPlayer")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_swbb8")
