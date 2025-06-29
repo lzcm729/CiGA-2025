@@ -29,6 +29,7 @@ class_name MainLevelHUD
 @onready var closet: PlayerPortrait = $PlayerPortrait/HBoxContainer/Closet
 @onready var watcher: PlayerPortrait = $PlayerPortrait/HBoxContainer/Watcher
 @onready var lamp: PlayerPortrait = $PlayerPortrait/HBoxContainer/Lamp
+@onready var timer: Timer = $Timer
 
 var total_time:int
 var now_level:Level
@@ -65,9 +66,16 @@ func init_child_speak():
 	child_speak_scare_2.visible = false
 	child_speak_scare_3.visible = false
 
+func hide_1():
+	child_speak_1.visible = false
+	timer.stop()
+	timer.disconnect('timeout', hide_1)
+
 ##1的显示
 func show_child_count1():
 	child_speak_1.visible = true
+	timer.connect("timeout", hide_1)
+	timer.start(0.5)
 
 
 ##2的显示

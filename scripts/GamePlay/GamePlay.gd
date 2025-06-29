@@ -55,7 +55,7 @@ func on_single_timer_end() -> void:
 
 signal COUNTDOWN_5_START()
 func count_down_and_start_game() -> void:
-	times = 5
+	times = 3
 	time.connect("timeout", on_single_timer_end)
 	time.start(1)
 	emit_signal("COUNTDOWN_5_START")

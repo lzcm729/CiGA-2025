@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bejjmbi2o131a" path="res://assets/child_speak/scare3.png" id="7_5c7kb"]
 [ext_resource type="Texture2D" uid="uid://c23ax73l2n3a6" path="res://assets/child_speak/scare2.png" id="8_7nw2e"]
 [ext_resource type="Texture2D" uid="uid://db7xdgmsjkks4" path="res://assets/child_speak/scare1.png" id="9_ub2gk"]
-[ext_resource type="PackedScene" uid="uid://bvqplqbdxody3" path="res://zyh/player_portrait.tscn" id="10_ub2gk"]
+[ext_resource type="PackedScene" path="res://zyh/player_portrait.tscn" id="10_ub2gk"]
 [ext_resource type="Texture2D" uid="uid://ug21tuscf5un" path="res://assets/player_portrait/closet_portrait_normal.png" id="11_awofo"]
 [ext_resource type="Texture2D" uid="uid://c30pbmgm5iaig" path="res://assets/player_portrait/closet_portrait_select.png" id="12_5fie3"]
 [ext_resource type="Texture2D" uid="uid://de56b68fkbbjf" path="res://assets/player_portrait/watcher_portrait_normal.png" id="13_lx47f"]
@@ -229,6 +229,7 @@ mouse_filter = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 
 [node name="3" type="TextureRect" parent="ChildSpeak/Num"]
@@ -413,6 +414,8 @@ texture = ExtResource("15_5fie3")
 
 [node name="Select" parent="PlayerPortrait/HBoxContainer/Lamp" index="1"]
 texture = ExtResource("16_lx47f")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="CountDownMarginContainer/Control/Timer" to="CountDownMarginContainer/Control/Num" method="_on_timer_timeout"]
 [connection signal="pressed" from="EndContainer/Control/Back" to="." method="_on_back_pressed"]
