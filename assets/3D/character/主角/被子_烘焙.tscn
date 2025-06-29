@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://4bwcutld60ky"]
+
+[ext_resource type="PackedScene" uid="uid://0uud55t3l6q5" path="res://assets/3D/character/主角/被子 烘焙.fbx" id="1_6n7gd"]
+
+[node name="被子 烘焙" instance=ExtResource("1_6n7gd")]
