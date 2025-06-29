@@ -348,6 +348,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Back" type="Button" parent="EndContainer/Control"]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 492.0
 offset_right = 860.0

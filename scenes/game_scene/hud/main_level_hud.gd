@@ -20,6 +20,7 @@ extends Control
 @onready var child_speak_scare_1: HBoxContainer = $ChildSpeak/Mark/Scare1
 @onready var child_speak_scare_2: HBoxContainer = $ChildSpeak/Mark/Scare2
 @onready var child_speak_scare_3: TextureRect = $ChildSpeak/Mark/Scare3
+
 @onready var end_container: MarginContainer = $EndContainer
 
 var total_time:int
@@ -33,6 +34,7 @@ func _ready() -> void:
 	gameplay.GAME_SUCCESS.connect(on_game_success)
 	init_time_show()
 	switch_hud_show(false)
+	end_container.visible = false
 	var child = DataManager.get_cur_children()
 	child.CHILD_COUNT_3.connect(on_child_count3_show)
 	child.CHILD_COUNT_2.connect(on_child_count2_show)
@@ -117,6 +119,7 @@ func on_game_start(input_time:int):
 	total_time = input_time
 	init_time_show()
 	switch_hud_show(true)
+	end_container.visible = false
 
 
 func switch_hud_show(is_show):
