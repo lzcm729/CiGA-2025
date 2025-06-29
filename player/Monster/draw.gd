@@ -7,6 +7,8 @@ class_name Draw
 @export var min_y: float = -3.0                 # 最低允许下降的 y 坐标
 @onready var mesh_node: Node3D = $"Mesh"       # 引用 Mesh 节点
 @onready var init_y: float = $"Mesh".position.y  # 记录原始高度
+@onready var sound: AudioStreamPlayer3D = $Sound
+
 
 #var is_finished := false
 
