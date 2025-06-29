@@ -24,7 +24,8 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 @onready var mesh: Node3D = $Mesh
 var spring_arm_3d: SpringArm3D
 var camera_3d: Camera3D
- 
+@onready var sound_move: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 #@onready var is_moving : bool = false :
 	#set(value):
 		#is_moving = value
