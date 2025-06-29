@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GameName"
+config/name="抓住那个小孩"
 run/main_scene="uid://dboeh8i18e2sh"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
