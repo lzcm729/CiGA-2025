@@ -76,12 +76,6 @@ visible = false
 
 [node name="Child2" parent="." instance=ExtResource("28_fvvi0")]
 transform = Transform3D(0.998265, 0.00108491, 0.058861, 0, 0.99983, -0.0184296, -0.0588706, 0.0183977, 0.998096, -9.89706, 8.42125, 5.72153)
-yaw_offset = 180
-speed = 1.25
-back_speed = 15.0
-jump_velocity = 5
-index = 0
-enable_jump = false
 ignore_gravity = true
 
 [node name="Path3D2" type="Path3D" parent="."]
@@ -124,6 +118,9 @@ transform = Transform3D(-0.281633, -0.162535, 0.945656, 0.0218297, 0.984208, 0.1
 transform = Transform3D(-0.197615, 0, -0.0307972, 0, 0.2, 0, 0.0307972, 0, -0.197615, -8.67402, 9.38019, 4.64146)
 lamp = NodePath("../Lamp")
 index = 4
+
+[node name="CollisionShape3D" parent="Draw" index="1"]
+disabled = true
 
 [node name="Camera3D" parent="Draw" index="2"]
 transform = Transform3D(3.12178, -0.318046, -3.89273, 1.0569, 4.86626, 0.449996, 3.75998, -1.1038, 3.1055, -2.76561, 1.30037, 2.88965)
