@@ -7,6 +7,7 @@ var shrink_rate: float = 0.5
 var cylinder_mesh: CylinderMesh
 
 var is_relighting := false
+var draw : Draw
 
 @onready var decal: MeshInstance3D = $Decal
 @onready var light: SpotLight3D = $SpotLight3D
@@ -26,6 +27,7 @@ func decrease_light(delta) -> bool:
 		return true
 	else:
 		print("Light is gone")
+		sound.play()
 		decal.visible = false
 		light.visible = false
 		decal.queue_free()
@@ -49,4 +51,5 @@ func Relight() -> void:
 	tween.tween_property(cylinder_mesh, "bottom_radius", default_radius, 0.2)
 	tween.tween_callback(func():
 		is_relighting = false
+		draw.back_end.emit()
 	)
