@@ -72,10 +72,13 @@ var cur_children:Children
 func update_datamanager_listener() -> void:
 	if last_level != 0:
 		cur_game_play.GAME_SUCCESS.disconnect(handle_level_success)
+		cur_game_play.GAME_ITEM_ACHIEVEMENT.disconnect(handle_item_signal)
 	cur_game_play = get_node("/root/Level" + str(current_level) + "/GamePlay")
 	cur_children = get_node("/root/Level" + str(current_level) + "/Children")
-	cur_game_play.GAME_SUCCESS.connect(handle_level_success)
-	cur_game_play.GAME_ITEM_ACHIEVEMENT.connect(handle_item_signal)
+	if not cur_game_play.GAME_SUCCESS.has_connections():
+		cur_game_play.GAME_SUCCESS.connect(handle_level_success)
+	if not cur_game_play.GAME_ITEM_ACHIEVEMENT.has_connections():
+		cur_game_play.GAME_ITEM_ACHIEVEMENT.connect(handle_item_signal)
 
 func get_cur_gameplay() -> GamePlay:
 	return cur_game_play
