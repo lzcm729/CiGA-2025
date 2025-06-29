@@ -105,5 +105,6 @@ func _process(delta: float) -> void:
 		last_past_time -= cur_time_target
 
 func _ready() -> void:
+	DataManager.update_datamanager_listener()
 	var gameplay = DataManager.get_cur_gameplay()
 	gameplay.connect("GAME_START", child_on_game_start)

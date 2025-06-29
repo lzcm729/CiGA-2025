@@ -6,6 +6,40 @@ func _ready() -> void:
 	var children = DataManager.get_cur_children()
 	if children:
 		children.CHILD_COUNT_1_START.connect(turn)
+	
+	# 连接Area3D的碰撞信号
+	var area3d = get_node_or_null("Area3D")
+	if area3d:
+		area3d.body_entered.connect(_on_area_3d_body_entered)
+		area3d.area_entered.connect(_on_area_3d_area_entered)
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	_check_for_victory(body)
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	_check_for_victory(area)
+
+func _check_for_victory(node: Node) -> void:
+	# 检查是否是book或watch对象
+	if _is_book_or_watch(node):
+		print("胜利！检测到目标对象：", node.name)
+		# 触发胜利事件
+		var gameplay = DataManager.get_cur_gameplay()
+		if gameplay:
+			gameplay.on_catch_child()
+
+func _is_book_or_watch(node: Node) -> bool:
+	# 检查节点名称是否包含book或watch
+	var node_name = node.name.to_lower()
+	if "book" in node_name or "watch" in node_name:
+		return true
+	
+	# 检查父节点
+	var parent = node.get_parent()
+	if parent and parent != self:
+		return _is_book_or_watch(parent)
+	
+	return false
 
 func turn() -> void:
 	if anim_state_machine:

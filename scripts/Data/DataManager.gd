@@ -8,7 +8,7 @@ var data_config = load("res://scripts/Data/Data.gd")
 var cur_scene_id = Consts.SCENES.START_UP
 var current_level = 0
 
-var achievement = {}
+var achievements = {}
 func new_achievement() -> Dictionary:
 	return {"level" : false, "success_time":-1, "item":{}, "block":{}}
 
@@ -35,23 +35,23 @@ func select_level(target_level:int) -> void:
 func handle_item_signal(item_enum:int) -> void:
 	var level_index = current_level
 	print(level_index, item_enum)
-	if achievement[level_index] == null:
-		achievement[level_index] = new_achievement()
-	achievement[level_index]["item"][item_enum] = true
+	if achievements[level_index] == null:
+		achievements[level_index] = new_achievement()
+	achievements[level_index]["item"][item_enum] = true
 
 func handle_block_signal(block_enum:int) -> void:
 	var level_index = current_level
 	print(level_index, block_enum)
-	if achievement[level_index] == null:
-		achievement[level_index] = new_achievement()
-	achievement[level_index]["block"][block_enum] = true
+	if achievements[level_index] == null:
+		achievements[level_index] = new_achievement()
+	achievements[level_index]["block"][block_enum] = true
 
 func handle_level_success(past_time:float) -> void:
 	var level_index = current_level
 	print(level_index)
-	if achievement[level_index] == null:
-		achievement[level_index] = new_achievement()
-	var achievement = achievement[level_index]
+	if achievements[level_index] == null:
+		achievements[level_index] = new_achievement()
+	var achievement = achievements[level_index]
 	if achievement["level"] != true:
 		achievement["level"] = true
 	var cur_suc_time = achievement["success_time"]
