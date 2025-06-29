@@ -20,7 +20,7 @@ extends Control
 @onready var child_speak_scare_1: HBoxContainer = $ChildSpeak/Mark/Scare1
 @onready var child_speak_scare_2: HBoxContainer = $ChildSpeak/Mark/Scare2
 @onready var child_speak_scare_3: TextureRect = $ChildSpeak/Mark/Scare3
-
+@onready var end_container: MarginContainer = $EndContainer
 
 var total_time:int
 
@@ -30,6 +30,7 @@ func _ready() -> void:
 	gameplay.TIME_COUNTDOWN.connect(on_time_countdown)
 	back.pressed.connect(on_back_pressed)
 	gameplay.GAME_START.connect(on_game_start)
+	gameplay.GAME_SUCCESS.connect(on_game_success)
 	init_time_show()
 	switch_hud_show(false)
 	var child = DataManager.get_cur_children()
@@ -127,3 +128,10 @@ func switch_hud_show(is_show):
 func init_time_show():
 	progress_bar.value = 100
 	remain_time.text = "%02d:%02d"%([(total_time/60),(int(total_time)%60)])
+
+func on_game_success(past_time:float):
+	switch_hud_show(false)
+	end_container.visible=true	
+
+func _on_back_pressed() -> void:
+	SceneLoader.load_scene("res://scenes/game_scene/select_level/select_level.tscn")
