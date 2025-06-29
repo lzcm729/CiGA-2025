@@ -13,7 +13,7 @@ var is_eating := false
 @onready var door_sound: AudioStreamPlayer3D = $Sound
 @onready var sound_shut: AudioStreamPlayer3D = $Sound2
 
-	
+
 	
 # func _process(delta: float) -> void:
 # 	if not start_remove: return

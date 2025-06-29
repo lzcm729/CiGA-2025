@@ -4,6 +4,8 @@ extends Node3D
 @export var PostEffect_CRT : CanvasLayer
 var playerList : Array[Player] = []
 var is_switching : bool = false
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 
 func find_player(index:int) -> Player:
 	for player in playerList:
@@ -20,6 +22,7 @@ func switch(index:int) ->void:
 			cur_player.switch_camera_with_tween(next_player)
 
 func _ready() -> void:
+	audio_stream_player_3d.play()
 	for child in get_children():
 		if child is Player:
 			playerList.append(child)
