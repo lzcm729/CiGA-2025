@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bw0l0xdq8l3sh"]
 
 [ext_resource type="Script" uid="uid://dhqxy415sgrm" path="res://player/Obstacle/light.gd" id="1_ru4q6"]
-[ext_resource type="PackedScene" uid="uid://w4knshu08toe" path="res://assets/3D/character/灯/灯.tscn" id="1_uyeer"]
+[ext_resource type="PackedScene" uid="uid://cg26yufvcsov1" path="res://assets/3D/character/灯/灯.tscn" id="1_uyeer"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ru4q6"]
 top_radius = 0.04
