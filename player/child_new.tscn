@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=4 uid="uid://b50huuhx2kvma"]
+[gd_scene load_steps=31 format=4 uid="uid://b50huuhx2kvma"]
 
-[ext_resource type="Script" uid="uid://4ve24poo2esn" path="res://scripts/Player/player.gd" id="1_djfm5"]
+[ext_resource type="Script" uid="uid://dipbdotyy16o1" path="res://player/child_new.gd" id="1_58dp7"]
 [ext_resource type="Texture2D" uid="uid://bekts6v6cppom" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Base_color.png" id="3_ng5v8"]
+[ext_resource type="Script" uid="uid://bidgih3nt53ow" path="res://player/turn.gd" id="4_58dp7"]
 [ext_resource type="Texture2D" uid="uid://xep0byc18g8a" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Metallic.png" id="4_ibc7s"]
 [ext_resource type="Texture2D" uid="uid://cdny68eq3d3u2" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Roughness.png" id="6_58dp7"]
 [ext_resource type="Texture2D" uid="uid://debhx6prcmb6k" path="res://assets/3D/character/主角/DefaultMaterial_Metallic.png" id="8_52wo7"]
@@ -9,22 +10,11 @@
 [ext_resource type="Script" uid="uid://dlrqvlk7uquu0" path="res://scripts/StateMachine/StateMachine.gd" id="8_swbb8"]
 [ext_resource type="Script" uid="uid://dkfgpgem620tk" path="res://scripts/Player/Idle.gd" id="9_52wo7"]
 [ext_resource type="Texture2D" uid="uid://dq0s0yp7em11h" path="res://assets/3D/character/主角/DefaultMaterial_Normal.png" id="9_p2skl"]
-[ext_resource type="Script" uid="uid://dndiagkje5uyf" path="res://scripts/Player/Run.gd" id="10_p2skl"]
-[ext_resource type="Script" uid="uid://bgws6lnfcxp7y" path="res://scripts/Player/Jump.gd" id="11_qm1kx"]
 [ext_resource type="Texture2D" uid="uid://m12oj4jjg32b" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Normal_OpenGL.png" id="11_swbb8"]
-[ext_resource type="Script" uid="uid://dgj4rwdmcnsia" path="res://scripts/Player/Fall.gd" id="12_fbnuk"]
 [ext_resource type="AnimationLibrary" uid="uid://cpaqbniydm1yb" path="res://assets/3D/character/主角/蹲 转.fbx" id="13_52wo7"]
-[ext_resource type="Script" uid="uid://c64m4ymwwl68k" path="res://scripts/Player/Back.gd" id="13_wqll4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0sg5"]
 size = Vector3(1.51978, 1.93533, 1.41504)
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k35ck"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_swbb8"]
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_k35ck")
-nodes/StateMachine/position = Vector2(11.721, 100.177)
-node_connections = [&"output", 0, &"StateMachine"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe70e"]
 resource_name = "DefaultMaterial"
@@ -464,8 +454,36 @@ _data = {
 &"mixamo_com": SubResource("Animation_gowxh")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qm1kx"]
+animation = &"mixamo_com"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p2skl"]
+animation = &"蹲 转/mixamo_com"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fbnuk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wqll4"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l67o1"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p2skl"]
+states/Idle/node = SubResource("AnimationNodeAnimation_qm1kx")
+states/Idle/position = Vector2(295, 166)
+states/Start/position = Vector2(147, 100)
+states/Turn/node = SubResource("AnimationNodeAnimation_p2skl")
+states/Turn/position = Vector2(354, 95)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fbnuk"), "Idle", "Turn", SubResource("AnimationNodeStateMachineTransition_wqll4"), "Turn", "Idle", SubResource("AnimationNodeStateMachineTransition_l67o1")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p2skl"]
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_p2skl")
+nodes/StateMachine/position = Vector2(20, 100)
+node_connections = [&"output", 0, &"StateMachine"]
+
 [node name="Child" type="CharacterBody3D"]
-script = ExtResource("1_djfm5")
+script = ExtResource("1_58dp7")
 metadata/_custom_type_script = "uid://4ve24poo2esn"
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -487,33 +505,13 @@ script = ExtResource("9_52wo7")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://bca2cipd0j606"
 
-[node name="Run" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("10_p2skl")
-player = NodePath("../..")
+[node name="Turn" type="Node3D" parent="StateMachine"]
+script = ExtResource("4_58dp7")
 metadata/_custom_type_script = "uid://bca2cipd0j606"
-
-[node name="Jump" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("11_qm1kx")
-player = NodePath("../..")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
-
-[node name="Fall" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("12_fbnuk")
-player = NodePath("../..")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
-
-[node name="Back" type="Node3D" parent="StateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("13_wqll4")
-player = NodePath("../..")
-metadata/_custom_type_script = "uid://bca2cipd0j606"
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("")
-tree_root = SubResource("AnimationNodeBlendTree_swbb8")
-anim_player = NodePath("../Mesh/AnimationPlayer")
 
 [node name="被子 烘焙" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.584832, 0.0246821, 0.00501484)
+visible = false
 
 [node name="Group33856" type="MeshInstance3D" parent="被子 烘焙"]
 transform = Transform3D(0.461515, 0, 0.526312, 0, 0.7, 0, -0.526312, 0, 0.461515, 1.3554, -0.153525, 0.216526)
@@ -823,3 +821,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_qrelr"),
 &"蹲 转": ExtResource("13_52wo7")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Mesh")
+tree_root = SubResource("AnimationNodeBlendTree_p2skl")
+anim_player = NodePath("../Mesh/AnimationPlayer")

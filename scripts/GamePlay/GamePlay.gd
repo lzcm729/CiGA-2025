@@ -60,5 +60,6 @@ func count_down_and_start_game() -> void:
 	time.start(1)
 
 func _ready() -> void:
+	DataManager.update_datamanager_listener()
 	PostEffect_CRT.hide()
 	PostEffect_EdgeChange.hide()

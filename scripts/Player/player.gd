@@ -146,6 +146,11 @@ func make_current(is_enable:bool) -> void:
 		is_current = false
 
 func _ready() -> void:
+	var children = DataManager.get_cur_children()
+	if children:
+		children.CHILD_CATCH_YOU.connect(start_back)
+	
+	
 	for child in get_children():
 		if !state_machine and (child is StateMachine):
 			state_machine = child
