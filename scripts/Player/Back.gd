@@ -6,7 +6,6 @@ func enter() -> void:
 	super.enter()
 	#print("enter Idle")
 	player.is_back = true
-	player.move()
 	if player.get_scene() and player.get_scene().PostEffect_CRT :
 		player.get_scene().PostEffect_CRT.show()
 		

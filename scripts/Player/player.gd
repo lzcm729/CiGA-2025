@@ -157,9 +157,7 @@ func _ready() -> void:
 	DataManager.update_datamanager_listener()
 	var children = DataManager.get_cur_children()
 	var gameplay = DataManager.get_cur_gameplay()
-	if children:
-		children.CHILD_CATCH_YOU.connect(start_back)
-		
+
 	if gameplay:
 		gameplay.GAME_START.connect(on_game_start)
 		gameplay.GAME_SUCCESS.connect(on_game_end)
