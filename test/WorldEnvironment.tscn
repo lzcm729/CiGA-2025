@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbbeq4jwg3egn"]
 
-[ext_resource type="CameraAttributesPractical" uid="uid://4cfoi3npjx37" path="res://CameraAttributes.tres" id="1_q0a8c"]
+[ext_resource type="CameraAttributesPractical" uid="uid://4cfoi3npjx37" path="res://test/CameraAttributes.tres" id="1_q0a8c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_06w47"]
 sky_horizon_color = Color(0, 0, 0, 1)

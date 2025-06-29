@@ -118,7 +118,7 @@
 [ext_resource type="PackedScene" uid="uid://bcjsl3w1djm3m" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_19.tscn" id="116_cba24"]
 [ext_resource type="PackedScene" uid="uid://b0w76fqk0kmfg" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_20.tscn" id="117_cbcgm"]
 [ext_resource type="PackedScene" uid="uid://dmoce0fcq3l34" path="res://test/Prefabs/Attic_Cable_01_LP_Splines_21.tscn" id="118_cbcgm"]
-[ext_resource type="PackedScene" path="res://test/WorldEnvironment.tscn" id="119_dx7tv"]
+[ext_resource type="PackedScene" uid="uid://dbbeq4jwg3egn" path="res://test/WorldEnvironment.tscn" id="119_dx7tv"]
 
 [node name="Root" type="Node3D"]
 

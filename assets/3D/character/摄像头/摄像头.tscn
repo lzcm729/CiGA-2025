@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dfa3sw8v603ya" path="res://eye 摄像机）.tscn" id="6_k4fvr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j3n25"]
-load_path = "res://.godot/imported/initialShadingGroup_Height.png-a2727fca02841410af96ff79e58bfab9.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6bqs"]
 albedo_texture = ExtResource("2_x7uiq")

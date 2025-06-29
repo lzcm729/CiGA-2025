@@ -2832,3 +2832,7 @@ skeleton = NodePath("../../..")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("119_kohiv")
 volume_db = 60.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.38388, 9.43207, 5.99393)
+light_color = Color(1, 1, 0.501961, 1)
