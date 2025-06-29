@@ -68,8 +68,8 @@ func update_sub_sticker_visible(node:Node):
 	if closet != null :
 		closet.find_child("Stamp").visible = cur_level_ach["item"][Consts.ITEMS.CLOSET]
 
-	#if watcher != null :
-		#watcher.visible = cur_level_ach["item"][Consts.ITEMS.WATCHER]
+	if watcher != null :
+		watcher.find_child("Stamp").visible = cur_level_ach["item"][Consts.ITEMS.CAMERA]
 
 	if lamp != null :
 		lamp.find_child("Stamp").visible = cur_level_ach["item"][Consts.ITEMS.DRAW]
