@@ -51,6 +51,7 @@ func _input(event: InputEvent) -> void:
 	if is_current:
 		var action = "switch"
 		for player in playerList :
-			var playerIndex = action + str(player.index)
-			if event.is_action_pressed(playerIndex) :
-				switch_player(player.index)
+			if player.index != 0 :
+				var playerIndex = action + str(player.index)
+				if event.is_action_pressed(playerIndex) :
+					switch_player(player.index)
