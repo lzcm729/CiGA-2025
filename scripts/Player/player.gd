@@ -5,6 +5,7 @@ class_name Player
 signal start_action(en:int)
 signal stop_action(en:int)
 signal finish_action(en:int)
+signal back_end()
 
 var level: Level
 var animation_tree: AnimationTree
@@ -36,6 +37,7 @@ var is_switching : bool = false
 var is_back : bool = false
 var is_follow_path: bool = false
 var is_current : bool = false
+var is_game_start : bool = false
 
 func move() -> void:
 	if anim_state_machine:
@@ -115,7 +117,7 @@ func is_current_valid() -> bool :
 	return is_current
 
 func is_input_valid() -> bool :
-	return visible and is_current_valid() and (not is_switching) and (not is_back)
+	return visible and is_current_valid() and (not is_switching) and (not is_back) and (is_game_start)
 
 func start_back() -> void :
 	if state_machine:
@@ -145,11 +147,23 @@ func make_current(is_enable:bool) -> void:
 	else:
 		is_current = false
 
+func on_game_start(total_time:float) -> void:
+	is_game_start = true	
+	
+func on_game_end() -> void:
+	is_game_start = false
+
 func _ready() -> void:
+	DataManager.update_datamanager_listener()
 	var children = DataManager.get_cur_children()
+	var gameplay = DataManager.get_cur_gameplay()
 	if children:
 		children.CHILD_CATCH_YOU.connect(start_back)
-	
+		
+	if gameplay:
+		gameplay.GAME_START.connect(on_game_start)
+		gameplay.GAME_SUCCESS.connect(on_game_end)
+		gameplay.GAME_TIMEOUT.connect(on_game_end)
 	
 	for child in get_children():
 		if !state_machine and (child is StateMachine):

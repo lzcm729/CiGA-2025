@@ -1,7 +1,5 @@
 extends Node
 class_name GamePlay
-@onready var PostEffect_CRT: CanvasLayer = $"../CanvasLayer_CRT"
-@onready var PostEffect_EdgeChange: CanvasLayer = $"../CanvasLayer_EdgeChange"
 
 var timer = 0
 var past_time = 0
@@ -68,11 +66,10 @@ func on_catch_child() -> void:
 
 func on_item_success(item_enum:int) -> void:
 	emit_signal("GAME_ITEM_ACHIEVEMENT", item_enum)
+	
 
 func register_item_signal(item:Player) -> void:
 	item.finish_action.connect(on_item_success)
 
 func _ready() -> void:
 	DataManager.update_datamanager_listener()
-	PostEffect_CRT.hide()
-	PostEffect_EdgeChange.hide()

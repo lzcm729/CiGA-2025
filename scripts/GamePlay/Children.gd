@@ -2,17 +2,22 @@ extends Node
 
 class_name Children
 
+@onready var PostEffect_EdgeChange: CanvasLayer = $"../CanvasLayer_EdgeChange"
+@onready var PostEffect_CRT: CanvasLayer = $"../CanvasLayer_CRT"
+
 const STATE_0 = 0 # 从 没有到 开始数 3
 const STATE_3 = 1 # 从 数3 到 数2
 const STATE_2 = 2 # 从 数2 到 数1 -> 等于结束
 const STATE_1 = 3 # 从 数1 的 hold
+const STATE_CATCH = 4 # 从被抓 到 回到原点
 
 var cur_state = 0
 var state_map = {
 	STATE_0 : STATE_3,
 	STATE_3 : STATE_2,
 	STATE_2 : STATE_1,
-	STATE_1 : STATE_0
+	STATE_1 : STATE_0,
+	STATE_CATCH : STATE_3,
 }
 
 signal CHILD_COUNT_3()
@@ -50,19 +55,37 @@ func _process(delta: float) -> void:
 		cur_state = STATE_0
 	
 	var rule = state_rule[cur_rule]
-	var cur_time_target = rule[cur_state]
 
 	total_time -= delta
+
+	# 回退状态下不再处理状态变化 直到回退状态结束
+	if cur_state == STATE_CATCH:
+		return
+
+	var cur_time_target = rule[cur_state]
 	last_past_time += delta
 	
 	# 回头状态下 开始检测玩家是否按键：
 	if cur_state == STATE_1:
 		# 处理按键状态
 		if Input.is_action_pressed("move_up"):
-			if not is_key_pressed:
-				is_key_pressed = true
+			# 新按前进键的时候 只要按键了 就被抓了
+			if (not is_key_pressed):
+				# 直接抓住
+				print("孩子看到你了 你被抓住了")
 				key_press_time = 0.0
-			key_press_time += delta
+				cur_state = STATE_CATCH
+				last_past_time = 0.0
+
+				var level:Level = get_parent()
+				var cur_player = level.find_player(level.currentPlayerIndex)			
+				cur_player.start_back()
+				PostEffect_CRT.show()
+
+				emit_signal("CHILD_CATCH_YOU")
+			else:
+				# 之前就按着的话 累加按键时间
+				key_press_time += delta
 		else:
 			if is_key_pressed and key_press_time < tolerate:
 				print("你及时停止了运动 逃过一劫")
@@ -72,9 +95,15 @@ func _process(delta: float) -> void:
 		# 检查按键时长
 		if key_press_time >= tolerate:
 			print("孩子看到你了 你被抓住了")
-			key_press_time = 0.0	 
-			cur_state = STATE_0
-			total_time = -1
+			key_press_time = 0.0
+			cur_state = STATE_CATCH
+			last_past_time = 0.0
+
+			var level:Level = get_parent()
+			var cur_player = level.find_player(level.currentPlayerIndex)			
+			cur_player.start_back()
+			PostEffect_CRT.show()
+
 			emit_signal("CHILD_CATCH_YOU")
 			return
 
@@ -90,6 +119,7 @@ func _process(delta: float) -> void:
 				emit_signal("CHILD_COUNT_2")
 			STATE_2:
 				print("COUNT 1 - 并回头")
+				PostEffect_EdgeChange.show()
 				emit_signal("CHILD_COUNT_1_START")
 				# 需要预处理玩家的按键状态
 				if Input.is_action_pressed("move_up"):
@@ -104,7 +134,19 @@ func _process(delta: float) -> void:
 		cur_state = state_map[cur_state]
 		last_past_time -= cur_time_target
 
+func on_item_back_end() -> void:
+	# 回退到原点 开始下一轮
+	PostEffect_CRT.hide()
+	print("回退到原点 开始下一轮")
+	cur_state = state_map[cur_state]
+	last_past_time = 0
+
+func register_item_signal(item:Player) -> void:
+	item.back_end.connect(on_item_back_end)	
+
 func _ready() -> void:
 	DataManager.update_datamanager_listener()
 	var gameplay = DataManager.get_cur_gameplay()
 	gameplay.connect("GAME_START", child_on_game_start)
+	PostEffect_EdgeChange.hide()
+	PostEffect_CRT.hide()
