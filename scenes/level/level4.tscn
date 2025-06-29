@@ -1,11 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://cwcabhr6c4ypo"]
+[gd_scene load_steps=39 format=3 uid="uid://da2f8o856lqew"]
 
-[ext_resource type="Script" uid="uid://dhqxy415sgrm" path="res://player/Obstacle/light.gd" id="1_4lbx7"]
+[ext_resource type="Script" path="res://player/Obstacle/light.gd" id="1_4lbx7"]
 [ext_resource type="PackedScene" uid="uid://c5k0pnn7gn010" path="res://scenes/3D/player.tscn" id="1_80v56"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_16ykl"]
 [ext_resource type="Script" uid="uid://4ve24poo2esn" path="res://scripts/Player/player.gd" id="2_dfykx"]
 [ext_resource type="PackedScene" uid="uid://dvgmwr8lrkugy" path="res://assets/3D/character/book/cartoon.tscn" id="3_4lbx7"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="3_njhdo"]
-[ext_resource type="Script" uid="uid://dgmplgwr81qaf" path="res://player/Monster/closet.gd" id="4_kf8n4"]
+[ext_resource type="Script" path="res://player/Monster/closet.gd" id="4_kf8n4"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="4_pjvq8"]
 [ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="5_qwk53"]
 [ext_resource type="Texture2D" uid="uid://2i8jy3cn3n5h" path="res://assets/3D/character/柜子/initialShadingGroup_Base_color.png" id="6_miocn"]
@@ -20,6 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="16_3p2pj"]
 [ext_resource type="PackedScene" uid="uid://bw0l0xdq8l3sh" path="res://player/Obstacle/Light.tscn" id="18_qwk53"]
 [ext_resource type="Script" path="res://player/Monster/draw.gd" id="19_m84cw"]
+[ext_resource type="PackedScene" uid="uid://0fx1uag1qdyr" path="res://player/Child.tscn" id="22_fvvi0"]
+[ext_resource type="Script" uid="uid://3s3uube6r4tx" path="res://scripts/GamePlay/Children.gd" id="23_3p2pj"]
+[ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="24_6u2ve"]
+[ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="25_maq55"]
+[ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="26_wl44m"]
+[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="27_dfykx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5nui"]
 size = Vector3(0.462, 0.573, 0.671)
@@ -94,6 +101,8 @@ size = Vector3(0.5, 4.40192, 0.5)
 
 [node name="Level4" type="Node3D" groups=["LevelGroup"]]
 script = ExtResource("1_4lbx7")
+
+[node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_16ykl")]
 
 [node name="book" type="CharacterBody3D" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"]]
 transform = Transform3D(-0.284183, 0, 0.95877, 0, 1, 0, -0.95877, 0, -0.284183, -4.91773, 8.63219, 4.86294)
@@ -472,5 +481,29 @@ current = true
 
 [node name="Light" parent="Draw" instance=ExtResource("18_qwk53")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0589371, -2.394, -0.476227)
+
+[node name="Child" parent="." groups=["LevelGroup"] instance=ExtResource("22_fvvi0")]
+transform = Transform3D(-1.31209, 0, 1.50944, 0, 2, 0, -1.50944, 0, -1.31209, -10.2035, 8.83145, 5.75599)
+
+[node name="Children" type="Node" parent="."]
+script = ExtResource("23_3p2pj")
+
+[node name="GamePlay" type="Node" parent="."]
+script = ExtResource("24_6u2ve")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MainLevelHud" parent="." node_paths=PackedStringArray("gameplay") instance=ExtResource("25_maq55")]
+gameplay = NodePath("")
+
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay", "main_level_hud")]
+script = ExtResource("26_wl44m")
+gameplay = NodePath("")
+main_level_hud = NodePath("")
+
+[node name="StartCountDown" type="Timer" parent="LevelManager"]
+one_shot = true
+
+[node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("27_dfykx")]
 
 [editable path="book/Mesh"]

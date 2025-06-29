@@ -37,7 +37,9 @@ func change_cur_select_level(step:int):
 	
 func on_enter_game_pressed():
 	DataManager.select_level(cur_select_index)
-	SceneLoader.load_scene(level_path)
+	var level_info = DataManager.get_cur_level_config()
+	SceneLoader.load_scene(level_info[1]["level_path"])
+	#SceneLoader.load_scene(level_path)
 
 
 func on_back_pressed():

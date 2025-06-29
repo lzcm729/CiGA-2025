@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1mrhfhcittfm"]
+[gd_scene load_steps=13 format=3 uid="uid://b1mrhfhcittfm"]
 
 [ext_resource type="Script" uid="uid://bmxapiuq18xom" path="res://scripts/Scene/level_base.gd" id="1_5yh3o"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="2_5yh3o"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_crt.tscn" id="2_m2gd4"]
 [ext_resource type="PackedScene" uid="uid://ngf71gejgjys" path="res://scenes/prototype/p1.tscn" id="4_5yh3o"]
 [ext_resource type="PackedScene" uid="uid://bmlppv0vwywit" path="res://scenes/3D/book.tscn" id="4_mg8dc"]
+[ext_resource type="PackedScene" uid="uid://0fx1uag1qdyr" path="res://player/Child.tscn" id="6_jawes"]
+[ext_resource type="Script" uid="uid://3s3uube6r4tx" path="res://scripts/GamePlay/Children.gd" id="7_tlhdo"]
+[ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="8_frac2"]
+[ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="9_y486x"]
+[ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="10_gp5im"]
+[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="11_kifar"]
 
 [sub_resource type="Curve3D" id="Curve3D_1ob00"]
 bake_interval = 0.01
@@ -16,6 +23,8 @@ point_count = 7
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_5yh3o")
 levelIndex = 1
+
+[node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_m2gd4")]
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.999999, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, -4.63226, 8.56221, 4.09747)
@@ -34,3 +43,27 @@ path_node = NodePath("..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.51706, 8.31112, 4.85911)
 index = 1
 path = NodePath("../Path3D/PathFollow3D")
+
+[node name="Child" parent="." groups=["LevelGroup"] instance=ExtResource("6_jawes")]
+transform = Transform3D(-1.31209, 0, 1.50944, 0, 2, 0, -1.50944, 0, -1.31209, -10.2035, 8.83145, 5.75599)
+
+[node name="Children" type="Node" parent="."]
+script = ExtResource("7_tlhdo")
+
+[node name="GamePlay" type="Node" parent="."]
+script = ExtResource("8_frac2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MainLevelHud" parent="." node_paths=PackedStringArray("gameplay") instance=ExtResource("9_y486x")]
+gameplay = NodePath("")
+
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay", "main_level_hud")]
+script = ExtResource("10_gp5im")
+gameplay = NodePath("")
+main_level_hud = NodePath("")
+
+[node name="StartCountDown" type="Timer" parent="LevelManager"]
+one_shot = true
+
+[node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("11_kifar")]
