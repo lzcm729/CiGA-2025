@@ -21,8 +21,12 @@ func physics_process_update(delta: float) -> void:
 	super.physics_process_update(delta)
 	if player.is_follow_path and player.is_back:
 		var last_pos = Vector3(player.path.global_position.x, player.global_position.y, player.path.global_position.z)
+		if player.ignore_gravity :
+			last_pos.y = player.path.global_position.y
 		player.path.progress = player.path.progress - player.back_speed * 0.01
 		var new_pos = Vector3(player.path.global_position.x, player.global_position.y, player.path.global_position.z)
+		if player.ignore_gravity :
+			new_pos.y = player.path.global_position.y
 		player.velocity = (new_pos - last_pos) / delta
 
 		if abs(player.velocity.x) + abs(player.velocity.z) > 0.1:
