@@ -144,6 +144,7 @@ script = ExtResource("1_o2jhi")
 
 [node name="characterarea" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.352741, 0, 0.935721, 0, 0.00804355, 0, -0.935721, 0, -0.352741, -10.395, 8.3089, 5.76537)
+visible = false
 mesh = SubResource("CylinderMesh_kohiv")
 skeleton = NodePath("../prototype_common")
 
@@ -661,6 +662,7 @@ transform = Transform3D(0, 0, 1, 0, 1.0625, 0, -0.84375, 0, 0, -9.0783, 7.58, 7.
 
 [node name="Attic_PianoChair_02_LP2" parent="art" instance=ExtResource("42_x048a")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -10.1511, 7.03, 5.77908)
+visible = false
 
 [node name="Attic_PianoChair_02_LP3" parent="art" instance=ExtResource("42_x048a")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -9.77, 7.03, 2.96)

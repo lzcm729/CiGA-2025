@@ -73,5 +73,6 @@ func register_item_signal(item:Player) -> void:
 	item.finish_action.connect(on_item_success)
 
 func _ready() -> void:
+	DataManager.update_datamanager_listener()
 	PostEffect_CRT.hide()
 	PostEffect_EdgeChange.hide()

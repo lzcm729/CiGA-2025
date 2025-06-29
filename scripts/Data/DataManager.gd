@@ -30,7 +30,7 @@ func select_level(target_level:int) -> void:
 	if last_level != current_level and target_level != current_level:
 		last_level = current_level
 	current_level = target_level
-	update_datamanager_listener()
+	#update_datamanager_listener()
 
 func handle_item_signal(item_enum:int) -> void:
 	var level_index = current_level
