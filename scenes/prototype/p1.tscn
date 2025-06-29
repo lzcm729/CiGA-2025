@@ -2834,7 +2834,7 @@ stream = ExtResource("119_kohiv")
 volume_db = 60.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2519, 8.57369, 5.99393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2519, 8.57369, 5.92333)
 light_color = Color(1, 1, 0.501961, 1)
 light_energy = 0.643
 light_indirect_energy = 0.73

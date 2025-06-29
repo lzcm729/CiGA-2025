@@ -27,7 +27,7 @@ func decrease_light(delta) -> bool:
 		return true
 	else:
 		print("Light is gone")
-		sound.play()
+		#sound.play()
 		decal.visible = false
 		light.visible = false
 		decal.queue_free()

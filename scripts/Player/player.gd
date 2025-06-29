@@ -128,7 +128,8 @@ func is_input_valid() -> bool :
 func start_back() -> void :
 	if state_machine:
 		state_machine.change_state("Back")
-		sound_back.play()
+		if sound_back:
+			sound_back.play()
 
 func find_camera_3d() -> void:
 	if !camera_3d:

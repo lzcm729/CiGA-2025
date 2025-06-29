@@ -46,12 +46,12 @@ path = NodePath("../Path3D/PathFollow3D")
 
 [node name="dimo_eye_Group48518" parent="Book/Mesh" index="6"]
 transform = Transform3D(0.424787, 0, -0.512242, 0, 0.665459, 0, 0.512242, 0, 0.424787, 0.0308595, 8.3926, 0.334175)
+surface_material_override/0 = null
 
 [node name="dimo_Group48518" parent="Book/Mesh" index="7"]
 transform = Transform3D(1.15119, 1.7308, -0.438107, -1.76317, 1.18408, 0.0449234, 0.2808, 0.339279, 2.07818, 2.84289, 3.5487, 1.38713)
 
 [node name="Skeleton3D" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton" index="0"]
-bones/1/rotation = Quaternion(-5.05872e-24, -4.17373e-25, -0.0497943, 0.99876)
 bones/2/rotation = Quaternion(9.33122e-13, -9.21112e-14, -0.0950207, 0.995475)
 bones/3/rotation = Quaternion(-4.2654e-13, 4.87064e-14, -0.116259, 0.993219)
 bones/4/rotation = Quaternion(6.20441e-13, -5.58315e-14, -0.0881704, 0.996105)
@@ -88,8 +88,6 @@ bones/34/rotation = Quaternion(4.88192e-09, -1.22985e-09, 0.083886, 0.996475)
 bones/35/rotation = Quaternion(-1.20255e-09, 8.096e-10, 0.083886, 0.996475)
 bones/36/rotation = Quaternion(-2.77667e-09, 8.41351e-10, 0.0838859, 0.996475)
 bones/37/rotation = Quaternion(-5.52126e-09, -7.98869e-10, 0.083886, 0.996475)
-bones/39/rotation = Quaternion(-0.506426, 0.49349, 0.506426, -0.49349)
-bones/40/rotation = Quaternion(3.13831e-13, -2.42095e-11, -0.0129356, 0.999916)
 bones/41/rotation = Quaternion(1.82966e-06, 2.49962e-07, -0.0221979, 0.999754)
 bones/42/rotation = Quaternion(1.39241e-06, 2.00144e-07, -0.0198507, 0.999803)
 bones/43/rotation = Quaternion(7.39902e-07, -6.16683e-08, -0.01605, 0.999871)
@@ -161,6 +159,15 @@ bones/112/rotation = Quaternion(0.0112752, -0.0138371, 0.0749281, 0.997029)
 bones/113/rotation = Quaternion(0.0112752, -0.0138371, 0.0749281, 0.997029)
 bones/114/rotation = Quaternion(0.0112751, -0.0138371, 0.0749281, 0.997029)
 bones/115/rotation = Quaternion(0.0112752, -0.0138371, 0.0749281, 0.997029)
+
+[node name="tentacle1_rsMaterial3_0" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton/Skeleton3D" index="0"]
+surface_material_override/0 = null
+
+[node name="tentacle2_rsMaterial3_0" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton/Skeleton3D" index="1"]
+surface_material_override/0 = null
+
+[node name="tentacle3_rsMaterial3_0" parent="Book/Mesh/Kraken Octopus Tentacle Rigged/RootNode2/Skeleton/Skeleton3D" index="2"]
+surface_material_override/0 = null
 
 [node name="SpringArm3D" parent="Book" index="4"]
 transform = Transform3D(-0.999259, 0.0192462, -0.0333354, 0, 0.866025, 0.5, 0.0384924, 0.499629, -0.865383, 0, 0.28, 0)
