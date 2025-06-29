@@ -80,7 +80,7 @@ visible = false
 [node name="Child2" parent="." instance=ExtResource("23_dkogb")]
 transform = Transform3D(0.969782, 0.00449623, 0.243929, 0, 0.99983, -0.0184296, -0.24397, 0.0178728, 0.969618, -9.89706, 8.42125, 5.72153)
 yaw_offset = 180
-speed = 5.0
+speed = 1.25
 back_speed = 15.0
 jump_velocity = 5
 index = 0

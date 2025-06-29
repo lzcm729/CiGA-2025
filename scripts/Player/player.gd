@@ -14,7 +14,7 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 
 #相对于path的yaw偏移
 @export var yaw_offset = 180
-@export var speed = 5.0
+@export var speed = 1.25
 @export var back_speed = 15.0
 @export var jump_velocity = 5
 @export var index : int

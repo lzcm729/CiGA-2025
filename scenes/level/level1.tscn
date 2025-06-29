@@ -67,7 +67,7 @@ visible = false
 [node name="Child" parent="." instance=ExtResource("11_m2gd4")]
 transform = Transform3D(0.970544, 0, -0.240923, 0, 1, 0, 0.240923, 0, 0.970544, -10.0177, 8.35293, 5.70043)
 yaw_offset = 180
-speed = 5.0
+speed = 1.25
 back_speed = 15.0
 jump_velocity = 5
 index = 0
