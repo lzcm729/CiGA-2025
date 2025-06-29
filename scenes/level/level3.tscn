@@ -21,9 +21,9 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="21_nm1dm"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="22_25b5m"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="23_yma1a"]
-[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="24_13rsg"]
-[ext_resource type="PackedScene" uid="uid://dolm7js3b1amk" path="res://player/Monster/Watcher.tscn" id="24_ajr51"]
-[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="24_mfwob"]
+[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="24_13rsg"]
+[ext_resource type="PackedScene" uid="uid://je3ik5f2bo3i" path="res://player/Monster/Watcher.tscn" id="24_ajr51"]
+[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="24_mfwob"]
 
 [sub_resource type="Curve3D" id="Curve3D_duul2"]
 bake_interval = 0.01
@@ -86,6 +86,7 @@ script = ExtResource("1_w4sk7")
 levelIndex = 3
 
 [node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_mfwob")]
+visible = false
 
 [node name="Child2" parent="." instance=ExtResource("24_mfwob")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
@@ -117,25 +118,25 @@ transform = Transform3D(0.987883, 0.0355082, 0.151084, 0.000921473, 0.972118, -0
 fov = 60.0
 
 [node name="TEMPORARY_IMPORT_NAMESPACE_襙芲_polySurface33" parent="Watcher/Mesh" index="4"]
-transform = Transform3D(-7.08206e-08, -1.62019, 2.97202, 3.38495, -1.47961e-07, 0, 1.29911e-07, 2.97202, 1.62019, 0.0015308, 0.0466823, 0.000573814)
+transform = Transform3D(3.38495, 0, 0, 0, 3.38495, 0, 0, 0, 3.38495, 0.0015308, 0.0466823, 0.000573814)
 
 [node name="pCylinder4" parent="Watcher/Mesh" index="9"]
-transform = Transform3D(0.0265626, 1.72177, -0.951496, -0.00228437, 0.951611, 1.72191, 1.96719, -0.0221437, 0.0148474, -0.033262, -0.00302819, -0.00135068)
+transform = Transform3D(1.96737, 0, 0, 0, 1.96737, 0, 0, 0, 1.96737, -0.033262, -0.00302819, -0.00135068)
 
 [node name="pCylinder5" parent="Watcher/Mesh" index="10"]
-transform = Transform3D(-1.95601, -0.121332, 0.172716, 0.111706, 0.770866, 1.80661, -0.179091, 1.80599, -0.759528, 3.93996e-10, -0.0249888, -0.0913875)
+transform = Transform3D(1.96737, 0, 0, 0, 1.96737, 0, 0, 0, 1.96737, 0, 0, 0)
 
 [node name="polySurface2" parent="Watcher/Mesh" index="12"]
-transform = Transform3D(0.0893057, 0.000167146, -0.0204722, -0.000185604, 0.0916221, -6.16051e-05, 0.020472, 0.000101519, 0.0893059, 0.00344001, -4.28445e-05, 0.0836296)
+transform = Transform3D(0.0916223, 0, 0, 0, 0.0916223, 0, 0, 0, 0.0916224, 0, 0, 0)
 
 [node name="pCylinder11" parent="Watcher/Mesh" index="20"]
-transform = Transform3D(1.47846, -0.234246, 0, 0.234246, 1.47846, 0, 0, 0, 1.4969, -0.012633, 0.0222997, 0.00942631)
+transform = Transform3D(1.4969, 0, 0, 0, 1.4969, 0, 0, 0, 1.4969, 0, 0, 0)
 
 [node name="polySurface7" parent="Watcher/Mesh" index="22"]
-transform = Transform3D(0.988373, 0.152052, 0, -0.152052, 0.988373, 0, 0, 0, 1, -0.00240146, -0.0432413, 0.0185223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00240146, -0.0432413, 0.0185223)
 
 [node name="pCylinder13" parent="Watcher/Mesh" index="23"]
-transform = Transform3D(-1.95598, -0.121577, 0.173013, -0.206621, 1.4412, -1.32317, -0.0449735, -1.33368, -1.44562, 4.44476e-09, -0.0379351, 0.0708361)
+transform = Transform3D(1.96738, 0, 0, 0, 1.96737, 0, 0, 0, 1.96737, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
@@ -227,5 +228,6 @@ script = ExtResource("23_yma1a")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("24_13rsg")]
+visible = false
 
 [editable path="Watcher"]

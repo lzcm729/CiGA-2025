@@ -24,9 +24,9 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="24_6u2ve"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="25_maq55"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="26_wl44m"]
-[ext_resource type="PackedScene" uid="uid://dolm7js3b1amk" path="res://player/Monster/Watcher.tscn" id="27_16ykl"]
-[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="27_dfykx"]
-[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="28_fvvi0"]
+[ext_resource type="PackedScene" uid="uid://je3ik5f2bo3i" path="res://player/Monster/Watcher.tscn" id="27_16ykl"]
+[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="27_dfykx"]
+[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="28_fvvi0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5nui"]
 size = Vector3(0.462, 0.573, 0.671)
@@ -105,6 +105,7 @@ levelIndex = 4
 metadata/_custom_type_script = "uid://bmxapiuq18xom"
 
 [node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_16ykl")]
+visible = false
 
 [node name="book" type="CharacterBody3D" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"]]
 transform = Transform3D(-0.284183, 0, 0.95877, 0, 1, 0, -0.95877, 0, -0.284183, -4.91773, 8.63219, 4.86294)
@@ -483,6 +484,7 @@ script = ExtResource("26_wl44m")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("27_dfykx")]
+visible = false
 
 [node name="Child2" parent="." instance=ExtResource("28_fvvi0")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
