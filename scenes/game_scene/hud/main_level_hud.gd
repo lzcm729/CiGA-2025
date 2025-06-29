@@ -11,6 +11,16 @@ extends Control
 @onready var progress_margin_container: MarginContainer = $ProgressMarginContainer
 @onready var key_margin_container: MarginContainer = $KeyMarginContainer
 
+##小孩子的倒计时
+@onready var child_speak: Control = $ChildSpeak
+@onready var child_speak_1: TextureRect = $"ChildSpeak/Num/1"
+@onready var child_speak_2: TextureRect = $"ChildSpeak/Num/2"
+@onready var child_speak_3: TextureRect = $"ChildSpeak/Num/3"
+
+@onready var child_speak_scare_1: HBoxContainer = $ChildSpeak/Mark/Scare1
+@onready var child_speak_scare_2: HBoxContainer = $ChildSpeak/Mark/Scare2
+@onready var child_speak_scare_3: TextureRect = $ChildSpeak/Mark/Scare3
+
 
 var total_time:int
 
@@ -22,6 +32,70 @@ func _ready() -> void:
 	gameplay.GAME_START.connect(on_game_start)
 	init_time_show()
 	switch_hud_show(false)
+	var child = DataManager.get_cur_children()
+	child.CHILD_COUNT_3.connect(on_child_count3_show)
+	child.CHILD_COUNT_2.connect(on_child_count2_show)
+	child.CHILD_COUNT_1_START.connect(on_child_count1_show)
+	child.CHILD_COUNT_1_END.connect(on_child_count1_end)
+
+##初始化所有的小孩子说话显示
+func init_child_speak():
+	child_speak_1.visible = false
+	child_speak_2.visible = false
+	child_speak_3.visible = false
+	child_speak_scare_1.visible = false
+	child_speak_scare_2.visible = false
+	child_speak_scare_3.visible = false
+
+##1的显示
+func show_child_count1():
+	child_speak_1.visible = true
+
+
+##2的显示
+func show_child_count2():
+	child_speak_2.visible = true
+	
+	
+##3的显示
+func show_child_count3():
+	child_speak_3.visible = true
+	
+
+#scare1的显示
+func show_child_speak_scare1():
+	child_speak_scare_1.visible = true
+
+#scare2的显示
+func show_child_speak_scare2():
+	child_speak_scare_2.visible = true
+
+#scare3的显示
+func show_child_speak_scare3():
+	child_speak_scare_3.visible = true
+
+
+func on_child_count3_show():
+	init_child_speak()
+	show_child_count3()
+
+func on_child_count2_show():
+	init_child_speak()
+	show_child_count2()
+
+func on_child_count1_show():
+	init_child_speak()
+	show_child_count1()
+
+
+func on_child_count1_end():
+	init_child_speak()
+
+
+
+
+	
+	
 	
 func _process(delta: float) -> void:
 	if not(total_time == 0):
