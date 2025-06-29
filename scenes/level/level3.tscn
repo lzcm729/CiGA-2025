@@ -21,9 +21,9 @@
 [ext_resource type="Script" uid="uid://d28dtlp7684g0" path="res://scripts/GamePlay/GamePlay.gd" id="21_nm1dm"]
 [ext_resource type="PackedScene" uid="uid://cmn5u610ah61f" path="res://scenes/game_scene/hud/main_level_hud.tscn" id="22_25b5m"]
 [ext_resource type="Script" uid="uid://dhj583cmm8uaw" path="res://scenes/level/level_manager.gd" id="23_yma1a"]
-[ext_resource type="PackedScene" uid="uid://cd3nc4is0co2s" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="24_13rsg"]
-[ext_resource type="PackedScene" uid="uid://je3ik5f2bo3i" path="res://player/Monster/Watcher.tscn" id="24_ajr51"]
-[ext_resource type="PackedScene" path="res://player/child_new.tscn" id="24_mfwob"]
+[ext_resource type="PackedScene" path="res://scenes/3D/canvas_layer_edge_change.tscn" id="24_13rsg"]
+[ext_resource type="PackedScene" uid="uid://dolm7js3b1amk" path="res://player/Monster/Watcher.tscn" id="24_ajr51"]
+[ext_resource type="PackedScene" uid="uid://b50huuhx2kvma" path="res://player/child_new.tscn" id="24_mfwob"]
 
 [sub_resource type="Curve3D" id="Curve3D_duul2"]
 bake_interval = 0.01
@@ -35,10 +35,10 @@ point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_hkmq7"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.01239, -0.626314, 0.338084, 0, 0, 0, 0, 0, 0, -2.43611, -0.858068, -0.0981746, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.32268, -0.544846, -1.51432, 0, 0, 0, 0, 0, 0, -1.66846, -0.867202, -1.31739, 0, 0, 0, 0, 0, 0, -2.56376, -1.23172, -1.00253, 0, 0, 0, 0, 0, 0, -3.59661, -1.55885, -0.684645, 0, 0, 0, 0, 0, 0, -4.01642, -1.7843, -0.803308, 0, 0, 0, 0, 0, 0, -3.94023, -2.41986, -0.260894, 0, 0, 0, 0, 0, 0, -3.9751, -2.57994, 0.0140395, 0, 0, 0, 0, 0, 0, -4.67352, -3.06154, -0.0316486, 0, 0, 0, 0, 0, 0, -5.14341, -3.34262, -0.00669956),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 10
+point_count = 9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q8gb"]
 albedo_texture = ExtResource("7_sit12")
@@ -86,7 +86,6 @@ script = ExtResource("1_w4sk7")
 levelIndex = 3
 
 [node name="CanvasLayer_CRT" parent="." instance=ExtResource("2_mfwob")]
-visible = false
 
 [node name="Child2" parent="." instance=ExtResource("24_mfwob")]
 transform = Transform3D(0.550116, -0.0153904, -0.834946, 0, 0.99983, -0.0184296, 0.835088, 0.0101384, 0.550023, -9.89706, 8.42125, 5.72153)
@@ -108,42 +107,18 @@ loop = false
 [node name="PathPolygon" parent="Path3D" instance=ExtResource("2_w4sk7")]
 path_node = NodePath("..")
 
-[node name="Watcher" parent="." node_paths=PackedStringArray("path") instance=ExtResource("24_ajr51")]
-transform = Transform3D(-0.98604, 0.0110991, 0.16614, 1.80012e-09, 0.997776, -0.066657, -0.166511, -0.0657265, -0.983847, -5.31659, 11.9205, 5.80202)
+[node name="Watcher" parent="." node_paths=PackedStringArray("path") groups=["PlayerGroup"] instance=ExtResource("24_ajr51")]
+transform = Transform3D(-0.980264, 0, -0.197692, 0, 1, 0, 0.197692, 0, -0.980264, -6.32179, 11.6619, 4.19712)
 index = 3
 path = NodePath("../Path3D2/PathFollow3D")
-
-[node name="Camera3D" parent="Watcher/SpringArm3D" index="0"]
-transform = Transform3D(0.987883, 0.0355082, 0.151084, 0.000921473, 0.972118, -0.234491, -0.155198, 0.231789, 0.960306, 0.660457, -1.63157, 0.536695)
-fov = 60.0
-
-[node name="TEMPORARY_IMPORT_NAMESPACE_襙芲_polySurface33" parent="Watcher/Mesh" index="4"]
-transform = Transform3D(3.38495, 0, 0, 0, 3.38495, 0, 0, 0, 3.38495, 0.0015308, 0.0466823, 0.000573814)
-
-[node name="pCylinder4" parent="Watcher/Mesh" index="9"]
-transform = Transform3D(1.96737, 0, 0, 0, 1.96737, 0, 0, 0, 1.96737, -0.033262, -0.00302819, -0.00135068)
-
-[node name="pCylinder5" parent="Watcher/Mesh" index="10"]
-transform = Transform3D(1.96737, 0, 0, 0, 1.96737, 0, 0, 0, 1.96737, 0, 0, 0)
-
-[node name="polySurface2" parent="Watcher/Mesh" index="12"]
-transform = Transform3D(0.0916223, 0, 0, 0, 0.0916223, 0, 0, 0, 0.0916224, 0, 0, 0)
-
-[node name="pCylinder11" parent="Watcher/Mesh" index="20"]
-transform = Transform3D(1.4969, 0, 0, 0, 1.4969, 0, 0, 0, 1.4969, 0, 0, 0)
-
-[node name="polySurface7" parent="Watcher/Mesh" index="22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00240146, -0.0432413, 0.0185223)
-
-[node name="pCylinder13" parent="Watcher/Mesh" index="23"]
-transform = Transform3D(1.96738, 0, 0, 0, 1.96737, 0, 0, 0, 1.96737, 0, 0, 0)
+ignore_gravity = true
 
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97658, 12.1658, 5.68698)
 curve = SubResource("Curve3D_hkmq7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.31675, -0.480036, 0.818066, 1.49011e-08, 0.862475, 0.506096, -0.948507, 0.160306, -0.27319, 0, 0, 0)
+transform = Transform3D(-0.494885, -0.546972, 0.6752, -2.98021e-08, 0.777023, 0.62946, -0.868949, 0.311513, -0.384541, -1.32268, -0.544846, -1.51432)
 loop = false
 
 [node name="PathPolygon" parent="Path3D2" instance=ExtResource("2_w4sk7")]
@@ -228,6 +203,3 @@ script = ExtResource("23_yma1a")
 one_shot = true
 
 [node name="CanvasLayer_EdgeChange" parent="." instance=ExtResource("24_13rsg")]
-visible = false
-
-[editable path="Watcher"]
