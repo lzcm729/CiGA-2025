@@ -39,13 +39,16 @@ func _process(delta):
 		var y = left_door.rotation_degrees.y
 		y = max(y - ROT_SPEED * delta, MAX_ANGLE)
 		left_door.rotation_degrees.y = y
+		start_action.emit(Consts.ITEMS.CLOSET)
 		# 到位后开始移除玩具
 		if y <= MAX_ANGLE:
 			remove_toy()
 			opened = true
+			finish_action.emit(Consts.ITEMS.CLOSET)
 	else:
 		# 松开键后只要不再按就不会再转
 		door_sound.stop()
+		stop_action.emit(Consts.ITEMS.CLOSET)
 
 
 # 缓慢打开门到指定角度（度），用时 duration 秒
@@ -79,5 +82,5 @@ func shut_door() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(left_door, "rotation_degrees:y", 0.0, 0.1)
-	tween.tween_callback(remove_toy)
+	#tween.tween_callback(remove_toy)
 	door_sound.play()

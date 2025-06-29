@@ -58,6 +58,7 @@ point_count = 4
 
 [node name="Closet" type="CharacterBody3D"]
 script = ExtResource("1_svtae")
+ignore_gravity = true
 metadata/_custom_type_script = "uid://4ve24poo2esn"
 
 [node name="Mesh" type="Node3D" parent="."]
@@ -89,6 +90,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vydre")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21079, -0.0621202)
 shape = SubResource("CapsuleShape3D_w8f2n")
+disabled = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(-0.552899, 0.114795, 0.825303, 0.0110891, 0.99139, -0.130468, -0.833175, -0.062984, -0.549411, 3.92948, 1.39684, -1.20734)

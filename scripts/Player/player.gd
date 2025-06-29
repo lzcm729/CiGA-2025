@@ -2,6 +2,10 @@ extends CharacterBody3D
 
 class_name Player
 
+signal start_action(en:int)
+signal stop_action(en:int)
+signal finish_action(en:int)
+
 var level: Level
 var animation_tree: AnimationTree
 var state_machine: StateMachine

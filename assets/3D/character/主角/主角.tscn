@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cdny68eq3d3u2" path="res://assets/3D/character/主角/tietu/DefaultMaterial_Roughness.png" id="5_waj64"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_we6e2"]
-load_path = "res://.godot/imported/DefaultMaterial_Height.png-dabe242af0030170293df21f0586a35c.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ni7"]
 albedo_texture = ExtResource("2_51v8y")
