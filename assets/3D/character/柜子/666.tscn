@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3 uid="uid://yp2pu6a2ypcu"]
+
+[ext_resource type="PackedScene" uid="uid://bm3icttanv0ex" path="res://assets/3D/character/柜子/柜子.fbx" id="1_l4614"]
+[ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="2_3tjkj"]
+[ext_resource type="Texture2D" uid="uid://2i8jy3cn3n5h" path="res://assets/3D/character/柜子/initialShadingGroup_Base_color.png" id="3_lvydv"]
+[ext_resource type="Texture2D" uid="uid://ca3e2tc5q338q" path="res://assets/3D/character/柜子/initialShadingGroup_Height.png" id="4_s3cbf"]
+[ext_resource type="Texture2D" uid="uid://bj8xja2wcmad5" path="res://assets/3D/character/柜子/initialShadingGroup_Metallic.png" id="5_alj4j"]
+[ext_resource type="Texture2D" uid="uid://cdd2ykvbacfmy" path="res://assets/3D/character/柜子/initialShadingGroup_Normal_OpenGL.png" id="6_67k8w"]
+[ext_resource type="Texture2D" uid="uid://dtpkbr3weh8c5" path="res://assets/3D/character/柜子/initialShadingGroup_Roughness.png" id="7_knflk"]
+[ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="8_s3cbf"]
+[ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="10_67k8w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q8gb"]
+albedo_texture = ExtResource("3_lvydv")
+metallic = 1.0
+metallic_texture = ExtResource("5_alj4j")
+roughness_texture = ExtResource("7_knflk")
+normal_enabled = true
+normal_texture = ExtResource("6_67k8w")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_s3cbf")
+
+[node name="666" type="Node3D"]
+
+[node name="柜子2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.31652, 0, 0, 0, 3.31652, 0, 0, 0, 3.31652, -1.12367, 1.19209e-07, 1.16798)
+mesh = ExtResource("2_3tjkj")
+surface_material_override/0 = SubResource("StandardMaterial3D_3q8gb")
+
+[node name="柜子" parent="." instance=ExtResource("1_l4614")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(293.475, -21.8404, -148.182, 23.2303, 340.043, -1.9696, 158.957, -9.37165, 273.869, -0.773916, 0.816138, 1.48673)
+mesh = ExtResource("8_s3cbf")
+
+[node name="Door2" type="MeshInstance3D" parent="."]
+transform = Transform3D(227.274, 0, 307.85, 0, 354.538, 0, -307.85, 0, 227.274, -0.961478, 0.802165, 0.841287)
+mesh = ExtResource("10_67k8w")

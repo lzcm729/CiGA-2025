@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfa3sw8v603ya"]
+
+[ext_resource type="PackedScene" uid="uid://b3yvaaepdrikp" path="res://assets/3D/character/摄像头/eye.fbx" id="1_k44yo"]
+[ext_resource type="Texture2D" uid="uid://dmg7hvwi0dm1m" path="res://assets/3D/character/摄像头/eye_defaultMat1_Base_color.png" id="2_1qiyn"]
+[ext_resource type="Texture2D" uid="uid://boy3otep27c4r" path="res://assets/3D/character/摄像头/eye_defaultMat1_Height.png" id="3_dpoug"]
+[ext_resource type="Texture2D" uid="uid://b47rw8x51a1kd" path="res://assets/3D/character/摄像头/eye_defaultMat1_Metallic.png" id="4_7l2yu"]
+[ext_resource type="Texture2D" uid="uid://wx6wy0rqlnn6" path="res://assets/3D/character/摄像头/eye_defaultMat1_Normal.png" id="5_rn417"]
+[ext_resource type="Texture2D" uid="uid://bmtkj8kvrskt6" path="res://assets/3D/character/摄像头/eye_defaultMat1_Roughness.png" id="6_gcvk4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crwea"]
+albedo_texture = ExtResource("2_1qiyn")
+metallic = 1.0
+metallic_texture = ExtResource("4_7l2yu")
+roughness_texture = ExtResource("6_gcvk4")
+normal_enabled = true
+normal_texture = ExtResource("5_rn417")
+heightmap_texture = ExtResource("3_dpoug")
+
+[node name="eye" instance=ExtResource("1_k44yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0416173, 0, 0)
+
+[node name="dimo_eye_transform5" parent="eye_Group48518" index="0"]
+transform = Transform3D(4.43042, 0, 0, 0, 4.43042, 5.96046e-08, 0, -5.96046e-08, 4.43042, -4.02998e-05, -0.0621057, 0.00210926)
+
+[node name="dimo_eye_Group48518" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.260265, 0.582152, 0.493321)
+surface_material_override/0 = SubResource("StandardMaterial3D_crwea")

@@ -7,6 +7,8 @@ var animation_tree: AnimationTree
 var state_machine: StateMachine
 var anim_state_machine: AnimationNodeStateMachinePlayback
 
+#相对于path的yaw偏移
+@export var yaw_offset = 180
 @export var speed = 5.0
 @export var back_speed = 15.0
 @export var jump_velocity = 5
@@ -140,18 +142,22 @@ func make_current(is_enable:bool) -> void:
 		is_current = false
 
 func _ready() -> void:
-	state_machine = get_node_or_null("/root/StateMachine")
-	animation_tree = get_node_or_null("/root/AnimationTree")
+	for child in get_children():
+		if !state_machine and (child is StateMachine):
+			state_machine = child
+		elif !animation_tree and (child is AnimationTree):
+			animation_tree = child
+		elif !spring_arm_3d and (child is SpringArm3D):
+			spring_arm_3d = child
 	if animation_tree: 
 		anim_state_machine = animation_tree.get("parameters/StateMachine/playback")
-	spring_arm_3d = get_node_or_null("/root/SpringArm3D")
 	find_camera_3d()
 	if path :
 		path.progress_ratio = 0
 		is_follow_path = true
 		position.x = path.global_position.x
 		position.z = path.global_position.z
-		mesh.rotation.y = path.global_rotation.y + 180
+		mesh.rotation.y = path.global_rotation.y + yaw_offset
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() && not ignore_gravity:
