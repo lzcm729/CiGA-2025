@@ -76,6 +76,12 @@ visible = false
 
 [node name="Child2" parent="." instance=ExtResource("28_fvvi0")]
 transform = Transform3D(0.998265, 0.00108491, 0.058861, 0, 0.99983, -0.0184296, -0.0588706, 0.0183977, 0.998096, -9.89706, 8.42125, 5.72153)
+yaw_offset = 180
+speed = 1.25
+back_speed = 15.0
+jump_velocity = 5
+index = 0
+enable_jump = false
 ignore_gravity = true
 
 [node name="Path3D2" type="Path3D" parent="."]
