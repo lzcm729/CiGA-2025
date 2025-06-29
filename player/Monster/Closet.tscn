@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmj1qnrayspc8"]
+[gd_scene load_steps=20 format=3 uid="uid://cmj1qnrayspc8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dynadglrnvjp4" path="res://assets/3D/character/柜子/柜子.obj" id="1_78tyg"]
 [ext_resource type="Script" uid="uid://dgmplgwr81qaf" path="res://player/Monster/closet.gd" id="1_svtae"]
@@ -10,6 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dnapahyflyl74" path="res://door.res" id="8_cg7ya"]
 [ext_resource type="Texture2D" uid="uid://j6m44rbtq60h" path="res://assets/3D/character/柜子/initialShadingGroup_Normal.png" id="9_tma88"]
 [ext_resource type="ArrayMesh" uid="uid://jwqjwoh5nq63" path="res://door2.res" id="10_5vs8q"]
+[ext_resource type="AudioStream" uid="uid://df8ush3dgih" path="res://assets/audios/关门.mp3" id="12_c0g5h"]
 [ext_resource type="PackedScene" uid="uid://butuc2lnc4o5o" path="res://player/Obstacle/doll.tscn" id="14_c0g5h"]
 [ext_resource type="AudioStream" uid="uid://bar624yp8n26g" path="res://assets/audios/closing_door.ogg" id="18_svtae"]
 [ext_resource type="PackedScene" uid="uid://duks7ctdp2rg6" path="res://scenes/3D/path_polygon.tscn" id="19_de5xp"]
@@ -93,6 +94,9 @@ disabled = true
 
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("18_svtae")
+
+[node name="Sound2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_c0g5h")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801158, 0)

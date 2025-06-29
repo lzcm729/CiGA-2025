@@ -12,7 +12,6 @@ enum SCENES {
 enum ITEMS {
 	BOOK,
 	CLOSET,
-	PAINTING,
 	CAMERA,
 	DRAW,
 }
