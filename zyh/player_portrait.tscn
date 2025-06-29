@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvqplqbdxody3"]
+
+[ext_resource type="Texture2D" uid="uid://bdmo88vjigpox" path="res://assets/player_portrait/book_portrait_normal.png" id="1_0736a"]
+[ext_resource type="Script" uid="uid://cq1binkbnutvl" path="res://zyh/player_portrait.gd" id="1_tko40"]
+[ext_resource type="Texture2D" uid="uid://ce1ytt5damq0q" path="res://assets/player_portrait/book_portrait_select.png" id="2_tko40"]
+
+[node name="PlayerPortrait" type="Control"]
+custom_minimum_size = Vector2(111, 141)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tko40")
+
+[node name="NoSelect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -82.0
+offset_right = 35.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_0736a")
+
+[node name="Select" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.5
+offset_top = -141.0
+offset_right = 55.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_tko40")

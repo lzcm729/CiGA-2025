@@ -30,6 +30,7 @@ func switch_player(index:int) ->void:
 func make_play_list() -> void:
 	var gameplay = DataManager.get_cur_gameplay()
 	var children = DataManager.get_cur_children()
+	var main_hud = self.find_child("main_level_hud")
 	if playerList.is_empty():
 		for child in get_children():
 			if child is Player:
@@ -37,6 +38,9 @@ func make_play_list() -> void:
 				child.level = self
 				gameplay.register_item_signal(child)
 				children.register_item_signal(child)
+				if main_hud:
+					main_hud.register_item_signal(child)
+				
 
 func make_current(is_enable:bool) -> void:
 	is_current = is_enable
