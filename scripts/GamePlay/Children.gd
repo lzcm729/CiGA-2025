@@ -85,6 +85,7 @@ func _process(delta: float) -> void:
 				emit_signal("CHILD_CATCH_YOU")
 			else:
 				# 之前就按着的话 累加按键时间
+				print("孩子还没发现你 快跑")
 				key_press_time += delta
 		else:
 			if is_key_pressed and key_press_time < tolerate:
@@ -98,6 +99,7 @@ func _process(delta: float) -> void:
 			key_press_time = 0.0
 			cur_state = STATE_CATCH
 			last_past_time = 0.0
+			is_key_pressed = false	
 
 			var level:Level = get_parent()
 			var cur_player = level.find_player(level.currentPlayerIndex)			
@@ -112,6 +114,7 @@ func _process(delta: float) -> void:
 		# 一个状态的结束 切换到下一个状态并作上一个状态的结算
 		match cur_state:
 			STATE_0:
+				is_key_pressed = false
 				print("COUNT 3")
 				emit_signal("CHILD_COUNT_3")
 			STATE_3:
