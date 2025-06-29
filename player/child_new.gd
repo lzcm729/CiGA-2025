@@ -58,11 +58,11 @@ func _handle_area_entered(node: Node) -> void:
 		else:
 			# 第二次进入area - 触发胜利
 			print("第二次进入area - 触发胜利")
-			_trigger_victory()
+			_trigger_victory(node)
 	else:
 		# 其他关卡 - 直接触发胜利
 		print("非level3/4关卡 - 直接触发胜利")
-		_trigger_victory()
+		_trigger_victory(node)
 
 func _remove_quilt() -> void:
 	var quilt = get_node_or_null("被子 烘焙")
@@ -95,10 +95,15 @@ func _find_book_or_watcher_object(node: Node) -> Node:
 	
 	return null
 
-func _trigger_victory() -> void:
+func _trigger_victory(node: Node) -> void:
 	var gameplay = DataManager.get_cur_gameplay()
 	if gameplay:
 		gameplay.on_catch_child()
+	var node_name = node.name.to_lower()
+	if "book" in node_name:
+		emit_signal("finish_action",Consts.ITEMS.BOOK)
+	if "watcher" in node_name:
+		emit_signal("finish_action",Consts.ITEMS.CAMERA)
 
 func _is_book_or_watch(node: Node) -> bool:
 	# 检查节点名称是否包含book或watch
@@ -125,21 +130,6 @@ func turn() -> void:
 			idle()
 		)
 		timer1.start()
-	
-	# 播放音效
-	_play_turn_sound()
-
-func _play_turn_sound() -> void:
-	# 查找音效节点
-	var sound_node = get_node_or_null("Sound")
-	if sound_node and sound_node is AudioStreamPlayer3D:
-		sound_node.play()
-		print("播放转身音效")
-	elif sound_node and sound_node is AudioStreamPlayer:
-		sound_node.play()
-		print("播放转身音效")
-	else:
-		print("未找到音效节点")
 
 func move() -> void:
 	pass
