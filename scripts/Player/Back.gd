@@ -35,6 +35,4 @@ func physics_process_update(delta: float) -> void:
 			player.velocity = Vector3(0, 0, 0)
 			state_machine.change_state("Idle")
 			player.is_back = false
-			if player.get_scene() and player.get_scene().PostEffect_CRT :
-				player.get_scene().PostEffect_CRT.hide()
-		
+			player.emit_signal("back_end")		
