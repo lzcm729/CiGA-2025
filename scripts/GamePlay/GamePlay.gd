@@ -9,9 +9,10 @@ var game_is_finish = false
 @export var count_down = -1
 @export var count_down_time_show = -1
 
-signal GAME_START(total_time)
+signal GAME_START(total_time:float)
 signal GAME_TIMEOUT()
-signal GAME_SUCCESS(past_time)
+signal GAME_SUCCESS(past_time:float)
+signal GAME_ITEM_ACHIEVEMENT(item_enum:int)
 
 func game_start(total_time:float) -> void:
 	if count_down >= 0:
@@ -64,6 +65,12 @@ func count_down_and_start_game() -> void:
 func on_catch_child() -> void:
 	game_is_finish = true
 	emit_signal("GAME_SUCCESS", past_time)
+
+func on_item_success(item_enum:int) -> void:
+	emit_signal("GAME_ITEM_ACHIEVEMENT", item_enum)
+
+func register_item_signal(item:Player) -> void:
+	item.finish_action.connect(on_item_success)
 
 func _ready() -> void:
 	PostEffect_CRT.hide()

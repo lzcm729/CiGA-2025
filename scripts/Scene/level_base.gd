@@ -16,6 +16,9 @@ func find_player(index:int) -> Player:
 			return player
 	return null
 
+func get_player_list() -> Array[Player]:
+	return playerList
+
 func switch_player(index:int) ->void:
 	if index != currentPlayerIndex and !is_switching :
 		var cur_player = find_player(currentPlayerIndex)

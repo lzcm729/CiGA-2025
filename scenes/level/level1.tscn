@@ -55,13 +55,10 @@ script = ExtResource("8_frac2")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="MainLevelHud" parent="." node_paths=PackedStringArray("gameplay") instance=ExtResource("9_y486x")]
-gameplay = NodePath("")
+[node name="MainLevelHud" parent="." instance=ExtResource("9_y486x")]
 
-[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("gameplay", "main_level_hud")]
+[node name="LevelManager" type="Node" parent="."]
 script = ExtResource("10_gp5im")
-gameplay = NodePath("")
-main_level_hud = NodePath("")
 
 [node name="StartCountDown" type="Timer" parent="LevelManager"]
 one_shot = true

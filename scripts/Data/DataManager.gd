@@ -75,6 +75,7 @@ func update_datamanager_listener() -> void:
 	cur_game_play = get_node("/root/Level" + str(current_level) + "/GamePlay")
 	cur_children = get_node("/root/Level" + str(current_level) + "/Children")
 	cur_game_play.GAME_SUCCESS.connect(handle_level_success)
+	cur_game_play.GAME_ITEM_ACHIEVEMENT.connect(handle_item_signal)
 
 func get_cur_gameplay() -> GamePlay:
 	return cur_game_play
